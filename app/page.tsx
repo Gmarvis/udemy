@@ -1,12 +1,11 @@
-import Logo from './components/molecules/logo'
-import Logos from './components/molecules/logos'
-import HeroSection from './components/organisms/heroSection'
+'use client'
 
-export default function Home() {
-  return (
-    <main>
-       <HeroSection/>  
-       <Logos/>
-    </main>
-  )
-}
+import React from 'react';
+import HomePage from './components/pages/homePage'
+
+const IndexPage: React.FC = () => {
+  const searchParams = 'example search parameters';
+
+  return <HomePage searchParams={searchParams} />;
+};
+export default IndexPage;
