@@ -11,7 +11,8 @@ const Button: React.FC<ButtonProps> = ({ onClick, style, text }) => {
   return (
     <button
       onClick={onClick}
-      style={style}
+      type={type || 'button'}
+      className={`bg-black-500 text-white font-bold py-2 px-4 rounded ${className}`}
     >
       {text}
     </button>
