@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CourseCard() {
+type Props = {}
+
+export default function CourseCard({}: Props) {
   return (
     <div>CourseCard</div>
   )
 }
-
-export default CourseCard
