@@ -1,20 +1,19 @@
 import React from 'react';
 
-interface ButtonProps {
-  onClick?: () => void;
-  type: 'button' | 'submit' | 'reset';
-  className: string;
-  children: React.ReactNode;
+type ButtonProps = {
+  onClick: () => void;
+  // type: 'button' | 'submit' | 'reset';
+  text: string;
+  style?: React.CSSProperties
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, type, className, children }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, style, text }) => {
   return (
     <button
       onClick={onClick}
-      type={type || 'button'}
-      className={`bg-black text-white font-bold py-2 px-4 rounded ${className}`}
+      style={style}
     >
-      {children}
+      {text}
     </button>
   );
 };
