@@ -2,7 +2,7 @@ import React from 'react';
 
 type ButtonProps = {
   onClick: () => void;
-  // type: 'button' | 'submit' | 'reset';
+  type: 'button' | 'submit' | 'reset';
   text: string;
   style?: React.CSSProperties
 }
