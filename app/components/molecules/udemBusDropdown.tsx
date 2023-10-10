@@ -1,10 +1,10 @@
 import React from "react";
-import Button from "../atoms/button";
+import Button from "../atoms/Button";
 
 const UdemBusDropdown = () => {
   return (
     <div>
-      <button className="peer py-2 hover:bg-white-700 text-black">
+      <button className="peer py-2 hover:bg-white-700 text-black text-sm">
         Udemy Business
       </button>
 
@@ -17,7 +17,7 @@ const UdemBusDropdown = () => {
           Get your team access to over 22,000 top Udemy courses, anytime,
           anywhere.
         </h3>
-        <Button/>
+        <Button className="bg-black text-white font-bold" label="Try Udemy Business"/>
       </div>
     </div>
   );

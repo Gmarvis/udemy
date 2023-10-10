@@ -1,22 +1,27 @@
 import Image from "next/image";
 import React from "react";
 import Categories from "./atoms/categories";
-import { BsSearch } from "react-icons/bs"
-import { SlBasket } from "react-icons/sl"
+import { BsSearch } from "react-icons/bs";
+import { SlBasket } from "react-icons/sl";
+import { TbWorld } from "react-icons/tb";
 import UdemBusDropdown from "./molecules/udemBusDropdown";
 import TeachNav from "./molecules/teachNav";
+import Login from "./organisms/login";
+import Register from "./organisms/register";
 
 const MainNav = () => {
   return (
-    <div>
-      <div className="flex">
-        <Image src="/logo-udemy.svg" width={90} height={50} alt="logo" />
+    <div className="py-4">
+      <div className="flex justify-between items-center">
+        <div className="font-bold text-4xl text-center pb-4 sm:pb-0">
+          <Image src="/logo-udemy.svg" width={80} height={45} alt="logo" />
+        </div>
         <Categories />
 
-        <div className="w-full sm:w-[300px] md:w-[70%] relative">
+        <div className="w-full sm:w-[300px] md:w-[50%] relative">
           <input
-            className="border-black border p-2 px-4 rounded-full  w-full
-            placeholder:text-gray-400 font-normal placeholder:px-10 py-2 outline-none" 
+            className="border-black border p-2 px-4 rounded-full w-full
+            placeholder:text-gray-400 font-normal placeholder:px-10 py-2 outline-none"
             type="text"
             placeholder="To search"
           />
@@ -25,9 +30,12 @@ const MainNav = () => {
             size={17}
           />
         </div>
-         <UdemBusDropdown/>
-         <TeachNav/>
-         <SlBasket/>
+        <UdemBusDropdown />
+        <TeachNav />
+        <SlBasket className="h-5 w-5"/>
+        <Login />
+        <Register />
+        <TbWorld className="h-10 w-10 border border-black"/>
       </div>
     </div>
   );
