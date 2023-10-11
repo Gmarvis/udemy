@@ -15,7 +15,7 @@ function Footer() {
           <Image
             src="https://s.udemycdn.com/partner-logos/v4/nasdaq-light.svg"
             alt="Nasdaq"
-            className="w-20 md:w-24"
+            className="w-20 p-0 md:w-24"
             width={10}
             height={5}
           />
