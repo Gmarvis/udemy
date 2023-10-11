@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "i18next": "^23.5.1",
     "next": "latest",
+    "next-intl": "^2.20.2",
     "react": "latest",
     "react-dom": "latest",
     "react-i18next": "^13.2.2",

@@ -11,7 +11,7 @@ import Register from "./organisms/register";
 
 const MainNav = () => {
   return (
-    <div className="py-4 ">
+    <div className="py-4 shadow px-8">
       <div className="flex justify-between items-center">
         <div className="font-bold text-4xl text-center pb-4 sm:pb-0">
           <Image src="/logo-udemy.svg" width={80} height={45} alt="logo" />
@@ -35,7 +35,9 @@ const MainNav = () => {
         <SlBasket className="h-5 w-5" />
         <Login />
         <Register />
-          <TbWorld className="h-5 w-10" />
+        <div className="border border-black w-[40px] h-[40px]  flex items-center pl-0">
+          <TbWorld className="flex items-center h-5 w-10" />
+        </div>
       </div>
     </div>
   );
