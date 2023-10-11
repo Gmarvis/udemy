@@ -3,13 +3,13 @@ import Button from "../atoms/Button";
 
 const UdemBusDropdown = () => {
   return (
-    <div>
-      <button className="peer py-2 hover:bg-white-700 text-black text-sm">
+    <div className="relative">
+      <button className="peer py-2 hover:bg-white-700 text-black text-sm ">
         Udemy Business
       </button>
 
       <div
-        className="hidden peer-hover:flex hover:flex
+        className="absolute top-[100%] left-[50%] translate-x-[-50%] hidden peer-hover:flex hover:flex
          w-[200px]
          flex-col bg-white drop-shadow-lg"
       >
