@@ -7,7 +7,7 @@ import Slide from '../molecules/Slide';
 
 const HeroSection =() =>{
   var settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 1000,       
     slidesToShow: 1,
@@ -35,7 +35,7 @@ const HeroSection =() =>{
 
   return (
     <div>
-      <div className='container pt-6 lg:pt-0'>
+      <div className='container pt-6 lg:pt-0 mx-auto'>
       <Slider {...settings}>
           {slideData.map((item) =>(
             <Slide
