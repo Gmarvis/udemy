@@ -1,17 +1,12 @@
-
 import Logo from './components/molecules/logo'
+import Logos from './components/molecules/logos'
 import HeroSection from './components/organisms/heroSection'
-import Image from 'next/image'
-import Footer from './components/organisms/footer-logout'
 
 export default function Home() {
   return (
-    <main className=''>
+    <main>
        <HeroSection/>  
-       <Logo/>
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Udemy Clone</h1>
-      {/* <Footer/>  */}
+       <Logos/>
     </main>
   )
 }

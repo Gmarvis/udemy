@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
+
 const Logo = () => {
   const images = [
     "volkswagen.svg",
@@ -20,8 +21,8 @@ const Logo = () => {
         world
       </h3>
       <div className="w-[80%] gap-8 flex justify-around items-center p-2">
-      {images.map((image) => (
-        <div className="">
+      {images.map((image, i) => (
+        <div key={i}>
           <Image key={image} src={image} width={70} height={40} alt="logos" />
         </div>
       ))}
