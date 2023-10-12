@@ -4,7 +4,8 @@ import React from 'react';
 import HomePage from './components/pages/homePage'
 
 const IndexPage: React.FC = () => {
-  return <HomePage />;
-};
+  const searchParams = 'example search parameters';
 
+  return <HomePage searchParams={searchParams} />;
+};
 export default IndexPage;
