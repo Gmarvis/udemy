@@ -1,10 +1,12 @@
 import React from 'react'
-import RegisterForm from './register'
+// import RegisterForm from './register'
+import CreateCourse from '../molecules/createCourse'
 
 function HomePage() {
   return (
     <div>
-      <RegisterForm />
+      {/* <RegisterForm /> */}
+      <CreateCourse />
     </div>
   )
 }
