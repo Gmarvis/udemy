@@ -7,8 +7,7 @@ function Footer() {
     <div className="bg-black h-fit pb-4 md:w-full">
       <div className="md:flex md:gap-2 md:justify-between px-4 md:px-12 self-baseline py-3">
         <h1 className="text-white my-auto">
-          Top companies choos
-          <strong className="text-purple-300 py-">Udemy Business</strong> to
+          Top companies choose <strong className="text-purple-300 py-">Udemy Business</strong> to
           build in-demande career skills.
         </h1>
         <div className="flex md:gap-8 gap-5 flex-wrap pt-3">
