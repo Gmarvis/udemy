@@ -3,7 +3,7 @@ import React from "react";
 import English from "../atoms/english-btn";
 import UnOrderedList from "../atoms/unordered-list";
 
-function Footer() {
+function FooterLandingPage() {
   return (
     <div className="bg-black h-fit pb-4 md:w-full">
       <hr />
@@ -79,4 +79,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default FooterLandingPage;
