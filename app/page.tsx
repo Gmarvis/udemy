@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Footer from './components/organisms/footer'
+import Footer from './components/organisms/footer-logout'
 
 export default function Home() {
   return (
