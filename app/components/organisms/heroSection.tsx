@@ -9,11 +9,11 @@ const HeroSection =() =>{
   var settings = {
     // dots: true,
     infinite: true,
-    speed: 1000,       
+    speed: 5000,       
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
   };
 
   const slideData = [

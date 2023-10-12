@@ -22,7 +22,7 @@ const Logo = () => {
       <div className="w-[80%] gap-8 flex justify-around items-center p-2">
       {images.map((image) => (
         <div className="">
-          <Image key={image} src={image} width={80} height={50} alt="logos" />
+          <Image key={image} src={image} width={70} height={40} alt="logos" />
         </div>
       ))}
       </div>

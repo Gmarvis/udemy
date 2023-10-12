@@ -9,14 +9,17 @@ const TeachNav = () => {
       </button>
       <div
         className="absolute top-[100%] left-[50%] translate-x-[-50%] hidden peer-hover:flex hover:flex
-         w-[200px]
+         w-[300px]  z-10 py-4 mt-5
          flex-col bg-white drop-shadow-lg"
       >
-        <h3 className="px-5 py-3 hover:bg-gray-200">
+        <h3 className="px-5 py-3 text-[18px] font-bold leading-[1.2]">
           Turn what you know into an opportunity and reach millions around the
           world.
         </h3>
-        <Button className="text-white font-bold bg-black" label="Learn more" />
+        <Button
+          className="text-white font-bold bg-black flex justify-center mx-auto px-20 py-4"
+          label="Learn more"
+        />
       </div>
     </div>
   );
