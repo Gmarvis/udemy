@@ -31,19 +31,7 @@ function RegisterForm() {
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
 
-    // axios
-    //   .post('/api/register', state)
-    //   .then(() => {
-    //     router.reload();
-    //   })
-    //   .then(() => {
-    //     setTimeout(() => {
-    //       router.push('/login');
-    //     }, 2500);
-    //   })
-    //   .catch((error: any) => {
-    //     throw new Error(error);
-    //   });
+    //connect here
   };
 
   return (
@@ -74,7 +62,7 @@ function RegisterForm() {
           onChange={handleChange}
         />
 
-        <Button onClick={onSubmit} style={{ backgroundColor: 'black', color: 'white', fontWeight: 'bold', padding: '10px 4px' }} type="submit" text="Register" />
+        <Button label='Submit' type='Submit'/>
 
       </div>
 

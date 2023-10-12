@@ -12,8 +12,10 @@
     "axios": "^1.5.1",
     "daisyui": "^3.9.2",
     "next": "latest",
+    "next-cloudinary": "^4.24.0",
     "react": "latest",
     "react-dom": "latest",
+    "react-icons": "^4.11.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },
