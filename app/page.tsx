@@ -1,11 +1,14 @@
-"use client";
-
+import Logo from './components/molecules/logo'
+import Logos from './components/molecules/logos'
+import SliderComponent from './components/organisms/Slider';
+import HeroSection from './components/organisms/heroSection'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Udemy Clone</h1>
-    
+    <main>
+       <HeroSection/>  
+       <Logos/>
+        <SliderComponent/>  
     </main>
   );
 }

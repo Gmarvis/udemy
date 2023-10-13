@@ -19,27 +19,6 @@ body {
   margin: 0 2rem;
 }
 
-/* @media screen and (min-width: 600px)  {
-  .react-multi-carousel-item {
-    margin-left: 2rem;
-  }
-
-  .react-multi-carousel-list {
-  margin: 0 13rem;
-}
-} */
-
-/* @media screen and (min-width: 1024px)  {
-
-  .react-multi-carousel-item {
-    margin: 1rem;
-  }
-
-  .react-multi-carousel-list {
-  margin: 0 2.5rem;
-}
-} */
-
 .react-multiple-carousel__arrow {
   background-color: black;
   width: 4.5rem;
