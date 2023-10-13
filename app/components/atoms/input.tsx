@@ -6,10 +6,10 @@ interface InputProps {
   type?: "text";
 }
 
-const InputField: React.FC<InputProps> = ({ placeholder, type }) => {
+const InputField: React.FC<InputProps> = ({ placeholder, type, className }) => {
   return (
-    <div>
-      <input type={type} className="className" placeholder={placeholder} />
+    <div className="border border-black">
+      <input type={type} className={className} placeholder={placeholder}/>
     </div>
   );
 };

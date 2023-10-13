@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React from "react";
-import Categories from "./atoms/categories";
+import Categories from "../atoms/categories";
 import { BsSearch } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
 import { TbWorld } from "react-icons/tb";
-import UdemBusDropdown from "./molecules/udemBusDropdown";
-import TeachNav from "./molecules/teachNav";
-import Login from "./atoms/loginBtn";
-import Register from "./atoms/registerBtn";
+import UdemBusDropdown from "../molecules/udemBusDropdown";
+import TeachNav from "../molecules/teachNav";
+import Login from "../atoms/loginBtn";
+import Register from "../atoms/registerBtn";
 
 const MainNav = () => {
   return (
