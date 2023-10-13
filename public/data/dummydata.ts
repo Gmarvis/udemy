@@ -14,11 +14,11 @@ export const responsive = {
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 800, min: 464 },
+    breakpoint: { max: 800, min: 600 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 600, min: 0 },
     items: 1,
   },
 };

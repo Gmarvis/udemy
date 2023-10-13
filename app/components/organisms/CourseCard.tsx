@@ -26,10 +26,10 @@ const CourseCard = ({
     "bg-bestseller px-3 py-1 text-md font-bold font-sans w-28 mt-2";
 
   return (
-    <div className="card flex flex-col item-start w-90 m-10  gap-4 justify-start">
+    <div className=" card w-full flex flex-col md:w-90   gap-4 md:ml-2 2xl:mx-0">
       {/* <Link href={"#"}> */}
       <Image
-        className="w-full h-48 object-cover  bg-contain bg-right-top bg-no-repeat"
+        className="w-full h-64 lg:h-48 object-cover  bg-contain bg-right-top bg-no-repeat lg:w-96"
         src={imageurl}
         alt="product image"
         draggable={false}
