@@ -29,7 +29,7 @@ const CourseCard = ({
     <div className=" card w-full flex flex-col md:w-90   gap-4 md:ml-2 2xl:mx-0">
       {/* <Link href={"#"}> */}
       <Image
-        className="w-full h-64 lg:h-48 object-cover  bg-contain bg-right-top bg-no-repeat lg:w-96"
+        className="w-full md:mx-5 h-64 lg:h-48 object-cover  bg-contain bg-right-top bg-no-repeat lg:w-96"
         src={imageurl}
         alt="product image"
         draggable={false}

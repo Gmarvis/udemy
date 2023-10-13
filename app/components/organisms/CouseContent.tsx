@@ -2,9 +2,13 @@ import React from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { Rating } from "react-simple-star-rating";
 
+
 const CouseContent = () => {
+
+
+
   return (
-    <div className="flex flex-col gap-10 bg-white py-5 px-6 w-100 h-auto ring text-3xl">
+    <div className="flex flex-col gap-10 bg-white py-5 px-6 w-110 h-auto ring text-3xl">
       <h2>Title of content</h2>
       <span>Bestseller</span>
       <p>descritption of the course</p>
@@ -14,7 +18,7 @@ const CouseContent = () => {
         <li className="checkmark-list-style">what you will learn 3</li>
       </ul>
       <div className="w-full pl-3 py-5 text-2xl text-white">
-        <button className="bg-purple hover:bg-violet  w-80 px-10 py-5 text-2xl mr-10">
+        <button className="bg-purple hover:bg-violet  w-72 px-10 py-5 text-2xl mr-10">
           Add to Cart
         </button>
 
