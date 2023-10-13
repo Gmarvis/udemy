@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
 
-function InputField() {
-  return (
-    <div>InputField</div>
-  )
+interface InputProps {
+  className: string;
+  placeholder: string;
+  type?: "text";
 }
 
-export default InputField
+const InputField: React.FC<InputProps> = ({ placeholder, type }) => {
+  return (
+    <div>
+      <input type={type} className="className" placeholder={placeholder} />
+    </div>
+  );
+};
+
+export default InputField;
