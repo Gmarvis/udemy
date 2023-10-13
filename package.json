@@ -9,10 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^13.5.4",
+    "@snowcoders/react-popper": "^0.9.3",
+    "@tippyjs/react": "^4.2.6",
+    "next": "^13.4.0",
+    "popper.js": "^1.16.1",
     "react": "latest",
     "react-dom": "latest",
-    "react-multi-carousel": "^2.8.4"
+    "react-icons": "^4.11.0",
+    "react-multi-carousel": "^2.8.4",
+    "react-simple-star-rating": "^5.1.7",
+    "react-tiny-popover": "^7.2.4",
+    "rsuite": "^5.40.0",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "@types/node": "latest",
@@ -22,6 +30,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
+    "postcss-nesting": "^12.0.1",
     "tailwindcss": "latest",
     "typescript": "latest"
   }

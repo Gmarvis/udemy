@@ -1,7 +1,9 @@
+
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// import Navbar from "./components/organisms/Navbar";
+import SliderComponent from "./components/organisms/Slider";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Navbar /> */}
+        <SliderComponent />
+       
         {children}
       </body>
     </html>
