@@ -17,7 +17,7 @@ const LoginForm: NextPage = () => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-2 justify-center mt-10">
+    <div className="flex flex-col items-center gap-2 justify-center mt-10 mb-8">
       <div className="">
       <h3 className="text-[16px] font-bold">Log in to yoour Udemy account</h3>
       </div>
