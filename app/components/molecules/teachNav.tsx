@@ -5,7 +5,7 @@ const TeachNav = () => {
   return (
     <div className="relative">
       <button className="peer py-2 hover:bg-white-700 text-black text-sm">
-        Teach on Udemy
+      <a href={ "/createCourse" }>Teach on Udemy</a>
       </button>
       <div
         className="absolute top-[100%] left-[50%] translate-x-[-50%] hidden peer-hover:flex hover:flex

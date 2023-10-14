@@ -1,3 +1,5 @@
+//herosection use only if you need it
+
 'use client';
 
 import { useState } from "react";

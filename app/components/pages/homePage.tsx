@@ -1,6 +1,6 @@
 // import CreateCourse from "../molecules/createCourse";
 // import CourseComponent from '../organisms/courseComponent'
-import MainSlider from '../organisms/mainSlider'
+// import MainSlider from '../organisms/mainSlider'
 
 
 const images = [
@@ -19,9 +19,9 @@ export default async function HomePage({searchParams}: HomeProps) {
     <main className="w-[100%]">
       {/* <CreateCourse /> */}
 
-      <MainSlider
+      {/* <MainSlider
       images={images}
-      />
+      /> */}
 
         <div>
 
