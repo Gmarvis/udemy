@@ -25,7 +25,7 @@ const LoginForm: NextPage = () => {
         <li className="border border-gray-950 flex items-center gap-4 font-bold px-4 py-2 h-[50px]">
           <Image
             src="/google.jpg"
-            alt="lgoogle_ogo"
+            alt="google_logo"
             width={40}
             height={40}
             className="bg-transparent"
