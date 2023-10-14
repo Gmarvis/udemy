@@ -6,6 +6,6 @@ import HomePage from './components/pages/homePage'
 const IndexPage: React.FC = () => {
   const searchParams = 'example search parameters';
 
-  return <HomePage searchParams={searchParams} />;
+  return <HomePage />;
 };
 export default IndexPage;

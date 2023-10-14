@@ -76,9 +76,9 @@ export default function CreateCourse() {
         </form>
 
         <Button 
-        label="Next"
-        onClick={onSubmit}
-        disabled={loading}
+        // label="Next"
+        // onClick={onSubmit}
+        // disabled={loading}
         />
       </div>
     </div>
