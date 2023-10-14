@@ -46,9 +46,10 @@ const LoginForm: NextPage = () => {
           <h3>Continue with Apple</h3>
         </li>
       </div>
-      <div  onSubmit={handleSubmit} className="flex flex-col gap-2 w-[350px]">
+      <form  onSubmit={handleSubmit} className="flex flex-col gap-2 w-[350px]">
         <InputField
           type="text"
+          value={email}
           placeholder="E-mail"
           className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4 pb-4"
           onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +60,7 @@ const LoginForm: NextPage = () => {
           icon="eye"
           
         />
-      </div>
+      </form>
       <div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
         <Button className="text-white font-black text-[16px]" label="Log in" type={"submit"} />
       </div>
