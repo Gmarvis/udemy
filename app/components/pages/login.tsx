@@ -8,12 +8,15 @@ import { NextPage } from "next";
 import Link from "next/link";
 import PasswordField from "../atoms/passwordField";
 
-const LoginForm: NextPage = () => {
+const LoginForm: NextPage =  () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  const response = await fetch(`api/auth/register`, {
+
+  })
   }
 
   return (
@@ -48,6 +51,7 @@ const LoginForm: NextPage = () => {
       </div>
       <form  onSubmit={handleSubmit} className="flex flex-col gap-2 w-[350px]">
         <InputField
+          name="email"
           type="text"
           value={email}
           placeholder="E-mail"

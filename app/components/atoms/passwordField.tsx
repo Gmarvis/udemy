@@ -4,18 +4,20 @@ import React from "react";
 
 interface Props {
   password: string;
+  name: string;
   className: string;
   setPassword: (value: SetStateAction<string>) => void;
   icon: string
 }
 
-const PasswordField: React.FC<Props> = ({ password, setPassword, icon,}) => {
+const PasswordField: React.FC<Props> = ({ password, setPassword, icon, name}) => {
   const [visible, setVisible] = useState<boolean>(false);
 
   return (
     <div className="border border-gray-950">
       {/* Logic */}
       <input
+        name={name}
         value={password}
         type={visible ? "text" : "password"}
         className="w-full h-[60px] placeholder:text-black placeholder:font-bold text-[12px] px-4 pb-8"

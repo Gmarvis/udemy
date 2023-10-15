@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 
 interface PasswordStrenghtProps {
   password: string;
-
 }
 
 const PasswordStrenght: React.FC<PasswordStrenghtProps> = ({ password }) => {

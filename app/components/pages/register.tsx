@@ -12,8 +12,19 @@ const RegisterPage: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit =  async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+  const formData = new FormData(e.currentTarget)
+  const response = await fetch(`api/auth/register`, {
+    method: 'POST',
+    body: JSON.stringify({
+      fullname: formData.get('fullname'),
+      email: formData.get('email'),
+      password: formData.get('password')
+    }),
+  });
+  console.log(response);
+  
   }
 
   return (
@@ -23,12 +34,14 @@ const RegisterPage: NextPage = () => {
 
         <InputField
           type="text"
+          name='fullname'
           value={fullname}
           placeholder="Full name"
           className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4"
           onChange={(e) => setFullName(e.target.value)}
         />
         <InputField
+          name='email'
           type="text"
           value={email}
           placeholder="Email"
@@ -36,6 +49,7 @@ const RegisterPage: NextPage = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <InputField
+          name='password'
           type="password"
           placeholder="Password"
           className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4"
@@ -54,7 +68,6 @@ const RegisterPage: NextPage = () => {
           learning tips
         </p>
       </div>
-      </form>
 
       <div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
         <Button
@@ -63,6 +76,8 @@ const RegisterPage: NextPage = () => {
           type="submit"
         />
       </div>
+      </form>
+
       <p className="text-[11px]">
         By signing up, you agree to our{" "}
         <span className="underline">Terms of Use</span> and{" "}
