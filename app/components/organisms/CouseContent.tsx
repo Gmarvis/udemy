@@ -1,9 +1,10 @@
-import React from "react";
+import React, {ReactElement, memo} from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { Rating } from "react-simple-star-rating";
+import { ReducerAction, ReducerActionType } from "@/app/context/CartProvider";
+import { CourseType } from "@/types";
 
-
-const CouseContent = () => {
+const CouseContent = (props) => {
 
 
 

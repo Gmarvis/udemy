@@ -4,6 +4,7 @@ import { Button, Popover, Whisper, Tooltip } from "rsuite";
 import { courseData, responsive } from "@/public/data/dummydata";
 import CourseCard from "./CourseCard";
 import CouseContent from "./CouseContent";
+import useCart from "@/app/Hooks/useCart";
 
 const CourseComponent = ({ ...item }) => {
   const screenSize = window.document.documentElement.scrollWidth;
@@ -11,9 +12,6 @@ const CourseComponent = ({ ...item }) => {
     screenSize <= 600 ? "bottom" : "autoHorizontal";
 
 
-    // || screenSize !== 960
-
-  console.log(placement);
   return (
     <>
       <div>

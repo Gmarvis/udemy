@@ -46,6 +46,8 @@ svg.star-svg {
   display: inline;
 }
 
+/** this custm class: "checkmark-list-style" is imported to tailwindcss*/
+
 .checkmark-list-style {
   list-style-type: none;
   padding-left: 1rem;
