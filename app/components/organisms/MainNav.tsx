@@ -25,7 +25,7 @@ const MainNav = () => {
           />
           <input
             className=" px-4 w-full
-            placeholder:text-gray-400 rounded font-normal placeholder:px-4 py-2 outline-none"
+            placeholder:text-gray-400 rounded font-normal  py-2 outline-none"
             type="text"
             placeholder="To search"
           />
