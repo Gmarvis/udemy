@@ -6,10 +6,10 @@ interface List {
   l3?: string;
   l4?: string;
   l5?: string;
-  className?: string
+  className?: string;
 }
 
-function UnOrderedList ({l1, l2, l3, l4, l5 }: List) {
+function UnOrderedList({ l1, l2, l3, l4, l5 }: List) {
   return (
     <>
       <ul className="md:w-2/12 ">
