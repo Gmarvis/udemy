@@ -14,16 +14,16 @@ const RegisterPage: NextPage = () => {
  
   const handleSubmit =  async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-  const formData = new FormData(e.currentTarget)
-  const response = await fetch(`api/auth/register`, {
-    method: 'POST',
-    body: JSON.stringify({
-      fullname: formData.get('fullname'),
-      email: formData.get('email'),
-      password: formData.get('password')
-    }),
-  });
-  console.log(response);
+  // const formData = new FormData(e.currentTarget)
+  // const response = await fetch(`api/auth/register`, {
+  //   method: 'POST',
+  //   body: JSON.stringify({
+  //     fullname: formData.get('fullname'),
+  //     email: formData.get('email'),
+  //     password: formData.get('password')
+  //   }),
+  // });
+  // console.log(response);
   
   }
 
