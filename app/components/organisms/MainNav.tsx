@@ -8,7 +8,8 @@ import UdemBusDropdown from "../molecules/udemBusDropdown";
 import TeachNav from "../molecules/teachNav";
 import Login from "../atoms/loginBtn";
 import Register from "../atoms/registerBtn";
-
+import { IoReorderThreeOutline } from "react-icons/io5"
+ 
 const MainNav = () => {
   return (
     <div className="py-4 shadow px-8">
@@ -40,6 +41,15 @@ const MainNav = () => {
             <TbWorld className="flex items-center h-5 w-10" />
           </div>
         </div>
+      </div>
+      <div className="max-w-[700px] flex flex-col">
+        <IoReorderThreeOutline/>
+        <Image src="/logo-udemy.svg" width={80} height={45} alt="logo" />
+        <BsSearch
+            className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
+            size={17}
+          />
+        <SlBasket className="h-5 w-5" />
       </div>
     </div>
   );
