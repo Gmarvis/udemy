@@ -14,28 +14,28 @@ const testimonials = [
     name: "Will A",
     quote:
       "I am proud to say that after a few months of taking this course...I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.",
-    link: "https://example.com",
+    link: "[NEW] Ultimate AWS Certified Cloud Practitioner 2022",
   },
   {
     id: 2,
     name: "Ron F",
     quote:
-      "This course helped me freshen up on my product manager skills and land a job at Facebook! Thanks guys :)",
-    link: "https://example.com",
+      "This course helped me freshen up on my product manager skills and land a job at Facebook! Thanks guys I definitely recommend this course for those who want to become product manager.",
+    link: "Become a Product Manager | Learn the Skills & Get the Job",
   },
   {
     id: 3,
     name: "Phillip W",
     quote:
       "One of the best courses on management and leadership I have come across so far. The advice is practical, and examples highly relatable. Would help anyone become a better manager.",
-    link: "https://example.com",
+    link: "Leadership: Practical Leadership Skills To Take",
   },
   {
     id: 4,
     name: "Surya M",
     quote:
       "I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.",
-    link: "https://example.com",
+    link: "Tableau 2022 A-Z: Hands-On Tableau Training for Data Science",
   },
 ];
 
@@ -60,15 +60,24 @@ const Testimonials: React.FC = () => {
           <Slider {...settings}>
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="max-w-2xl mx-auto">
-                <div className="bg-white rounded-lg shadow p-6 h-72">
-                  <FaQuoteLeft className="text-2xl text-gray-500 mr-2" />
-                  <p className="text-lg text-gray-800">{testimonial.quote}</p>
-                  <p className="mt-4 text-gray-600">{testimonial.name}</p>
-                  {/* <div className="flex flex-column bg-red-500 border"> */}
-                  <a href={testimonial.link} className="text-blue-500 flex flex-row gap-2" >
+                <div className="bg-white border border-gray-300 p-6 mr-3">
+                  <FaQuoteLeft className="text-2xl text-gray-500 mr-2 pb-2" />
+                  <p className="text-base">{testimonial.quote}</p>
+
+                  <div className="gap-4 flex items-center  pt-4 pb-2">
+                  <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center bg-blue-500 text-white font-bold text-l"
+                      style={{ backgroundColor: 'black' }}
+                    >
+                      {testimonial.name.charAt(0)}
+                    </div>
+                  <p className="mt-4 text-gray-600 pb-5">{testimonial.name}</p>
+                  </div>
+
+                  <a href={testimonial.link} className="text-blue-700 flex flex-row gap-4 border-t border-gray-300 pt-4 font-bold text-sm" >
                     {" "}
                   <FaPlayCircle className="text-3xl" />
-                    Read more
+                    {testimonial.link}
                   </a>
                   {/* </div> */}
                 </div>
