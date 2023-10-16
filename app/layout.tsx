@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import MainNav from './components/MainNav'
 import Footer from './components/organisms/footer-logout'
 import UdemyBusiness from './components/organisms/udemy-business';
+import BecomeInstructor from './components/organisms/become-instructor';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +26,9 @@ export default function RootLayout({
         <MainNav/>
         {children}
        <UdemyBusiness/>
+       <BecomeInstructor/>
        <Footer/>
+       
       </body>
     </html>
   )
