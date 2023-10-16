@@ -2,10 +2,7 @@
 
 import React from "react";
 import Slider from "react-slick";
-import { FaQuoteLeft } from "react-icons/fa";
-import { FaPlayCircle } from "react-icons/fa";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import { FaQuoteLeft, FaPlayCircle } from "react-icons/fa";
 
 // Dummy data can get from
 const testimonials = [
@@ -44,16 +41,16 @@ const Testimonials: React.FC = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3.2,
     slidesToScroll: 1,
   };
 
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-left">
-          <h2 className="text-3xl font-extrabold text-gray-800">
-            How learners like you are achieving their goals
+          <h2 className="text-2xl font-bold">
+          How learners like you are achieving their goals
           </h2>
         </div>
         <div className="mt-10">
@@ -74,12 +71,11 @@ const Testimonials: React.FC = () => {
                   <p className="mt-4 text-gray-600 pb-5">{testimonial.name}</p>
                   </div>
 
-                  <a href={testimonial.link} className="text-blue-700 flex flex-row gap-4 border-t border-gray-300 pt-4 font-bold text-sm" >
+                  <a href={testimonial.link} className="text-blue-700 flex flex-row border-t border-gray-300 pt-4 font-bold text-sm" >
                     {" "}
-                  <FaPlayCircle className="text-3xl" />
+                  <FaPlayCircle className="text-3xl h-8 w-8 mr-4" />
                     {testimonial.link}
                   </a>
-                  {/* </div> */}
                 </div>
               </div>
             ))}
