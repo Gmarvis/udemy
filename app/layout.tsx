@@ -7,6 +7,7 @@ import MainNav from './components/MainNav'
 import Footer from './components/organisms/footer-logout'
 import UdemyBusiness from './components/organisms/udemy-business';
 import BecomeInstructor from './components/organisms/become-instructor';
+import FeatureCategory from './components/organisms/feature-category';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <MainNav/>
         {children}
        <UdemyBusiness/>
+       <FeatureCategory/>
        <BecomeInstructor/>
        <Footer/>
        
