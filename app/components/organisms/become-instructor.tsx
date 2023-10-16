@@ -7,16 +7,16 @@ type Props = {};
 const BecomeInstructor = (props: Props) => {
   return (
     <div>
-      <div className="py-8 md:w-[50%] md:mx-auto md:justify-between md:bg-red-500 md:flex md:gap-8">
+      <div className="py-10 md:w-[800px] md:mx-auto md:justify-between md:flex md:gap-6">
         <Image
-          className=" md:h-[350px] "
+          className=" md:h-[350px] w-[350px] "
           src="/herosec1.jpeg"
           alt="become instructor"
           loading="lazy"
           width={600}
           height={450}
         />
-        <div className="md:w-[50%] ">
+        <div className="md:w-[350px] leading-loose pt-16">
           <h1 className="text-2xl md:text-left py-4 font-semibold text-center ">
             Become an instructor
           </h1>
@@ -26,7 +26,7 @@ const BecomeInstructor = (props: Props) => {
           </p>
           <Button
             label="Start teaching today"
-            className=" hover:cursor-pointer md:justify-self-start md:w-fit w-full text-white hover:opacity-70 bg-black p-2"
+            className="my-4 hover:cursor-pointer md:justify-self-start md:w-fit w-full text-white hover:opacity-70 bg-black p-2"
           />
         </div>
       </div>
