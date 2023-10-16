@@ -69,7 +69,7 @@ const UdemyBusiness = (props: Props) => {
             />
             <Button
               label="Learn more"
-              className="hover:cursor-pointer hover:bg-slate-100 border px-3 py-1"
+              className="hover:cursor-pointer hover:bg-slate-100 border-2 border-gray-500 px-3 py-1"
             />
           </div>
         </div>
