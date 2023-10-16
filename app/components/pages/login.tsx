@@ -7,17 +7,29 @@ import Button from "../atoms/Button";
 import { NextPage } from "next";
 import Link from "next/link";
 import PasswordField from "../atoms/passwordField";
+import { signIn } from 'next-auth/react'
+import { useRouter } from "next/navigation";
 
 const LoginForm: NextPage =  () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  const response = await fetch(`api/auth/register`, {
-
-  })
-  }
+  const formData = new FormData (e.currentTarget);
+   const response =await signIn('credentials', {
+    email: formData.get('email'),
+    password: formData.get('password'),
+    redirect: false,
+   }) ;
+   console.log(response);
+   if (!response?.error){
+    router.push("/");     
+    router.refresh();
+   }
+     
+  };
 
   return (
     <div className="flex flex-col items-center gap-2 justify-center mt-10 mb-8">
@@ -62,7 +74,7 @@ const LoginForm: NextPage =  () => {
           password={password} setPassword={setPassword}  
           className="w-full h-[60px] placeholder:text-black placeholder:font-bold text-[12px] px-4 pb-8"
           icon="eye"
-          
+          name="password"
         />
       </form>
       <div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
