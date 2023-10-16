@@ -61,10 +61,10 @@ const RegisterPage: NextPage = () => {
         <input
           id="checked-checkbox"
           type="checkbox"
-          className="mr-2 mt-1 w-4 h-4 text-black-600  border-gray-300 focus:ring-blue-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          className="mr-2 mt-1 w-4 h-4 text-black-600  border-black focus:ring-blue-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
          />{" "}
         <p className="text-[14px]">
-          send me special offers, personalized <br /> recommendations and
+          I would like to recieve special offers, personalized <br /> recommendations and
           learning tips
         </p>
       </div>
@@ -78,10 +78,10 @@ const RegisterPage: NextPage = () => {
       </div>
       </form>
 
-      <p className="text-[11px]">
+      <p className="text-[11px] text-center">
         By signing up, you agree to our{" "}
         <span className="underline">Terms of Use</span> and{" "}
-        <span className="underline">Privacy Policy.</span>
+        <span className="underline">Privacy <br /> Policy.</span>
       </p>
 
       <hr className="w-[350px] h-[1px] my-3 bg-gray-200 border-0 rounded  dark:bg-gray-700" />

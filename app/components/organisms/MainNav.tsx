@@ -18,16 +18,16 @@ const MainNav = () => {
         </div>
         <Categories />
 
-        <div className="w-full sm:w-[300px] md:w-[50%] relative">
+        <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
+        <BsSearch
+            className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
+            size={17}
+          />
           <input
-            className="border-black border p-2 px-4 rounded-full w-full
-            placeholder:text-gray-400 font-normal placeholder:px-10 py-2 outline-none"
+            className=" px-4 w-full
+            placeholder:text-gray-400 rounded font-normal placeholder:px-4 py-2 outline-none"
             type="text"
             placeholder="To search"
-          />
-          <BsSearch
-            className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
-            size={17}
           />
         </div>
         <UdemBusDropdown />

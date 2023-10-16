@@ -26,16 +26,14 @@ const LoginForm: NextPage =  () => {
    console.log(response);
    if (!response?.error){
     router.push("/");     
-    router.refresh();
    }
      
   };
 
   return (
     <div className="flex flex-col items-center gap-2 justify-center mt-10 mb-8">
-      <div className="">
-      <h3 className="text-[16px] font-bold">Log in to yoour Udemy account</h3>
-      </div>
+      <form  onSubmit={handleSubmit} className="flex flex-col gap-2 w-[350px]">
+      <h3 className="text-[16px] font-bold">Log in to your Udemy account</h3>
       <div className="flex flex-col w-[350px] gap-2">
         <li className="border border-gray-950 flex items-center gap-4 font-bold px-4 py-2 h-[50px]">
           <Image
@@ -61,7 +59,6 @@ const LoginForm: NextPage =  () => {
           <h3>Continue with Apple</h3>
         </li>
       </div>
-      <form  onSubmit={handleSubmit} className="flex flex-col gap-2 w-[350px]">
         <InputField
           name="email"
           type="text"
