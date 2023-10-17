@@ -19,15 +19,15 @@ const testimonials = [
   },
   {
     id: 3,
-    name: 'Phillip W',
-    quote: 'One of the best courses on management and leadership I have come across so far. The advice is practical, and examples highly relatable. Would help anyone become a better manager.',
-    link: 'Leadership: Practical Leadership Skills To Take',
-  },
-  {
-    id: 4,
     name: 'Surya M',
     quote: 'I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.',
     link: 'Tableau 2022 A-Z: Hands-On Tableau Training for Data Science',
+  },
+   {
+    id: 4,
+    name: 'Phillip W',
+    quote: 'One of the best courses on management and leadership I have come across so far. The advice is practical, and examples highly relatable. Would help anyone become a better manager.',
+    link: 'Leadership: Practical Leadership Skills To Take',
   },
 ];
 
@@ -58,16 +58,16 @@ const Testimonials: React.FC = () => {
 
   return (
     <div className="bg-gray-200 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-left">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-full mr-64 ml-64">
+        <div className="mx-auto text-left">
           <h2 className="text-2xl font-bold">How learners like you are achieving their goals</h2>
         </div>
         <div className="mt-10">
           <Slider {...settings}>
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="max-w-2xl mx-auto">
-                <div className="bg-white border border-gray-300 p-6 mr-3">
-                  <FaQuoteLeft className="text-2xl mr-2 pb-2" />
+              <div key={testimonial.id} className="max-w-3xl mx-auto">
+                <div className="bg-white border border-gray-300 p-6 mr-2">
+                  <FaQuoteLeft className="text-3xl mr-2 pb-4" />
                   <p className="text-base">{testimonial.quote}</p>
 
                   <div className="gap-4 flex items-center pt-4 pb-2">
