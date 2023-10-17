@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  padding: 0 1.5rem 0 0;
 
 
 
@@ -11,20 +13,169 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.react-multi-carousel-list {
+  margin: 0 1rem;
+}
+
+.react-multi-carousel-track {
+  /* gap: 10px; */
+}
+
+.react-multi-carousel-item {
+  padding: 0;
+  margin: 0 2rem;
+}
+
+.react-multiple-carousel__arrow {
+  background-color: black;
+  top: 5rem;
+  z-index: 9999;
+}
+
+.react-multiple-carousel__arrow--right {
+  width: 4rem !important;
+  height: 4rem !important;
+  right: -5px;
+}
+
+.react-multiple-carousel__arrow--right::before {
+  font-size: 5rem;
+  font-weight: 900;
+  background-color: transparent;
+  width: fit-content;
+  margin-left: 2rem;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: 10px;
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+.react-multiple-carousel__arrow--left::before {
+  size: 3rem;
+  font-weight: 900;
+  background-color: transparent;
+  width: fit-content;
+  margin-left: 1.4rem;
+}
+
+svg.star-svg {
+  display: inline;
+}
+
+/** this custm class: "checkmark-list-style" is imported to tailwindcss*/
+
+.checkmark-list-style {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+.checkmark-list-style::before {
+  content: "✓";
+  color: #000;
+  margin-right: 0.5rem;
+}
+
+.pulsating-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 30px;
+  height: 30px;
+
+  &::before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 300%;
+    height: 300%;
+    box-sizing: border-box;
+    margin-left: -100%;
+    margin-top: -100%;
+    border-radius: 45px;
+    background-color: #01a4e9;
+    animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+  }
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+/** modal part*/
+
+.popup-modal {
+  position: fixed;
+  top: 5vh;
+  left: 25%;
+  height: 80%;
+  width: 40%;
+  background-color: white;
+  padding: 2rem 0;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+  background: linear-gradient( rgba(0, 0, 0, 0.5));
+  background-repeat: no-repeat;
+  /* background-position: center; */
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  position: fixed;
+  top: 0.1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
