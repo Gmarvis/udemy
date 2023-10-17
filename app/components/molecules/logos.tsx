@@ -3,7 +3,7 @@ import React from "react";
 
 const Logos = () => {
   return (
-      <div className="bg-gray-100 h-[250px] flex flex-col items-center justify-center mt-[50px] md:flex-nowrap">
+      <div className="bg-gray-50 h-[250px] flex flex-col items-center justify-center mt-[50px] md:flex-nowrap">
         <h3 className="text-[20px] text-gray-500 font-medium">
           Trusted by over 14,400 companies and millions of learners around the
           world

@@ -26,11 +26,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <MainNav/>
         {children}
-       <UdemyBusiness/>
        <FeatureCategory/>
+       <UdemyBusiness/>
        <BecomeInstructor/>
        <Footer/>
-       
+      
       </body>
     </html>
   )
