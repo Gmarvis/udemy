@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 type Props = {
   gotoCart: () => void;
   addAll: () => void;
-  courseSelected: SimpleCourseType;
+  // courseSelected: SimpleCourseType;
   price: number;
   partListOfCourses: SimpleCourseType[];
 };
@@ -84,11 +84,11 @@ const PopupModal = (props: Props) => {
                 className="bg-tahiti text-white text-xl mr-2 rounded-full border-0"
                 size={50}
               />
-              <Image
+              {/* <Image
                 src={course?.imageurl}
                 alt={course?.title}
                 className="w-28 h-28 "
-              />{" "}
+              />{" "} */}
             </div>
             <div>
               <button

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@tippyjs/react": "^4.2.6",
     "next": "^13.4.0",
     "next-intl": "^2.20.2",
@@ -18,8 +19,8 @@
     "react-i18next": "^13.2.2",
     "react-icons": "^4.11.0",
     "react-multi-carousel": "^2.8.4",
-    "react-simple-star-rating": "^5.1.7",
     "react-password-strength-bar": "^0.4.1",
+    "react-simple-star-rating": "^5.1.7",
     "react-slick": "^0.29.0",
     "react-tiny-popover": "^7.2.4",
     "rsuite": "^5.40.0",
