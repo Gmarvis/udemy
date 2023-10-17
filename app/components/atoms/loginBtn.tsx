@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import Button from '../atoms/Button'
+import Button from './Button'
 import { useRouter } from 'next/navigation';
 
 const LoginBtn = () => {
@@ -13,7 +13,7 @@ const LoginBtn = () => {
 
   return (
     <div>
-        <Button className='border-black border bg:slate-white text-black font-bold px-3 py-2' label='Log in' type='submit' onClick={handleClick}/>
+        <Button className='border-black border bg:slate-white text-black font-bold px-3 py-2 shadow-gray-300' label='Log in' type='submit' onClick={handleClick}/>
     </div> 
   )
 }
