@@ -26,7 +26,7 @@ const BecomeInstructor = (props: Props) => {
           </p>
           <Button
             label="Start teaching today"
-            className="my-4 hover:cursor-pointer md:justify-self-start md:w-fit w-full text-white hover:opacity-70 bg-black p-2"
+            className="my-4 md:ml-[-6px] text-sm font-semibold hover:cursor-pointer md:justify-self-start md:w-fit w-full text-white hover:opacity-70 bg-black py-3 md:px-3"
           />
         </div>
       </div>
