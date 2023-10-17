@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import Button from '../atoms/Button'
+import Button from './Button'
 import { useRouter } from 'next/navigation'
 
 const RegisterBtn = () => {

@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 type Props = {
   gotoCart: () => void;
   addAll: () => void;
-
+  courseSelected: SimpleCourseType;
   price: number;
   partListOfCourses: SimpleCourseType[];
 };
@@ -23,7 +23,7 @@ const PopupModal = (props: Props) => {
 
   useEffect(() => {
     if (showDialog === "y") {
-      dialogRef.current?.showModal()
+      dialogRef.current?.showModal();
     } else {
       dialogRef.current?.close();
     }
@@ -31,7 +31,7 @@ const PopupModal = (props: Props) => {
 
   const closeDialog = () => {
     dialogRef.current?.close();
-    router.push('/');
+    router.push("/");
   };
 
   const clickOk = () => {
@@ -42,9 +42,10 @@ const PopupModal = (props: Props) => {
   const gotocart = () => {
     props.gotoCart();
     closeDialog();
+    router.push('/cart');
   };
 
-  const className = 'flex flex-row gap-4'
+  const className = "flex flex-row gap-4";
 
   const FreqBought = props.partListOfCourses?.map((course) => (
     <CourseCard
@@ -59,8 +60,8 @@ const PopupModal = (props: Props) => {
     />
   ));
 
-  const courseData: string | null = localStorage.getItem("itemCourse"); 
-  if(courseData === 'null') return;
+  const courseData: string | null = localStorage.getItem("itemCourse");
+  if (courseData === "null") return;
 
   const course = JSON.parse(courseData as string);
 
@@ -77,16 +78,18 @@ const PopupModal = (props: Props) => {
             <h2>Added to cart </h2>
             <button onClick={closeDialog}>X</button>
           </div>
-          <div>
-            <BsCheckCircle
-              className="bg-tahiti text-white text-xl mr-2 rounded-full border"
-              size={50}
-            />
-            <div> <Image 
-              src={course?.imageurl}
-              alt={course?.title}
-              className="w-28 h-28 "
-            /> </div>
+          <div className="flex flex-row items-center justify-between p-10 ">
+            <div className="flex flex-row gap-4">
+              <BsCheckCircle
+                className="bg-tahiti text-white text-xl mr-2 rounded-full border-0"
+                size={50}
+              />
+              <Image
+                src={course?.imageurl}
+                alt={course?.title}
+                className="w-28 h-28 "
+              />{" "}
+            </div>
             <div>
               <button
                 className="w-fit-content py-5 px-4 bg-black text-white "
