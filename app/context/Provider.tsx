@@ -1,0 +1,16 @@
+"use client";
+import { ReactElement } from "react";
+import CartProvider from "./CartProvider";
+import CourseProvider from "./courseProvider";
+
+type Props = {
+  children: ReactElement | ReactElement[];
+};
+
+export function Providers({ children }: Props) {
+  return (
+    <CourseProvider>
+      <CartProvider>{children}</CartProvider>
+    </CourseProvider>
+  );
+}
