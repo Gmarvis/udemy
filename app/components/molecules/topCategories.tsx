@@ -18,21 +18,20 @@ interface TopCategoriesProps {
 const TopCategories: React.FC<TopCategoriesProps> = ({ categories }) => {
   return (
     <div className="justify-center py-8 mr-40 ml-40">
-      <h2 className="font-bold text-2xl pb-8 ml-28">Top Categories</h2>
+      <h2 className="font-bold text-2xl pb-8 ml-32">Top Categories</h2>
       <div className="flex max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-center -m-4">
           {categories.map((category) => (
             <div key={category.id} className="m-3">
               <Link href={category.link}>
                   <div className="overflow-hidden">
-                    <div className="relative h-72 w-80 bg-gray-900 cursor-pointer">
+                    <div className="relative bg-gray-900 cursor-pointer">
                     <Image
                         src={category.image}
                         alt={category.title}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
-                        className="hover:scale-110 transition duration-500"
+                        width={316}
+                        height={300}
+                        className="hover:scale-105 transition duration-100"
                       />
                     </div>
                     <div className="p-4">
