@@ -17,17 +17,18 @@ const testimonials = [
     quote: 'This course helped me freshen up on my product manager skills and land a job at Facebook! Thanks guys I definitely recommend this course for those who want to become product manager.',
     link: 'Become a Product Manager | Learn the Skills & Get the Job',
   },
-  {
-    id: 3,
-    name: 'Surya M',
-    quote: 'I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.',
-    link: 'Tableau 2022 A-Z: Hands-On Tableau Training for Data Science',
-  },
+  
    {
-    id: 4,
+    id: 3,
     name: 'Phillip W',
     quote: 'One of the best courses on management and leadership I have come across so far. The advice is practical, and examples highly relatable. Would help anyone become a better manager.',
     link: 'Leadership: Practical Leadership Skills To Take',
+  },
+  {
+    id: 4,
+    name: 'Surya M',
+    quote: 'I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.',
+    link: 'Tableau 2022 A-Z: Hands-On Tableau Training for Data Science',
   },
 ];
 
