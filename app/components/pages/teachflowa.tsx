@@ -43,7 +43,7 @@ const Teachflowa = () => {
 
       <div className="flex flex-col  items-center justify-center gap-8 my-[50px]">
         <div className=" ">
-          <h1 className="text-[35px] font-bold max-[789px]:text-center max-[789px]:flex">First, let's determine what type of course you're creating.</h1>
+          <h1 className="text-[35px] font-bold max-[789px]:text-center max-[789px]:flex">First, let&lsquo;s determine what type of course you&lsquo;re creating.</h1>
         </div>
         <div className="flex gap-8 max-[550px]:flex-wrap max-[550px]:flex-row max-[550px]:items-center max-[550px]:ml-8">
         <div className="w-[230px] h-[270px] border border-gray-300 flex flex-col items-center justify-center gap-2 p-4 hover:bg-slate-200 ">

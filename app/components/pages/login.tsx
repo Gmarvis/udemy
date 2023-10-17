@@ -87,7 +87,7 @@ const LoginForm: NextPage =  () => {
       <hr className="w-[350px] h-[1px] my-3 bg-gray-200 border-0 rounded  dark:bg-gray-700" />
 
       <p className="text-[15px] text-center">
-        Don't have an account?
+        Don&lsquo;t have an account?
         <Link href="/register" legacyBehavior>
            <a href="/register" className="text-violet-600 font-bold text-[14px]">Sign up <br /> Log in with your organisation </a>
         </Link>

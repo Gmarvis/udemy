@@ -1,11 +1,10 @@
 import React from 'react'
-import Teachflowb from '../components/pages/teachflowb'
+import Teachprofil from '../components/pages/teachprofil'
 
 const page = () => {
-
   return (
     <div>
-        <Teachflowb/>
+     <Teachprofil/>
     </div>
   )
 }
