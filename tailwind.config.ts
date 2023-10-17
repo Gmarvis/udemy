@@ -26,6 +26,8 @@ const config: Config = {
     extend: {
       listStyleImage: {
         checkmark: "checkmark-list-style",
+        overlay: "modal-overlay",
+        modal: "popup-modal"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -46,7 +48,7 @@ const config: Config = {
       purple: "#a32cc4",
       violet: "#710193",
       midnight: "#121063",
-      metal: "#565584",
+      black: "#000",
       tahiti: "#3ab7bf",
       silver: "#ecebff",
       "bubble-gum": "#ff77e9",

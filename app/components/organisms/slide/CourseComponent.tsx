@@ -3,14 +3,14 @@ import { Button, Popover, Whisper, Tooltip } from "rsuite";
 
 import { courseData, responsive } from "@/public/data/dummydata";
 import CourseCard from "./CourseCard";
-import CouseContent from "./CouseContent";
+import CouseContent from "./CourseContent";
 import useCart from "@/app/Hooks/useCart";
 
-const CourseComponent = ({ ...item }) => {
+const CourseComponent = ({ ...course }) => {
   const screenSize = window.document.documentElement.scrollWidth;
-  const placement =
-    screenSize <= 600 ? "bottom" : "autoHorizontal";
+  const placement = screenSize <= 600 ? "bottom" : "autoHorizontal";
 
+  const className = " card w-full flex flex-col md:w-90   gap-4 md:ml-2 2xl:mx-0";
 
   return (
     <>
@@ -19,7 +19,7 @@ const CourseComponent = ({ ...item }) => {
           trigger="hover"
           speaker={
             <Popover arrow={true}>
-              <CouseContent />
+              <CouseContent {...course} />
             </Popover>
           }
           placement={placement}
@@ -28,12 +28,13 @@ const CourseComponent = ({ ...item }) => {
         >
           <div>
             <CourseCard
-              name={item?.name}
-              imageurl={item?.imageurl}
-              price={item?.price}
-              author={item?.author}
-              description={item?.description}
-              classification={item?.classification}
+              title={course?.title}
+              imageurl={course?.imageurl}
+              price={course?.price}
+              author={course?.author}
+              description={course?.description}
+              classification={course?.classification}
+              className={className}
             />
           </div>
         </Whisper>

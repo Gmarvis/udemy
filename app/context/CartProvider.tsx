@@ -1,7 +1,6 @@
 import { courseData } from "@/public/data/dummydata";
-import { CartItemType } from "@/types";
+import { CartItemType, CourseType, SafeItemType } from "@/types";
 import { ReactElement, useMemo, useReducer, createContext } from "react";
-
 
 type CartStateType = {
   cart: CartItemType[];
@@ -26,6 +25,7 @@ export type ReducerActionType = typeof REDUCER_ACTION_TYPE;
 export type ReducerAction = {
   type: string;
   payload?: CartItemType;
+  payload2: SafeItemType;
 };
 
 const reducer = (
@@ -34,6 +34,8 @@ const reducer = (
 ): CartStateType => {
   switch (action.type) {
     case REDUCER_ACTION_TYPE.ADD: {
+
+      console.log('in context')
       if (!action.payload) {
         throw new Error("Action payload is missing in ADD action");
       }
@@ -49,9 +51,7 @@ const reducer = (
         participants,
       } = action.payload;
 
-      const filteredCart: CartItemType[] = state.cart.filter(
-        (item) => item.id !== id
-      );
+      const filteredCart = state.cart.filter((item) => item.id !== id);
 
       const existingItem = state.cart.filter((item) => item.id === id);
 
@@ -65,8 +65,9 @@ const reducer = (
           lectures,
           level,
           participants,
-          courseList: [],
         };
+
+
 
         localStorage.setItem("itemCourse", JSON.stringify(newCartItem));
 
@@ -97,7 +98,7 @@ const reducer = (
       if (!action.payload)
         throw new Error("action payload is missing ADDALL action ");
 
-      const { courseList } = action.payload;
+      const { courseList } = action.payload2;
 
       const course: string | null = localStorage.getItem("itemCourse");
 
@@ -188,7 +189,6 @@ type ChildrenType = {
   children?: ReactElement | ReactElement[];
 };
 
-
 const CartProvider = ({ children }: ChildrenType): ReactElement => {
   return (
     <CartContext.Provider value={useCartContext(initCartState)}>
@@ -199,5 +199,3 @@ const CartProvider = ({ children }: ChildrenType): ReactElement => {
 };
 
 export default CartProvider;
-
-

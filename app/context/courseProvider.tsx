@@ -1,30 +1,29 @@
 import { fetchedCourses } from "@/lib/getCourses";
 import { courseData } from "@/public/data/dummydata";
-import { CourseType } from "@/types";
+import { CourseType, CartItemType, SimpleCourseType } from "@/types";
 import { ReactElement, useState, createContext } from "react";
 
-const initCourseState: CourseType[] = courseData;
+const initCourseState: SimpleCourseType[] = courseData;
 
 //* we will use data from  server
 // const initCourseState: CourseType [] = [];
 
 export type CourseContextType = {
-  courses: CourseType[];
+  courses: SimpleCourseType[];
 };
 
 const initContextState: CourseContextType = {
   courses: [],
 };
 
-export const CourseContext =
-  createContext<CourseContextType>(initContextState);
+export const CourseContext = createContext<CourseContextType>(initContextState);
 
 type Childrentype = {
   children: ReactElement | ReactElement[];
 };
 
-export const CouseProvider = ({ children }: Childrentype): ReactElement => {
-  const [courses, setCourses] = useState<CourseType[]>(initCourseState);
+const CourseProvider = ({ children }: Childrentype): ReactElement => {
+  const [courses, setCourses] = useState<SimpleCourseType[]>(initCourseState);
 
   // useEffect(() => {
   //   const courseData = await fetchedCourses()
@@ -33,6 +32,8 @@ export const CouseProvider = ({ children }: Childrentype): ReactElement => {
   //     setCourses(crses)
   // },[]);
 
+
+
   return (
     <CourseContext.Provider value={{ courses }}>
       {" "}
@@ -40,3 +41,5 @@ export const CouseProvider = ({ children }: Childrentype): ReactElement => {
     </CourseContext.Provider>
   );
 };
+
+export default CourseProvider;
