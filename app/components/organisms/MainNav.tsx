@@ -13,7 +13,7 @@ import { IoReorderThreeOutline } from "react-icons/io5"
 const MainNav = () => {
   return (
     <div className="py-4 shadow px-8">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center max-[799px]:hidden">
         <div className="font-bold text-4xl text-center pb-4 sm:pb-0">
           <Image src="/logo-udemy.svg" width={80} height={45} alt="logo" />
         </div>
@@ -34,7 +34,7 @@ const MainNav = () => {
         <UdemBusDropdown />
         <TeachNav />
         <SlBasket className="h-5 w-5" />
-        <div className="flex items-center gap-[5px] 2xl:gap-[10px]">
+        <div className="flex items-center gap-[2px] 2xl:gap-[10px]">
           <Login />
           <Register />
           <div className="border border-black w-[40px] h-[40px]  flex items-center pl-0">
@@ -42,14 +42,18 @@ const MainNav = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-[700px] flex flex-col">
-        <IoReorderThreeOutline/>
+
+      {/* Media queries min-width:800px */}
+      <div className="lg:hidden flex justify-between items-center flex-row">
+        <IoReorderThreeOutline className="h-[20px] " size={30}/>
         <Image src="/logo-udemy.svg" width={80} height={45} alt="logo" />
+        <div className=" flex flex-row gap-8">
         <BsSearch
-            className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
+            className="ml-3  text-gray-850 font-meduim"
             size={17}
           />
         <SlBasket className="h-5 w-5" />
+      </div>  
       </div>
     </div>
   );
