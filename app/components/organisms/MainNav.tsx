@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Categories from "../atoms/categories";
+import Categories from "../molecules/categories";
 import { BsSearch } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
 import { TbWorld } from "react-icons/tb";
