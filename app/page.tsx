@@ -1,4 +1,4 @@
-import Categories from './components/molecules/categories'
+import TopCategories from './components/molecules/topCategories'
 import Logos from './components/molecules/logos'
 import HeroSection from './components/organisms/heroSection'
 import Testimonials from './components/organisms/testimonails'
@@ -9,7 +9,7 @@ export default function Home() {
        <HeroSection/>  
        <Logos/>
        <Testimonials />
-       <Categories />
+       <TopCategories />
     </main>
   )
 }
