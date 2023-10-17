@@ -55,7 +55,7 @@ const CouseContent = ({ ...course }) => {
         gotoCart={gotoCart}
         price={price}
         partListOfCourses={partListOfCourses}
-        courseSelected={course}
+        // courseSelected={course}
       />
 
       <div className="flex flex-col gap-10 bg-white py-5 px-6 w-110 h-auto ring text-3xl">
