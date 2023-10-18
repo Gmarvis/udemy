@@ -21,6 +21,8 @@ type Props = {
 const PopupModal = (props: Props) => {
   const searchParam = useSearchParams();
   const dialogRef = useRef<null | HTMLDialogElement>(null);
+  const bgdialogRef = useRef<null | HTMLDialogElement>(null);
+
   const showDialog = searchParam.get("showDialog");
   const router = useRouter();
   const [dialogRefModal, setDialogRefModal] = useState(false);
@@ -30,8 +32,10 @@ const PopupModal = (props: Props) => {
       // const mypopover = document.getElementById("modalpopover")!
       // mypopover.showPopover();
       dialogRef.current?.showModal();
+      bgdialogRef.current?.showModal();
       setDialogRefModal(true);
     } else {
+      bgdialogRef.current?.showModal();
       dialogRef.current?.close();
     }
    
@@ -78,10 +82,13 @@ const PopupModal = (props: Props) => {
 
   const dialog: JSX.Element | null =
     showDialog === "y" ? (
+      <>
+      {/* <dialog ref={bgdialogRef} className="bg-bermuda inset-0 h-screen opacity-25 -z-10 w-full absolute" ></dialog> */}
+      
       <dialog
         ref={dialogRef}
         id="modalpopover"
-        className=" absolute top-96 left-96 right-96 bottom-96 p-5  -translate-x-50 -translate-y-50 rounded-sm"
+        className=" relative  top-96 left-96 z-50 right-96 bottom-96 p-5 -translate-x-50 -translate-y-50 rounded-sm backdrop:bg-ctitle/50"
       >
         <div className="flex flex-col py-4 px-5">
           <div className="flex justify-between w-full">
@@ -145,6 +152,9 @@ const PopupModal = (props: Props) => {
           </div>
         </div>
       </dialog>
+      
+      </>
+      
     ) : null;
 
   return dialog;

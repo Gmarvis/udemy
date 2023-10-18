@@ -36,6 +36,7 @@ const CouseContent = ({ ...course }:SimpleCourseType) => {
       payload2: { courseList: [] },
     });
     router.push('/?showDialog=y')
+    document.getElementById('modal-overlayn')!.classList.add('overlay');
   };
 
   async function addAllToCart() {
@@ -47,9 +48,10 @@ const CouseContent = ({ ...course }:SimpleCourseType) => {
     });
   }
 
+  
+
   return (
     <>
-    
       <PopupModal
         addAll={addAllToCart}
         gotoCart={gotoCart}

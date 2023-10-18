@@ -155,7 +155,7 @@ svg.star-svg {
   /* background-position: center; */
 }
 
-.modal-overlay {
+.overlay {
   background: rgba(0, 0, 0, 0.5);
   background-repeat: no-repeat;
   background-size: cover;

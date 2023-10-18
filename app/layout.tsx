@@ -26,7 +26,7 @@ export default function RootLayout({
   children:  React.ReactElement;
 }) {
   return (
-    <html lang="en" className="dark" >
+    <html lang="en" className="light" id='modal-overlay'>
       <body className={inter.className}>
         <MainNav/>
         <Providers>
