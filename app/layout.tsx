@@ -4,10 +4,10 @@ import { Inter } from 'next/font/google'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";  
 import MainNav from './components/MainNav'
-import Footer from './components/organisms/footer-logout'
 import UdemyBusiness from './components/organisms/udemy-business';
 import BecomeInstructor from './components/organisms/become-instructor';
 import FeatureCategory from './components/organisms/feature-category';
+import FooterLandingPage from './components/organisms/footer-landingpage';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,7 +29,7 @@ export default function RootLayout({
        <FeatureCategory/>
        <UdemyBusiness/>
        <BecomeInstructor/>
-       <Footer/>
+       <FooterLandingPage/>
       
       </body>
     </html>
