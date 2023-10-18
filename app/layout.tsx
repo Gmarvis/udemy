@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import MainNav from './components/organisms/MainNav'
 import Footer from './components/organisms/footer-logout'
 import UdemyBusiness from './components/organisms/udemy-business';
-
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import MainNav from "./components/MainNav";
@@ -28,11 +26,12 @@ export default function RootLayout({
   children:  React.ReactElement;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" >
       <body className={inter.className}>
-     
         <MainNav/>
-       <Providers>{children}</Providers>
+        <Providers>
+          {children}
+        </Providers>
        <UdemyBusiness/>
        <Footer/>
       </body>

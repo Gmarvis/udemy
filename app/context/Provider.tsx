@@ -1,4 +1,6 @@
-"use client";
+'use client'
+
+import {NextUIProvider} from '@nextui-org/react'
 import { ReactElement } from "react";
 import CartProvider from "./CartProvider";
 import CourseProvider from "./courseProvider";
@@ -9,8 +11,14 @@ type Props = {
 
 export function Providers({ children }: Props) {
   return (
-    <CourseProvider>
-      <CartProvider>{children}</CartProvider>
-    </CourseProvider>
+    
+      <CartProvider>
+        <CourseProvider>
+          <NextUIProvider>
+            {children}
+          </NextUIProvider>
+        </CourseProvider>
+      </CartProvider>
+  
   );
 }

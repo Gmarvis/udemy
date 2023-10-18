@@ -5,8 +5,9 @@ import { courseData, responsive } from "@/public/data/dummydata";
 import CourseCard from "./CourseCard";
 import CouseContent from "./CourseContent";
 import useCart from "@/app/Hooks/useCart";
+import { SimpleCourseType } from "@/types";
 
-const CourseComponent = ({ ...course }) => {
+const CourseComponent = ({ ...course }:SimpleCourseType) => {
   const screenSize = window.document.documentElement.scrollWidth;
   const placement = screenSize <= 600 ? "bottom" : "autoHorizontal";
 

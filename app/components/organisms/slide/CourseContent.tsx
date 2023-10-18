@@ -1,4 +1,5 @@
-import React, { ReactElement, memo } from "react";
+"use client"
+import React, { ReactElement, memo, useRef, useState } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { Rating } from "react-simple-star-rating";
 import { ReducerAction, ReducerActionType } from "@/app/context/CartProvider";
@@ -9,18 +10,18 @@ import CourseCard from "./CourseCard";
 import useCart from "@/app/Hooks/useCart";
 import { useRouter } from "next/navigation";
 
-
-const CouseContent = ({ ...course }) => {
+const CouseContent = ({ ...course }:SimpleCourseType) => {
   const { courses } = useCourse();
-  const { dispatch, REDUCER_ACTION } = useCart();
+  const { dispatch, REDUCER_ACTION, cart } = useCart();
   const router = useRouter();
-
+  const [openModal, setOpenModal] = useState<boolean>(false);
+ 
+  const divContent = document.getElementById("divcontent") as HTMLDivElement;
+  const divRef = useRef<HTMLDivElement>(divContent);
   async function gotoCart() {
     // "use server";
     console.log("goto cart");
   }
-  // card w-full flex flex-row md:w-90   gap-4 md:ml-2 2xl:mx-0
-  const className = " card w-full flex flex-row gap-4 ";
 
   const partListOfCourses: SimpleCourseType[] = courses.slice(0, 5);
 
@@ -34,7 +35,7 @@ const CouseContent = ({ ...course }) => {
       payload: { ...course },
       payload2: { courseList: [] },
     });
-    router.push("/?showDialog=y");
+    router.push('/?showDialog=y')
   };
 
   async function addAllToCart() {
@@ -46,19 +47,18 @@ const CouseContent = ({ ...course }) => {
     });
   }
 
-  console.log('dispatch', dispatch);
-
   return (
     <>
+    
       <PopupModal
         addAll={addAllToCart}
         gotoCart={gotoCart}
-        price={price}
+        totalPrice={price}
         partListOfCourses={partListOfCourses}
-        // courseSelected={course}
+        courseSelected={course}
       />
 
-      <div className="flex flex-col gap-10 bg-white py-5 px-6 w-110 h-auto ring text-3xl">
+      <div className="flex flex-col gap-10 bg-white py-5 px-6 w-110 h-auto ring text-3xl" ref={divRef}>
         <h2>Title of content</h2>
         <span>Bestseller</span>
         <p>descritption of the course</p>
@@ -70,14 +70,14 @@ const CouseContent = ({ ...course }) => {
         <div className="w-full pl-3 py-5 text-2xl text-white">
           <button
             className="bg-purple hover:bg-violet  w-72 px-10 py-5 text-2xl mr-10"
-            onClick={onAddToCart}
+            onClick={()=> {onAddToCart()}}
           >
             Add to Cart
           </button>
-
-          <span className="border border-metal py-5 px-4 rounded-full w-12 h-20  hover:bg-gray">
+          
+          <span className="border border-ctitle py-5 px-4 rounded-full w-12 h-20  hover:bg-gray">
             <Rating
-              // fillIcon={<MdFavorite size={30} />}
+              fillIcon={<MdFavorite size={40} />}
               emptyIcon={<MdFavoriteBorder size={40} />}
               iconsCount={1}
               SVGclassName="svgIcon inline-block hover:bg-gray "
@@ -90,7 +90,9 @@ const CouseContent = ({ ...course }) => {
           </span>
         </div>
       </div>
+  
     </>
+    
   );
 };
 

@@ -1,12 +1,17 @@
 import type { Config } from 'tailwindcss'
+import {nextui} from "@nextui-org/react";
 
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
+    fontFamily: {
+      "segoe": "Segoe UI Emoji"
+    },
     screens: {
       sm: "600px",
       // => @media (min-width: 640px) { ... }
@@ -24,6 +29,9 @@ const config: Config = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      zIndex: {
+        "100":"100"
+      },
       listStyleImage: {
         checkmark: "checkmark-list-style",
         overlay: "modal-overlay",
@@ -35,8 +43,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       spacing: {
+        "23":"5.5rem",
         "90": "22rem",
-        "100": '25rem',
+        "100": '25rem', 
         "110": "30rem",
         "128": "32rem",
         "144": "36rem",
@@ -58,9 +67,11 @@ const config: Config = {
       white: "#fff",
       gray: "#ccc",
       gray2: "#ddd",
+      udemy: "#6A6F73",
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui()]
 };
 export default config
 
