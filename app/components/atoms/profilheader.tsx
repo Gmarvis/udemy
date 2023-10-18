@@ -8,9 +8,9 @@ const Profilheader = () => {
             Profile and settings
         </h1>
         <div className='flex'>
-          <p className='pr-4 text-[15px] font-bold text-slate-600'>Udemy profile</p>
-          <p className='pl-4 text-[15px] font-bold text-slate-600'>Profile picture</p>
-          <p className='pl-8 text-[15px] font-bold text-slate-600'>Privacy settings</p>
+          <p className='pr-4 text-[17px] font-bold text-slate-600'>Udemy profile</p>
+          <p className='pl-4 text-[17px] font-bold text-slate-600'>Profile picture</p>
+          <p className='pl-8 text-[17px] font-bold text-slate-600'>Privacy settings</p>
         </div>
         <hr  className='mt-6'/>
     </div>
