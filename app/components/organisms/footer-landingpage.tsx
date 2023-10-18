@@ -7,7 +7,7 @@ function FooterLandingPage() {
   return (
     <div className="bg-black h-fit pb-4 md:w-full">
       <hr />
-      <div className="px-4 pb-8 md:hidden">
+      <div className="px-4 md:hidden">
         <English />
         <div className="text-white md:pl-8 md:flex md:gap-8 md:leading-8  md:pb-10">
           <UnOrderedList
@@ -36,8 +36,8 @@ function FooterLandingPage() {
           />
         </div>
       </div>
-      <div className="px-4 pb-8 hidden md:flex md:justify-between ">
-        <div className="text-white md:pl-8 md:flex md:gap-8 md:leading-8 md:w-4/5 md:pt-6 md:pb-10">
+      <div className="md:px-12 hidden md:flex md:justify-between ">
+        <div className="text-white md:flex md:gap-8 md:leading-8 md:w-4/5 md:pt-6 md:pb-10">
           <UnOrderedList
             className="md:w-2/12 "
             l1={"Udemy Business"}
@@ -73,7 +73,7 @@ function FooterLandingPage() {
           width={120}
           height={120}
         />
-        <p className="text-white text-xs my-auto">© 2023 Udemy, Inc.</p>
+        <p className="text-white text-xs my-auto md:pr-8">© 2023 Udemy, Inc.</p>
       </div>
     </div>
   );
