@@ -36,7 +36,7 @@ const FeatureCategory = (props: Props) => {
               </div>
               <Button
                 label="Explore more topics"
-                className="hover:cursor-pointer text-xs font-semibold hover:bg-slate-100 border-2 border-black px-3 py-2"
+                className="hover:cursor-pointer md:flex hidden text-xs font-semibold hover:bg-slate-100 border-2 border-black px-3 md:ml-[-5px] py-2"
               />
             </div>
             <div className="w-1/2">
