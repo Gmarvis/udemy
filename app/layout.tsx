@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";  
 import MainNav from './components/organisms/MainNav'
 import Footer from './components/organisms/footer-logout'
-import UdemyBusiness from './components/organisms/udemy-business';
+// import UdemyBusiness from './components/organisms/udemy-business';
 
 const inter = Inter({ subsets: ['latin'] })
 
