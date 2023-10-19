@@ -32,7 +32,7 @@ const InputWithCharacterLimit = ({ placeholder }: Props) => {
   );
 };
 
-export default function IntendedLearners({}: Props) {
+export default function IntendedLearners({ }: Props) {
   return (
     <div className="p-4 max-w-6xl text-xl">
       <div>
@@ -56,8 +56,22 @@ export default function IntendedLearners({}: Props) {
         <InputWithCharacterLimit placeholder="Example: Complete a case study to manage a project from conception to completion" />
       </div>
 
-      <h2><BsPlus/></h2>
-      
+      <h2 className='text-blue-700 cursor-pointer mt-6 mb-6 flex text-center'><BsPlus size='2rem' /> Add more to your response</h2>
+      <h3 className='font-bold mb-2'>What are the requirements or prerequisites for taking your course?</h3>
+      <p>List the required skills, experience, tools or equipment learners should have prior to taking your course.
+        If there are no requirements, use this space as an opportunity to lower the barrier for beginners.</p>
+
+      <InputWithCharacterLimit placeholder="Example: No programming experience needed you will learn everything you need to know" />
+
+      <h2 className='text-blue-700 cursor-pointer mt-6 mb-6 flex text-center'><BsPlus size='2rem' /> Add more to your response</h2>
+      <h3 className='font-bold mb-2'>Who is this course for?</h3>
+      <p>Write a clear description of the <a href="/#" className="underline decoration-blue-500 text-blue-700">intended learners </a> for your course who will find your course content valuable.
+        This will help you attract the right learners to your course.</p>
+
+      <InputWithCharacterLimit placeholder="Example: No programming experience needed you will learn everything you need to know" />
+
+      <h2 className='text-blue-700 mt-6 mb-6 flex text-center cursor-pointer'><BsPlus size='2rem' /> Add more to your response</h2>
+
     </div>
   );
 }
