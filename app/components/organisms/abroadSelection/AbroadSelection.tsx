@@ -10,9 +10,9 @@ const AbroadSelection = () => {
     return  <SliderContainer/>
     };
 
-    const checkCategory =  subCategory.map((category) => {
+    const checkCategory =  subCategory.map((category, i) => {
         return (
-          <div>
+          <div className='flex justify-evenly' key={i}>
             <p className='mb-3 text-sm font-bold text-ctitle' onClick={fetchCourses}>{category}</p>
           </div>
         )
