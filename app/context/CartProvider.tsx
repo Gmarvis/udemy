@@ -35,10 +35,12 @@ const reducer = (
   switch (action.type) {
     case REDUCER_ACTION_TYPE.ADD: {
 
-      console.log('in context')
       if (!action.payload) {
         throw new Error("Action payload is missing in ADD action");
       }
+
+      console.log('in context')
+      // console.log("payload:"+ JSON.stringify(action.payload))
 
       const {
         id,
@@ -53,8 +55,10 @@ const reducer = (
 
       const filteredCart = state.cart.filter((item) => item.id !== id);
 
-      const existingItem = state.cart.filter((item) => item.id === id);
+      const existingItem = state.cart.find((item) => item.id === id);
 
+      // console.log(state.cart, JSON.stringify(existingItem));
+      // if the course is not already in the cart, we add it to the cart
       if (!existingItem) {
         const newCartItem = {
           id,
@@ -66,15 +70,13 @@ const reducer = (
           level,
           participants,
         };
-
-
-
-        localStorage.setItem("itemCourse", JSON.stringify(newCartItem));
-
-        localStorage.setItem("cart", JSON.stringify(state.cart));
+        
+        state.cart = [...filteredCart, newCartItem];
+        window.localStorage.setItem("cart", JSON.stringify(state.cart));
 
         return { ...state, cart: [...filteredCart, newCartItem] };
       }
+      console.log("before sending the return");
       return { ...state };
     }
     case REDUCER_ACTION_TYPE.REMOVE ||

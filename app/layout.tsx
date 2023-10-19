@@ -6,13 +6,11 @@ import "slick-carousel/slick/slick-theme.css";
 import MainNav from './components/organisms/MainNav'
 import Footer from './components/organisms/footer-logout'
 import UdemyBusiness from './components/organisms/udemy-business';
-
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import MainNav from "./components/MainNav";
-// import Footer from "./components/organisms/footer-logout";
 import { Providers } from "./context/Provider";
+import { useSearchParams } from 'next/navigation';
+import GotoCart from './components/organisms/slide/GotoCart';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,12 +25,14 @@ export default function RootLayout({
 }: {
   children:  React.ReactElement;
 }) {
+
   return (
-    <html lang="en">
-      <body className={inter.className}>
-     
+    <html lang="en" className="light" >
+      <body className= ' relative' id='mainbody'>
         <MainNav/>
-       <Providers>{children}</Providers>
+        <Providers>
+          {children}
+        </Providers>
        <UdemyBusiness/>
        <Footer/>
       </body>

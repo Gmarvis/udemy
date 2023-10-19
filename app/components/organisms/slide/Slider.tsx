@@ -24,13 +24,13 @@ export default function SliderComponent() {
   if (courses?.length) {
     pageContent = courses?.map((course) => {
       const inCart: boolean = cart?.some((item) => item.id === course.id);
-      return <CourseComponent {...course} key={course?.id} />;
+      return <CourseComponent  {...course} key={course?.id} />;
     });
   }
 
   return (
     <>
-      <h1 className="ml-2">Learners are viewing</h1>
+      <h3 className="ml-10">Learners are viewing</h3>
       <Carousel responsive={responsive} swipeable={false}>
         {pageContent}
       </Carousel>

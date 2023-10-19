@@ -3,7 +3,7 @@ import { SimpleCourseType } from "@/types";
 export const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 3000, min: 1536 },
-    items: 5,
+    items: 6,
     slidesToSlide: 3,
   },
   largeDesktop: {
@@ -13,7 +13,7 @@ export const responsive = {
   },
   desktop: {
     breakpoint: { max: 1024, min: 800 },
-    items: 3,
+    items: 4,
   },
   tablet: {
     breakpoint: { max: 800, min: 600 },

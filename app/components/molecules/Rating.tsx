@@ -12,6 +12,7 @@ type Props = {
   disableFillHover?: boolean;
   emptyIcon?: React.JSX.Element;
   allowHover?: boolean;
+  className? : string
 };
 
 function Rate({...props}: Props) {
@@ -26,17 +27,17 @@ function Rate({...props}: Props) {
     setRatingVal(0);
   };
   return (
-    <div className="flex items-center gap-4 justify-center">
+    <div className="flex items-center">
       <Rating
         onClick={handleRating}
         initialValue={ratingVal}
         size={20}
         fillColorArray={["#f17a45", "#f19745", "#f1a545", "#f1b345", "#f1d045"]}
         emptyColor="gray"
-        className="py-0"
+        className={props.className}
         disableFillHover={true}
       />
-      <p className="text-xl">{ratingVal}</p>
+      <p className="text-xl ml-4">{ratingVal}</p>
     </div>
   );
 }
