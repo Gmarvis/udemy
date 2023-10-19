@@ -14,10 +14,10 @@ const config: Config = {
     },
     screens: {
       sm: "600px",
-      // => @media (min-width: 640px) { ... }
+      // => @media (min-width: 600px) { ... }
 
       md: "800px",
-      // => @media (min-width: 768px) { ... }
+      // => @media (min-width: 800px) { ... }
 
       lg: "1024px",
       // => @media (min-width: 1024px) { ... }
@@ -43,12 +43,17 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       spacing: {
-        "23":"5.5rem",
+        "17":" 4.5rem",
+        "23": "5.5rem",
         "90": "22rem",
         "100": '25rem', 
         "110": "30rem",
         "128": "32rem",
         "144": "36rem",
+        "150": "40rem",
+        "170": "45rem",
+        "175": "48rem",
+        "180": "50rem",
       },
     },
     colors: {

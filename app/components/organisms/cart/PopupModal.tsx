@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 import ModalCourseCard from "./modalCourseCard";
+import GotoCart from "../slide/GotoCart";
 
 type Props = {
   gotoCart: () => void;
@@ -23,19 +24,20 @@ const PopupModal = (props: Props) => {
   const dialogRef = useRef<null | HTMLDialogElement>(null);
   const bgdialogRef = useRef<null | HTMLDialogElement>(null);
 
-  const showDialog = searchParam.get("showDialog");
+  const showDialog = searchParam.get("s");
   const router = useRouter();
   const [dialogRefModal, setDialogRefModal] = useState(false);
+  const screenSize: number = window.document.documentElement.scrollWidth - 1;
 
   useEffect(() => {
     if (showDialog === "y") {
       // const mypopover = document.getElementById("modalpopover")!
       // mypopover.showPopover();
       dialogRef.current?.showModal();
-      bgdialogRef.current?.showModal();
+      // bgdialogRef.current?.showModal();
       setDialogRefModal(true);
     } else {
-      bgdialogRef.current?.showModal();
+      // bgdialogRef.current?.close();
       dialogRef.current?.close();
     }
    
@@ -79,83 +81,27 @@ const PopupModal = (props: Props) => {
  </Link> 
   ));
 
-
   const dialog: JSX.Element | null =
-    showDialog === "y" ? (
-      <>
-      {/* <dialog ref={bgdialogRef} className="bg-bermuda inset-0 h-screen opacity-25 -z-10 w-full absolute" ></dialog> */}
-      
+  showDialog === "y" ? (
       <dialog
         ref={dialogRef}
         id="modalpopover"
-        className=" relative  top-96 left-96 z-50 right-96 bottom-96 p-5 -translate-x-50 -translate-y-50 rounded-sm backdrop:bg-ctitle/50"
+        className=" w-128 md:w-170 flex items-start justify-center  relative  md:top-96  md:left-96   md:right-96  md:bottom-96 p-2 md:py-5 -translate-x-50 -translate-y-50 rounded-sm backdrop:bg-ctitle/60"
       >
-        <div className="flex flex-col py-4 px-5">
-          <div className="flex justify-between w-full">
-            <h4>Added to cart </h4>
-            <button onClick={closeDialog} className="text-2xl bg-opacity-0 border-0">X</button>
-          </div>
-          <div className="flex flex-row items-center item-center justify-between my-6">
-            <div className="flex gap-2 item-center justify-center" >
-              <BsCheckCircle
-                className="bg-tahiti text-white text-xl mr-2 rounded-full border-0 mt-3"
-                size={50}
-              />
-              <div className="flex">
-              <Image
-                src={props.courseSelected?.imageurl}
-                alt={props.courseSelected?.title}
-                className="w-20 h-23 mr-4"
-                width={122}
-                height={122}
-              />{" "}
-              <div>
-                <p className="font-bold text-xl"> {props.courseSelected?.title}</p>
-                <p className=" text-lg text-udemy">{props.courseSelected?.author}</p>
-              </div>
-              
-              </div>
-              
-            </div>
-            <div>
-              <button
-                className="w-fit-content py-5 px-5 bg-black text-white "
-                onClick={gotocart}
-              > <h5>Go to cart</h5>
-                
-              </button>
-            </div>
-          </div>
-
-          <div  className="listofFrequentlyBought border py-6 px-8">
-            <h3 className=" mb-5">Frequently bought Together</h3>
-            <div> {FreqBought} </div>
-
-            <div className="flex flex-row items-center item-center justify-between p-8 ">
-              <p className=" text-2xl">
-                Total:{" "}
-                {/* <span className=" font-bold">
-                  {Intl.NumberFormat("en-US", {
-                  style: "currency",
-                  currency: "NGN",
-                }).format(props.price)} */}
-                <span className=" font-bold"> {props.totalPrice.toFixed(2)} ₦
-                </span>
-              </p>
-              <button
-                className="w-fit-content py-5 px-4 bg-violet text-white "
-                onClick={clickOk}
-              >
-                <h5>Add all to cart</h5>
-              </button>
-            </div>
-          </div>
-        </div>
+        <GotoCart closeDialog={closeDialog} courseSelected={props.courseSelected} gotocart={gotocart} totalPrice={props.totalPrice} FreqBought={FreqBought} clickOk={clickOk}/>
       </dialog>
-      
+    ): showDialog === "x" ? (
+      <>
+      {/* <div className=" relative right-100 top-0 left-0 w-[200%] h-screen bg-white"></div> */}
+      <dialog
+        ref={dialogRef}
+        className=" w-128 md:w-170 flex items-start justify-center  relative  p-2 md:py-5 -translate-x-50 -translate-y-50 rounded-sm backdrop:bg-white"
+      >
+        <GotoCart closeDialog={closeDialog} courseSelected={props.courseSelected} gotocart={gotocart} totalPrice={props.totalPrice} FreqBought={FreqBought} clickOk={clickOk}/>
+      </dialog>
       </>
       
-    ) : null;
+    ): null;
 
   return dialog;
     

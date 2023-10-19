@@ -9,7 +9,7 @@ import { SimpleCourseType } from "@/types";
 
 const CourseComponent = ({ ...course }:SimpleCourseType) => {
   const screenSize = window.document.documentElement.scrollWidth;
-  const placement = screenSize <= 600 ? "bottom" : "autoHorizontal";
+  const placement = screenSize <= 600 ? "topStart" : "autoHorizontal";
 
   const className = " card w-full flex flex-col md:w-90   gap-4 md:ml-2 2xl:mx-0";
 

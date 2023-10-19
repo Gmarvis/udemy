@@ -35,16 +35,16 @@ const CourseCard = ({
     <div className={className}>
       {/* <Link href={"#"}> */}
       <Image
-        className="w-full md:mr-5 h-64 lg:h-48 object-cover  bg-contain bg-right-top bg-no-repeat lg:w-96"
+        className="w-full h-48 md:mr-5 lg:h-48 object-cover  bg-contain bg-right-top bg-no-repeat lg:w-96"
         src={imageurl}
         alt="product image"
         draggable={false}
-        width={400}
-        height={300}
+        width={300}
+        height={200}
       />
       <div>
         {" "}
-        <h2 className="text-ctitle text-2xl font-bold font-sans w-80">
+        <h2 className="text-ctitle text-xl font-bold font-sans w-80">
           {title}
         </h2>
         <p className="text-md font-extralight font-sans">{author}</p>

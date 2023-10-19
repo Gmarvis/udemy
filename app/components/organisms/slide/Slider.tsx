@@ -30,7 +30,7 @@ export default function SliderComponent() {
 
   return (
     <>
-      <h1 className="ml-2">Learners are viewing</h1>
+      <h3 className="ml-10">Learners are viewing</h3>
       <Carousel responsive={responsive} swipeable={false}>
         {pageContent}
       </Carousel>

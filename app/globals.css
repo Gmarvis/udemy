@@ -135,3 +135,7 @@ svg.star-svg {
     transform: scale(0.8);
   }
 }
+
+#mainbody {
+  position: relative;
+}
