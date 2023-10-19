@@ -1,19 +1,30 @@
-import React from 'react';
-import Link from 'next/link';
-import SliderComponent from '../slide/Slider';
+import React from "react";
+import Link from "next/link";
+import SliderComponent from "../slide/Slider";
 
-const SliderContainer = () => {
+type Props = {
+  categoryTitle: string;
+  categoryContent: string;
+  categoryName: string;
+  children: JSX.Element;
+};
+
+const SliderContainer = (props: Props) => {
   return (
-    <div className=' flex flex-col gap-4'>
-      <h4 className='mb-3'>Expand your career opportunities with python</h4>
-      <p className='mb-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut laboriosam odit eos error ullam aliquid velit doloremque iusto reprehenderit, explicabo optio, natus eligendi atque inventore at tempore reiciendis porro et.</p>
+    <div className=" flex flex-col gap-4 ring ring-gray2 pt-8 pl-5 mb-16 mt-0">
+      <h3 className="mb-3 ml-8 font-bold text-2xl">{props.categoryTitle}</h3>
+      <p className="mb-4 ml-8">{props.categoryContent}</p>
 
-      <Link href = {"#"} className=' ring ring-ctitle p-3'> <span> Explore Python</span> </Link>
-      <div className='my-5 '>
-        <SliderComponent/>
-      </div>
+      <Link
+        href={"#"}
+        className=" ring ring-black p-3 w-[300px] ml-8 text-black decoration-none"
+      >
+        {" "}
+        <span>Explore {props.categoryName}</span>{" "}
+      </Link>
+      <div className="my-5 ">{props.children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default SliderContainer
+export default SliderContainer;
