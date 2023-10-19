@@ -11,10 +11,8 @@ const RegisterPage: NextPage = () => {
   const [password, setPassword] = useState<string>("");
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const formData = new FormData(e.currentTarget);
 
     console.log("formData: ", { fullname, email, password });
-    // console.log(formData.getAll);
 
     if (fullname && email && password) {
       const res = fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/auth/signup`, {
