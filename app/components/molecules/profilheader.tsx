@@ -20,9 +20,9 @@ const Profilheader = () => {
             Profile and settings
         </h1>
         <div className='flex'>
-          <p className='pr-4 text-[17px] font-bold text-slate-600 focus:underline' onClick={() => handleButtonClick(<Inputdetails/>)}>Udemy profile</p>
-          <p className='pl-4 text-[17px] font-bold text-slate-600 focus:underline' onClick={() => handleButtonClick(<Avatar/>)}>Profile picture</p>
-          <p className='pl-8 text-[17px] font-bold text-slate-600 focus:underline' onClick={() => handleButtonClick(<Privset/>)}>Privacy settings</p>
+          <p className='pr-4 text-[17px] font-bold text-slate-600 focus:underline cursor-pointer' onClick={() => handleButtonClick(<Inputdetails/>)}>Udemy profile</p>
+          <p className='pl-4 text-[17px] font-bold text-slate-600 focus:underline cursor-pointer' onClick={() => handleButtonClick(<Avatar/>)}>Profile picture</p>
+          <p className='pl-8 text-[17px] font-bold text-slate-600 focus:underline cursor-pointer' onClick={() => handleButtonClick(<Privset/>)}>Privacy settings</p>
         </div>
         <hr  className='mt-6'/>
         {selectedComponent}
