@@ -3,13 +3,12 @@ import React, { useState } from 'react'
 import Privset from '../organisms/privset'
 import Avatar from '../organisms/avatar'
 import Inputdetails from './inputdetails'
- 
 
 
 const Profilheader = () => {
   const [selectedComponent, setSelectedComponent] = useState(<Inputdetails/>)
 
-  const handleButtonClick = (component) => {
+  const handleButtonClick = (component: any) => {
      setSelectedComponent(component);
   }
 
