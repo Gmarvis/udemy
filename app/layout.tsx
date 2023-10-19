@@ -3,14 +3,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";  
-import MainNav from './components/organisms/MainNav'
 import Footer from './components/organisms/footer-logout'
-import UdemyBusiness from './components/organisms/udemy-business';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Providers } from "./context/Provider";
-import { useSearchParams } from 'next/navigation';
-import GotoCart from './components/organisms/slide/GotoCart';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,13 +21,12 @@ export default function RootLayout({
 }) {
 
   return (
+ 
     <html lang="en" className="light" >
       <body className= ' relative' id='mainbody'>
-        <MainNav/>
         <Providers>
           {children}
         </Providers>
-       <UdemyBusiness/>
        <Footer/>
       </body>
     </html>
