@@ -8,6 +8,7 @@ import UdemyBusiness from './components/organisms/udemy-business';
 import BecomeInstructor from './components/organisms/become-instructor';
 import FeatureCategory from './components/organisms/feature-category';
 import FooterLandingPage from './components/organisms/footer-landingpage';
+import LogiNav from './components/organisms/login-navbar';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MainNav/>
+        <LogiNav />
+        {/* <MainNav/> */}
         {children}
        <FeatureCategory/>
        <UdemyBusiness/>
