@@ -1,30 +1,24 @@
 import Image from "next/image";
 import React from "react";
-import Categories from "./atoms/categories";
+import Categories from "../atoms/categories";
 import { BsSearch } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
 import { TbWorld } from "react-icons/tb";
-import UdemBusDropdown from "./molecules/udemBusDropdown";
-import TeachNav from "./molecules/teachNav";
-import Login from "./organisms/login";
-import Register from "./organisms/register";
+import UdemBusDropdown from "../molecules/udemBusDropdown";
+import TeachNav from "../molecules/teachNav";
+import Login from "../organisms/login";
+import Register from "../organisms/register";
 
-const MainNav = () => {
+const LoginNav = () => {
   return (
-    <div className="py-2 shadow px-6">
+    <div className="py-4 shadow px-8">
       <div className="flex justify-between items-center">
         <div className="font-bold text-4xl text-center pb-4 sm:pb-0">
-          <Image
-            src="/logo-udemy.svg"
-            width={91}
-            height={34}
-            alt="logo"
-            loading="lazy"
-          />
+          <Image src="/logo-udemy.svg" width={80} height={45} alt="logo" />
         </div>
         <Categories />
 
-        <div className="w-full sm:w-[300px] md:w-[60%] relative">
+        <div className="w-full sm:w-[300px] md:w-[50%] relative">
           <input
             className="border-black border p-2 px-4 rounded-full w-full
             placeholder:text-gray-400 font-normal placeholder:px-10 py-2 outline-none"
@@ -49,4 +43,4 @@ const MainNav = () => {
   );
 };
 
-export default MainNav;
+export default LoginNav;

@@ -24,12 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <MainNav/> */}
+        <MainNav/>
         {children}
-       {/* <FeatureCategory/> */}
-       {/* <UdemyBusiness/> */}
-       {/* <BecomeInstructor/> */}
-       {/* <FooterLandingPage/> */}
+       <FeatureCategory/>
+       <UdemyBusiness/>
+       <BecomeInstructor/>
+       <FooterLandingPage/>
       
       </body>
     </html>
