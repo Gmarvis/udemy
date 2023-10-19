@@ -137,7 +137,7 @@ const ManageGoals = () => {
         </button>
       </div>
 
-      <div className="ml-8">
+      <div className="ml-6">
         {showContent && (
           <div className="shadow-xl p-8 max-w-5xl">
             {activePage && pageComponents[activePage] && (
