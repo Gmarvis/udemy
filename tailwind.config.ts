@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import {nextui} from "@nextui-org/react";
+// import {nextui} from "@nextui-org/react";
 
 const config: Config = {
   content: [
@@ -56,27 +56,27 @@ const config: Config = {
         "180": "50rem",
       },
     },
-    colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      purple: "#a32cc4",
-      violet: "#710193",
-      midnight: "#121063",
-      black: "#000",
-      tahiti: "#3ab7bf",
-      silver: "#ecebff",
-      "bubble-gum": "#ff77e9",
-      bermuda: "#78dcca",
-      ctitle: "#2d2f31",
-      bestseller: "#fef08a",
-      white: "#fff",
-      gray: "#ccc",
-      gray2: "#ddd",
-      udemy: "#6A6F73",
-    },
+    // colors: {
+    //   transparent: "transparent",
+    //   current: "currentColor",
+    //   purple: "#a32cc4",
+    //   violet: "#710193",
+    //   midnight: "#121063",
+    //   black: "#000",
+    //   tahiti: "#3ab7bf",
+    //   silver: "#ecebff",
+    //   "bubble-gum": "#ff77e9",
+    //   bermuda: "#78dcca",
+    //   ctitle: "#2d2f31",
+    //   bestseller: "#fef08a",
+    //   white: "#fff",
+    //   gray: "#ccc",
+    //   gray2: "#ddd",
+    //   udemy: "#6A6F73",
+    // },
   },
   darkMode: "class",
-  plugins: [nextui()]
+  // plugins: [nextui()]
 };
 export default config
 

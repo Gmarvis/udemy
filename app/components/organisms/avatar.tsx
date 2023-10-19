@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import React from "react";
-import Button from "../atoms/Button";
 
 const Avatar = () => {
   return (
@@ -30,7 +29,7 @@ const Avatar = () => {
             className="border border-black p-4 block w-1/2 text-sm cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
           />
         </div>
-        <button className="text-[16px] font-bold bg-black text-white mt-4 px-3 py-4">
+        <button className="text-[16px] font-bold bg-black text-white mt-4 px-3 py-4 my-10">
           To safeguard
         </button>
       </div>    
