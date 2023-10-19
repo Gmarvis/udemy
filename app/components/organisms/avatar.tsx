@@ -6,7 +6,7 @@ import Button from "../atoms/Button";
 
 const Avatar = () => {
   return (
-    <div className="ml-[10%]">
+    <div className="">
       <div>
         <h2 className="font-bold text-[14px] mt-5">Image preview</h2>
         <p className="text-[14px] text-slate-600 py-3">

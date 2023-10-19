@@ -4,7 +4,7 @@ import React from "react";
 
 const Privset = () => {
   return (
-    <div className="ml-[10%] mt-6 gap-4">
+    <div className="mt-6 gap-4">
       <div className="flex gap-3 items-center mb-4">
         <input type="checkbox" className="w-5 h-5 text-black bg-gray-100 border-gray-300 dark:focus:ring-black  "/>
         <p  className="text-[14px]">Make your profil visible to logged in users</p>

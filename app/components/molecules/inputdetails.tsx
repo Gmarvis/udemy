@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import Logininput from "../atoms/logininput";
 import { NextPage } from "next";
-import Button from "../atoms/Button";
+
+
 
 const Inputdetails: NextPage = () => {
   const [firstname, setFirstname] = useState("");
@@ -14,7 +15,7 @@ const Inputdetails: NextPage = () => {
   };
 
   return (
-    <div className="ml-[10%]">
+    <div className="">
       <form onSubmit={handleSubmit} className="flex flex-row  gap-8">
         <div className="flex flex-col">
           <Logininput
