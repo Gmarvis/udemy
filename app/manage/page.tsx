@@ -1,8 +1,27 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, createElement } from 'react';
+import IntendedLearners from '../components/organisms/intendedLearners/page';
+import { ComponentType } from 'react';
 
-const checkboxes = [
+type Checkbox = {
+  id: number;
+  name: string;
+  checks: Check[];
+};
+
+type Check = {
+  id: number;
+  name: string;
+  content: string;
+};
+
+type Props = {
+  // Define the props for your components here
+  placeholder: string;
+};
+
+const checkboxes: Checkbox[] = [
   {
     id: 1,
     name: 'Plan Your Course',
@@ -79,6 +98,10 @@ const checkboxes = [
 ];
 
 const ManageGoals = () => {
+  const pageComponents: { [key: string]: ComponentType<Props> } = {
+    'Intended learners': IntendedLearners,
+    // ...add other checkboxes and their corresponding page components
+  };
   const [activePage, setActivePage] = useState('Intended learners');
   const [showContent, setShowContent] = useState(true);
 
@@ -91,8 +114,8 @@ const ManageGoals = () => {
     <div className="flex mx-72 my-6">
       <div className="flex flex-col space-y-2 mt-8 p-4">
         {checkboxes.map((checkbox) => (
-          <div key={checkbox.id} className='pb-4'>
-            <h2 className='font-bold mb-2'>{checkbox.name}</h2>
+          <div key={checkbox.id} className="pb-4">
+            <h2 className="font-bold mb-2">{checkbox.name}</h2>
             {checkbox.checks.map((check) => (
               <label
                 className={`flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 ${activePage === check.name ? 'border-l-4 border-black' : ''
@@ -109,26 +132,16 @@ const ManageGoals = () => {
             ))}
           </div>
         ))}
-        <button
-          className="bg-fuchsia-600 text-white px-10 py-3 mt-4 font-bold text-base"
-        >
+        <button className="bg-fuchsia-600 text-white px-10 py-3 mt-4 font-bold text-base">
           Submit for Review
         </button>
       </div>
 
       <div className="ml-8">
         {showContent && (
-          <div className="shadow-xl p-8">
-            {checkboxes.map((checkbox) =>
-              checkbox.checks.map(
-                (check) =>
-                  check.name === activePage && (
-                    <div key={check.id}>
-                      <h2>{check.name}</h2>
-                      <p>{check.content}</p>
-                    </div>
-                  )
-              )
+          <div className="shadow-xl p-8 max-w-5xl">
+            {activePage && pageComponents[activePage] && (
+              createElement(pageComponents[activePage])
             )}
           </div>
         )}
@@ -136,6 +149,5 @@ const ManageGoals = () => {
     </div>
   );
 };
-
 
 export default ManageGoals;
