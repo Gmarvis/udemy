@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <MainNav/>
         {children}
-       <UdemyBusiness/>
+       {/* <UdemyBusiness/> */}
        <Footer/>
       </body>
     </html>
