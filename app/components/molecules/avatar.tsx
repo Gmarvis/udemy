@@ -62,6 +62,16 @@ const AvatarProfile = (props: Props) => {
           <a href="#" className="hover:text-violet-600">Public profile</a>
           <a href="#" className="hover:text-violet-600">Edit profile</a>
         </div>
+        <hr/>
+        <div className="text-sm p-4 leading-10 flex flex-col">
+          <a href="#" className="hover:text-violet-600">Help</a>
+          <a href="#" className="hover:text-violet-600">Log out</a>
+        </div>
+        <hr/>
+        <div className="text-sm p-4 leading-7 flex flex-col">
+          <a href="#" className="hover:text-violet-600 text-lg font-semibold">Udemy business</a>
+          <a href="#" className="text-gray-400">Bring learning to your company</a>
+        </div>
       </div>
     </div>
   );
