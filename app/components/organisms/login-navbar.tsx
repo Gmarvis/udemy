@@ -12,6 +12,8 @@ import GoToCart from "../molecules/cart-list";
 import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import { TbColorFilter } from "react-icons/tb";
+import Link from "next/link";
+import Sidenav from "./sidenav";
 
 const LogiNav = () => {
   // const navigate = useNavigate()
@@ -22,7 +24,8 @@ const LogiNav = () => {
 
   return (
     <div>
-      <div className="py-2 px-6">
+      <Sidenav/>
+      <div className="py-2 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
             <Image
@@ -37,12 +40,12 @@ const LogiNav = () => {
           </div>
 
           <div className="  md:w-[60%] ">
-              <input
-                className="border-black border p-2 px-4 rounded-full w-full
+            <input
+              className="border-black border p-2 px-4 rounded-full w-full
             placeholder:text-gray-400 relative font-normal placeholder:px-10 py-3 outline-none"
-                type="text"
-                placeholder="Search for anything"
-              />
+              type="text"
+              placeholder="Search for anything"
+            />
 
             {/* <BsSearch
               className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
@@ -56,9 +59,11 @@ const LogiNav = () => {
           >
             Instructor
           </p>
-          <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
-            My Learning
-          </p>
+          <Link href="/home/my-courses/learning">
+            <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
+              My Learning
+            </p>
+          </Link>
 
           <AiOutlineHeart className="h-5 w-5 hover:text-violet-600 hover:cursor-pointer" />
           <GoToCart />
@@ -67,7 +72,7 @@ const LogiNav = () => {
         </div>
       </div>
       <hr />
-      <div className="py-4 shadow-md ">
+      <div className="py-4 shadow-md hidden md:flex">
         <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
           {/* <Tippy
           arrow="false"
