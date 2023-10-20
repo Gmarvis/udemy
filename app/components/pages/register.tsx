@@ -5,28 +5,24 @@ import Button from "../atoms/Button";
 import Link from "next/link";
 import PasswordStrenght from "../atoms/passwordStrenght";
 import { NextPage } from "next";
+import { signUp } from "@/services/utils";
+import { LOCAL_STORAGE } from "@/services/storage";
 const RegisterPage: NextPage = () => {
   const [fullname, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log("formData: ", { fullname, email, password });
 
     if (fullname && email && password) {
-      const res = fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/auth/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: fullname,
-          email,
-          password,
-        }),
-      });
-      console.log("response: ", res);
+      signUp({
+        name: fullname,
+        email,
+        password,
+      }).then((res) => LOCAL_STORAGE.save("token", res.token));
     } else {
       console.log("values cannot be empty");
     }
