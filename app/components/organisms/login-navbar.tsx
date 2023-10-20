@@ -1,17 +1,25 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import Categories from "../atoms/categories";
 import { BsBell, BsSearch } from "react-icons/bs";
-import { SlBasket } from "react-icons/sl";
 import { AiOutlineHeart } from "react-icons/ai";
 import UdemBusDropdown from "../molecules/udemBusDropdown";
-import Avatar from "react-avatar";
-import TeachNav from "../molecules/teachNav";
 import AvatarProfile from "../molecules/avatar";
 import Category from "../molecules/category/development";
 import GoToCart from "../molecules/cart-list";
+// import {useNavigate} from "react"
+import Tippy from "@tippy.js/react";
+import "tippy.js/dist/tippy.css";
+import { TbColorFilter } from "react-icons/tb";
 
 const LogiNav = () => {
+  // const navigate = useNavigate()
+  function handleClick(): void {
+    console.log("i am am Instructor");
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div>
       <div className="py-2 px-6">
@@ -29,19 +37,23 @@ const LogiNav = () => {
           </div>
 
           <div className="  md:w-[60%] ">
-            <input
-              className="border-black border p-2 px-4 rounded-full w-full
+              <input
+                className="border-black border p-2 px-4 rounded-full w-full
             placeholder:text-gray-400 relative font-normal placeholder:px-10 py-3 outline-none"
-              type="text"
-              placeholder="Search for anything"
-            />
+                type="text"
+                placeholder="Search for anything"
+              />
+
             {/* <BsSearch
               className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
               size={17}
             /> */}
           </div>
           <UdemBusDropdown />
-          <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
+          <p
+            className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm"
+            onClick={() => handleClick()}
+          >
             Instructor
           </p>
           <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
@@ -49,7 +61,7 @@ const LogiNav = () => {
           </p>
 
           <AiOutlineHeart className="h-5 w-5 hover:text-violet-600 hover:cursor-pointer" />
-          <GoToCart/>
+          <GoToCart />
           <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
           <AvatarProfile />
         </div>
@@ -57,6 +69,33 @@ const LogiNav = () => {
       <hr />
       <div className="py-4 shadow-md ">
         <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
+          {/* <Tippy
+          arrow="false"
+            content={
+              <div className="flex w-[1000px]">
+                <a href="#" className="">
+                  Web Development
+                </a>
+                <a href="#" className="">
+                  Mobile Development
+                </a>
+                <a href="#" className="">
+                  Programming Language
+                </a>
+                <a href="#" className="">
+                  Game Development
+                </a>
+                <a href="#" className="">
+                  Database deisgn & Development
+                </a>
+                <a href="#" className="">
+                  Software Testing
+                </a>
+              </div>
+            }
+          >
+            <p>Development</p>
+          </Tippy>  */}
           <Category
             label={"Development"}
             l1={"Web Development"}
