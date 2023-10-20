@@ -15,7 +15,7 @@ export default function CourseStructure({ }: Props) {
           <h2 className='font-bold mb-6 text-2xl'>Arrange your ideal studio and get early feedback
           </h2>
           <p className='mb-10 max-w-3xl'>
-            It's important to get your audio and video set up correctly now, because it's much more difficult to fix your videos after you’ve recorded. There are many creative ways to use what you have to create professional looking video.
+            It's important to get your audio and video set up correctly now, because it's much more difficult to fix your videos after you've recorded. There are many creative ways to use what you have to create professional looking video.
           </p>
         </div>
 
