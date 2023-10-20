@@ -9,6 +9,7 @@ import Avatar from "react-avatar";
 import TeachNav from "../molecules/teachNav";
 import AvatarProfile from "../molecules/avatar";
 import Category from "../molecules/category/development";
+import GoToCart from "../molecules/cart-list";
 
 const LogiNav = () => {
   return (
@@ -47,9 +48,9 @@ const LogiNav = () => {
             My Learning
           </p>
 
-          <AiOutlineHeart className="h-5 w-5 hover:cursor-pointer" />
-          <SlBasket className="h-5 w-5 hover:cursor-pointer" />
-          <BsBell className="h-5 w-5 hover:cursor-pointer" />
+          <AiOutlineHeart className="h-5 w-5 hover:text-violet-600 hover:cursor-pointer" />
+          <GoToCart/>
+          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
           <AvatarProfile />
         </div>
       </div>
