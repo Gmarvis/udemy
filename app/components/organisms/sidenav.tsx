@@ -10,7 +10,7 @@ import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
 const Sidenav = () => {
   return (
     <div className="">
-      <div className="sidebar min-h-screen w-[3.35rem] h-[100vh] bg-black overflow-hidden border-r hover:w-[270px] hover:shadow-lg hover:z-">
+      <div className="sidebar peer min-h-screen w-[3.35rem] bg-black overflow-hidden border-r hover:w-[270px] hover:shadow-lg hover:z-">
         <div className="bg-black flex flex-col">
           <div>
             <div className="w-max pl-2.5">
