@@ -100,7 +100,7 @@ const checkboxes: Checkbox[] = [
 const ManageGoals = () => {
   const pageComponents: { [key: string]: ComponentType<Props> } = {
     'Intended learners': IntendedLearners,
-    // ...add other checkboxes and their corresponding page components
+    // ...add other checkboxes and their corresponding page components here
   };
   const [activePage, setActivePage] = useState('Intended learners');
   const [showContent, setShowContent] = useState(true);
