@@ -2,6 +2,7 @@
 
 import { useState, createElement } from 'react';
 import IntendedLearners from '../components/organisms/intendedLearners/page';
+import CourseStructure from '../components/organisms/courseStructure';
 import { ComponentType } from 'react';
 
 type Checkbox = {
@@ -100,6 +101,7 @@ const checkboxes: Checkbox[] = [
 const ManageGoals = () => {
   const pageComponents: { [key: string]: ComponentType<Props> } = {
     'Intended learners': IntendedLearners,
+    'Course structure': CourseStructure,
     // ...add other checkboxes and their corresponding page components here
   };
   const [activePage, setActivePage] = useState('Intended learners');
@@ -139,7 +141,7 @@ const ManageGoals = () => {
 
       <div className="ml-6">
         {showContent && (
-          <div className="shadow-xl p-8 max-w-5xl">
+          <div className="text-base shadow-2xl max-w-5xl mt-6">
             {activePage && pageComponents[activePage] && (
               createElement(pageComponents[activePage])
             )}
