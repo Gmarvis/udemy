@@ -12,12 +12,14 @@ type Props = {
 const SliderContainer = (props: Props) => {
   return (
     <div className=" flex flex-col gap-4 ring ring-gray2 pt-8 pl-5 mb-16 mt-0">
-      <h3 className="mb-3 ml-8 font-bold text-2xl">{props.categoryTitle}</h3>
-      <p className="mb-4 ml-8">{props.categoryContent}</p>
+      <h3 className="mb-3 ml-2 font-bold text-sm text-black">
+        {props.categoryTitle}
+      </h3>
+      <p className="mb-4 ml-2 text-xs">{props.categoryContent}</p>
 
       <Link
         href={"#"}
-        className=" ring ring-black p-3 w-[300px] ml-8 text-black decoration-none"
+        className=" text-xs  ring-black p-2 w-[260px] ml-2 text-black decoration-none ring-1"
       >
         {" "}
         <span>Explore {props.categoryName}</span>{" "}

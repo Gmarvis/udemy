@@ -13,7 +13,7 @@ export default function Home({
       <HeroSection />
       <Logos />
       <AbroadSelection />
-      <SliderComponent />
+      <SliderComponent title="Learners are viewing" />
     </main>
   );
 }

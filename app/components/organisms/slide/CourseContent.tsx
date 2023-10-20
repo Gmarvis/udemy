@@ -19,6 +19,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
   async function gotoCart() {
     // "use server";
     console.log("goto cart");
+    router.push("/cart");
   }
 
   const searchParam = useSearchParams();
@@ -31,6 +32,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
     .reduce((acc, course) => acc + Number(course.price), 0);
 
   const onAddToCart = () => {
+    console.log(course);
     dispatch({
       type: REDUCER_ACTION.ADD,
       payload: { ...course },
@@ -44,7 +46,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
     }
   };
 
-  console.log(window.document.documentElement.scrollWidth - 1);
+  // console.log(window.document.documentElement.scrollWidth - 1);
   async function addAllToCart() {
     // "use server";
     console.log("add all courses");
@@ -52,24 +54,27 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
       type: REDUCER_ACTION.ADDALL,
       payload2: { courseList: [...partListOfCourses] },
     });
+    router.push("/cart");
   }
 
   const content = (
     <div
-      className="flex flex-col gap-10 bg-white py-5 px-6 w-90 h-auto ring text-lg"
+      className="flex flex-col gap-2 bg-white py-3 px-3 w-80 h-auto ring text-lg"
       id="divContent z-0"
     >
-      <h4>{course.title}</h4>
-      <span>{course.classification || " not yet classed"}</span>
-      <p>{course.description}</p>
-      <ul>
+      <h5 className="text-black">{course.title}</h5>
+      <span className="text-xs">
+        {course.classification || " not yet classified"}
+      </span>
+      <p className="text-sm">{course.description}</p>
+      <ul className="text-xs">
         <li className="checkmark-list-style">what you will learn 1</li>
         <li className="checkmark-list-style">what you will learn 2</li>
         <li className="checkmark-list-style">what you will learn 3</li>
       </ul>
-      <div className="w-full py-4 text-2xl text-white">
+      <div className="w-full  text-2xl text-white">
         <button
-          className="bg-purple hover:bg-violt  w-52 py-4 mr-5"
+          className="bg-prple hover:bg-violt  w-52 py-3 mr-5"
           onClick={() => {
             onAddToCart();
           }}
@@ -77,7 +82,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
           <h5>Add to Cart</h5>
         </button>
 
-        <span className="border border-ctitle px-3 py-4 rounded-full w-12 h-20  hover:bg-gray">
+        <span className="border border-ctitle px-[10px] py-3 rounded-full w-12 h-20  hover:bg-gray">
           <Rating
             fillIcon={<MdFavorite size={40} />}
             emptyIcon={<MdFavoriteBorder size={40} />}

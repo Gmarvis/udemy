@@ -9,11 +9,9 @@ import useCourse from "@/app/Hooks/useCourses";
 import useCart from "@/app/Hooks/useCart";
 import Pulsation from "../../atoms/Pulsation";
 
-export default function SliderComponent() {
+export default function SliderComponent(props: { title: string }) {
   const { cart } = useCart();
   const { courses } = useCourse();
-
-
 
   let pageContent: ReactElement | ReactElement[] = (
     <div>
@@ -24,16 +22,16 @@ export default function SliderComponent() {
   if (courses?.length) {
     pageContent = courses?.map((course) => {
       const inCart: boolean = cart?.some((item) => item.id === course.id);
-      return <CourseComponent  {...course} key={course?.id} />;
+      return <CourseComponent {...course} key={course?.id} />;
     });
   }
 
   return (
-    <>
-      <h3 className="ml-10">Learners are viewing</h3>
+    <div className=" mx-5 ">
+      <h3 className="ml-2">{props.title}</h3>
       <Carousel responsive={responsive} swipeable={false}>
         {pageContent}
       </Carousel>
-    </>
+    </div>
   );
 }
