@@ -4,6 +4,7 @@ import { useState, createElement } from 'react';
 import IntendedLearners from '../components/organisms/intendedLearners/page';
 import CourseStructure from '../components/organisms/courseStructure';
 import { ComponentType } from 'react';
+import SetupTest from '../components/organisms/setupTest'
 
 type Checkbox = {
   id: number;
@@ -102,6 +103,7 @@ const ManageGoals = () => {
   const pageComponents: { [key: string]: ComponentType<Props> } = {
     'Intended learners': IntendedLearners,
     'Course structure': CourseStructure,
+    'Setup & test video': SetupTest,
     // ...add other checkboxes and their corresponding page components here
   };
   const [activePage, setActivePage] = useState('Intended learners');

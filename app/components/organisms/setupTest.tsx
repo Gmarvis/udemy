@@ -15,7 +15,7 @@ export default function CourseStructure({ }: Props) {
           <h2 className='font-bold mb-6 text-2xl'>Arrange your ideal studio and get early feedback
           </h2>
           <p className='mb-10 max-w-3xl'>
-          It's important to get your audio and video set up correctly now, because it's much more difficult to fix your videos after you’ve recorded. There are many creative ways to use what you have to create professional looking video.
+            It's important to get your audio and video set up correctly now, because it's much more difficult to fix your videos after you’ve recorded. There are many creative ways to use what you have to create professional looking video.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function CourseStructure({ }: Props) {
         <h2 className='font-bold mb-6 text-2xl'>Tips</h2>
         <h4 className='font-bold mb-3'>Equipment can be easy</h4>
         <p className='mb-6 max-w-4xl'>
-        You don't need to buy fancy equipment. Most smartphone cameras can capture video in HD, and you can record audio on another phone or external microphone.
+          You don't need to buy fancy equipment. Most smartphone cameras can capture video in HD, and you can record audio on another phone or external microphone.
         </p>
 
         <h4 className='font-bold mb-3'>Students need to hear you.</h4>
@@ -43,35 +43,32 @@ export default function CourseStructure({ }: Props) {
         <h4 className='font-bold mb-3'>Light the scene and your face</h4>
         <p className='mb-6'>Turn off overhead lights. Experiment with three point lighting by placing two lamps in front of you and one behind aimed on the background.</p>
 
-        <h4 className='font-bold mb-3'>Lectures cover one concept.</h4>
-        <p className='mb-6'>A good lecture length is 2-7 minutes to keep students interested and help them study in short bursts. Cover a single topic in each lecture so learners can easily find and re-watch them later.</p>
+        <h4 className='font-bold mb-3'>Reduce noise and echo</h4>
+        <p className='mb-6'>Turn off fans or air vents, and record at a time when it's quiet. Place acoustic foam or blankets on the walls, and bring in rugs or furniture to dampen echo.</p>
 
 
-        <h4 className='font-bold mb-3'>Mix and match your lecture types.</h4>
-        <p className='mb-6'>Alternate between filming yourself, your screen, and slides or other visuals. Showing yourself can help learners feel connected.
+        <h4 className='font-bold mb-3'>Be creative.</h4>
+        <p className='mb-6'>Students won't see behind the scenes. No one will know if you're surrounded by pillows for soundproofing...unless you tell other instructors in the community!
         </p>
-
-        <h4 className='font-bold mb-3'>Practice activities create hands-on learning.</h4>
-        <p className='mb-6'>Help learners <a href="/#" className="underline decoration-blue-500 text-blue-700">apply your lessons</a> to their real world with projects, assignments, coding exercises, or worksheets.</p>
 
         <h2 className='font-bold mb-5 text-2xl'>Requirements</h2>
         <ul className='mb-6 list-disc list-inside'>
-          <li className='mb-2'>See the <a href="/#" className="underline decoration-blue-500 text-blue-700">complete list</a> of course quality requirements</li>
-          <li className='mb-2'>Your course must have at least five lectures</li>
+          <li className='mb-2'>Film and export in HD to create videos of at least 720p, or 1080p if possible</li>
+          <li className='mb-2'>Audio should come out of both the left and right channels and be synced to your video</li>
           <li className='mb-2'>All lectures must add up to at least 30+ minutes of total video</li>
-          <li className='mb-2'>Your course is composed of valuable educational content and free of promotional or distracting materials</li>
+          <li className='mb-2'>Audio should be free of echo and background noise so as not to be distracting to students</li>
         </ul>
 
         <h2 className='font-bold mb-4 text-2xl'>Resources</h2>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy Trust & Safety</a>
+        <a href="/#" className="underline decoration-blue-500 text-blue-700">Teaching Center: Guide to equipment</a>
+        <p className='mb-5'>Make a home studio on a budget</p>
+
+        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy Trust & Safetyy</a>
         <p className='mb-5'>Our policies for instructors and students</p>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Join the instructor community</a>
-        <p className='mb-5'>A place to connect with other instructors</p>
-
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Official Udemy Course: How to Create an Online Course</a>
-        <p className='mb-5'>Learn about course creation from the Udemy Instructor Team and experienced instructors</p>
+        <a href="/#" className="underline decoration-blue-500 text-blue-700">Join the community</a>
+        <p className='mb-5'>A place to talk with other instructors</p>
       </div>
     </div>
   )
