@@ -8,7 +8,7 @@ import UdemBusDropdown from "../molecules/udemBusDropdown";
 import Avatar from "react-avatar";
 import TeachNav from "../molecules/teachNav";
 import AvatarProfile from "../molecules/avatar";
-import Development from "../molecules/category/development";
+import Category from "../molecules/category/development";
 
 const LogiNav = () => {
   return (
@@ -51,44 +51,89 @@ const LogiNav = () => {
           <SlBasket className="h-5 w-5 hover:cursor-pointer" />
           <BsBell className="h-5 w-5 hover:cursor-pointer" />
           <AvatarProfile />
-          {/* <Avatar
-              className="avatar"
-              name="Gael Tikeng"
-              color="#0e0d0d"
-              round={true}
-            /> */}
         </div>
       </div>
       <hr />
-      <div className="py-4 shadow-md">
-        <ul className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            <Development />
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            Business
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            Finance and Accounting
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            IT & Software
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            Office Productivity
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            Personal Development
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">Design</li>
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            Marketing
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">
-            Health & fitness
-          </li>
-          <li className="hover:cursor-pointer hover:text-violet-600">Music</li>
-        </ul>
+      <div className="py-4 shadow-md ">
+        <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
+          <Category
+            label={"Development"}
+            l1={"Web Development"}
+            l2={"Mobile Development"}
+            l3={"Progamming Language"}
+            l4={"Game Development"}
+            l5={"Database design & Development"}
+            l6={"Software Testing"}
+          />
+          <Category
+            label={"Business"}
+            l1={"Entrepreneurship"}
+            l2={"Communication"}
+            l3={"Management"}
+            l4={"Sale"}
+            l5={"Business Strategy"}
+          />
+          <Category
+            label={"Finance & Accounting"}
+            l1={"Accounting & Bookkeeping"}
+            l2={"Cryptocurrency & Blockchain"}
+            l3={"Finance"}
+            l4={"Finance Modeling & Analysis"}
+            l5={"Investing & Trading"}
+          />
+          <Category
+            label={"IT & Software"}
+            l1={"IT Certification"}
+            l2={"Network Security"}
+            l3={"Hardware"}
+            l4={"Operating Systems & Server"}
+            l5={"Other IT & Software"}
+          />
+          <Category
+            label={"Personnal Development"}
+            l1={"Personal Transformation"}
+            l2={"Personal Productivity"}
+            l3={"Leasdership"}
+            l4={"Career Development"}
+            l5={"Parenting & relationships"}
+          />
+          <Category
+            label={"Design"}
+            l1={"Web Design"}
+            l2={"Graphic Design & Illustration"}
+            l3={"Design Tools"}
+            l4={"User Experience Design"}
+            l5={"Gaeme Design"}
+            l6={"3D Animation"}
+          />
+          <Category
+            label={"Marketing"}
+            l1={"Digital Marketing"}
+            l2={"Search Engine Optimization"}
+            l3={"Social Media Marketing"}
+            l4={"Branding"}
+            l5={"Marketing Fundamentals"}
+            l6={"Marketing Analytics & Automation"}
+          />
+          <Category
+            label={"Health & Fitness"}
+            l1={"Fitness"}
+            l2={"General Health"}
+            l3={"Sports"}
+            l4={"Nutrition & Diet"}
+            l5={"Yoga"}
+            l6={"Mental Health"}
+          />
+          <Category
+            label={"Music"}
+            l1={"Instruments"}
+            l2={"Music Production"}
+            l3={"Music Fundamentals"}
+            l4={"Vocal"}
+            l5={"Music Techniques"}
+            l6={"Music Software"}
+          />
+        </div>
       </div>
     </div>
   );
