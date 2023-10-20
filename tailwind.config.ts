@@ -67,7 +67,7 @@ const config: Config = {
     //   silver: "#ecebff",
     //   "bubble-gum": "#ff77e9",
     //   bermuda: "#78dcca",
-    //   ctitle: "#2d2f31",
+    //   ctitle: "#2d2f31", 
     //   bestseller: "#fef08a",
     //   white: "#fff",
     //   gray: "#ccc",
