@@ -8,13 +8,14 @@ import UdemBusDropdown from "../molecules/udemBusDropdown";
 import Avatar from "react-avatar";
 import TeachNav from "../molecules/teachNav";
 import AvatarProfile from "../molecules/avatar";
+import Development from "../molecules/category/development";
 
 const LogiNav = () => {
   return (
     <div>
       <div className="py-2 px-6">
         <div className="md:flex justify-between hidden items-center">
-          <div className=" text-4xl pb-4  bg-red-600 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
+          <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
             <Image
               src="/logo-udemy.svg"
               width={91}
@@ -33,10 +34,10 @@ const LogiNav = () => {
               type="text"
               placeholder="Search for anything"
             />
-            <BsSearch
+            {/* <BsSearch
               className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
               size={17}
-            />
+            /> */}
           </div>
           <UdemBusDropdown />
           <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
@@ -62,7 +63,7 @@ const LogiNav = () => {
       <div className="py-4 shadow-md">
         <ul className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
           <li className="hover:cursor-pointer hover:text-violet-600">
-            Devlopment
+            <Development />
           </li>
           <li className="hover:cursor-pointer hover:text-violet-600">
             Business
