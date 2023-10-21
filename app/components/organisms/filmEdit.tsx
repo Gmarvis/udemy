@@ -34,43 +34,39 @@ export default function CourseStructure({ }: Props) {
 
         <h4 className="font-bold mb-3">Build rapport.
 </h4>
-        <p className="mb-6">Students want to know who’s teaching them. Even for a course that is mostly screencasts, film yourself for your introduction. Or go the extra mile and film yourself introducing each section!
+        <p className="mb-6">Students want to know who&apos;s teaching them. Even for a course that is mostly screencasts, film yourself for your introduction. Or go the extra mile and film yourself introducing each section!
         </p>
 
+        <h4 className="font-bold mb-3">Being on camera takes practice.</h4>
+        <p className="mb-6">Make eye contact with the camera and speak clearly. Do as many retakes as you need to get it right.</p>
 
+        <h4 className="font-bold mb-3">Set yourself up for editing success.</h4>
+        <p className="mb-6">You can edit out long pauses, mistakes, and ums or ahs. Film a few extra activities or images that you can add in later to cover those cuts.</p>
 
-        <h4 className="font-bold mb-3">Make a studio.</h4>
-        <p className="mb-6">Clean up your background and arrange props. Almost any small space can be transformed with a backdrop made of colored paper or an ironed bed sheet.</p>
+        <h4 className="font-bold mb-3">Create audio marks.</h4>
+        <p className="mb-6">Clap when you start each take to easily locate the audio spike during editing. Use our guides to manage your recording day efficiently.</p>
 
-        <h4 className="font-bold mb-3">Light the scene and your face</h4>
-        <p className="mb-6">Turn off overhead lights. Experiment with three point lighting by placing two lamps in front of you and one behind aimed on the background.</p>
-
-        <h4 className="font-bold mb-3">Reduce noise and echo</h4>
-        <p className="mb-6">Turn off fans or air vents, and record at a time when it&apos;s quiet. Place acoustic foam or blankets on the walls, and bring in rugs or furniture to dampen echo.</p>
-
-
-        <h4 className="font-bold mb-3">Be creative.</h4>
-        <p className="mb-6">Students won&apos;t see behind the scenes. No one will know if you&apos;re surrounded by pillows for soundproofing...unless you tell other instructors in the community!
+        <h4 className="font-bold mb-3">For screencasts, clean up.</h4>
+        <p className="mb-6">Move unrelated files and folders off your desktop and open any tabs in advance. Make on-screen text at least 24pt and use zooming to highlight.
         </p>
 
         <h2 className="font-bold mb-5 text-2xl">Requirements</h2>
         <ul className="mb-6 list-disc list-inside">
           <li className="mb-2">Film and export in HD to create videos of at least 720p, or 1080p if possible</li>
           <li className="mb-2">Audio should come out of both the left and right channels and be synced to your video</li>
-          <li className="mb-2">All lectures must add up to at least 30+ minutes of total video</li>
           <li className="mb-2">Audio should be free of echo and background noise so as not to be distracting to students</li>
         </ul>
 
         <h2 className="font-bold mb-4 text-2xl">Resources</h2>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Teaching Center: Guide to equipment</a>
-        <p className="mb-5">Make a home studio on a budget</p>
+        <a href="/#" className="underline decoration-blue-500 text-blue-700">Create a test video</a>
+        <p className="mb-5">Get feedback before filming your whole course</p>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy Trust & Safetyy</a>
+        <a href="/#" className="underline decoration-blue-500 text-blue-700">Teaching Center: Guide to quality A/V</a>
+        <p className="mb-5">Film and edit with confidence</p>
+
+        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy trust & safety</a>
         <p className="mb-5">Our policies for instructors and students</p>
-
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Join the community</a>
-        <p className="mb-5">A place to talk with other instructors</p>
       </div>
     </div>
   )

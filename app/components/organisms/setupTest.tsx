@@ -64,7 +64,7 @@ export default function CourseStructure({ }: Props) {
         <a href="/#" className="underline decoration-blue-500 text-blue-700">Teaching Center: Guide to equipment</a>
         <p className='mb-5'>Make a home studio on a budget</p>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy Trust & Safetyy</a>
+        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy Trust & Safety</a>
         <p className='mb-5'>Our policies for instructors and students</p>
 
         <a href="/#" className="underline decoration-blue-500 text-blue-700">Join the community</a>
