@@ -8,7 +8,7 @@ export const responsive = {
   },
   largeDesktop: {
     breakpoint: { max: 1536, min: 1024 },
-    items: 4,
+    items: 5,
     slidesToSlide: 3,
   },
   desktop: {

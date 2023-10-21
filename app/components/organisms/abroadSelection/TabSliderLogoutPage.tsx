@@ -15,7 +15,9 @@ import { subCategory } from "@/public/data/dummydata";
 const conten =
   "Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You";
 
-const AbroadSelection = () => {
+type Props = {};
+
+const TabSliderLogout = (props: Props) => {
   const { courses } = useCourse();
   const [listOfCourse, setListofCourse] = useState(() =>
     getRandomArrySorted(courses)?.map((course) => (
@@ -25,15 +27,9 @@ const AbroadSelection = () => {
 
   const [showCategoryComponent, setShowCategoryContent] = useState<JSX.Element>(
     () => (
-      <SliderContainer
-        categoryContent={conten}
-        categoryTitle={"Expand your career opportunities with Python"}
-        categoryName={"Python"}
-      >
-        <Carousel swipeable={false} ssr={false} responsive={responsive}>
-          {listOfCourse}
-        </Carousel>
-      </SliderContainer>
+      <Carousel swipeable={false} ssr={false} responsive={responsive}>
+        {listOfCourse}
+      </Carousel>
     )
   );
 
@@ -43,15 +39,9 @@ const AbroadSelection = () => {
     title: string;
   }) => {
     setShowCategoryContent(
-      <SliderContainer
-        categoryContent={category.content}
-        categoryTitle={category.title}
-        categoryName={category.name}
-      >
-        <Carousel swipeable={false} ssr={false} responsive={responsive}>
-          {listOfCourse}
-        </Carousel>
-      </SliderContainer>
+      <Carousel swipeable={false} ssr={false} responsive={responsive}>
+        {listOfCourse}
+      </Carousel>
     );
 
     setListofCourse(
@@ -70,21 +60,12 @@ const AbroadSelection = () => {
       </div>
     );
   });
-
   return (
-    <div className="text-xl font-bold flex flex-col gap-4 px-5">
-      <h2 className=" font-bold text-black text-xl">
-        {" "}
-        A broad selection of courses
-      </h2>
-      <p className="text-sm">
-        Choose from over 210,000 online video courses with new additions
-        published every month
-      </p>
-      <div className="flex gap-10">{checkCategory}</div>
+    <>
+      <div className="flex gap-10 ml-2">{checkCategory}</div>{" "}
       {showCategoryComponent}
-    </div>
+    </>
   );
 };
 
-export default AbroadSelection;
+export default TabSliderLogout;

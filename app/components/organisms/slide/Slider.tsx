@@ -1,4 +1,5 @@
 "use client";
+
 import { ReactElement } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -27,9 +28,9 @@ export default function SliderComponent(props: { title: string }) {
   }
 
   return (
-    <div className=" mx-5 ">
+    <div>
       <h3 className="ml-2">{props.title}</h3>
-      <Carousel responsive={responsive} swipeable={false}>
+      <Carousel responsive={responsive} swipeable={false} className="w-full">
         {pageContent}
       </Carousel>
     </div>

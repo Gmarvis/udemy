@@ -15,7 +15,7 @@ const CourseComponent = ({ ...course }: SimpleCourseType) => {
 
   return (
     <>
-      <div>
+      <div className="p-0 m-0">
         <Whisper
           trigger="hover"
           speaker={

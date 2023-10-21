@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import useCart from "../Hooks/useCart";
 import ModalCourseCard from "../components/organisms/cart/modalCourseCard";
 import DisplayTotalAmount from "../components/organisms/cart/DisplayTotalAmount";
@@ -11,6 +11,13 @@ import { CartItemType, SimpleCourseType } from "@/types";
 const CartPage = () => {
   const { cart, totalPrice } = useCart();
   const size = useWindowSize();
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
 
   if (typeof sessionStorage === "undefined") return;
 
