@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import AvatarProfile from "../molecules/avatar";
 import { RxCrossCircled } from "react-icons/rx";
@@ -97,9 +97,7 @@ const MenuItems = (props: Props) => {
             </a>
           </div>
         </div>
-        <RxCrossCircled
-          className="text-sm mt-5 bg-red-500"
-        />
+        <RxCrossCircled size={50} className="mt-5 " />
       </div>
     </div>
   );
