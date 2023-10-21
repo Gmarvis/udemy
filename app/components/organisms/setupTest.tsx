@@ -15,7 +15,7 @@ export default function CourseStructure({ }: Props) {
           <h2 className='font-bold mb-6 text-2xl'>Arrange your ideal studio and get early feedback
           </h2>
           <p className='mb-10 max-w-3xl'>
-            It's important to get your audio and video set up correctly now, because it's much more difficult to fix your videos after you've recorded. There are many creative ways to use what you have to create professional looking video.
+            It&apos;s important to get your audio and video set up correctly now, because it&apos;s much more difficult to fix your videos after you&apos;ve recorded. There are many creative ways to use what you have to create professional looking video.
           </p>
         </div>
 
@@ -30,11 +30,11 @@ export default function CourseStructure({ }: Props) {
         <h2 className='font-bold mb-6 text-2xl'>Tips</h2>
         <h4 className='font-bold mb-3'>Equipment can be easy</h4>
         <p className='mb-6 max-w-4xl'>
-          You don't need to buy fancy equipment. Most smartphone cameras can capture video in HD, and you can record audio on another phone or external microphone.
+          You don&apos;t need to buy fancy equipment. Most smartphone cameras can capture video in HD, and you can record audio on another phone or external microphone.
         </p>
 
         <h4 className='font-bold mb-3'>Students need to hear you.</h4>
-        <p className='mb-6'>A good microphone is the most important piece of equipment you will choose. There are lot of affordable options.. Make sure it's correctly plugged in and 6-12 inches (15-30 cm) from you.
+        <p className='mb-6'>A good microphone is the most important piece of equipment you will choose. There are lot of affordable options.. Make sure it&apos;s correctly plugged in and 6-12 inches (15-30 cm) from you.
         </p>
 
         <h4 className='font-bold mb-3'>Make a studio.</h4>
@@ -44,11 +44,11 @@ export default function CourseStructure({ }: Props) {
         <p className='mb-6'>Turn off overhead lights. Experiment with three point lighting by placing two lamps in front of you and one behind aimed on the background.</p>
 
         <h4 className='font-bold mb-3'>Reduce noise and echo</h4>
-        <p className='mb-6'>Turn off fans or air vents, and record at a time when it's quiet. Place acoustic foam or blankets on the walls, and bring in rugs or furniture to dampen echo.</p>
+        <p className='mb-6'>Turn off fans or air vents, and record at a time when it&apos;s quiet. Place acoustic foam or blankets on the walls, and bring in rugs or furniture to dampen echo.</p>
 
 
         <h4 className='font-bold mb-3'>Be creative.</h4>
-        <p className='mb-6'>Students won't see behind the scenes. No one will know if you're surrounded by pillows for soundproofing...unless you tell other instructors in the community!
+        <p className='mb-6'>Students won&apos;t see behind the scenes. No one will know if you&apos;re surrounded by pillows for soundproofing...unless you tell other instructors in the community!
         </p>
 
         <h2 className='font-bold mb-5 text-2xl'>Requirements</h2>
