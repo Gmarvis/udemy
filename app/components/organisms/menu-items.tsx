@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import AvatarProfile from "../molecules/avatar";
 import { RxCrossCircled } from "react-icons/rx";
 import { TfiWorld } from "react-icons/tfi";
@@ -8,9 +8,17 @@ import Avatar from "react-avatar";
 type Props = {};
 
 const MenuItems = (props: Props) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  function handleClick(): void {
+    setIsClicked(true)
+    console.log("cross btn clicked")
+    // throw new Error("Function not implemented.");
+  }
+
   return (
     <div className="">
-      <div className="flex  gap-4 bg-opacity-80 bg-black bg-transparent h-full">
+      <div className="flex  gap-4 bg-opacity-80 bg-black h-full">
         <div className="mt-1  w-[300px] bg-white drop-shadow-lg z-10 flex-col hover:flex">
           <div className=" flex py-4 gap-4 hover:cursor-pointer w-[50px] px-6">
             <Avatar
@@ -97,7 +105,11 @@ const MenuItems = (props: Props) => {
             </a>
           </div>
         </div>
-        <RxCrossCircled size={50} className="mt-5 " />
+        <RxCrossCircled
+          size={50}
+          className="mt-5 text-white"
+          onClick={() => handleClick()}
+        />
       </div>
     </div>
   );
