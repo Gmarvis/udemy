@@ -17,9 +17,8 @@ const conten =
   "Take one of Udemy’s range of Python courses and learn how to code using this incredibly useful language. Its simple syntax and readability makes Python perfect for Flask, Django, data science, and machine learning. You";
 
 type Props = {
-  title: string;
-  textContent: string;
-  childrem: React.JSX.Element[];
+  title?: string;
+  textContent?: string;
 };
 
 const AbroadSelection = ({ title, textContent }: Props) => {

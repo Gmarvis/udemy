@@ -28,8 +28,6 @@ const CartPage = () => {
 
   const localStorCart = JSON.parse(cartStorage);
 
-  console.log(localStorCart);
-  console.log(cart);
   let cartCourses = [];
   if (cart.length) {
     cartCourses = cart?.map((course: any, i: number) => (
