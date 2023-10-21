@@ -3,6 +3,7 @@
 import { useState, createElement } from 'react';
 import IntendedLearners from '../components/organisms/intendedLearners/page';
 import CourseStructure from '../components/organisms/courseStructure';
+import InstructorCurriculum from '../components/organisms/instructorCurriculum';
 import FilmEdit from '../components/organisms/filmEdit'
 import { ComponentType } from 'react';
 import SetupTest from '../components/organisms/setupTest'
@@ -106,7 +107,7 @@ const ManageGoals = () => {
     'Course structure': CourseStructure,
     'Setup & test video': SetupTest,
     'Film & edit': FilmEdit,
-    // 'Curriculum': ,
+    'Curriculum': InstructorCurriculum,
     // ...add other checkboxes and their corresponding page components here
   };
   const [activePage, setActivePage] = useState('Intended learners');
