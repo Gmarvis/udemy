@@ -24,6 +24,11 @@ const TabSlider = (props: Props) => {
       <CourseComponent {...course} key={course?.id} />
     ))
   );
+  const [activeDiv, setActiveDiv] = React.useState<{
+    name?: string;
+    content?: string;
+    title?: string;
+  }>({});
 
   const [showCategoryComponent, setShowCategoryContent] = useState<JSX.Element>(
     () => (
@@ -61,11 +66,17 @@ const TabSlider = (props: Props) => {
         <CourseComponent {...course} key={course?.id} />
       ))
     );
+
+    setActiveDiv(category);
   };
 
   const checkCategory = subCategory.map((category, i) => {
     return (
-      <div key={i} className="mb-1 text-xs text-udemy hover:font-bold ">
+      <div
+        key={i}
+        className={activeDiv === category ? "active" : ""}
+        id="activeDiv"
+      >
         <button onClick={() => fetchCourses(category)} className="font-bold ">
           {category.name}{" "}
         </button>

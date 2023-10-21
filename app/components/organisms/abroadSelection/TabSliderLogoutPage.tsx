@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import SliderContainer from "./SliderContainer";
 import Button from "../../atoms/Button";
 import useCourse from "@/app/Hooks/useCourses";
@@ -32,6 +32,22 @@ const TabSliderLogout = (props: Props) => {
       </Carousel>
     )
   );
+  const [hasMounted, setHasMounted] = React.useState(false);
+  const [activeDiv, setActiveDiv] = React.useState<{
+    name?: string;
+    content?: string;
+    title?: string;
+  }>({});
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
+
+  if (typeof sessionStorage === "undefined") return;
+  const activeDivs: NodeListOf<Element> =
+    window.document.querySelectorAll("activeDiv");
 
   const fetchCourses = (category: {
     name: string;
@@ -49,11 +65,17 @@ const TabSliderLogout = (props: Props) => {
         <CourseComponent {...course} key={course?.id} />
       ))
     );
+
+    setActiveDiv(category);
   };
 
   const checkCategory = subCategory.map((category, i) => {
     return (
-      <div key={i} className="mb-1 text-xs text-udemy hover:font-bold ">
+      <div
+        key={i}
+        className={activeDiv === category ? "active" : ""}
+        id="activeDiv"
+      >
         <button onClick={() => fetchCourses(category)} className="font-bold ">
           {category.name}{" "}
         </button>
@@ -62,7 +84,10 @@ const TabSliderLogout = (props: Props) => {
   });
   return (
     <>
-      <div className="flex gap-10 ml-2">{checkCategory}</div>{" "}
+      <div className="flex gap-10 md:text-sm pb-3  mb-4 border-b-gray2">
+        {checkCategory}
+      </div>{" "}
+      <hr className="-mt-[29px]" />
       {showCategoryComponent}
     </>
   );
