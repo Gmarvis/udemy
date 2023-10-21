@@ -51,13 +51,15 @@ const InstructorCurriculum = () => {
         to offer your course for free, the total length of video content must be less than 2 hours.
       </p>
 
-      <div className="mt-2">
+      <div className="border ml-14 mb-4 border-black bg-gray-100 h-10 w-96">
+
+      </div>
+
         {sections.map((section) => (
           <div key={section.id} className="mb-4">
             <h2 className="text-xl font-bold">{section.title}</h2>
           </div>
         ))}
-      </div>
 
       {isAddingSection ? (
         <div className="px-14">
@@ -120,7 +122,7 @@ const InstructorCurriculum = () => {
         <div className="mt-4 px-14">
           <button
             onClick={() => setIsAddingSection(true)}
-            className="flex items-center space-x-2 cursor-pointer border border-black px-3 py-1 font-bold"
+            className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm"
           >
             <BsPlus className='text-3xl'/>
             <span>Section</span>
