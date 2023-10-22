@@ -13,7 +13,7 @@ import GoToCart from "../molecules/cart-list";
 import "tippy.js/dist/tippy.css";
 import { TbColorFilter } from "react-icons/tb";
 import Link from "next/link";
-import Sidenav from "./sidenav";
+import MobileNavbar from "./sidenav";
 
 const LogiNav = () => {
   // const navigate = useNavigate()
@@ -24,7 +24,7 @@ const LogiNav = () => {
 
   return (
     <div>
-      <Sidenav/>
+      <MobileNavbar />
       <div className="py-2 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">

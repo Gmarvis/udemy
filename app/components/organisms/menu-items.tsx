@@ -11,7 +11,7 @@ const MenuItems = (props: Props) => {
   const [isClicked, setIsClicked] = useState(false);
 
   function handleClick(): void {
-    setIsClicked(true)
+    setIsClicked(!isClicked)
     console.log("cross btn clicked")
     // throw new Error("Function not implemented.");
   }
