@@ -3,18 +3,20 @@ const Headers = {
 };
 
 export default class ApiCall {
-  GET(url: string, _headers: HeadersInit = {}) {
+  async GET(url: string, _headers: HeadersInit = {}) {
     return fetch(url, {
       method: "GET",
       headers: { ...Headers, ..._headers },
     });
   }
 
-  POST(url: string, body: any, _headers: HeadersInit = {}) {
+  async POST(url: string, body: any, _headers: HeadersInit = {}) {
     return fetch(url, {
       method: "POST",
       headers: { ...Headers, ..._headers },
       body: JSON.stringify(body),
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch(console.log);
   }
 }

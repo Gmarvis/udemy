@@ -7,24 +7,55 @@ import PasswordStrenght from "../atoms/passwordStrenght";
 import { NextPage } from "next";
 import { signUp } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
+// validator import
+import validator from "validator";
+import { useRouter } from "next/navigation";
+
 const RegisterPage: NextPage = () => {
   const [fullname, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("formData: ", { fullname, email, password });
+    // console.log("formData: ", { fullname, email, password });
+    const isValidEmail = validator.isEmail(email);
+    const isStrongPassword = validator.isStrongPassword(password);
+
+    if (!isValidEmail) {
+      setIsError(true);
+      setErrorMessage("Enter a valid Email");
+      return;
+    }
 
     if (fullname && email && password) {
       signUp({
         name: fullname,
         email,
         password,
-      }).then((res) => LOCAL_STORAGE.save("token", res.token));
+      }).then((res) => {
+        if (res.token) {
+          LOCAL_STORAGE.save("token", res.token);
+          router.push("/");
+          setIsError(false);
+          setFullName("");
+          setEmail("");
+          setPassword("");
+        } else {
+          setIsError(true);
+          if (res.statusCode === 500) {
+            setErrorMessage("Email already exist");
+          } else setErrorMessage(res.message);
+        }
+      });
     } else {
-      console.log("values cannot be empty");
+      setIsError(true);
+      setErrorMessage("Please input all fields");
     }
   };
   return (
@@ -56,6 +87,11 @@ const RegisterPage: NextPage = () => {
           value={password}
         />
         <PasswordStrenght password={password} />
+        {isError && (
+          <div className="bg-red-300 p-2 ">
+            <h2>{errorMessage}</h2>
+          </div>
+        )}
         <div className="flex  text-start">
           <input
             id="checked-checkbox"

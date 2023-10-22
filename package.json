@@ -17,10 +17,11 @@
     "react-dom": "latest",
     "react-i18next": "^13.2.2",
     "react-icons": "^4.11.0",
-    "react-password-strength-bar": "^0.4.1",
     "react-modal": "^3.16.1",
+    "react-password-strength-bar": "^0.4.1",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -28,6 +29,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/react-slick": "^0.23.10",
+    "@types/validator": "^13.11.5",
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
