@@ -28,10 +28,10 @@ export default function RootLayout({
         <LogiNav />
         {/* <MainNav/> */}
         {children}
-       {/* <FeatureCategory/>
+       <FeatureCategory/>
        <UdemyBusiness/>
        <BecomeInstructor/>
-       <FooterLandingPage/> */}
+       <FooterLandingPage/>
       
       </body>
     </html>

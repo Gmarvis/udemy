@@ -10,7 +10,6 @@ import Category from "../molecules/category/development";
 import GoToCart from "../molecules/cart-list";
 // import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
-import { TbColorFilter } from "react-icons/tb";
 import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import MenuItems from "./menu-items";
