@@ -39,7 +39,7 @@ const Avatardropdown = (props: Props) => {
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">Account setting</a>
+          <a href="#" className="">Account setting</a>
           <a href="#" className="hover:text-violet-600">Payout and tax settings</a>
         </div>
         <hr />
@@ -53,7 +53,7 @@ const Avatardropdown = (props: Props) => {
           <a href="#" className="hover:text-violet-600">Log out</a>
         </div>
         <hr />
-        <div className="text-sm p-4 leading flex flex-col justify-start">
+        <div className="text-sm p-4 leading flex flex-col">
           <a href="#" className="hover:text-violet-600">Udemy Business</a>
           <a href="#" className="text-gray-400">Bring learning to your company</a>
         </div>
