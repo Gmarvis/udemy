@@ -8,7 +8,6 @@ import UdemyBusiness from "./components/organisms/udemy-business";
 import MainNav from "./components/organisms/MainNav";
 import UserContextProvider from "./context/userContext";
 import { LOCAL_STORAGE } from "@/services/storage";
-import { getUser } from "@/services/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +26,6 @@ export default function RootLayout({
         <body className={inter.className}>
           <MainNav />
           {children}
-          <UdemyBusiness />
           <Footer />
         </body>
       </UserContextProvider>
