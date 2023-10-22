@@ -1,8 +1,9 @@
 "use client";
 import SliderComponent from "../slide/Slider";
 import "react-multi-carousel/lib/styles.css";
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { subCategory } from "@/public/data/dummydata";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 type Props = {
   name?: string;
@@ -13,20 +14,31 @@ type Props = {
 const ResponsiveTab = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeCat, setActiveCat] = React.useState<Props>({});
+  const [rotate, setRotate] = React.useState<string>("");
 
+  let arrowClass: string = "";
   const toggleDropdown = (category: Props) => {
     setIsOpen(!isOpen);
     setActiveCat(category);
+    setRotate("rotate-180");
   };
 
   const listOfCourse = subCategory.map((category, i) => (
     <div
-      className=" font-bold font-segoe text-lg text-ctitle  border-t-1 border-gray2 pt-4 pb-3"
+      className=" font-bold font-segoe text-lg text-ctitle  border-t-1 border-gray2 pt-4 pb-3 cursor-pointer"
       key={i}
+      onClick={() => {
+        toggleDropdown(category);
+      }}
     >
-      <button onClick={() => toggleDropdown(category)} className="mb-3">
-        {category.name}
-      </button>
+      <div className="flex justify-between items-center mb-4">
+        <span>{category.name}</span>
+        <span className={isOpen && activeCat === category ? rotate : ""}>
+          {" "}
+          <MdKeyboardArrowDown />
+        </span>
+      </div>
+
       {isOpen && activeCat === category && (
         <div>
           <SliderComponent title="" />

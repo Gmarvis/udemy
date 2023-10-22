@@ -72,11 +72,7 @@ const TabSlider = (props: Props) => {
 
   const checkCategory = subCategory.map((category, i) => {
     return (
-      <div
-        key={i}
-        className={activeDiv === category ? "active" : ""}
-        id="activeDiv"
-      >
+      <div key={i} className={activeDiv === category ? "active" : ""}>
         <button onClick={() => fetchCourses(category)} className="font-bold ">
           {category.name}{" "}
         </button>

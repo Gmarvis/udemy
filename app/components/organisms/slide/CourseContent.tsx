@@ -1,12 +1,10 @@
 "use client";
-import React, { ReactElement, memo, useRef, useState } from "react";
+import React, { useState } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { Rating } from "react-simple-star-rating";
-import { ReducerAction, ReducerActionType } from "@/app/context/CartProvider";
-import { CourseType, CartItemType, SimpleCourseType } from "@/types";
+import { SimpleCourseType } from "@/types";
 import PopupModal from "../cart/PopupModal";
 import useCourse from "@/app/Hooks/useCourses";
-import CourseCard from "./CourseCard";
 import useCart from "@/app/Hooks/useCart";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -59,7 +57,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
 
   const content = (
     <div
-      className="flex flex-col gap-2 bg-white py-3 px-3 w-80 h-auto ring text-lg"
+      className="flex flex-col gap-2 bg-white py-3 px-2 w-72 h-auto ring text-lg"
       id="divContent z-0"
     >
       <h5 className="text-black">{course.title}</h5>
@@ -74,7 +72,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
       </ul>
       <div className="w-full  text-2xl text-white">
         <button
-          className="bg-prple hover:bg-violt  w-52 py-3 mr-5"
+          className="bg-prple hover:bg-violt  w-48 py-3 mr-3"
           onClick={() => {
             onAddToCart();
           }}
@@ -82,10 +80,10 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
           <h5>Add to Cart</h5>
         </button>
 
-        <span className="border border-ctitle px-[10px] py-3 rounded-full w-12 h-20  hover:bg-gray">
+        <span className="border border-ctitle px-[10px] py-3 rounded-full w-10 h-16  hover:bg-gray">
           <Rating
-            fillIcon={<MdFavorite size={40} />}
-            emptyIcon={<MdFavoriteBorder size={40} />}
+            fillIcon={<MdFavorite size={35} />}
+            emptyIcon={<MdFavoriteBorder size={35} />}
             iconsCount={1}
             SVGclassName="svgIcon inline-block hover:bg-gray "
             fillColor="#000"
