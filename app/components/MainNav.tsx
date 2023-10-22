@@ -6,8 +6,8 @@ import { SlBasket } from "react-icons/sl";
 import { TbWorld } from "react-icons/tb";
 import UdemBusDropdown from "./molecules/udemBusDropdown";
 import TeachNav from "./molecules/teachNav";
-import Login from "./organisms/login";
-import Register from "./organisms/register";
+// import Login from "./organisms/login";
+// import Register from "./organisms/register";
 
 const MainNav = () => {
   return (
@@ -39,8 +39,8 @@ const MainNav = () => {
         <UdemBusDropdown />
         <TeachNav />
         <SlBasket className="h-5 w-5" />
-        <Login />
-        <Register />
+        {/* <Login />
+        <Register /> */}
         <div className="border border-black w-[40px] h-[40px]  flex items-center pl-0">
           <TbWorld className="flex items-center h-5 w-10" />
         </div>
