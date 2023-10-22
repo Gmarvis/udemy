@@ -4,7 +4,7 @@ import Sidenav from '../components/organisms/sidenav'
 
 const page = () => {
   return (
-    <div className='flex w-full'>
+    <div className='flex'>
      <Sidenav/>
      <Teachprofil/>
     </div>

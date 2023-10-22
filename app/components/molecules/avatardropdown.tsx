@@ -39,7 +39,7 @@ const Avatardropdown = (props: Props) => {
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="">Account setting</a>
+          <a href="#" className="hover:text-violet-600">Account setting</a>
           <a href="#" className="hover:text-violet-600">Payout and tax settings</a>
         </div>
         <hr />

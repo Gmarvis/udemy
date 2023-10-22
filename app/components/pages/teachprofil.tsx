@@ -2,13 +2,14 @@ import React from "react";
 import { AiOutlineBell } from "react-icons/ai";
 import Profilheader from "../molecules/profilheader";
 import Avatardropdown from "../molecules/avatardropdown";
-import Sidenav from "../organisms/sidenav";
+
+
 
 const Teachprofil = () => {
   return (
-    <div>
+    <div className="w-full">
     
-      <div className="flex justify-end items-center text-center gap-8 mr-5 h-[80px]">
+      <div className="flex justify-end items-center text-center gap-8 mr-5 h-[80px] absolute">
         <div className="relative">
           <button className="peer py-2 hover:bg-white-700 text-black text-sm">
             Student
