@@ -10,23 +10,24 @@ import {
 
 type Props = {
   className?: string;
+  onClickMenuButton(): void;
 };
 
-const MobileNavbar = ({ className }: Props) => {
+const MobileNavbar = ({ className, onClickMenuButton }: Props) => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  function handleClick(): void {
-    setOpenMenu(!openMenu);
-    console.log("open menu sidenav");
-    // throw new Error("Function not implemented.");
-  }
+  // function handleClick(): void {
+  //   setOpenMenu(!openMenu);
+  //   console.log("open menu sidenav");
+  //   throw new Error("Function not implemented.");
+  // }
 
   return (
-    <div>
+    <div className={className} >
       <div className="flex md:hidden justify-between shadow-lg px-6 py-4">
         <AiOutlineMenu
           className="my-auto w-fit h-6"
-          onClick={() => handleClick()}
+          onClick={onClickMenuButton}
         />
         <Image
           className="w-20 my-auto"
@@ -39,7 +40,10 @@ const MobileNavbar = ({ className }: Props) => {
         <div className="flex gap-4 my-auto">
           <AiOutlineSearch className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
           <Link href="/cart">
-            <AiOutlineShoppingCart className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
+            <AiOutlineShoppingCart
+              // className={`${openMenu? 'bg-red-600' : 'bg-green-400'}`}
+              className="h-5 w-5 hover:cursor-pointer hover:text-violet-600"
+            />
           </Link>
         </div>
       </div>

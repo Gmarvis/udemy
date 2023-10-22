@@ -6,9 +6,9 @@ import MenuItems from './components/organisms/menu-items'
 export default function Home() {
   return (
     <main>
-       {/* <HeroSection/>  
-       <Logos/> */}
-      <MenuItems/>
+       <HeroSection/>  
+       <Logos/>
+      {/* <MenuItems/> */}
     </main>
   )
 }

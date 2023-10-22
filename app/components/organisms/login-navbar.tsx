@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { PropsWithChildren, useState } from "react";
 import Categories from "../atoms/categories";
 import { BsBell, BsSearch } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -8,23 +8,39 @@ import UdemBusDropdown from "../molecules/udemBusDropdown";
 import AvatarProfile from "../molecules/avatar";
 import Category from "../molecules/category/development";
 import GoToCart from "../molecules/cart-list";
-// import {useNavigate} from "react"
 // import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import { TbColorFilter } from "react-icons/tb";
 import Link from "next/link";
-import MobileNavbar from "./sidenav";
+import MobileNavbar from "./mobile-navbar";
+import MenuItems from "./menu-items";
 
-const LogiNav = () => {
-  // const navigate = useNavigate()
+const LogiNav = (props: PropsWithChildren) => {
+  const [active, setActive] = useState(false);
+  const [closed, setClosed] = useState(false);
+
   function handleClick(): void {
-    console.log("i am am Instructor");
+    console.log("I am Instructor");
     throw new Error("Function not implemented.");
   }
 
   return (
     <div>
-      <MobileNavbar />
+      <MobileNavbar onClickMenuButton={() => {
+        setActive((prev) => !prev)
+        console.log("string")
+        setTimeout(() => {
+          setActive((prev) => !prev)
+        }, 10000)
+      }} />
+      <MenuItems
+        onCloseMenu={() => setClosed((prev) => !prev)}
+        className={`${
+          active
+            ? "z-20 top-0 md:hidden absolute w-full transition-transform 1s ease-in-out"
+            : "hidden"
+        }`}
+      />
       <div className="py-2 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">

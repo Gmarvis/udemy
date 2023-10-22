@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <LogiNav /> */}
+        <LogiNav />
         {/* <MainNav/> */}
         {children}
        {/* <FeatureCategory/>

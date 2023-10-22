@@ -5,20 +5,18 @@ import { RxCrossCircled } from "react-icons/rx";
 import { TfiWorld } from "react-icons/tfi";
 import Avatar from "react-avatar";
 
-type Props = {};
+type Props = {
+  className?: string;
+  onCloseMenu(): void;
+};
 
-const MenuItems = (props: Props) => {
-  const [isClicked, setIsClicked] = useState(false);
+const MenuItems = ({className, onCloseMenu }: Props) => {
+  const [closed, setClosed] = useState(false);
 
-  function handleClick(): void {
-    setIsClicked(!isClicked)
-    console.log("cross btn clicked")
-    // throw new Error("Function not implemented.");
-  }
 
   return (
-    <div className="">
-      <div className="flex  gap-4 bg-opacity-80 bg-black h-full">
+    <div className={className}>
+      <div className={`${closed ? "translate-x-full" : "flex  gap-4 bg-opacity-80 bg-black h-full"}`}>
         <div className="mt-1  w-[300px] bg-white drop-shadow-lg z-10 flex-col hover:flex">
           <div className=" flex py-4 gap-4 hover:cursor-pointer w-[50px] px-6">
             <Avatar
@@ -34,7 +32,10 @@ const MenuItems = (props: Props) => {
             </div>
           </div>
           <hr />
-          <div className="text-sm p-4 leading-10">
+          <div
+            // className={`${isClicked? 'bg-red-600' : "text-sm p-4 leading-10"}`}
+            className="text-sm p-4 leading-10"
+          >
             <p className="hover:text-violet-600">My learning</p>
             <p className="hover:text-violet-600">My cart</p>
             <p className="hover:text-violet-600">Whishlist</p>
@@ -108,7 +109,7 @@ const MenuItems = (props: Props) => {
         <RxCrossCircled
           size={50}
           className="mt-5 text-white"
-          onClick={() => handleClick()}
+          onClick={() => setClosed((prev) => !prev)}
         />
       </div>
     </div>
@@ -116,3 +117,4 @@ const MenuItems = (props: Props) => {
 };
 
 export default MenuItems;
+
