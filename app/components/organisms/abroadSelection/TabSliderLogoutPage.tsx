@@ -46,8 +46,6 @@ const TabSliderLogout = (props: Props) => {
   }
 
   if (typeof sessionStorage === "undefined") return;
-  const activeDivs: NodeListOf<Element> =
-    window.document.querySelectorAll("activeDiv");
 
   const fetchCourses = (category: {
     name: string;

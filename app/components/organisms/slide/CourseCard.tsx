@@ -27,14 +27,14 @@ const CourseCard = ({
   // const itemInCart = inCart ? "→ Item in Cart: ✔️" : null;
 
   return (
-    <div className="w-48 card flex flex-col md:w-60   gap-1 md:ml-2 ">
+    <div className="w-48 flex flex-col md:w-60   gap-1 md:ml-2 ">
       {/* <Link href={"#"}> */}
       <Image
-        className="w-60 h-28 md:mr-5 lg:w-56 lg:h-28 object-cover  bg-contain bg-right-top bg-no-repeat "
+        className="w-72 h-28 md:mr-5 lg:w-56 lg:h-28 object-cover  bg-contain bg-right-top bg-no-repeat "
         src={imageurl}
         alt="product image"
         draggable={false}
-        width={110}
+        width={200}
         height={90}
       />
       <div>

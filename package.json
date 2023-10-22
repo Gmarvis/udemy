@@ -24,6 +24,7 @@
     "react-icons": "^4.11.0",
     "react-multi-carousel": "^2.8.4",
     "react-password-strength-bar": "^0.4.1",
+    "react-select": "^5.7.7",
     "react-simple-star-rating": "^5.1.7",
     "react-slick": "^0.29.0",
     "react-tiny-popover": "^7.2.4",

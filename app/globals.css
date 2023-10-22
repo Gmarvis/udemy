@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  padding: 0 1.5rem 0 0;
-}
+/* body {
+  
+} */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -38,7 +38,13 @@ body {
 .react-multiple-carousel__arrow--right {
   width: 4rem !important;
   height: 4rem !important;
-  right: -15px;
+  right: calc(1% + 1px);
+}
+
+@media screen and (max-width: 559px) {
+  .react-multiple-carousel__arrow--right {
+    visibility: hidden;
+  }
 }
 
 .react-multiple-carousel__arrow--right::before {

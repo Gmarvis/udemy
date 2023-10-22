@@ -47,9 +47,6 @@ const CartPage = () => {
         }, 0)
         .toFixed(2);
 
-  console.log(price);
-  console.log(totalPrice);
-
   let content;
   if (size.width < 700) {
     content = (

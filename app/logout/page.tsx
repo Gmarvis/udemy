@@ -5,6 +5,7 @@ import SliderComponent from "../components/organisms/slide/Slider";
 import SliderContainer from "../components/organisms/abroadSelection/SliderContainer";
 import AbroadSelection from "../components/organisms/abroadSelection/AbroadSelectionLandingPage";
 import TabSliderLogout from "../components/organisms/abroadSelection/TabSliderLogoutPage";
+import ResponsiveTab from "../components/organisms/abroadSelection/ResponsiveTab";
 
 type Props = {};
 
@@ -24,8 +25,11 @@ const Page = (props: Props) => {
           title="Learning that gets you"
         />
       </div>
-      <div className="mb-5 ml-0">
+      <div className="mb-5 ml-0 hidden sm:block">
         <TabSliderLogout />
+      </div>
+      <div className="mb-5 ml-0 sm:hidden">
+        <ResponsiveTab />
       </div>
       <div>
         <SliderComponent title="Learners are viewing" />

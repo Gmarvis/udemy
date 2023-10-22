@@ -34,8 +34,7 @@ export const courseData: SimpleCourseType[] = [
     author: "avom",
     price: 19.99,
 
-    description:
-      "Crash Course Electronics and PCB Design Bestseller Updated July 2023111 total hoursBeginner LevelSubtitles Learn Electronics and PCB Design from the Ground up with Altium CircuitMaker and Labcenter Proteus",
+    description: "description",
 
     classification: "Bestseller",
   },
@@ -46,8 +45,7 @@ export const courseData: SimpleCourseType[] = [
     title: "100 Days of code: The Complete Python Programming",
     author: "Dr. Angela  yu",
     price: 21.99,
-    description:
-      "Learn Electronics and PCB Design from the Ground up with Altium CircuitMaker and Labcenter Proteus",
+    description: "description",
   },
   {
     id: " 3",
@@ -56,9 +54,7 @@ export const courseData: SimpleCourseType[] = [
     title: "The complete python BootCamp From Zero",
     author: "jose Portilla",
     price: 99.99,
-    description:
-      "Create stunning images with 3ds Max 2022 and Corona Renderer 7. Learn the skills from the real expert.",
-    classification: "Bestseller",
+    description: "description",
   },
   {
     id: "4",
@@ -67,7 +63,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Water Bottle",
     author: "Dr. Angela  yu",
     price: 14.99,
-    description: "Some text about the product..",
+    description: "description..",
   },
   {
     id: "5",
@@ -76,7 +72,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Vans sneakers",
     author: "Dr. Angela  yu",
     price: 38.99,
-    description: "Some text about the product..",
+    description: "description.",
   },
   {
     id: "6",
@@ -85,9 +81,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Coco Noir",
     author: "Dr. Angela  yu",
     price: 149.99,
-    description:
-      "Get the foundation in business analysis you need to solve your organization's biggest problems.",
-    classification: "Bestseller",
+    description: "description",
   },
   {
     id: "7",
@@ -96,8 +90,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Sunglasses",
     author: "Dr. Angela  yu",
     price: 38.99,
-    description:
-      "Learn how to speak so people listen from a 5-time TED speaker.",
+    description: "description",
   },
   {
     id: "8",
@@ -106,8 +99,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Dove cream",
     author: "Dr. Angela  yu",
     price: 49.99,
-    description:
-      "Learn professional investment analysis techniques for real estate investing in residential and commercial properties",
+    description: "description",
   },
 ];
 
