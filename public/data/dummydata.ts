@@ -8,7 +8,7 @@ export const responsive = {
   },
   largeDesktop: {
     breakpoint: { max: 1536, min: 1024 },
-    items: 4,
+    items: 5,
     slidesToSlide: 3,
   },
   desktop: {
@@ -21,7 +21,7 @@ export const responsive = {
   },
   mobile: {
     breakpoint: { max: 600, min: 0 },
-    items: 1,
+    items: 2,
   },
 };
 
@@ -34,8 +34,7 @@ export const courseData: SimpleCourseType[] = [
     author: "avom",
     price: 19.99,
 
-    description:
-      "Crash Course Electronics and PCB Design Bestseller Updated July 2023111 total hoursBeginner LevelSubtitles Learn Electronics and PCB Design from the Ground up with Altium CircuitMaker and Labcenter Proteus",
+    description: "description",
 
     classification: "Bestseller",
   },
@@ -46,8 +45,7 @@ export const courseData: SimpleCourseType[] = [
     title: "100 Days of code: The Complete Python Programming",
     author: "Dr. Angela  yu",
     price: 21.99,
-    description:
-      "Learn Electronics and PCB Design from the Ground up with Altium CircuitMaker and Labcenter Proteus",
+    description: "description",
   },
   {
     id: " 3",
@@ -56,9 +54,7 @@ export const courseData: SimpleCourseType[] = [
     title: "The complete python BootCamp From Zero",
     author: "jose Portilla",
     price: 99.99,
-    description:
-      "Create stunning images with 3ds Max 2022 and Corona Renderer 7. Learn the skills from the real expert.",
-    classification: "Bestseller",
+    description: "description",
   },
   {
     id: "4",
@@ -67,7 +63,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Water Bottle",
     author: "Dr. Angela  yu",
     price: 14.99,
-    description: "Some text about the product..",
+    description: "description..",
   },
   {
     id: "5",
@@ -76,7 +72,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Vans sneakers",
     author: "Dr. Angela  yu",
     price: 38.99,
-    description: "Some text about the product..",
+    description: "description.",
   },
   {
     id: "6",
@@ -85,9 +81,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Coco Noir",
     author: "Dr. Angela  yu",
     price: 149.99,
-    description:
-      "Get the foundation in business analysis you need to solve your organization's biggest problems.",
-    classification: "Bestseller",
+    description: "description",
   },
   {
     id: "7",
@@ -96,7 +90,7 @@ export const courseData: SimpleCourseType[] = [
     title: "Sunglasses",
     author: "Dr. Angela  yu",
     price: 38.99,
-    description: "Learn how to speak so people listen from a 5-time TED speaker.",
+    description: "description",
   },
   {
     id: "8",
@@ -105,7 +99,45 @@ export const courseData: SimpleCourseType[] = [
     title: "Dove cream",
     author: "Dr. Angela  yu",
     price: 49.99,
-    description:
-      "Learn professional investment analysis techniques for real estate investing in residential and commercial properties",
+    description: "description",
+  },
+];
+
+export const subCategory = [
+  {
+    name: "Excel",
+    content:
+      "Take a Microsoft Excel course from Udemy, and learn how to use this industry-standard software. Real-world experts will show you the basics like how to organize data into sheets, rows and columns, and advanced techniques like creating complex dynamic formulas. Both small businesses and large companies use Excel to turn their raw data into actionable insights.",
+    title: "Analyze and visualize data with Excel",
+  },
+  {
+    name: "Web Development",
+    content:
+      "The world of web development is as wide as the internet itself. Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating, managing, and debugging the websites and applications that we increasingly rely on.",
+    title: "Build websites and applications with Web Development",
+  },
+  {
+    name: "JavaScript",
+    content:
+      "JavaScript is a text-based computer programming language used to make dynamic web pages. A must-learn for aspiring web developers or programmers, JavaScript can be used for features like image carousels, displaying countdowns and timers, and playing media on a webpage. With JavaScript online classes, you can learn to build ...",
+    title: "Grow your software development skills with JavaScript3",
+  },
+  {
+    name: "Data Science",
+    content:
+      "Data science application is an in-demand skill in many industries worldwide — including finance, transportation, education, manufacturing, human resources, and banking. Explore data science courses with Python, statistics, machine learning, and more to grow your knowledge. Get data science training if you’re into research, statistics, ...",
+    title: "Lead data-driven decisions with Data Science",
+  },
+  {
+    name: "Amazon AWS",
+    content:
+      "Amazon Web Services (AWS) is a cloud computing platform with more than 200 featured services. Whether or not you aim for certification, an AWS course offers the theory and practical skills you need to land a job in cloud development, sales, engineering, networking, and more. The better you become at cloud computing, the more ...",
+    title: "Become an expert in cloud computing with AWS Certification",
+  },
+  {
+    name: "Drawing",
+    content:
+      "Want to start drawing for fun or take your craft to the next level? Explore our online drawing classes and learn pencil drawing, figure drawing, cartoon drawing, character drawing for cartoons and anime, illustration, sketching, shading and more. Take an overview course on the fundamentals of drawing or zero in on an area ",
+    title: "Expand your creative skillset with Drawing",
   },
 ];

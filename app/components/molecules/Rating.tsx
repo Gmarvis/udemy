@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, ReactNode } from "react";
 import { Rating } from "react-simple-star-rating";
 
@@ -12,10 +13,10 @@ type Props = {
   disableFillHover?: boolean;
   emptyIcon?: React.JSX.Element;
   allowHover?: boolean;
-  className? : string
+  className?: string;
 };
 
-function Rate({...props}: Props) {
+function Rate({ ...props }: Props) {
   const [ratingVal, setRatingVal] = useState(0);
 
   const handleRating = (rate: number) => {
@@ -31,13 +32,13 @@ function Rate({...props}: Props) {
       <Rating
         onClick={handleRating}
         initialValue={ratingVal}
-        size={20}
+        size={15}
         fillColorArray={["#f17a45", "#f19745", "#f1a545", "#f1b345", "#f1d045"]}
         emptyColor="gray"
         className={props.className}
         disableFillHover={true}
       />
-      <p className="text-xl ml-4">{ratingVal}</p>
+      <p className="text-sm ml-4">{ratingVal}</p>
     </div>
   );
 }
