@@ -29,6 +29,7 @@ const LoginForm: NextPage = () => {
     if (!isValidEmail) {
       setIsError(true);
       setErrorMassage("incurrect email");
+      setIsLoading(false);
       return;
     } else {
       login({
