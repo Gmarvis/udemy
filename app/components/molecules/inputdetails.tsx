@@ -16,7 +16,7 @@ const Inputdetails: NextPage = () => {
 
   return (
     <div className="mb-[200px]">
-      <form onSubmit={handleSubmit} className="flex flex-row  gap-8 ">
+      <form onSubmit={handleSubmit} className="flex flex-row  gap-8 max-[740px]:flex-col">
         <div className="flex flex-col">
           <Logininput
             type="text"

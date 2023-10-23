@@ -1,15 +1,28 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { AiOutlineBell } from "react-icons/ai";
 import Profilheader from "../molecules/profilheader";
 import Avatardropdown from "../molecules/avatardropdown";
-
-
+import { IoMdMenu } from "react-icons/io";
+import Sidenav from "../organisms/sidenav";
 
 const Teachprofil = () => {
+  const [showDropdown, setShowDropdown] = useState(<Avatardropdown />);
+
+  const handleMenuClick = (component: any) => {
+    setShowDropdown(component);
+  };
+
   return (
-    <div className="w-full">
-    
-      <div className="flex justify-end items-center text-center gap-8 mr-5 h-[80px] absolute">
+    <div className="w-full ">
+      <Sidenav />
+      <div className="text-center bg-gray-300 w-full h-[60px] mb-5 pl-16 pt-4 text-white">
+        <IoMdMenu
+          onClick={() => handleMenuClick(<Avatardropdown />)}
+          className="text-white w-[25px] h-[25px]"
+        />
+      </div>
+      <div className="flex justify-end items-center text-center gap-8  h-[80px] max-[740px]:hidden">
         <div className="relative">
           <button className="peer py-2 hover:bg-white-700 text-black text-sm">
             Student
@@ -49,6 +62,7 @@ const Teachprofil = () => {
           <Avatardropdown />
         </div>
       </div>
+
       <Profilheader />
     </div>
   );

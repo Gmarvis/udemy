@@ -6,11 +6,12 @@ import { BiMessageDetail } from "react-icons/bi";
 import { BiSolidBarChartAlt2 } from "react-icons/bi";
 import { FiTool } from "react-icons/fi";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
+import { IoMdMenu } from "react-icons/io"
 
 const Sidenav = () => {
   return (
-    <div className="">
-      <div className="sidebar peer min-h-screen w-[3.35rem] bg-black overflow-hidden border-r hover:w-[270px] hover:shadow-lg">
+    <div className="max-[740px]:hidden transition-duration: 150ms">
+      <div className="sidebar peer min-h-screen w-[3.35rem] bg-black overflow-hidden  hover:w-[270px] hover:shadow-lg fixed top-0 left-0  ease-in-out">
         <div className="bg-black flex flex-col">
           <div>
             <div className="w-max pl-2.5">
@@ -36,7 +37,7 @@ const Sidenav = () => {
                 <Link href="#" legacyBehavior>
                   <a href="#" className="text-[18px] font-bold text-white">
                     Communication
-                  </a>
+                  </a>              
                 </Link>
               </li>
               <li className="min-w-max flex gap-8 items-center py-4 pl-4 hover:bg-slate-600">
@@ -57,6 +58,7 @@ const Sidenav = () => {
               </li>
               <li className="min-w-max flex gap-8 items-center py-4 pl-4 hover:bg-slate-600">
                 <HiOutlineQuestionMarkCircle className="text-white w-[25px] h-[25px]" />
+                <IoMdMenu className="text-white w-[25px] h-[25px]"/>
                 <Link href="#" legacyBehavior>
                   <a href="#" className="text-[18px] font-bold text-white">
                     Resources
