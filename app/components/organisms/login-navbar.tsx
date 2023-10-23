@@ -25,13 +25,15 @@ const LogiNav = (props: PropsWithChildren) => {
 
   return (
     <div>
-      <MobileNavbar onClickMenuButton={() => {
-        setActive((prev) => !prev)
-        console.log("string")
-        setTimeout(() => {
-          setActive((prev) => !prev)
-        }, 10000)
-      }} />
+      <MobileNavbar
+        onClickMenuButton={() => {
+          setActive((prev) => !prev);
+          console.log("string");
+          setTimeout(() => {
+            setActive((prev) => !prev);
+          }, 10000);
+        }}
+      />
       <MenuItems
         onCloseMenu={() => setClosed((prev) => !prev)}
         className={`${
@@ -54,7 +56,7 @@ const LogiNav = (props: PropsWithChildren) => {
             <Categories />
           </div>
 
-          <div className="  md:w-[60%] ">
+          {/* <div className="  md:w-[60%] ">
             <input
               className="border-black border p-2 px-4 rounded-full w-full
             placeholder:text-gray-400 relative font-normal placeholder:px-10 py-3 outline-none"
@@ -62,10 +64,22 @@ const LogiNav = (props: PropsWithChildren) => {
               placeholder="Search for anything"
             />
 
-            {/* <BsSearch
+            <BsSearch
               className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
               size={17}
-            /> */}
+            />
+          </div> */}
+          <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
+            <BsSearch
+              className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
+              size={17}
+            />
+            <input
+              className=" px-4 w-full
+            placeholder:text-gray-400 rounded font-normal  py-2 outline-none"
+              type="text"
+              placeholder="To search"
+            />
           </div>
           <UdemBusDropdown />
           <p
