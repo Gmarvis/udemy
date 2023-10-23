@@ -7,24 +7,51 @@ import PasswordStrenght from "../atoms/passwordStrenght";
 import { NextPage } from "next";
 import { signUp } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
+import { useRouter } from "next/navigation";
+import validator from "validator";
+
 const RegisterPage: NextPage = () => {
   const [fullname, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMassage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     console.log("formData: ", { fullname, email, password });
+
+    const isValidEmail = validator.isEmail(email);
+
+    if (!isValidEmail) {
+      setIsError(true);
+      setErrorMassage("incurrect email");
+      return;
+    }
 
     if (fullname && email && password) {
       signUp({
         name: fullname,
         email,
         password,
-      }).then((res) => LOCAL_STORAGE.save("token", res.token));
+      }).then((res) => {
+        setIsLoading(false);
+        if (res.token) {
+          LOCAL_STORAGE.save("token", res.token);
+        } else {
+          setIsError(true);
+          setErrorMassage(
+            `${res.message},try again or login instead if you already have a account`
+          );
+        }
+      });
     } else {
-      console.log("values cannot be empty");
+      setIsError(true);
+      setErrorMassage("Please input all fields");
     }
   };
   return (
@@ -55,6 +82,11 @@ const RegisterPage: NextPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
+        {isError && (
+          <div className=" p-4 bg-red-300">
+            <h3>{errorMessage}</h3>
+          </div>
+        )}
         <PasswordStrenght password={password} />
         <div className="flex  text-start">
           <input
@@ -70,7 +102,7 @@ const RegisterPage: NextPage = () => {
         <div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
           <Button
             className="text-white font-black text-[16px]"
-            label="Sign up"
+            label={isLoading ? "loading..." : "sign up"}
             type="submit"
           />
         </div>
