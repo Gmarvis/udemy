@@ -18,9 +18,11 @@ const LoginForm: NextPage = () => {
   const [password, setPassword] = useState<string>("");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMassage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     console.log({ email, password });
     const isValidEmail = validator.isEmail(email);
 
@@ -32,7 +34,18 @@ const LoginForm: NextPage = () => {
       login({
         email,
         password,
-      }).then((res) => LOCAL_STORAGE.save("token", res.token));
+      }).then((res) => {
+        setIsLoading(false);
+        if (res.token) {
+          LOCAL_STORAGE.save("token", res.token);
+          setIsError(false);
+          setErrorMassage("");
+          router.push("/");
+        } else {
+          setIsError(true);
+          setErrorMassage(res.message);
+        }
+      });
     }
   };
 
@@ -85,8 +98,11 @@ const LoginForm: NextPage = () => {
           icon="eye"
           name="password"
         />
-        <button className="bg-violet-600 text-white font-black text-[16px] p-3">
-          login
+        <button
+          className="bg-violet-600 text-white font-black text-[16px] p-3"
+          disabled={isLoading}
+        >
+          {isLoading ? "loading..." : "login"}
         </button>
       </form>
       <h3>
