@@ -3,6 +3,11 @@ import SliderComponent from "./components/organisms/slide/Slider";
 import HeroSection from "./components/organisms/heroSection";
 import AbroadSelection from "./components/organisms/abroadSelection/AbroadSelectionLandingPage";
 import ResponsiveTab from "./components/organisms/abroadSelection/ResponsiveTab";
+import MainNav from "./components/organisms/MainNav";
+import FooterLandingPage from "./components/organisms/footer-landingpage";
+import BecomeInstructor from "./components/organisms/become-instructor";
+import FeatureCategory from "./components/organisms/feature-category";
+import UdemyBusiness from "./components/organisms/udemy-business";
 
 export default function Home({
   searchParams,
@@ -11,6 +16,7 @@ export default function Home({
 }) {
   return (
     <main>
+      <MainNav />
       <HeroSection />
       <Logos />
       <AbroadSelection
@@ -20,8 +26,12 @@ export default function Home({
       />
       <div className="mb-10 ml-3">
         <SliderComponent title="Learners are viewing" />
-        <ResponsiveTab />
+        {/* <ResponsiveTab /> */}
       </div>
+      <FeatureCategory />
+      <UdemyBusiness />
+      <BecomeInstructor />
+      <FooterLandingPage />
     </main>
   );
 }
