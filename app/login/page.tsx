@@ -1,4 +1,5 @@
 // import { redirect } from "next/navigation";
+import React from "react";
 import MainNav from "../components/organisms/MainNav";
 import Footer from "../components/organisms/footer-logout";
 import LoginForm from "../components/pages/login";

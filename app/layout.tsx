@@ -11,6 +11,7 @@ import FooterLandingPage from "./components/organisms/footer-landingpage";
 import LogiNav from "./components/organisms/login-navbar";
 import Footer from "./components/organisms/footer-logout";
 import { Providers } from "./context/Provider";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
