@@ -5,7 +5,7 @@ import Button from "../atoms/Button";
 import Link from "next/link";
 import PasswordStrenght from "../atoms/passwordStrenght";
 import { NextPage } from "next";
-import { signUp } from "@/services/utils";
+import { getUser, signUp } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { useRouter } from "next/navigation";
 import validator from "validator";
@@ -22,6 +22,7 @@ const RegisterPage: NextPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setIsError(false);
 
     console.log("formData: ", { fullname, email, password });
 
@@ -39,11 +40,17 @@ const RegisterPage: NextPage = () => {
         email,
         password,
       }).then((res) => {
-        setIsLoading(false);
         if (res.token) {
           LOCAL_STORAGE.save("token", res.token);
+          getUser(res.token).then((response) => {
+            LOCAL_STORAGE.save("currentUser", response);
+            console.log(response);
+            setIsLoading(false);
+            setIsError(false);
+          });
         } else {
           setIsError(true);
+          setIsLoading(false);
           setErrorMassage(
             `${res.message},try again or login instead if you already have a account`
           );

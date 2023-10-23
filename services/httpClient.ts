@@ -7,7 +7,7 @@ export default class ApiCall {
     return fetch(url, {
       method: "GET",
       headers: { ...Headers, ..._headers },
-    });
+    }).then((res) => res.json());
   }
 
   async POST(url: string, body: any, _headers: HeadersInit = {}) {
