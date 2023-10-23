@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Categories = () => {
+type Props = {}
+
+export default function categories({}: Props) {
   return (
-    <div className='text-sm'>
-        Categories
-    </div>
+    <div>categories</div>
   )
 }
-
-export default Categories
