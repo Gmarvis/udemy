@@ -10,7 +10,7 @@ import PasswordField from "../atoms/passwordField";
 // import { signIn } from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import validator from "validator";
-import { login } from "@/services/utils";
+import { getUser, login } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
 const LoginForm: NextPage = () => {
   const router = useRouter();
@@ -38,6 +38,12 @@ const LoginForm: NextPage = () => {
         setIsLoading(false);
         if (res.token) {
           LOCAL_STORAGE.save("token", res.token);
+          getUser(res.token).then((response) => {
+            LOCAL_STORAGE.save("currentUser", response);
+            console.log(response);
+            setIsLoading(false);
+            setIsError(false);
+          });
           setIsError(false);
           setErrorMassage("");
           router.push("/");

@@ -14,7 +14,7 @@ const RegisterPage: NextPage = () => {
   const [fullname, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
+  const router = useRouter();
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMassage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -47,6 +47,7 @@ const RegisterPage: NextPage = () => {
             console.log(response);
             setIsLoading(false);
             setIsError(false);
+            router.push("/");
           });
         } else {
           setIsError(true);
