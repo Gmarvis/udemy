@@ -15,8 +15,6 @@ export default class ApiCall {
       method: "POST",
       headers: { ...Headers, ..._headers },
       body: JSON.stringify(body),
-    })
-      .then((res) => res.json())
-      .catch(console.log);
+    }).then((res) => res.json());
   }
 }

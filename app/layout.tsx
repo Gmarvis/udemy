@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "./components/organisms/footer-logout";
 import UdemyBusiness from "./components/organisms/udemy-business";
 import MainNav from "./components/organisms/MainNav";
-import UserContextProvider from "./context/userContext";
-import { LOCAL_STORAGE } from "@/services/storage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,13 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <UserContextProvider>
-        <body className={inter.className}>
-          <MainNav />
-          {children}
-          <Footer />
-        </body>
-      </UserContextProvider>
+      <body className={inter.className}>
+        <MainNav />
+        {children}
+        <UdemyBusiness />
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -9,39 +9,30 @@ import Link from "next/link";
 import PasswordField from "../atoms/passwordField";
 // import { signIn } from 'next-auth/react'
 import { useRouter } from "next/navigation";
-import { login } from "@/services/utils";
 import validator from "validator";
+import { login } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
-
 const LoginForm: NextPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [errorMessage, setErrorMassage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log("loginData: ", { email, password });
+    console.log({ email, password });
     const isValidEmail = validator.isEmail(email);
-    const isStrongPassword = validator.isStrongPassword(password);
 
-    if (email && password) {
+    if (!isValidEmail) {
+      setIsError(true);
+      setErrorMassage("incurrect email");
+      return;
+    } else {
       login({
         email,
         password,
-      }).then((res) => {
-        if (res.token) {
-          LOCAL_STORAGE.save("token", res.token);
-          setIsError(false);
-          router.push("/");
-        } else {
-          setIsError(true);
-          setErrorMessage(
-            `${res.message}. Try again or reset your password. For more help, visit our support page`
-          );
-        }
-      });
+      }).then((res) => LOCAL_STORAGE.save("token", res.token));
     }
   };
 
@@ -75,11 +66,10 @@ const LoginForm: NextPage = () => {
           </li>
         </div>
         {isError && (
-          <div className="bg-red-300 p-2 ">
-            <h2>{errorMessage}</h2>
+          <div className=" p-4 bg-red-300">
+            <h3>{errorMessage}</h3>
           </div>
         )}
-
         <InputField
           name="email"
           type="text"
@@ -95,23 +85,10 @@ const LoginForm: NextPage = () => {
           icon="eye"
           name="password"
         />
-        <button className="bg-violet-600 p-3 text-white font-bold">
-          Login
+        <button className="bg-violet-600 text-white font-black text-[16px] p-3">
+          login
         </button>
       </form>
-      {/* <div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
-        <Button
-          className="text-white font-black text-[16px]"
-          label="Log in"
-          type="submit"
-        /><div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
-        <Button
-          className="text-white font-black text-[16px]"
-          label="Log in"
-          type="submit"
-        />
-      </div>
-      </div> */}
       <h3>
         or {""}
         <Link legacyBehavior href="#">

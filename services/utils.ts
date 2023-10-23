@@ -14,7 +14,3 @@ export const signUp = (newUser: {
 export const login = (returningUser: { email: string; password: string }) => {
   return apiCall.POST(SITE_URL + "/auth/login", returningUser);
 };
-
-export const getUserData = (token: string) => {
-  return apiCall.GET(SITE_URL + "/auth/user/" + token);
-};
