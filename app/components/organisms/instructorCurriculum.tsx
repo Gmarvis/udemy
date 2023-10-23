@@ -57,6 +57,8 @@ const InstructorCurriculum = () => {
       </p>
 
 
+
+
       <div className="border ml-14 mb-4 border-black bg-gray-100 p-4">
         {sections.map((section) => (
           <h3 key={section.id} className='flex items-center hover:bg-gray-200 p-2'>Lecture1:
@@ -72,7 +74,10 @@ const InstructorCurriculum = () => {
                   setShowConfirmationPopup(true);
                 }} />
 
-              <BsPencil className='cursor-pointer' />
+              <BsPencil className='cursor-pointer'
+              onClick={() => {
+                // Handle navigation to the initial section
+              }} />
             </div>
           </h3>
         ))}
@@ -89,6 +94,7 @@ const InstructorCurriculum = () => {
           }}
         />
       )}
+
 
 
       {isAddingSection ? (
@@ -164,7 +170,6 @@ const InstructorCurriculum = () => {
           </button>
         </div>
       )}
-
 
 
     </div>
