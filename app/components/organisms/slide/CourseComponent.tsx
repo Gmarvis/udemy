@@ -7,15 +7,15 @@ import CouseContent from "./CourseContent";
 import useCart from "@/app/Hooks/useCart";
 import { SimpleCourseType } from "@/types";
 
-const CourseComponent = ({ ...course }:SimpleCourseType) => {
+const CourseComponent = ({ ...course }: SimpleCourseType) => {
   const screenSize = window.document.documentElement.scrollWidth;
   const placement = screenSize <= 600 ? "topStart" : "autoHorizontal";
 
-  const className = " card w-full flex flex-col md:w-90   gap-4 md:ml-2 2xl:mx-0";
+  // const className = "w-52 card flex flex-col md:w-60   gap-1 md:ml-2 ";
 
   return (
     <>
-      <div>
+      <div className="p-0 m-0 w-full">
         <Whisper
           trigger="hover"
           speaker={
@@ -35,7 +35,7 @@ const CourseComponent = ({ ...course }:SimpleCourseType) => {
               author={course?.author}
               description={course?.description}
               classification={course?.classification}
-              className={className}
+              // className={className}
             />
           </div>
         </Whisper>

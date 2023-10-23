@@ -2,28 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  padding: 0 1.5rem 0 0;
-
-
-
-/* :root {
+/* body {
+  
+} */
+:root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-.react-multi-carousel-list {
+/* .react-multi-carousel-list {
   margin: 0 1rem;
 }
 
 .react-multi-carousel-track {
-  /* gap: 10px; */
+  gap: 10px;
 }
 
 .react-multi-carousel-item {
   padding: 0;
-  margin: 0 2rem;
+  margin: 0 1rem;
+} */
+
+.react-multi-carousel-item {
+  padding: 0;
+  margin: 0;
 }
 
 .react-multiple-carousel__arrow {
@@ -35,7 +38,13 @@ body {
 .react-multiple-carousel__arrow--right {
   width: 4rem !important;
   height: 4rem !important;
-  right: -5px;
+  right: calc(1% + 1px);
+}
+
+@media screen and (max-width: 559px) {
+  .react-multiple-carousel__arrow--right {
+    display: none;
+  }
 }
 
 .react-multiple-carousel__arrow--right::before {
@@ -50,6 +59,7 @@ body {
   left: 10px;
   width: 4rem !important;
   height: 4rem !important;
+  left: -15px;
 }
 
 .react-multiple-carousel__arrow--left::before {
@@ -138,4 +148,12 @@ svg.star-svg {
 
 #mainbody {
   position: relative;
+}
+
+.active {
+  color: #000;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  font-family: serif;
+  padding-bottom: 0.55rem;
 }
