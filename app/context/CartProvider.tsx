@@ -33,18 +33,19 @@ const reducer = (
   action: ReducerAction
 ): CartStateType => {
   switch (action.type) {
+    //* ADD TO CART
     case REDUCER_ACTION_TYPE.ADD: {
-
       if (!action.payload) {
         throw new Error("Action payload is missing in ADD action");
       }
 
-      console.log('in context')
-      // console.log("payload:"+ JSON.stringify(action.payload))
+      console.log("in context");
+      console.log("payload:" + JSON.stringify(action.payload));
 
       const {
         id,
         title,
+        imageurl,
         price,
         author,
         totalHours,
@@ -65,81 +66,103 @@ const reducer = (
           title,
           price,
           author,
+          imageurl,
           totalHours,
           lectures,
           level,
           participants,
         };
-        
+
         state.cart = [...filteredCart, newCartItem];
-        window.localStorage.setItem("cart", JSON.stringify(state.cart));
+        window.sessionStorage.setItem("cart", JSON.stringify(state.cart));
 
         return { ...state, cart: [...filteredCart, newCartItem] };
       }
       console.log("before sending the return");
       return { ...state };
     }
-    case REDUCER_ACTION_TYPE.REMOVE ||
-      REDUCER_ACTION_TYPE.SAVEFORLATER ||
-      REDUCER_ACTION_TYPE.SAVETOWHISHLIST: {
+
+    //* REMOVE FROM CART
+    case REDUCER_ACTION_TYPE.REMOVE: {
       if (!action.payload)
         throw new Error("Action payload is missing REMOVE action");
 
-      const { id } = action.payload;
+      const id: string | undefined = action.payload.id;
+      if (id === undefined) return state;
 
       const filteredCart: CartItemType[] = state.cart.filter(
         (item) => item.id !== id
       );
 
       const cart = [...filteredCart];
-      localStorage.setItem("cart", JSON.stringify(cart));
+      state.cart = [...cart];
+      sessionStorage.setItem("cart", JSON.stringify(cart));
 
       return { ...state, cart: [...filteredCart] };
     }
+
+    //*ADD ALL TO CART
     case REDUCER_ACTION_TYPE.ADDALL: {
-      if (!action.payload)
+      if (!action.payload2)
         throw new Error("action payload is missing ADDALL action ");
 
       const { courseList } = action.payload2;
 
-      const course: string | null = localStorage.getItem("itemCourse");
+      console.log("courseList", courseList);
 
-      if (typeof course !== "string") {
+      const firstSaveCart: string | null = sessionStorage.getItem("cart");
+
+      if (typeof firstSaveCart !== "string") {
         return { ...state };
       }
-      const firstSelectedCouse = JSON.parse(course);
+      const firstSelectedCouse = JSON.parse(firstSaveCart);
 
-      const cart = [...state.cart, ...courseList, firstSelectedCouse];
+      let cart = [...firstSelectedCouse, ...courseList];
 
-      localStorage.setItem("cart", JSON.stringify(cart));
-
+      state.cart = [...cart];
+      cart = state.cart.reduce((acc: CartItemType[], curr) => {
+        if (!acc?.find((item: CartItemType) => item.id == curr.id)) {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
       return { ...state, cart: [...cart] };
     }
 
+    //*** PROCESS TO CHECKOUT/
     case REDUCER_ACTION_TYPE.SUBMIT: {
-      //*** process checkout*/
-      localStorage.removeItem("cart");
+      sessionStorage.removeItem("cart");
 
       return { ...state, cart: [] };
     }
-    case REDUCER_ACTION_TYPE.SAVEFORLATER ||
-      REDUCER_ACTION_TYPE.SAVETOWHISHLIST: {
-      //* saveCourseForlater(id: string)
-      if (!action.payload)
-        throw new Error("Action payload is missing SaveForlater action");
 
-      const { id } = action.payload;
+    //* SAVE FOR LATER
+    case REDUCER_ACTION_TYPE.SAVEFORLATER: {
+      if (!action.payload)
+        throw new Error("Action payload is missing SAVEFORLATER action");
+
+      const id: string | undefined = action.payload.id;
+      if (id === undefined) return state;
 
       const filteredCart: CartItemType[] = state.cart.filter(
         (item) => item.id !== id
       );
 
-      localStorage.setItem("cart", JSON.stringify(filteredCart));
+      const existingItem: CartItemType | undefined = state.cart.find(
+        (item) => item.id === id
+      );
+
+      //* send the course to the backend
+      const cart = [...filteredCart];
+      state.cart = [...cart];
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+
       return { ...state, cart: [...filteredCart] };
     }
 
     case REDUCER_ACTION_TYPE.CHECKOUT: {
-      const courseCart: string | null = localStorage.getItem("cart");
+      const courseCart: string | null = sessionStorage.getItem("cart");
 
       if (typeof courseCart !== "string") {
         return { ...state };
@@ -170,6 +193,7 @@ const useCartContext = (initCartState: CartStateType) => {
     }, 0)
   );
 
+  console.log(state.cart);
   const cart = [...state.cart];
 
   return { dispatch, REDUCER_ACTION, totalPrice, cart };

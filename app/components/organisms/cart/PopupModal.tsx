@@ -31,16 +31,11 @@ const PopupModal = (props: Props) => {
 
   useEffect(() => {
     if (showDialog === "y") {
-      // const mypopover = document.getElementById("modalpopover")!
-      // mypopover.showPopover();
       dialogRef.current?.showModal();
-      // bgdialogRef.current?.showModal();
       setDialogRefModal(true);
     } else {
-      // bgdialogRef.current?.close();
       dialogRef.current?.close();
     }
-   
   }, [showDialog]);
 
   const closeDialog = () => {
@@ -48,10 +43,10 @@ const PopupModal = (props: Props) => {
     router.push("/");
   };
 
-  // console.log("dialogRefModal: " + dialogRefModal); 
+  // console.log("dialogRefModal: " + dialogRefModal);
   //   const handleOutSideClick = (event) => {
   //     if (!dialogRef.current?.contains(event.target) && dialogRefModal) {
-       
+
   //       console.log("Outside Clicked. ");
   //       closeDialog();
   //       // setDialogRefModal(false);
@@ -61,51 +56,68 @@ const PopupModal = (props: Props) => {
 
   //   dialogRefModal ? window.addEventListener("click", handleOutSideClick) : null;
 
-  const clickOk = () => {
+  const addAllToCart = () => {
+    console.log("addAllToCart clicked");
     props.addAll();
-    closeDialog();
+    // closeDialog();
   };
 
   const gotocart = () => {
     props.gotoCart();
     closeDialog();
-    router.push('/cart');
+    router.push("/cart");
   };
 
-  const className = "flex flex-row gap-4";
-  let newList = props.partListOfCourses.filter((course) => course.id !== props.courseSelected.id);
-  newList = [props.courseSelected, ...newList]
+  // const className = "flex flex-row gap-4";
+  let newList = props.partListOfCourses.filter(
+    (course) => course.id !== props.courseSelected.id
+  );
+  newList = [props.courseSelected, ...newList];
   const FreqBought = newList?.map((course) => (
-   <Link href={"#"} key={course.id} className=" hover:no-underline decoration-black">
-    <ModalCourseCard {...course} key ={course.id} />
- </Link> 
+    <Link
+      href={"#"}
+      key={course.id}
+      className=" hover:no-underline decoration-black"
+    >
+      <ModalCourseCard {...course} key={course.id} />
+    </Link>
   ));
 
   const dialog: JSX.Element | null =
-  showDialog === "y" ? (
+    showDialog === "y" ? (
       <dialog
         ref={dialogRef}
         id="modalpopover"
         className=" w-128 md:w-170 flex items-start justify-center  relative  md:top-96  md:left-96   md:right-96  md:bottom-96 p-2 md:py-5 -translate-x-50 -translate-y-50 rounded-sm backdrop:bg-ctitle/60"
       >
-        <GotoCart closeDialog={closeDialog} courseSelected={props.courseSelected} gotocart={gotocart} totalPrice={props.totalPrice} FreqBought={FreqBought} clickOk={clickOk}/>
+        <GotoCart
+          closeDialog={closeDialog}
+          courseSelected={props.courseSelected}
+          gotocart={gotocart}
+          totalPrice={props.totalPrice}
+          FreqBought={FreqBought}
+          addAllToCart={addAllToCart}
+        />
       </dialog>
-    ): showDialog === "x" ? (
+    ) : showDialog === "x" ? (
       <>
-      {/* <div className=" relative right-100 top-0 left-0 w-[200%] h-screen bg-white"></div> */}
-      <dialog
-        ref={dialogRef}
-        className=" w-128 md:w-170 flex items-start justify-center  relative  p-2 md:py-5 -translate-x-50 -translate-y-50 rounded-sm backdrop:bg-white"
-      >
-        <GotoCart closeDialog={closeDialog} courseSelected={props.courseSelected} gotocart={gotocart} totalPrice={props.totalPrice} FreqBought={FreqBought} clickOk={clickOk}/>
-      </dialog>
+        <dialog
+          ref={dialogRef}
+          className=" w-128 md:w-170 flex items-start justify-center  relative  p-2 md:py-5 -translate-x-50 -translate-y-50 rounded-sm backdrop:bg-white"
+        >
+          <GotoCart
+            closeDialog={closeDialog}
+            courseSelected={props.courseSelected}
+            gotocart={gotocart}
+            totalPrice={props.totalPrice}
+            FreqBought={FreqBought}
+            addAllToCart={addAllToCart}
+          />
+        </dialog>
       </>
-      
-    ): null;
+    ) : null;
 
   return dialog;
-    
-}; {/* <div className=" fixed top-0 left-0 min-w-full min-h-screen bg-black/40" ></div> */}
-    
+};
 
 export default PopupModal;
