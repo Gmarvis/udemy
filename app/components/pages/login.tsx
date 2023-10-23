@@ -74,7 +74,7 @@ const LoginForm: NextPage = () => {
           name="password"
         />
       </form>
-      <div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
+      <div className="flex items-center justify-center bg-violet bg-violet-600 w-[350px] h-[50px] my-2">
         <Button
           className="text-white font-black text-[16px]"
           label="Log in"
@@ -90,13 +90,14 @@ const LoginForm: NextPage = () => {
         </Link>
       </h3>
 
-      <hr className="w-[350px] h-[1px] my-3 bg-gray-200 border-0 rounded  dark:bg-gray-700" />
+      <hr className="w-[350px] h-[1px] my-3 bg-gray border-0 rounded  dark:bg-gray" />
 
       <p className="text-[15px] text-center">
         Don&lsquo;t have an account?
-        <a href="/register" className="text-violet-600 font-bold text-[14px]">
+        <a href="/register" className="text-violet font-bold text-[14px]">
           Sign up 
         </a>
+        <br></br>
         <Link href="#" legacyBehavior>
           <b>Log in with your organisation</b>
         </Link>

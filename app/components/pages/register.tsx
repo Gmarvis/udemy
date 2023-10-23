@@ -69,7 +69,7 @@ const RegisterPage: NextPage = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-center bg-violet-600 w-[350px] h-[50px] my-2">
+      <div className="flex items-center justify-center bg-violet w-[350px] h-[50px] my-2">
         <Button
           className="text-white font-black text-[16px]"
           label="Sign up"
@@ -84,13 +84,13 @@ const RegisterPage: NextPage = () => {
         <span className="underline">Privacy <br /> Policy.</span>
       </p>
 
-      <hr className="w-[350px] h-[1px] my-3 bg-gray-200 border-0 rounded  dark:bg-gray-700" />
+      <hr className="w-[350px] h-[1px] my-3 bg-gray border-0 rounded  dark:bg-gray" />
       <p className="text-[13px] text-center">
         Already have an account?
         <Link href="/login" legacyBehavior>
           <a
             href="/login"
-            className="text-violet-600 font-bold text-[14px] underline"
+            className="text-violet font-bold text-[14px] underline"
           >
             Log in{" "}
           </a>

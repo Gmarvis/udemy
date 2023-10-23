@@ -21,7 +21,7 @@ function DisplayTotalAmount({ price }: Props): JSX.Element {
         <span className="line-through text-md text-udemy">₦200.75</span>
       </p>
       <p className=" text-sm text-black font-segoe">90%</p>
-      <button className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white hover:bg-violt">
+      <button className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white hover:bg-violet">
         {" "}
         Checkout
       </button>
