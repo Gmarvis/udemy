@@ -14,6 +14,9 @@ export default function Home({
 }: {
   searchParams: { ["showDialog"]: string };
 }) {
+
+  
+
   return (
     <main>
       <MainNav />
