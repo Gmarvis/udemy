@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BsPlus, BsX } from 'react-icons/bs';
+import ConfirmationPopup from '../molecules/confirmationPopup';
+import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil } from 'react-icons/bs';
 
 type Section = {
   id: string;
@@ -12,6 +13,10 @@ const InstructorCurriculum = () => {
   const [newSectionTitle, setNewSectionTitle] = useState('');
   const [newSectionObjectives, setNewSectionObjectives] = useState('');
   const [isAddingSection, setIsAddingSection] = useState(false);
+
+  const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
+  const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
+
 
   const handleAddSection = () => {
     if (newSectionTitle && newSectionObjectives) {
@@ -51,15 +56,40 @@ const InstructorCurriculum = () => {
         to offer your course for free, the total length of video content must be less than 2 hours.
       </p>
 
-      <div className="border ml-14 mb-4 border-black bg-gray-100 h-10 w-96">
+
+      <div className="border ml-14 mb-4 border-black bg-gray-100 p-4">
+        {sections.map((section) => (
+          <h3 key={section.id} className='flex items-center hover:bg-gray-200 p-2'>Lecture1:
+            <span className='flex ml-2 mr-4'>
+              <BsFileEarmark className='mr-2 items-center' />
+              {section.title}
+            </span>
+            <div className='flex items-center space-x-1'>
+
+              <BsTrash className='cursor-pointer mr-2'
+                onClick={() => {
+                  setSelectedSectionId(section.id);
+                  setShowConfirmationPopup(true);
+                }} />
+
+              <BsPencil className='cursor-pointer' />
+            </div>
+          </h3>
+        ))}
 
       </div>
 
-        {sections.map((section) => (
-          <div key={section.id} className="mb-4">
-            <h2 className="text-xl font-bold">{section.title}</h2>
-          </div>
-        ))}
+
+      {showConfirmationPopup && (
+        <ConfirmationPopup
+          onCancel={() => setShowConfirmationPopup(false)}
+          onDelete={() => {
+            // Handle section deletion logic here
+            setShowConfirmationPopup(false);
+          }}
+        />
+      )}
+
 
       {isAddingSection ? (
         <div className="px-14">
@@ -67,6 +97,11 @@ const InstructorCurriculum = () => {
             onClick={() => setIsAddingSection(false)}
             className="flex items-center space-x-1 font-bold cursor-pointer mb-4 text-3xl"
           ><BsX />
+            {sections.map((section) => (
+              <div key={section.id} className="mb-4">
+                <h2 className="text-xl font-bold">{section.title}</h2>
+              </div>
+            ))}
           </button>
 
           <div className='border border-black p-4'>
@@ -86,10 +121,10 @@ const InstructorCurriculum = () => {
                     placeholder="Enter a Title"
                   />
                 </div>
-                  <label htmlFor="objectivesInput" className="font-bold">
-                    what will student be able to do at the end of this section?
-                  </label>
-                  <div className='flex border border-black p-2 mt-4 mb-4'>
+                <label htmlFor="objectivesInput" className="font-bold">
+                  what will student be able to do at the end of this section?
+                </label>
+                <div className='flex border border-black p-2 mt-4 mb-4'>
                   <input
                     id="objectivesInput"
                     value={newSectionObjectives}
@@ -124,12 +159,17 @@ const InstructorCurriculum = () => {
             onClick={() => setIsAddingSection(true)}
             className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm"
           >
-            <BsPlus className='text-3xl'/>
+            <BsPlus className='text-3xl' />
             <span>Section</span>
           </button>
         </div>
       )}
+
+
+
     </div>
+
+
   );
 };
 
