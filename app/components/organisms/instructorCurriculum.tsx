@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ConfirmationPopup from '../molecules/confirmationPopup';
-import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil, BsFillCheckCircleFill } from 'react-icons/bs';
+import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil, BsFillCheckCircleFill, BsChevronDown, BsChevronUp } from 'react-icons/bs';
 
 type Section = {
   id: string;
@@ -16,6 +16,13 @@ const InstructorCurriculum = () => {
 
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
+
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
 
 
   const handleAddSection = () => {
@@ -62,7 +69,7 @@ const InstructorCurriculum = () => {
       <div className="border mx-14 mb-4 border-black bg-gray-100 p-4">
 
         {sections.map((section) => (
-          <h3 key={section.id} className='flex items-center hover:bg-gray-200 p-2 text-xl font-bold'>Lecture1:
+          <h3 key={section.id} className='flex items-center p-2 mb-8 font-bold'>Lecture1:
             <span className='flex ml-2 mr-4 font-normal text-base items-center'>
               <BsFileEarmark className='mr-2 items-center' />
               {section.title}
@@ -83,7 +90,7 @@ const InstructorCurriculum = () => {
           </h3>
         ))}
 
-        <div className='border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center flex'>
+        <div className='border border-black px-3 py-2 bg-white ml-8 justify-between items-center flex'>
 
           <div>
           <h3 className='flex items-center hover:bg-gray-200 p-2'> <BsFillCheckCircleFill className='mr-2'/>Lecture 1:
@@ -93,24 +100,34 @@ const InstructorCurriculum = () => {
             </span></h3>
           </div>
 
-          <div>
-          <button
-            className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm"
-          >
-            <BsPlus className='text-3xl' />
-            <span>Content</span>
-          </button>
-          </div>
+          <div className="flex items-center">
+      <button
+        className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm hover:bg-gray-300"
+      >
+        <BsPlus className="text-2xl" />
+        <span>Content</span>
+      </button>
+      {isDropdownOpen ? (
+        <BsChevronUp className="ml-4 cursor-pointer" onClick={toggleDropdown} />
+      ) : (
+        <BsChevronDown className="ml-4 cursor-pointer" onClick={toggleDropdown} />
+      )}
+      
+    </div>
 
         </div>
+        {isDropdownOpen && (
+        <div className='border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center flex border-t-0'>
+          {/* Render the button or content below */}
+          <button className="px-3 py-2 mt-2 bg-white flex items-center text-black text-sm font-bold hover:bg-gray-300 border border-black"><BsPlus className='text-xl'/> Description </button>
+        </div>
+      )}
 
 
 
         <div className='items-center ml-8'>
-          <button className="px-4 py-2 mt-2 bg-white flex text-black font-bold hover:bg-gray-500 border border-black"><BsPlus className='text-2xl'/> Curriculum item</button>
+          <button className="px-4 py-2 mt-2 bg-white flex text-black font-bold hover:bg-gray-300 border border-black"><BsPlus className='text-2xl'/> Curriculum item</button>
         </div>
-
-
       </div>
 
 
