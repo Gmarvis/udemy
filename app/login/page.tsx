@@ -2,16 +2,10 @@
 import LoginForm from "../components/pages/login";
 // import { getServerSession } from 'next-auth'
 
-export default  function Login() {
-//  const session = await getServerSession()
-//   if(session) {
-//     redirect('/')
-     
-//  }
-
-    return (
-      <main>
-         <LoginForm />
-      </main>
-    )
-  }
+export default function Login() {
+  return (
+    <main>
+      <LoginForm />
+    </main>
+  );
+}
