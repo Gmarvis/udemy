@@ -6,7 +6,6 @@ import { BiMessageDetail } from "react-icons/bi";
 import { BiSolidBarChartAlt2 } from "react-icons/bi";
 import { FiTool } from "react-icons/fi";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
-import { IoMdMenu } from "react-icons/io"
 
 const Sidenav = () => {
   return (
@@ -58,7 +57,6 @@ const Sidenav = () => {
               </li>
               <li className="min-w-max flex gap-8 items-center py-4 pl-4 hover:bg-slate-600">
                 <HiOutlineQuestionMarkCircle className="text-white w-[25px] h-[25px]" />
-                <IoMdMenu className="text-white w-[25px] h-[25px]"/>
                 <Link href="#" legacyBehavior>
                   <a href="#" className="text-[18px] font-bold text-white">
                     Resources

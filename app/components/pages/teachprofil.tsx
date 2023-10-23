@@ -22,7 +22,7 @@ const Teachprofil = () => {
           className="text-white w-[25px] h-[25px]"
         />
       </div>
-      <div className="flex justify-end items-center text-center gap-8  h-[80px] max-[740px]:hidden">
+      <div className="flex justify-end items-center text-center gap-8 mr-5 h-[80px] max-[740px]:hidden">
         <div className="relative">
           <button className="peer py-2 hover:bg-white-700 text-black text-sm">
             Student
