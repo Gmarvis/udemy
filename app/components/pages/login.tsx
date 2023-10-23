@@ -8,12 +8,17 @@ import { NextPage } from "next";
 import Link from "next/link";
 import PasswordField from "../atoms/passwordField";
 // import { signIn } from 'next-auth/react'
+import validator from "validator";
 import { useRouter } from "next/navigation";
-
+import { getUser, login } from "@/services/utils";
+import { LOCAL_STORAGE } from "@/services/storage";
 const LoginForm: NextPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMassage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,6 +63,11 @@ const LoginForm: NextPage = () => {
             <h3>Continue with Apple</h3>
           </li>
         </div>
+        {isError && (
+          <div className=" p-4 bg-errRed">
+            <h3>{errorMessage}</h3>
+          </div>
+        )}
         <InputField
           name="email"
           type="text"
@@ -73,6 +83,12 @@ const LoginForm: NextPage = () => {
           icon="eye"
           name="password"
         />
+        <button
+          className="bg-violet text-white font-black text-[16px] p-3"
+          disabled={isLoading}
+        >
+          {isLoading ? "loading..." : "login"}
+        </button>
       </form>
       <div className="flex items-center justify-center bg-violet bg-violet-600 w-[350px] h-[50px] my-2">
         <Button
@@ -94,12 +110,10 @@ const LoginForm: NextPage = () => {
 
       <p className="text-[15px] text-center">
         Don&lsquo;t have an account?
-        <a href="/register" className="text-violet font-bold text-[14px]">
-          Sign up 
-        </a>
-        <br></br>
-        <Link href="#" legacyBehavior>
-          <b>Log in with your organisation</b>
+        <Link href="/register" legacyBehavior>
+          <a href="/register" className="text-violet-600 font-bold text-[14px]">
+            Sign up <br /> Log in with your organisation{" "}
+          </a>
         </Link>
       </p>
     </div>
