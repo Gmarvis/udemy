@@ -1,16 +1,15 @@
 import React from "react";
 
-
-export function useLocalStorage(key: any, intialValue?: any) {
+export function useSessionStorage(key: any, intialValue?: any) {
   const [lsData, setlsData] = React.useState(() => {
-    return JSON.parse(localStorage.getItem(key) as any) || intialValue;
+    return JSON.parse(sessionStorage.getItem(key) as any) || intialValue;
   });
 
-  const setLocalStoragelsData = React.useCallback(
+  const setSessessionStoragelsData = React.useCallback(
     (lsData: any): void => {
       setlsData(() => {
         if (lsData) {
-          localStorage.setItem(key, JSON.stringify(lsData));
+          sessionStorage.setItem(key, JSON.stringify(lsData));
         } else {
           console.log("no lsData to store in local storage");
           return;
@@ -23,7 +22,7 @@ export function useLocalStorage(key: any, intialValue?: any) {
   );
 
   React.useEffect(() => {
-    setLocalStoragelsData(lsData);
+    setSessessionStoragelsData(lsData);
 
     const refreshStorageFunc = (event: any) => {
       if (event.key === key) {
@@ -35,7 +34,7 @@ export function useLocalStorage(key: any, intialValue?: any) {
     return () => {
       window.removeEventListener("storage", refreshStorageFunc);
     };
-  }, [key, setLocalStoragelsData, lsData]);
+  }, [key, setSessessionStoragelsData, lsData]);
 
-  return { lsData, setlsData: setLocalStoragelsData };
+  return { lsData, setlsData: setSessessionStoragelsData };
 }

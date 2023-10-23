@@ -8,8 +8,8 @@ import UdemBusDropdown from "../molecules/udemBusDropdown";
 import TeachNav from "../molecules/teachNav";
 import Login from "../atoms/loginBtn";
 import Register from "../atoms/registerBtn";
-import { IoReorderThreeOutline } from "react-icons/io5"
- 
+import { IoReorderThreeOutline } from "react-icons/io5";
+
 const MainNav = () => {
   return (
     <div className="py-4 shadow px-8">
@@ -20,7 +20,7 @@ const MainNav = () => {
         <Categories />
 
         <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
-        <BsSearch
+          <BsSearch
             className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
             size={17}
           />
@@ -45,15 +45,12 @@ const MainNav = () => {
 
       {/* Media queries min-width:800px */}
       <div className="lg:hidden flex justify-between items-center flex-row">
-        <IoReorderThreeOutline className="h-[20px] " size={30}/>
+        <IoReorderThreeOutline className="h-[20px] " size={30} />
         <Image src="/logo-udemy.svg" width={80} height={45} alt="logo" />
         <div className=" flex flex-row gap-8">
-        <BsSearch
-            className="ml-3  text-gray-850 font-meduim"
-            size={17}
-          />
-        <SlBasket className="h-5 w-5" />
-      </div>  
+          <BsSearch className="ml-3  text-gray-850 font-meduim" size={17} />
+          <SlBasket className="h-5 w-5" />
+        </div>
       </div>
     </div>
   );

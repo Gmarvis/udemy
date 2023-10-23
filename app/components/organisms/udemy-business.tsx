@@ -7,6 +7,7 @@ type Props = {};
 const UdemyBusiness = (props: Props) => {
   return (
     <div>
+      {/* hidden on desktop view and display on mobile */}
       <div className="md:hidden py-12 mx-auto">
         <Image
           className="w-[90%] mx-auto"
@@ -41,6 +42,7 @@ const UdemyBusiness = (props: Props) => {
             />
           </div>
       </div>
+      {/* hidden on mobile and display on desktop */}
       <div className="hidden md:flex gap-10 w-fit justify-between mx-auto py-10">
         <div className="leading-loose w-[40%]">
           <div className="">

@@ -50,7 +50,7 @@ function Footer() {
         </div>
       </div>
       <hr />
-      <div className="px-4 pb-8 md:hidden">
+      <div className="px-4 md:pl-8 pb-8 md:hidden">
         <English />
         <div className="text-white md:flex md:gap-8 md:leading-8  md:pb-10">
         <UnOrderedList
@@ -79,7 +79,7 @@ function Footer() {
           />
         </div>
       </div>
-      <div className="px-4 pb-8 hidden md:flex md:justify-between ">
+      <div className="px-12 pb-8 hidden md:flex md:justify-between ">
         <div className="text-white md:flex md:gap-8 md:leading-8 md:w-4/5 md:pt-6 md:pb-10">
           <UnOrderedList
             className="md:w-2/12 "
@@ -112,11 +112,11 @@ function Footer() {
         <Image
           src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
           alt="udemy logo"
-          className="py-2 "
-          width={100}
-          height={100}
+          className="py-2 md:pl-8"
+          width={120}
+          height={120}
         />
-        <p className="text-white text-xs my-auto" >© 2023 Udemy, Inc.</p>
+        <p className="text-white text-xs my-auto md:pr-10" >© 2023 Udemy, Inc.</p>
       </div>
     </div>
   );

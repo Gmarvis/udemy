@@ -4,6 +4,8 @@ type Props = {}
 
 export default function categories({}: Props) {
   return (
-    <div>categories</div>
+    <div className='text-sm my:auto'>
+        Categories
+    </div>
   )
 }
