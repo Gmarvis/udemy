@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ConfirmationPopup from '../molecules/confirmationPopup';
-import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil } from 'react-icons/bs';
+import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil, BsFillCheckCircleFill } from 'react-icons/bs';
 
 type Section = {
   id: string;
@@ -59,28 +59,57 @@ const InstructorCurriculum = () => {
 
 
 
-      <div className="border ml-14 mb-4 border-black bg-gray-100 p-4">
+      <div className="border mx-14 mb-4 border-black bg-gray-100 p-4">
+
         {sections.map((section) => (
-          <h3 key={section.id} className='flex items-center hover:bg-gray-200 p-2'>Lecture1:
-            <span className='flex ml-2 mr-4'>
+          <h3 key={section.id} className='flex items-center hover:bg-gray-200 p-2 text-xl font-bold'>Lecture1:
+            <span className='flex ml-2 mr-4 font-normal text-base items-center'>
               <BsFileEarmark className='mr-2 items-center' />
               {section.title}
             </span>
             <div className='flex items-center space-x-1'>
 
-              <BsTrash className='cursor-pointer mr-2'
+              <BsTrash className='cursor-pointer mr-2 text-base'
                 onClick={() => {
                   setSelectedSectionId(section.id);
                   setShowConfirmationPopup(true);
                 }} />
 
-              <BsPencil className='cursor-pointer'
+              <BsPencil className='cursor-pointer text-base'
               onClick={() => {
                 // Handle navigation to the initial section
               }} />
             </div>
           </h3>
         ))}
+
+        <div className='border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center flex'>
+
+          <div>
+          <h3 className='flex items-center hover:bg-gray-200 p-2'> <BsFillCheckCircleFill className='mr-2'/>Lecture 1:
+            <span className='flex ml-2 mr-4 text-base items-center'>
+              <BsFileEarmark className='mr-2 items-center' />
+              Introduction
+            </span></h3>
+          </div>
+
+          <div>
+          <button
+            className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm"
+          >
+            <BsPlus className='text-3xl' />
+            <span>Content</span>
+          </button>
+          </div>
+
+        </div>
+
+
+
+        <div className='items-center ml-8'>
+          <button className="px-4 py-2 mt-2 bg-white flex text-black font-bold hover:bg-gray-500 border border-black"><BsPlus className='text-2xl'/> Curriculum item</button>
+        </div>
+
 
       </div>
 
