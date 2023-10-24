@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ConfirmationPopup from '../molecules/confirmationPopup';
-import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil, BsFillCheckCircleFill, BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil, BsFillCheckCircleFill, BsChevronDown, BsChevronUp, BsPlayFill } from 'react-icons/bs';
 
 type Section = {
   id: string;
@@ -18,6 +18,15 @@ const InstructorCurriculum = () => {
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const [showVideo, setShowVideo] = useState(false);
+  const [showInput, setShowInput] = useState(false);
+
+  const handleContentButtonClick = () => {
+    setShowVideo(true);
+    setShowInput(false);
+  };
+
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -52,11 +61,11 @@ const InstructorCurriculum = () => {
         Start putting together your course by creating sections, lectures, and practice (quizzes,
         coding exercises, and assignments). Start putting together your course by creating sections,
         lectures, and practice activities{' '}
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">
+        <a href="/#" className="underline decoration-purple text-purple">
           (quizzes, coding exercises, and assignments)
         </a>
         . Use your{' '}
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">
+        <a href="/#" className="underline decoration-purple text-purple">
           course outline
         </a>{' '}
         to structure your content and label your sections and lectures clearly. If you&apos;re intending
@@ -66,7 +75,7 @@ const InstructorCurriculum = () => {
 
 
 
-      <div className="border mx-14 mb-4 border-black bg-gray-100 p-4">
+      <div className="border mx-14 mb-4 border-black bg-gray2 p-4">
 
         {sections.map((section) => (
           <h3 key={section.id} className='flex items-center p-2 mb-8 font-bold'>Lecture1:
@@ -83,9 +92,9 @@ const InstructorCurriculum = () => {
                 }} />
 
               <BsPencil className='cursor-pointer text-base'
-              onClick={() => {
-                // Handle navigation to the initial section
-              }} />
+                onClick={() => {
+                  // Handle navigation to the initial section
+                }} />
             </div>
           </h3>
         ))}
@@ -93,40 +102,79 @@ const InstructorCurriculum = () => {
         <div className='border border-black px-3 py-2 bg-white ml-8 justify-between items-center flex'>
 
           <div>
-          <h3 className='flex items-center hover:bg-gray-200 p-2'> <BsFillCheckCircleFill className='mr-2'/>Lecture 1:
-            <span className='flex ml-2 mr-4 text-base items-center'>
-              <BsFileEarmark className='mr-2 items-center' />
-              Introduction
-            </span></h3>
+            <h3 className='flex items-center hover:bg-gray2 p-2'> <BsFillCheckCircleFill className='mr-2' />Lecture 1:
+              <span className='flex ml-2 mr-4 text-base items-center'>
+                <BsFileEarmark className='mr-2 items-center' />
+                Introduction
+              </span></h3>
           </div>
 
           <div className="flex items-center">
-      <button
-        className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm hover:bg-gray-300"
-      >
-        <BsPlus className="text-2xl" />
-        <span>Content</span>
-      </button>
-      {isDropdownOpen ? (
-        <BsChevronUp className="ml-4 cursor-pointer" onClick={toggleDropdown} />
-      ) : (
-        <BsChevronDown className="ml-4 cursor-pointer" onClick={toggleDropdown} />
-      )}
-      
-    </div>
+            {showVideo ? (
+              <button
+                className="flex items-center space-x-1 cursor-pointer border border-black border-b-0 px-2 py-1 font-bold text-sm"
+                onClick={() => setShowVideo(false)}
+              >
+                <span>Select content type</span>
+                <BsX className="text-2xl" />
+              </button>
+            ) : (
+              <button
+                className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm hover:bg-gray2"
+                onClick={() => setShowVideo(true)}
+              >
+                <BsPlus className="text-2xl" />
+                <span>Content</span>
+              </button>
+            )}
+
+            {isDropdownOpen ? (
+              <BsChevronUp className="ml-4 cursor-pointer" onClick={toggleDropdown} />
+            ) : (
+              <BsChevronDown className="ml-4 cursor-pointer" onClick={toggleDropdown} />
+            )}
+
+          </div>
 
         </div>
         {isDropdownOpen && (
-        <div className='border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center flex border-t-0'>
-          {/* Render the button or content below */}
-          <button className="px-3 py-2 mt-2 bg-white flex items-center text-black text-sm font-bold hover:bg-gray-300 border border-black"><BsPlus className='text-xl'/> Description </button>
-        </div>
-      )}
+          <div className='border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center flex border-t-0'>
+
+            <button className="px-3 py-2 mt-2 bg-white flex items-center text-black text-sm font-bold hover:bg-gray border border-black"><BsPlus className='text-xl' /> Description </button>
+          </div>
+        )}
+
+
+        {showVideo && (
+          <div className="border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center border-t-0">
+            <div>
+              <h3 className="text-sm text-center mb-4">Select the main type of content. Files and links can be added as resources. Learn about content types.</h3>
+            </div>
+            <div className="flex justify-center">
+              <div className="video-box border border-gray cursor-pointer w-17">
+                <BsPlayFill className="bg-gray2 text-white text-xl rounded-full m-2 ml-6 hover:animate-bounce" />
+                <p className="bg-gray items-center text-xs p-1 flex justify-center">video</p>
+              </div>
+
+              <div className="video-box border cursor-pointer border-gray w-17 ml-4">
+                <BsFileEarmark className="bg-gray2 text-white text-xl m-2 ml-6 hover:animate-bounce" />
+                <p className="bg-gray items-center text-xs p-1 flex justify-center">article</p>
+              </div>
+            </div>
+
+          </div>
+        )}
+
+        {showInput && (
+          <div>
+            {/* Render the input for uploading files */}
+          </div>
+        )}
 
 
 
         <div className='items-center ml-8'>
-          <button className="px-4 py-2 mt-2 bg-white flex text-black font-bold hover:bg-gray-300 border border-black"><BsPlus className='text-2xl'/> Curriculum item</button>
+          <button className="px-4 py-2 mt-2 bg-white flex text-black font-bold hover:bg-gray border border-black"><BsPlus className='text-2xl' /> Curriculum item</button>
         </div>
       </div>
 
@@ -140,7 +188,6 @@ const InstructorCurriculum = () => {
           }}
         />
       )}
-
 
 
       {isAddingSection ? (
@@ -158,7 +205,7 @@ const InstructorCurriculum = () => {
 
           <div className='border border-black p-4'>
 
-            <div className="">
+            <div>
               <h3 className='font-bold mb-4'>New Section:</h3>
               <div>
 
@@ -192,7 +239,7 @@ const InstructorCurriculum = () => {
 
                   <button
                     onClick={handleAddSection}
-                    className="px-4 py-2 mt-2 bg-black text-white font-bold hover:bg-gray-500"
+                    className="px-4 py-2 mt-2 bg-black text-white font-bold hover:bg-gray2"
                   >
                     Add Section
                   </button>

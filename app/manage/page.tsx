@@ -126,7 +126,7 @@ const ManageGoals = () => {
             <h2 className="font-bold mb-2">{checkbox.name}</h2>
             {checkbox.checks.map((check) => (
               <label
-                className={`flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 ${activePage === check.name ? 'border-l-4 border-black' : ''
+                className={`flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray ${activePage === check.name ? 'border-l-4 border-black' : ''
                   }`}
                 key={check.id}
               >
@@ -140,7 +140,7 @@ const ManageGoals = () => {
             ))}
           </div>
         ))}
-        <button className="bg-fuchsia-600 text-white px-10 py-3 mt-4 font-bold text-base">
+        <button className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base">
           Submit for Review
         </button>
       </div>
