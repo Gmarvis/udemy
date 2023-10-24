@@ -37,11 +37,9 @@ const InstructorCurriculum = () => {
     setShowInput(false);
   };
 
-
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-
 
 
   const handleAddSection = () => {
@@ -61,6 +59,8 @@ const InstructorCurriculum = () => {
 
   return (
     <div className='pb-20'>
+
+      {/* header of page  */}
       <div className="flex justify-between py-6 px-14">
         <h1 className="font-bold text-slate-700 text-2xl mt-6">Curriculum</h1>
         <button className="px-6 py-4 mt-4 font-bold border border-black">Bulk Uploader</button>
@@ -81,10 +81,9 @@ const InstructorCurriculum = () => {
         to structure your content and label your sections and lectures clearly. If you&apos;re intending
         to offer your course for free, the total length of video content must be less than 2 hours.
       </p>
+      {/* end of header  */}
 
-
-
-
+      {/* whole section for lectures  */}
       <div className="border mx-14 mb-4 border-black bg-gray2 p-4">
 
         {sections.map((section) => (
@@ -120,6 +119,7 @@ const InstructorCurriculum = () => {
           </div>
 
           <div className="flex items-center">
+            {/* content bottom and select type  */}
             {showVideo ? (
               <h3
                 className="flex items-center bg-white border border-black border-b-0 -mb-6 cursor-pointer px-2 py-1 font-bold text-sm"
@@ -141,6 +141,8 @@ const InstructorCurriculum = () => {
               </button>
             )}
 
+            {/* dropdown icon description  */}
+
             {isDropdownOpen ? (
               <BsChevronUp className="ml-4 cursor-pointer" onClick={toggleDropdown} />
             ) : (
@@ -161,47 +163,47 @@ const InstructorCurriculum = () => {
         )}
 
 
-{/* uploading video and article section  */}
+        {/* uploading video and article section  */}
         {showVideo && (
           <div className="border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center border-t-0">
-            <div>
-              <h3 className="text-sm text-center mb-4">Select the main type of content. Files and links can be added as resources. Learn about content types.</h3>
-            </div>
+            {isAddingVideo ? (
+              <div>
+                <button className='flex border-gray w-full mb-2 border-b-small font-bold' onClick={() => setIsAddingVideo(false)}>Upload</button>
+                <input type="file" onChange={handleFileUpload} className='border border-black mt-2 cursor-pointer px-4 py-2' />
 
-            
-            <div className="flex justify-center">
-
-              <div className="px-14">
-                {isAddingVideo ? (
-                  <div>
-                    <input type="file" onChange={handleFileUpload} />
-                    <button onClick={() => setIsAddingVideo(false)}>Upload</button>
-                  </div>
-                ) : (
-                  <div className="video-box border border-gray cursor-pointer w-17" onClick={handleVideoClick}>
-                    <BsPlayFill className="bg-gray2 text-white text-xl rounded-full m-2 ml-6 hover:animate-bounce" />
-                    <p className="bg-gray items-center text-xs p-1 flex justify-center">video</p>
-                  </div>
-                )}
+                <p className='text-xs py-2'>Note: All files should be at least 720p and less than 4.0 GB.</p>
               </div>
 
+            ) : (
+              <>
+                <h3 className="text-sm text-center mb-4">Select the main type of content. Files and links can be added as resources. Learn about content types.</h3>
+                <div className="flex justify-center">
+                  {/* video box  */}
+                  <div className="px-14">
+                    <div className="video-box border border-gray cursor-pointer w-17" onClick={handleVideoClick}>
+                      <BsPlayFill className="bg-gray2 text-white text-xl rounded-full m-2 ml-6 hover:animate-bounce" />
+                      <p className="bg-gray items-center text-xs p-1 flex justify-center">video</p>
+                    </div>
+                  </div>
 
-              <div className="video-box border cursor-pointer border-gray w-17 ml-4">
-                <BsFileEarmark className="bg-gray2 text-white text-xl m-2 ml-6 hover:animate-bounce" />
-                <p className="bg-gray items-center text-xs p-1 flex justify-center">article</p>
-              </div>
-            </div>
-
+                  {/* article box  */}
+                  <div className="video-box border cursor-pointer border-gray w-17 ml-4">
+                    <BsFileEarmark className="bg-gray2 text-white text-xl m-2 ml-6 hover:animate-bounce" />
+                    <p className="bg-gray items-center text-xs p-1 flex justify-center">article</p>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         )}
-         {/* end of upload section  */}
+        {/* end of upload section  */}
 
         <div className='items-center ml-8'>
           <button className="px-4 py-2 mt-2 bg-white flex text-black font-bold hover:bg-gray border border-black"><BsPlus className='text-2xl' /> Curriculum item</button>
         </div>
       </div>
 
-{/* popup section  */}
+      {/* popup section  */}
       {showConfirmationPopup && (
         <ConfirmationPopup
           onCancel={() => setShowConfirmationPopup(false)}
@@ -212,7 +214,7 @@ const InstructorCurriculum = () => {
         />
       )}
 
-{/* the curriculum form section to add section  */}
+      {/* the curriculum form section to add section  */}
       {isAddingSection ? (
         <div className="px-14">
           <button
