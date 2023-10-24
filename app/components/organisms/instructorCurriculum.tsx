@@ -113,7 +113,8 @@ const InstructorCurriculum = () => {
             {showVideo ? (
               <button
                 className="flex items-center space-x-1 cursor-pointer border border-black border-b-0 px-2 py-1 font-bold text-sm"
-                onClick={() => setShowVideo(false)}
+                onClick={() => {setShowVideo(false)
+                  setDropdownOpen(false);}}
               >
                 <span>Select content type</span>
                 <BsX className="text-2xl" />
