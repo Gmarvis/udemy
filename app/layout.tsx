@@ -3,11 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import MainNav from "./components/MainNav";
-import LogiNav from "./components/organisms/login-navbar";
 import { Providers } from "./context/Provider";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Udemy Clone",
@@ -20,11 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Provider>
-        {children}
-        </Provider>
-      </body>
+      <Providers>
+        <body>{children}</body>
+      </Providers>
     </html>
   );
 }
