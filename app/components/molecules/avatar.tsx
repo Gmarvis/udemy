@@ -8,12 +8,12 @@ type Props = {};
 const AvatarProfile = (props: Props) => {
 
   const user = JSON.parse(localStorage.getItem('currentUser') || '{}')
-
+  console.log(user)
   return (
     <div className="relative">
       <Avatar
         className="peer hover:cursor-pointer"
-        name="Tikeng Gael"
+        name={user.name}
         color="#000"
         round={true}
         size="30"
@@ -22,14 +22,14 @@ const AvatarProfile = (props: Props) => {
         <div className=" flex py-4 gap-4 hover:cursor-pointer w-[50px] px-6">
           <Avatar
             className="peer hover:cursor-pointer w-[50px]"
-            name="Tikeng Gael"
+            name={user.name}
             color="#000"
             round={true}
             size="70"
           />
           <div className=" px-2 text-sm my-auto">
-            <p className="">Tikeng Gael</p>
-            <p className="">Gaelinho@yahoo.fr</p>
+            <p className="">{user.name}</p>
+            <p className="">{user.email}</p>
           </div>
         </div>
         <hr />
