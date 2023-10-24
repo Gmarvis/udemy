@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import CurriculumForm from '../molecules/curriculumForm';
+import React, { useState, ChangeEvent } from 'react';
 import ConfirmationPopup from '../molecules/confirmationPopup';
 import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil, BsFillCheckCircleFill, BsChevronDown, BsChevronUp, BsPlayFill } from 'react-icons/bs';
 
@@ -11,6 +10,8 @@ type Section = {
 
 const InstructorCurriculum = () => {
   const [sections, setSections] = useState<Section[]>([]);
+  const [newSectionTitle, setNewSectionTitle] = useState('');
+  const [newSectionObjectives, setNewSectionObjectives] = useState('');
   const [isAddingSection, setIsAddingSection] = useState(false);
 
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
@@ -20,6 +21,16 @@ const InstructorCurriculum = () => {
 
   const [showVideo, setShowVideo] = useState(false);
   const [showInput, setShowInput] = useState(false);
+  const [isAddingVideo, setIsAddingVideo] = useState(false);
+
+  const handleVideoClick = () => {
+    setIsAddingVideo(true);
+  };
+  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    // Logic to handle file upload
+    const selectedFile = event.target.files?.[0];
+    console.log('Selected file:', selectedFile);
+  };
 
   const handleContentButtonClick = () => {
     setShowVideo(true);
@@ -33,7 +44,20 @@ const InstructorCurriculum = () => {
 
 
 
-  
+  const handleAddSection = () => {
+    if (newSectionTitle && newSectionObjectives) {
+      const newSection: Section = {
+        id: Date.now().toString(),
+        title: newSectionTitle,
+        objectives: newSectionObjectives,
+      };
+
+      setSections([...sections, newSection]);
+      setNewSectionTitle('');
+      setNewSectionObjectives('');
+      setIsAddingSection(false);
+    }
+  };
 
   return (
     <div className='pb-20'>
@@ -137,17 +161,30 @@ const InstructorCurriculum = () => {
         )}
 
 
-
+{/* uploading video and article section  */}
         {showVideo && (
           <div className="border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center border-t-0">
             <div>
               <h3 className="text-sm text-center mb-4">Select the main type of content. Files and links can be added as resources. Learn about content types.</h3>
             </div>
+
+            
             <div className="flex justify-center">
-              <div className="video-box border border-gray cursor-pointer w-17">
-                <BsPlayFill className="bg-gray2 text-white text-xl rounded-full m-2 ml-6 hover:animate-bounce" />
-                <p className="bg-gray items-center text-xs p-1 flex justify-center">video</p>
+
+              <div className="px-14">
+                {isAddingVideo ? (
+                  <div>
+                    <input type="file" onChange={handleFileUpload} />
+                    <button onClick={() => setIsAddingVideo(false)}>Upload</button>
+                  </div>
+                ) : (
+                  <div className="video-box border border-gray cursor-pointer w-17" onClick={handleVideoClick}>
+                    <BsPlayFill className="bg-gray2 text-white text-xl rounded-full m-2 ml-6 hover:animate-bounce" />
+                    <p className="bg-gray items-center text-xs p-1 flex justify-center">video</p>
+                  </div>
+                )}
               </div>
+
 
               <div className="video-box border cursor-pointer border-gray w-17 ml-4">
                 <BsFileEarmark className="bg-gray2 text-white text-xl m-2 ml-6 hover:animate-bounce" />
@@ -157,21 +194,14 @@ const InstructorCurriculum = () => {
 
           </div>
         )}
-
-        {showInput && (
-          <div>
-            {/* Render the input for uploading files */}
-          </div>
-        )}
-
-
+         {/* end of upload section  */}
 
         <div className='items-center ml-8'>
           <button className="px-4 py-2 mt-2 bg-white flex text-black font-bold hover:bg-gray border border-black"><BsPlus className='text-2xl' /> Curriculum item</button>
         </div>
       </div>
 
-
+{/* popup section  */}
       {showConfirmationPopup && (
         <ConfirmationPopup
           onCancel={() => setShowConfirmationPopup(false)}
@@ -182,7 +212,7 @@ const InstructorCurriculum = () => {
         />
       )}
 
-
+{/* the curriculum form section to add section  */}
       {isAddingSection ? (
         <div className="px-14">
           <button
@@ -196,7 +226,53 @@ const InstructorCurriculum = () => {
             ))}
           </button>
 
-          {/* sectionfor   */}
+          <div className='border border-black p-4'>
+
+            <div>
+              <h3 className='font-bold mb-4'>New Section:</h3>
+              <div>
+
+                <div className='flex border border-black p-2 mb-6'>
+                  <input
+                    id="titleInput"
+                    type="text"
+                    value={newSectionTitle}
+                    onChange={(e) => setNewSectionTitle(e.target.value)}
+                    className="flex-grow outline-none bg-transparent"
+                    maxLength={80}
+                    placeholder="Enter a Title"
+                  />
+                </div>
+                <label htmlFor="objectivesInput" className="font-bold">
+                  what will student be able to do at the end of this section?
+                </label>
+                <div className='flex border border-black p-2 mt-4 mb-4'>
+                  <input
+                    id="objectivesInput"
+                    value={newSectionObjectives}
+                    onChange={(e) => setNewSectionObjectives(e.target.value)}
+                    className="flex-grow outline-none bg-transparent"
+                    maxLength={200}
+                    placeholder="Enter learning objectives"
+                  />
+                </div>
+
+                <div className='flex justify-end'>
+                  <button className='font-bold mr-4'>Cancel</button>
+
+                  <button
+                    onClick={handleAddSection}
+                    className="px-4 py-2 mt-2 bg-black text-white font-bold hover:bg-gray2"
+                  >
+                    Add Section
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
 
         </div>
       ) : (

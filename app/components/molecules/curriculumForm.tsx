@@ -5,8 +5,8 @@ type CurriculumFormProps = {
 };
 
 const CurriculumForm: React.FC<CurriculumFormProps> = ({ onAddSection }) => {
-  const [newSectionTitle, setNewSectionTitle] = useState('');
-  const [newSectionObjectives, setNewSectionObjectives] = useState('');
+  const [newSectionTitle, setNewSectionTitle] = useState<string>('');
+  const [newSectionObjectives, setNewSectionObjectives] = useState<string>('');
 
   const handleAddSection = () => {
     if (newSectionTitle && newSectionObjectives) {
