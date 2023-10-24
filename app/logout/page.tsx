@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slide from "../components/molecules/Slide";
 import SliderComponent from "../components/organisms/slide/Slider";
 import TabSliderLogout from "../components/organisms/abroadSelection/TabSliderLogoutPage";
@@ -12,6 +12,14 @@ type Props = {};
 
 const Page = (props: Props) => {
   const [loggedOut, setLoggedOut] = useState<boolean>(true);
+  const [hasmounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasmounted) return null;
+
   return (
     <div className=" m-5 mt-3 ">
       <div className=" bg-[#acd2cc] py-2 px-4  mb-6 mt-5 text-[#2d2f31] text-sm flex items-center gap-4 justify-start">

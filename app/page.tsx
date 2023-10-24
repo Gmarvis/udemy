@@ -1,3 +1,4 @@
+import React from "react";
 import Logos from "./components/molecules/logos";
 import SliderComponent from "./components/organisms/slide/Slider";
 import HeroSection from "./components/organisms/heroSection";

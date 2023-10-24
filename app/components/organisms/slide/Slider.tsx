@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CourseCard from "./CourseCard";

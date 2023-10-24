@@ -6,7 +6,7 @@ import DisplayTotalAmount from "../components/organisms/cart/DisplayTotalAmount"
 import SliderComponent from "../components/organisms/slide/Slider";
 import CartCourseList from "../components/organisms/cart/CartCourseList";
 import { useWindowSize } from "../Hooks/useWindowSize";
-import { CartItemType, SimpleCourseType } from "@/types";
+import { CartItemType } from "@/types";
 
 const CartPage = () => {
   const { cart, totalPrice } = useCart();
