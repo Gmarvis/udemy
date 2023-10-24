@@ -5,6 +5,9 @@ import React from "react";
 import Button from "../atoms/Button";
 
 const Avatar = () => {
+
+  
+
   return (
     <div className="">
       <div>

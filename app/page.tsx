@@ -11,7 +11,7 @@ import BecomeInstructor from "./components/organisms/become-instructor";
 import FeatureCategory from "./components/organisms/feature-category";
 import UdemyBusiness from "./components/organisms/udemy-business";
 import React from "react";
-import MainNav from "./components/MainNav";
+import MainNav from "./components/organisms/MainNav";
 
 export default function Home({
   searchParams,

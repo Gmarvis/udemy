@@ -6,6 +6,9 @@ import { TfiWorld } from "react-icons/tfi";
 type Props = {};
 
 const AvatarProfile = (props: Props) => {
+
+  const user = JSON.parse(localStorage.getItem('currentUser') || '{}')
+
   return (
     <div className="relative">
       <Avatar
