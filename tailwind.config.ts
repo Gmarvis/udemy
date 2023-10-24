@@ -18,6 +18,9 @@ const config: Config = {
         sm: "600px",
         // => @media (min-width: 600px) { ... }
 
+        smd: "701px",
+        // => @media (min-width: 800px) { ... }
+
         md: "800px",
         // => @media (min-width: 800px) { ... }
       },
@@ -58,7 +61,7 @@ const config: Config = {
       bermuda: "#78dcca",
       ctitle: "#2d2f31",
       bestseller: "#fef08a",
-      // gray: "#ccc",
+      logout: "#acd2cc",
       gray2: "#ddd",
       udemy: "#6A6F73",
       white: "#fff",

@@ -20,7 +20,6 @@ export default function Home({
       />
       <div className="mb-10 ml-3">
         <SliderComponent title="Learners are viewing" />
-        <ResponsiveTab />
       </div>
     </main>
   );
