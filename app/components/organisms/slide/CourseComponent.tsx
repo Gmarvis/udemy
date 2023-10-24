@@ -1,3 +1,4 @@
+"use client";
 import "rsuite/dist/rsuite.min.css";
 import { Button, Popover, Whisper, Tooltip } from "rsuite";
 
