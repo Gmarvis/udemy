@@ -5,23 +5,32 @@ import Profilheader from "../molecules/profilheader";
 import Avatardropdown from "../molecules/avatardropdown";
 import { IoMdMenu } from "react-icons/io";
 import Sidenav from "../organisms/sidenav";
+import TeachModal from "@/app/TeachModal";
+import Overlay from "@/app/overlay";
 
-const Teachprofil = () => {
-  const [showDropdown, setShowDropdown] = useState(<Avatardropdown />);
+interface TeachModalProps {
+  onClose: any;
+}
 
-  const handleMenuClick = (component: any) => {
-    setShowDropdown(component);
-  };
+const Teachprofil: React.FC<TeachModalProps> = ({ onClose }) => {
+  const [ showModal, setShowModal] = useState(false)
 
+  const handleOnclose = () => setShowModal(false)     
+
+  
+  
   return (
-    <div className="w-full ">
+    <div className="w-full absolute">
+     {showModal && <Overlay Click={()=>setShowModal(false)}/>}
       <Sidenav />
-      <div className="text-center bg-gray-300 w-full h-[60px] mb-5 pl-16 pt-4 text-white">
-        <IoMdMenu
-          onClick={() => handleMenuClick(<Avatardropdown />)}
-          className="text-white w-[25px] h-[25px]"
-        />
+      <div className="text-center bg-black w-full h-[60px] mb-5 pl-5 pt-4 text-white min-[740px]:hidden">
+        <div>
+          <IoMdMenu onClick={() => setShowModal(true)} className="text-white w-[25px] h-[25px] cursor-pointer " />
+        </div>
+        <TeachModal onClose={ handleOnclose }  visible={showModal}/>
       </div>
+
+
       <div className="flex justify-end items-center text-center gap-8 mr-5 h-[80px] max-[740px]:hidden">
         <div className="relative">
           <button className="peer py-2 hover:bg-white-700 text-black text-sm">
