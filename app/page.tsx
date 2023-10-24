@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import TopCategories from "./components/molecules/topCategories";
 import Logos from "./components/molecules/logos";
 import SliderComponent from "./components/organisms/slide/Slider";
@@ -11,7 +11,7 @@ import FooterLandingPage from "./components/organisms/footer-landingpage";
 import BecomeInstructor from "./components/organisms/become-instructor";
 import FeatureCategory from "./components/organisms/feature-category";
 import UdemyBusiness from "./components/organisms/udemy-business";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainNav from "./components/organisms/MainNav";
 import LogiNav from "./components/organisms/login-navbar";
 
@@ -20,35 +20,37 @@ export default function Home({
 }: {
   searchParams: { ["showDialog"]: string };
 }) {
+  const [isToken, setIsToken] = useState<boolean>(false);
 
-  const [isToken, setIsToken] = useState<boolean>(false)
-  let token: object
-  if (typeof window !== "undefined"){
-    token = JSON.parse(localStorage.getItem('token') || '{}')
-  } else console.log("server side")
+  useEffect(() => {
+    let token: string = JSON.parse(localStorage.getItem("token") || "");
 
+    if (token !== "") {
+      setIsToken(!isToken);
+    }
+  }, []);
 
   return (
     <main>
-      <MainNav />
-      <LogiNav />
+      <MainNav className={isToken ? "hidden md:hidden" : "contents"} />
+      <LogiNav className={isToken ? "contents" : "hidden md:hidden"} />
       <HeroSection />
-      <Logos className='' />
+      <Logos className={isToken ? "hidden md:hidden" : "contents"} />
       <AbroadSelection
         title="A broad selection of courses"
         textContent="Choose from over 210,000 online video courses with new additions
         published every month"
       />
 
-      <Testimonials />
+      <Testimonials className={isToken ? "hidden md:hidden" : "contents"} />
       <div className="mb-10 ml-3">
         <SliderComponent title="Learners are viewing" />
         {/* <ResponsiveTab /> */}
       </div>
-      <FeatureCategory />
+      <FeatureCategory className={isToken ? "hidden md:hidden" : "contents"} />
       <TopCategories />
-      <UdemyBusiness />
-      <BecomeInstructor />
+      <UdemyBusiness className={isToken ? "hidden md:hidden" : "contents"} />
+      <BecomeInstructor className={isToken ? "hidden md:hidden" : "contents"} />
       <FooterLandingPage />
     </main>
   );

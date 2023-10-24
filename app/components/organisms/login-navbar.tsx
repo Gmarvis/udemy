@@ -14,7 +14,11 @@ import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import MenuItems from "./menu-items";
 
-const LogiNav = (props: PropsWithChildren) => {
+type Props = {
+  className?: string
+}
+
+const LogiNav = ({className}: Props) => {
   const [active, setActive] = useState(false);
   const [closed, setClosed] = useState(false);
 
@@ -24,7 +28,7 @@ const LogiNav = (props: PropsWithChildren) => {
   }
 
   return (
-    <div>
+    <div className={className}>
       <MobileNavbar
         onClickMenuButton={() => {
           setActive((prev) => !prev);
