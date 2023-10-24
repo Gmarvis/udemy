@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CurriculumForm from '../molecules/curriculumForm';
 import ConfirmationPopup from '../molecules/confirmationPopup';
 import { BsPlus, BsX, BsFileEarmark, BsTrash, BsPencil, BsFillCheckCircleFill, BsChevronDown, BsChevronUp, BsPlayFill } from 'react-icons/bs';
 
@@ -10,8 +11,6 @@ type Section = {
 
 const InstructorCurriculum = () => {
   const [sections, setSections] = useState<Section[]>([]);
-  const [newSectionTitle, setNewSectionTitle] = useState('');
-  const [newSectionObjectives, setNewSectionObjectives] = useState('');
   const [isAddingSection, setIsAddingSection] = useState(false);
 
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
@@ -34,20 +33,7 @@ const InstructorCurriculum = () => {
 
 
 
-  const handleAddSection = () => {
-    if (newSectionTitle && newSectionObjectives) {
-      const newSection: Section = {
-        id: Date.now().toString(),
-        title: newSectionTitle,
-        objectives: newSectionObjectives,
-      };
-
-      setSections([...sections, newSection]);
-      setNewSectionTitle('');
-      setNewSectionObjectives('');
-      setIsAddingSection(false);
-    }
-  };
+  
 
   return (
     <div className='pb-20'>
@@ -111,14 +97,16 @@ const InstructorCurriculum = () => {
 
           <div className="flex items-center">
             {showVideo ? (
-              <button
-                className="flex items-center space-x-1 cursor-pointer border border-black border-b-0 px-2 py-1 font-bold text-sm"
-                onClick={() => {setShowVideo(false)
-                  setDropdownOpen(false);}}
+              <h3
+                className="flex items-center bg-white border border-black border-b-0 -mb-6 cursor-pointer px-2 py-1 font-bold text-sm"
+                onClick={() => {
+                  setShowVideo(false)
+                  setDropdownOpen(false);
+                }}
               >
                 <span>Select content type</span>
                 <BsX className="text-2xl" />
-              </button>
+              </h3>
             ) : (
               <button
                 className="flex items-center space-x-1 cursor-pointer border border-black px-2 py-1 font-bold text-sm hover:bg-gray2"
@@ -138,12 +126,16 @@ const InstructorCurriculum = () => {
           </div>
 
         </div>
-        {isDropdownOpen && (
-          <div className='border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center flex border-t-0'>
-
-            <button className="px-3 py-2 mt-2 bg-white flex items-center text-black text-sm font-bold hover:bg-gray border border-black"><BsPlus className='text-xl' /> Description </button>
+        {isDropdownOpen && !showVideo && (
+          <div className="border border-black px-3 py-2 bg-white mb-4 ml-8 justify-between items-center flex border-t-0">
+            <button
+              className="px-3 py-2 mt-2 bg-white flex items-center text-black text-sm font-bold hover:bg-gray border border-black"
+            >
+              <BsPlus className="text-xl" /> Description
+            </button>
           </div>
         )}
+
 
 
         {showVideo && (
@@ -204,53 +196,7 @@ const InstructorCurriculum = () => {
             ))}
           </button>
 
-          <div className='border border-black p-4'>
-
-            <div>
-              <h3 className='font-bold mb-4'>New Section:</h3>
-              <div>
-
-                <div className='flex border border-black p-2 mb-6'>
-                  <input
-                    id="titleInput"
-                    type="text"
-                    value={newSectionTitle}
-                    onChange={(e) => setNewSectionTitle(e.target.value)}
-                    className="flex-grow outline-none bg-transparent"
-                    maxLength={80}
-                    placeholder="Enter a Title"
-                  />
-                </div>
-                <label htmlFor="objectivesInput" className="font-bold">
-                  what will student be able to do at the end of this section?
-                </label>
-                <div className='flex border border-black p-2 mt-4 mb-4'>
-                  <input
-                    id="objectivesInput"
-                    value={newSectionObjectives}
-                    onChange={(e) => setNewSectionObjectives(e.target.value)}
-                    className="flex-grow outline-none bg-transparent"
-                    maxLength={200}
-                    placeholder="Enter learning objectives"
-                  />
-                </div>
-
-                <div className='flex justify-end'>
-                  <button className='font-bold mr-4'>Cancel</button>
-
-                  <button
-                    onClick={handleAddSection}
-                    className="px-4 py-2 mt-2 bg-black text-white font-bold hover:bg-gray2"
-                  >
-                    Add Section
-                  </button>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
+          {/* sectionfor   */}
 
         </div>
       ) : (
