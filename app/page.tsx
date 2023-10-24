@@ -1,6 +1,4 @@
-import Logos from "./components/molecules/logos";
-import SliderComponent from "./components/organisms/slide/Slider";
-import HeroSection from "./components/organisms/heroSection";
+import React from "react";
 
 export default function Home({searchParams}:{searchParams: {['showDialog'] : string} }) {
  

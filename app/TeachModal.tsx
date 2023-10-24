@@ -40,7 +40,7 @@ const TeachModal: React.FC<TeachModalProps> = ({ visible, onClose }) => {
               Switch to Student view
             </p>
           </div>
-          <hr className="w-full  text-gray-800" />
+          <hr className="w-full  text-gray" />
           <div className="px-4 py-4">
             <p className="text-[17px] flex justify-between text-center items-center py-2">
               Courses
@@ -57,13 +57,13 @@ const TeachModal: React.FC<TeachModalProps> = ({ visible, onClose }) => {
               <p className="text-[17px]">Tools</p>
               <MdNavigateNext />
             </div>
-            <div className="flex gap-8 justify-between text-center items-center pt-2 pb-4">
+            <div className="flex gap-8 justify-between text-center items-center pt-2 pb-2">
               <p className="text-[17px]">Resources</p>
               <MdNavigateNext />
             </div>
           </div>
 
-          <hr className="w-full  text-gray-400" />
+          <hr className="w-full  text-gray" />
 
           <div className="px-4">
             <div className="pt-4 pb-2">
