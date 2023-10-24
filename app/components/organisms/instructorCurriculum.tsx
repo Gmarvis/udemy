@@ -59,7 +59,7 @@ const InstructorCurriculum = () => {
         <a href="/#" className="underline decoration-blue-500 text-blue-700">
           course outline
         </a>{' '}
-        to structure your content and label your sections and lectures clearly. If you're intending
+        to structure your content and label your sections and lectures clearly. If you&apos;re intending
         to offer your course for free, the total length of video content must be less than 2 hours.
       </p>
 
