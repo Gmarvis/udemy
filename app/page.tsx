@@ -14,6 +14,7 @@ import UdemyBusiness from "./components/organisms/udemy-business";
 import React, { useState, useEffect } from "react";
 import MainNav from "./components/organisms/MainNav";
 import LogiNav from "./components/organisms/login-navbar";
+import { LOCAL_STORAGE } from "@/services/storage";
 
 export default function Home({
   searchParams,
@@ -23,7 +24,8 @@ export default function Home({
   const [isToken, setIsToken] = useState<boolean>(false);
 
   useEffect(() => {
-    let token: string = JSON.parse(localStorage.getItem("token") || "");
+    // let token: string = JSON.parse(localStorage.getItem("token") || "");
+    let token: string = LOCAL_STORAGE.get("token")
 
     if (token !== "") {
       setIsToken(!isToken);
