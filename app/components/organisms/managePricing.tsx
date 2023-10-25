@@ -17,24 +17,28 @@ export default function managePricing({ }: Props) {
       </p>
 
       <div className='flex px-14 py-4 align-middle items-center'>
-        <div className='mr-5'>
-          <label>Currency</label>
-          <select>
+        <div className='mr-7'>
+          <label className='font-bold flex'>Currency</label>
+          <select className='border border-black px-6 py-3 bg-white'>
             <option value='USD'>USD</option>
             <option value='EUR'>EUR</option>
             <option value='GBP'>GBP</option>
-            {/* Add more options for other currencies */}
+            <option value='NGN'>NGN</option>
+            {/* more options*/}
           </select>
         </div>
 
         <div>
-
-          <label>Price Tier<BsFillInfoCircleFill /></label>
-          <select>
+          <label className='flex items-center font-bold'>Price Tier<BsFillInfoCircleFill className='ml-3'/></label>
+          <select className='border border-black px-6 py-3 bg-white'>
+            <option value='0'>Select</option>
             <option value='0'>Free</option>
-            <option value='10'>Tier 1</option>
-            <option value='20'>Tier 2</option>
-            {/* Add more options for other price tiers */}
+            <option value='10'>$19.99(tier 1)</option>
+            <option value='20'>$24.99(tier 2)</option>
+            <option value='30'>$29.99(tier 3)</option>
+            <option value='40'>$34.99(tier 4)</option>
+            <option value='50'>$39.99(tier 5)</option>
+            {/*more options */}
           </select>
         </div>
       </div>
