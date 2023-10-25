@@ -22,16 +22,38 @@ const LoginForm: NextPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const formData = new FormData (e.currentTarget);
-    //  const response =await signIn('credentials', {
-    //   email: formData.get('email'),
-    //   password: formData.get('password'),
-    //   redirect: false,
-    //  }) ;
-    //  console.log(response);
-    //  if (!response?.error){
-    //   router.push("/");
-    //  }
+    setIsLoading(true);
+    console.log({ email, password });
+    const isValidEmail = validator.isEmail(email);
+
+    if (!isValidEmail) {
+      setIsError(true);
+      setErrorMassage("incurrect email");
+      setIsLoading(false);
+      return;
+    } else {
+      login({
+        email,
+        password,
+      }).then((res) => {
+        setIsLoading(false);
+        if (res.token) {
+          LOCAL_STORAGE.save("token", res.token);
+          getUser(res.token).then((response) => {
+            LOCAL_STORAGE.save("currentUser", response);
+            console.log(response);
+            setIsLoading(false);
+            setIsError(false);
+          });
+          setIsError(false);
+          setErrorMassage("");
+          router.push("/");
+        } else {
+          setIsError(true);
+          setErrorMassage(res.message);
+        }
+      });
+    }
   };
 
   return (
@@ -90,13 +112,6 @@ const LoginForm: NextPage = () => {
           {isLoading ? "loading..." : "login"}
         </button>
       </form>
-      <div className="flex items-center justify-center bg-violet bg-violet-600 w-[350px] h-[50px] my-2">
-        <Button
-          className="text-white font-black text-[16px]"
-          label="Log in"
-          type={"submit"}
-        />
-      </div>
       <h3>
         or {""}
         <Link legacyBehavior href="#">
@@ -106,7 +121,7 @@ const LoginForm: NextPage = () => {
         </Link>
       </h3>
 
-      <hr className="w-[350px] h-[1px] my-3 bg-gray border-0 rounded  dark:bg-gray" />
+      <hr className="w-[350px] h-[1px] my-3 bg-gray-200 border-0 rounded  dark:bg-gray-700" />
 
       <p className="text-[15px] text-center">
         Don&lsquo;t have an account?

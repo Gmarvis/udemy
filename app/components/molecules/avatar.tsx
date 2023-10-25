@@ -14,11 +14,12 @@ const AvatarProfile = (props: Props) => {
 
   const handleLockout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("currentUseraaaaa");
     router.push("/logout");
   };
 
   return (
-    <div className="relative">
+    <div className="relative pr-6">
       <Avatar
         className="peer hover:cursor-pointer"
         name={user.name}
@@ -26,7 +27,7 @@ const AvatarProfile = (props: Props) => {
         round={true}
         size="30"
       />
-      <div className="group-hover:visible focus:outline-none absolute mt-1 ml-[-250px] w-[300px] bg-white drop-shadow-lg hidden peer-hover:flex z-10 flex-col hover:flex">
+      <div className="group-hover:visible focus:outline-none absolute mt-1 ml-[-250px] w-[300px] bg-white drop-shadow-lg hidden peer-hover:flex z-40 flex-col hover:flex">
         <div className=" flex py-4 gap-4 hover:cursor-pointer w-[50px] px-6">
           <Avatar
             className="peer hover:cursor-pointer w-[50px]"
@@ -49,34 +50,34 @@ const AvatarProfile = (props: Props) => {
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Notifications
           </a>
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Messages
           </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Account settings
           </a>
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Payment methods
           </a>
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Suscriptions
           </a>
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Udemy credit
           </a>
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Purchase history
           </a>
         </div>
         <hr />
         <div className="flex text-sm p-4 justify-between leading-10">
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Language
           </a>
           <div className="flex gap-4">
@@ -86,28 +87,28 @@ const AvatarProfile = (props: Props) => {
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Public profile
           </a>
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Edit profile
           </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">
+          <a href="#" className="hover:text-violet-600 text-black">
             Help
           </a>
-          <p className="hover:text-violet hover:cursor-pointer" onClick={handleLockout}>
+          <p className="hover:text-violet hover:cursor-pointer text-black" onClick={handleLockout}>
             Log out
           </p>
         </div>
         <hr />
         <div className="text-sm p-4 leading-7 flex flex-col">
-          <a href="#" className="hover:text-violet-600 text-lg font-semibold">
+          <a href="#" className="hover:text-violet-600 text-lg text-black font-semibold">
             Udemy business
           </a>
-          <a href="#" className="text-gray-400">
+          <a href="#" className="text-gray">
             Bring learning to your company
           </a>
         </div>

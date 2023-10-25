@@ -21,13 +21,13 @@ export default function Home({
 }: {
   searchParams: { ["showDialog"]: string };
 }) {
-  const [isToken, setIsToken] = useState<boolean>(false);
+  const [isToken, setIsToken] = useState<boolean>(true);
 
   useEffect(() => {
     // let token: string = JSON.parse(localStorage.getItem("token") || "");
     let token: string = LOCAL_STORAGE.get("token")
 
-    if (token !== "") {
+    if (!token) {
       setIsToken(!isToken);
     }
   }, []);

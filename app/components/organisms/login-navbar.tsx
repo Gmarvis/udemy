@@ -24,7 +24,6 @@ const LogiNav = ({className}: Props) => {
 
   function handleClick(): void {
     console.log("I am Instructor");
-    throw new Error("Function not implemented.");
   }
 
   return (
@@ -32,7 +31,6 @@ const LogiNav = ({className}: Props) => {
       <MobileNavbar
         onClickMenuButton={() => {
           setActive((prev) => !prev);
-          console.log("string");
           setTimeout(() => {
             setActive((prev) => !prev);
           }, 10000);
@@ -80,27 +78,27 @@ const LogiNav = ({className}: Props) => {
             />
             <input
               className=" px-4 w-full
-            placeholder:text-gray-400 rounded font-normal  py-2 outline-none"
+            placeholder:text-gray rounded font-normal  py-2 outline-none"
               type="text"
               placeholder="To search"
             />
           </div>
           <UdemBusDropdown />
           <p
-            className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm"
+            className=" hover:cursor-pointer text-black hover:text-violet text-sm"
             onClick={() => handleClick()}
           >
             Instructor
           </p>
           <Link href="/home/my-courses/learning">
-            <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
+            <p className="hover:cursor-pointer hover:text-violet text-black hover:no-underline text-sm">
               My Learning
             </p>
           </Link>
 
-          <AiOutlineHeart className="h-5 w-5 hover:text-violet-600 hover:cursor-pointer" />
+          <AiOutlineHeart className="h-5 w-5 hover:text-violet hover:cursor-pointer" />
           <GoToCart />
-          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
+          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet" />
           <AvatarProfile />
         </div>
       </div>
