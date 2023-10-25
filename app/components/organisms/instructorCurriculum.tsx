@@ -24,6 +24,12 @@ type Section = {
   objectives: string;
 };
 
+type Material = {
+  sectionTitle: string;
+  objective: string;
+  video: string;
+};
+
 const InstructorCurriculum = () => {
   const [sections, setSections] = useState<Section[]>([]);
   const [newSectionTitle, setNewSectionTitle] = useState("");
@@ -43,7 +49,9 @@ const InstructorCurriculum = () => {
   const [videoUrl, setVideoUrl] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
-  const [materials, setMaterial] = useState([]);
+  const [materials, setMaterial] = useState<Material[]>(
+    LOCAL_STORAGE.get("course_materials") || []
+  );
 
   const handleVideoClick = () => {
     setIsAddingVideo(true);
@@ -81,25 +89,17 @@ const InstructorCurriculum = () => {
         objectives: newSectionObjectives,
       };
 
-      setMaterial((materials) => ({
+      const updates = [
         ...materials,
-        section: newSectionTitle,
-        objective: newSectionTitle,
-        video: videoUrl,
-      }));
-
-      const getLocal = LOCAL_STORAGE.get("course_materials");
-
-      if (getLocal) {
-        const newMaterials = {
-          ...getLocal,
-          materials,
-        };
-
-        LOCAL_STORAGE.save("course_materials", newMaterials);
-      } else {
-        LOCAL_STORAGE.save("course_materials", materials);
-      }
+        {
+          sectionTitle: newSectionTitle,
+          objective: newSectionTitle,
+          video: videoUrl,
+        },
+      ];
+      setMaterial(updates);
+      LOCAL_STORAGE.save("course_materials", updates);
+      setVideoUrl("");
 
       setSections([...sections, newSection]);
       setNewSectionTitle("");
