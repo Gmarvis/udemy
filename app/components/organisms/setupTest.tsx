@@ -7,9 +7,9 @@ export default function CourseStructure({ }: Props) {
   return (
     <div className="">
       <h1 className="font-bold text-slate-700 text-2xl  py-10 pl-14">Setup & test video</h1>
-      <p className='border-b border-gray-300'></p>
+      <p className='border-b border-gray'></p>
 
-      <div className='flex bg-gray-100 text-lg mb-6 px-14 py-6'>
+      <div className='flex bg-gray2 text-lg mb-6 px-14 py-6'>
 
         <div className='max-w-2xl mr-6 mt-20'>
           <h2 className='font-bold mb-6 text-2xl'>Arrange your ideal studio and get early feedback
@@ -61,13 +61,13 @@ export default function CourseStructure({ }: Props) {
 
         <h2 className='font-bold mb-4 text-2xl'>Resources</h2>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Teaching Center: Guide to equipment</a>
+        <a href="/#" className="underline decoration-purple text-purple">Teaching Center: Guide to equipment</a>
         <p className='mb-5'>Make a home studio on a budget</p>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy Trust & Safety</a>
+        <a href="/#" className="underline decoration-purple text-purple">Udemy Trust & Safety</a>
         <p className='mb-5'>Our policies for instructors and students</p>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Join the community</a>
+        <a href="/#" className="underline decoration-purple text-purple">Join the community</a>
         <p className='mb-5'>A place to talk with other instructors</p>
       </div>
     </div>
