@@ -7,6 +7,7 @@ import InstructorCurriculum from '../components/organisms/instructorCurriculum';
 import FilmEdit from '../components/organisms/filmEdit'
 import { ComponentType } from 'react';
 import SetupTest from '../components/organisms/setupTest'
+import ManagePricing from '../components/organisms/managePricing';
 
 type Checkbox = {
   id: number;
@@ -108,6 +109,8 @@ const ManageGoals = () => {
     'Setup & test video': SetupTest,
     'Film & edit': FilmEdit,
     'Curriculum': InstructorCurriculum,
+    // 'Course Landing Page': 
+    'Pricing':ManagePricing,
     // ...add other checkboxes and their corresponding page components here
   };
   const [activePage, setActivePage] = useState('Intended learners');
