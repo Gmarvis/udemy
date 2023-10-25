@@ -1,6 +1,6 @@
 import MyCourses from "@/app/components/molecules/my-courses";
 import Footer from "@/app/components/organisms/footer-logout";
-import LogiNav from "@/app/components/organisms/login-navbar";
+import MyLearningNavbar from "@/app/components/organisms/my-learning-nav";
 import React from "react";
 
 type Props = {};
@@ -8,10 +8,10 @@ type Props = {};
 const MyLearning = (props: Props) => {
   return (
     <div>
-      <LogiNav />
+      <MyLearningNavbar/>
       <MyCourses />
-      <div className="h-10">
-        <p>Hello guys</p>
+      <div className="h-1/2 py-50">
+        <p>My learnings</p>
       </div>
       <Footer />
     </div>
