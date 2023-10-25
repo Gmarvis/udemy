@@ -37,10 +37,10 @@ const Page = (props: Props) => {
         <UdemyBusinessCard />
       </div>
 
-      <div className="mb-5 ml-0 hidden sm:block mt-36 smd:mt-0 lg:mt-48">
+      <div className="mb-5 ml-0 hidden sm:block sm:mt-0">
         <TabSliderLogout />
       </div>
-      <div className="mb-5 ml-0 sm:hidden">
+      <div className="mb-5 ml-0 sm:hidden mt-44 sm:mt-0">
         <ResponsiveTab />
       </div>
       <div>

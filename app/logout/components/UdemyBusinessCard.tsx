@@ -6,7 +6,7 @@ type Props = {};
 
 const UdemyBusinessCard = (props: Props) => {
   return (
-    <div className="w-full smd:w-[316px] flex flex-col items-center smd:items-start smd:justify-start smd:ml-6 gap-3 smd:-translate-y-64 lg:-translate-y-90   mt-6 lg:mb-24 lg:ml-16">
+    <div className="w-full smd:w-[316px] flex flex-col items-center smd:items-start smd:justify-start smd:ml-6 gap-3 smd:-translate-y-64 lg:-translate-y-72    mt-6 lg:mb-24 lg:ml-16">
       <div className="udemybusiness flex flex-row  w-fit gap-2">
         <Image
           src={"https://www.udemy.com/staticx/udemy/images/v7/logo-ub.svg"}
