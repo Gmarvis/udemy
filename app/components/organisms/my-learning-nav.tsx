@@ -43,7 +43,7 @@ const MyLearningNavbar= ({ className }: Props) => {
             : "hidden"
         }`}
       />
-      <div className="py-2 bg-red-400 hidden md:contents px-6">
+      <div className="py-4 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
             <Image

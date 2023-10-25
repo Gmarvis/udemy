@@ -1,4 +1,4 @@
-import MyCourses from "@/app/components/molecules/my-courses";
+import ListItems from "@/app/components/molecules/list-item-courses";
 import Footer from "@/app/components/organisms/footer-logout";
 import MyLearningNavbar from "@/app/components/organisms/my-learning-nav";
 import React from "react";
@@ -9,7 +9,7 @@ const MyLearning = (props: Props) => {
   return (
     <div>
       <MyLearningNavbar/>
-      <MyCourses />
+      <ListItems />
       <div className="h-1/2 py-50">
         <p>My learnings</p>
       </div>
