@@ -37,7 +37,7 @@ const Page = (props: Props) => {
         <UdemyBusinessCard />
       </div>
 
-      <div className="mb-5 ml-0 hidden sm:block sm:mt-0">
+      <div className="mb-5 ml-0 hidden sm:block sm:mt-0  md:mt-24">
         <TabSliderLogout />
       </div>
       <div className="mb-5 ml-0 sm:hidden mt-44 sm:mt-0">

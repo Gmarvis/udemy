@@ -9,11 +9,11 @@ const UdemyLogoutLogo: React.FC<propsType> = ({ img }) => {
   return (
     <div className="relative outline-none border-none ">
       <Image
-        className="w-full h-[300px] md:[1000px]"
+        className="w-full h-[300px] md:h-[400px]"
         src={img}
         alt="heroImage"
         width={500}
-        height={300}
+        height={500}
       />
     </div>
   );
