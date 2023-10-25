@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import { useState, createElement } from 'react';
-import IntendedLearners from '../components/organisms/intendedLearners/page';
-import CourseStructure from '../components/organisms/courseStructure';
-import InstructorCurriculum from '../components/organisms/instructorCurriculum';
-import FilmEdit from '../components/organisms/filmEdit'
-import { ComponentType } from 'react';
-import SetupTest from '../components/organisms/setupTest'
-import ManagePricing from '../components/organisms/managePricing';
+import { useState, createElement } from "react";
+import IntendedLearners from "../components/organisms/intendedLearners/page";
+import CourseStructure from "../components/organisms/courseStructure";
+import InstructorCurriculum from "../components/organisms/instructorCurriculum";
+import FilmEdit from "../components/organisms/filmEdit";
+import { ComponentType } from "react";
+import SetupTest from "../components/organisms/setupTest";
+import ManagePricing from "../components/organisms/managePricing";
 
 type Checkbox = {
   id: number;
@@ -29,74 +29,74 @@ type Props = {
 const checkboxes: Checkbox[] = [
   {
     id: 1,
-    name: 'Plan Your Course',
+    name: "Plan Your Course",
     checks: [
       {
         id: 1,
-        name: 'Intended learners',
-        content: 'Content for Intended learners...',
+        name: "Intended learners",
+        content: "Content for Intended learners...",
       },
       {
         id: 2,
-        name: 'Course structure',
-        content: 'Content for Course structure...',
+        name: "Course structure",
+        content: "Content for Course structure...",
       },
       {
         id: 3,
-        name: 'Setup & test video',
-        content: 'Content for Setup & test video...',
+        name: "Setup & test video",
+        content: "Content for Setup & test video...",
       },
     ],
   },
   {
     id: 2,
-    name: 'Create Your Content',
+    name: "Create Your Content",
     checks: [
       {
         id: 1,
-        name: 'Film & edit',
-        content: 'Content for Film & edit...',
+        name: "Film & edit",
+        content: "Content for Film & edit...",
       },
       {
         id: 2,
-        name: 'Curriculum',
-        content: 'Content for Curriculum...',
+        name: "Curriculum",
+        content: "Content for Curriculum...",
       },
       {
         id: 3,
-        name: 'Captions (optional)',
-        content: 'Content for Captions (optional)...',
+        name: "Captions (optional)",
+        content: "Content for Captions (optional)...",
       },
       {
         id: 4,
-        name: 'Accessibility',
-        content: 'Content for Accessibility...',
+        name: "Accessibility",
+        content: "Content for Accessibility...",
       },
     ],
   },
   {
     id: 3,
-    name: 'Publish Your Course',
+    name: "Publish Your Course",
     checks: [
       {
         id: 1,
-        name: 'Course Landing Page',
-        content: 'Content for Course Landing Page...',
+        name: "Course Landing Page",
+        content: "Content for Course Landing Page...",
       },
       {
         id: 2,
-        name: 'Pricing',
-        content: 'Content for Pricing...',
+        name: "Pricing",
+        content: "Content for Pricing...",
       },
       {
         id: 3,
-        name: 'Promotions',
-        content: 'Content for Promotions...',
+        name: "Promotions",
+        content: "Content for Promotions...",
       },
       {
         id: 4,
-        name: 'Course messages',
-        content: 'Content for Course messages...',
+        name: "Course messages",
+        content: "Content for Course messages...",
       },
     ],
   },
@@ -104,16 +104,14 @@ const checkboxes: Checkbox[] = [
 
 const ManageGoals = () => {
   const pageComponents: { [key: string]: ComponentType<Props> } = {
-    'Intended learners': IntendedLearners,
-    'Course structure': CourseStructure,
-    'Setup & test video': SetupTest,
-    'Film & edit': FilmEdit,
-    'Curriculum': InstructorCurriculum,
-    // 'Course Landing Page': 
-    'Pricing':ManagePricing,
+    "Intended learners": IntendedLearners,
+    "Course structure": CourseStructure,
+    "Setup & test video": SetupTest,
+    "Film & edit": FilmEdit,
+    Curriculum: InstructorCurriculum,
     // ...add other checkboxes and their corresponding page components here
   };
-  const [activePage, setActivePage] = useState('Intended learners');
+  const [activePage, setActivePage] = useState("Intended learners");
   const [showContent, setShowContent] = useState(true);
 
   const handleCheckboxClick = (page: string) => {
@@ -122,15 +120,16 @@ const ManageGoals = () => {
   };
 
   return (
-    <div className="flex mx-72 my-6">
+    <div className="flex mx-72 lg:mx-24 my-6">
       <div className="flex flex-col space-y-2 mt-8 p-4">
         {checkboxes.map((checkbox) => (
           <div key={checkbox.id} className="pb-4">
             <h2 className="font-bold mb-2">{checkbox.name}</h2>
             {checkbox.checks.map((check) => (
               <label
-                className={`flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray ${activePage === check.name ? 'border-l-4 border-black' : ''
-                  }`}
+                className={`flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray ${
+                  activePage === check.name ? "border-l-4 border-black" : ""
+                }`}
                 key={check.id}
               >
                 <input
@@ -151,9 +150,9 @@ const ManageGoals = () => {
       <div className="ml-6">
         {showContent && (
           <div className="text-base shadow-2xl max-w-5xl mt-6">
-            {activePage && pageComponents[activePage] && (
-              createElement(pageComponents[activePage])
-            )}
+            {activePage &&
+              pageComponents[activePage] &&
+              createElement(pageComponents[activePage])}
           </div>
         )}
       </div>
