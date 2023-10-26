@@ -19,7 +19,7 @@ export default function Home({
         textContent="Choose from over 210,000 online video courses with new additions
         published every month"
       />
-      <div className="mb-10 ml-3">
+      <div className="mb-10 ml-3 lg:mt-0 mx-auto">
         <SliderComponent title="Learners are viewing" />
       </div>
     </main>
