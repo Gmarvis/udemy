@@ -4,13 +4,11 @@ import Button from "../atoms/Button";
 import { useRouter } from "next/navigation";
 
 const Teachflowd = () => {
-
   const router = useRouter();
 
   const handleClickc = () => {
     router.push("/teachflowc");
   };
-
   const handleClickd = () => {
     router.push("/basics");
   };
@@ -45,16 +43,18 @@ const Teachflowd = () => {
           How much time can you spend creating your course per week
         </h1>
         <p>
-          There's no wrong answer.We can help you achieve you goals even if you
-          don't have much time.
+          There&apos;s no wrong answer.We can help you achieve you goals even if
+          you don&apos;t have much time.
         </p>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
           <input className="rounded w-[15px] bg-black" type="radio" />
-          <p className="font-bold">I'm very busy right now (0-2hours)</p>
+          <p className="font-bold">I&apos;m very busy right now (0-2hours)</p>
         </div>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
           <input className="rounded w-[15px]" type="radio" />
-          <p className="font-bold">I'll work on this on the side (2-4hours)</p>
+          <p className="font-bold">
+            I&apos;ll work on this on the side (2-4hours)
+          </p>
         </div>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
           <input className="rounded w-[15px]" type="radio" />
@@ -62,7 +62,7 @@ const Teachflowd = () => {
         </div>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
           <input className="rounded-full w-[15px]" type="radio" />
-          <p className="font-bold">I haven't yet decided if I have time</p>
+          <p className="font-bold">I haven&apos;t yet decided if I have time</p>
         </div>
       </div>
 

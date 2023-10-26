@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import { MdOndemandVideo } from "react-icons/md";
 import { FaRegListAlt } from "react-icons/fa";
 import Button from "../atoms/Button";

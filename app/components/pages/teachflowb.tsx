@@ -54,7 +54,7 @@ const Teachflowb = () => {
       <div className="flex flex-col items-center gap-7 py-10">
         <h1 className="text-[30px] font-extrabold">How about a working title ?</h1>
         <p>
-          It's ok if you can't think of a good title now. you can change it
+          It&lsquo;s ok if you can&apos;t think of a good title now. you can change it
           later.
         </p>
         <input

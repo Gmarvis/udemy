@@ -28,7 +28,7 @@ const TeachModal: React.FC<TeachModalProps> = ({ visible, onClose }) => {
           />
           <div className="px-2 text-sm my-auto">
             <p className="hover:text-violet-600 font-bold text-black">
-              Hi' Tsopse Ricardo
+              Hi&apos; Tsopse Ricardo
             </p>
             <p className="text-gray-600 ">Welcome Back</p>
           </div>

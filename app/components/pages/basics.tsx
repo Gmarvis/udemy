@@ -84,7 +84,7 @@ const Basics = () => {
           </div>
           <p className="text-[12px] text-gray-400">
             Use 1 or 2 related keywords, and mention 3-4 of the most important
-            areas that you've covered during your course.
+            areas that you&apos;ve covered during your course.
           </p>
         </div>
 
@@ -208,7 +208,6 @@ const Basics = () => {
             <a href="#" className="text-violet underline">
               Learn how to make your promo video awesome!
             </a>
-            useless line of code: X to be ingnored
           </p>
           <input
             className="block w-full text-lg text-gray-900 border border-gray-300  cursor-pointer bg-gray-50 black:text-gray-400 focus:outline-none black:bg-gray-700 black:border-gray-600 placeholder:gray-400 mt-2 py-2"
