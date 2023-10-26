@@ -109,7 +109,6 @@ const ManageGoals = () => {
     'Setup & test video': SetupTest,
     'Film & edit': FilmEdit,
     'Curriculum': InstructorCurriculum,
-    // 'Course Landing Page': 
     'Pricing':ManagePricing,
     // ...add other checkboxes and their corresponding page components here
   };
@@ -122,7 +121,7 @@ const ManageGoals = () => {
   };
 
   return (
-    <div className="flex mx-72 my-6">
+    <div className="flex mx-72 my-5">
       <div className="flex flex-col space-y-2 mt-8 p-4">
         {checkboxes.map((checkbox) => (
           <div key={checkbox.id} className="pb-4">
