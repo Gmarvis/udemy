@@ -49,7 +49,7 @@ const Teachflowc = () => {
         later.
       </p>
        
-      <select className="border border-black py-4 px-4 w-1/3">
+      <select className="border border-black     py-4 px-4 w-1/3">
               <option value="0">Choose a category</option>
               <option value="2">Development</option>
               <option value="3">Business</option>

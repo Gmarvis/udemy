@@ -9,7 +9,7 @@ import TeachModal from "@/app/TeachModal";
 import Overlay from "@/app/overlay";
 
 interface TeachModalProps {
-  onClose: any;
+  onClose?: () => void;
 }
 
 const Teachprofil: React.FC<TeachModalProps> = ({ onClose }) => {

@@ -61,7 +61,7 @@ const Teachflowb = () => {
           type="text"
           placeholder="eg. Learn Photoshop CS6 from Scratch "
           className="border border-black px-4 py-4 w-[30%]"
-          disabled={count >= maxLength}
+          // disabled={count >= maxLength}
           maxLength={maxLength}
           onChange={handleChanges}
         />

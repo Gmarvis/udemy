@@ -12,7 +12,7 @@ const Teachflowd = () => {
   };
 
   const handleClickd = () => {
-    router.push("/manage/basics");
+    router.push("/basics");
   };
 
   return (
@@ -49,19 +49,19 @@ const Teachflowd = () => {
           don't have much time.
         </p>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
-          <input className="rounded w-[15px]" type="checkbox" />
+          <input className="rounded w-[15px] bg-black" type="radio" />
           <p className="font-bold">I'm very busy right now (0-2hours)</p>
         </div>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
-          <input className="rounded w-[15px]" type="checkbox" />
+          <input className="rounded w-[15px]" type="radio" />
           <p className="font-bold">I'll work on this on the side (2-4hours)</p>
         </div>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
-          <input className="rounded w-[15px]" type="checkbox" />
+          <input className="rounded w-[15px]" type="radio" />
           <p className="font-bold">I have lots of flexibility (5+ hours)</p>
         </div>
         <div className="border border-black px-3 py-4 flex gap-4 w-1/3 hover:bg-gray">
-          <input className="rounded-full w-[15px]" type="checkbox" />
+          <input className="rounded-full w-[15px]" type="radio" />
           <p className="font-bold">I haven't yet decided if I have time</p>
         </div>
       </div>
