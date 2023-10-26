@@ -126,17 +126,17 @@ const ManageGoals = () => {
   return (
     <div>
       <div className="bg-dark py-2 flex justify-between fixed top-0 left-0 right-0">
-        <div className="flex text-white">
+        <div className="flex text-white gap-2">
           <button className="flex text-white items-center">
-            <GrFormPrevious className="text-white" />
+            <GrFormPrevious className="fill-white" />
             <span className="font-normal">Back to course</span>
           </button>
-          <h3 className="font-bold mx-4 self-center">Course Title</h3>
+          <h3 className="font-bold self-center">Course Title</h3>
         </div>
-        <div>
+        <div className="flex mx-1 gap-3">
           <button className="bg-gray px-4 py-1">Save</button>
-          <button className="">
-            <AiFillSetting className="fill-white size-xl" />
+          <button className="items-center">
+            <AiFillSetting className="fill-white size-xl text-2xl items-center" />
           </button>
         </div>
       </div>
