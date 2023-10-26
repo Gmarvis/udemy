@@ -196,8 +196,15 @@ const Basics = () => {
       <div className="flex w-full gap-4 items-start">
         <div className="w-1/2 py-6">
           <p className="font-bold pb-2">Course image</p>
-          <div className="h-[300px] border border-black">
-            {pictureUrl && <Image></Image>}
+          <div className="h-[300px] border border-black relative">
+            {pictureUrl && (
+              <Image
+                src={pictureUrl}
+                alt="course image"
+                layout="fill"
+                objectFit="cover"
+              />
+            )}
           </div>
         </div>
 
