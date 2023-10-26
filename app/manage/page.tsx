@@ -8,6 +8,8 @@ import FilmEdit from "../components/organisms/filmEdit";
 import { ComponentType } from "react";
 import SetupTest from "../components/organisms/setupTest";
 import ManagePricing from "../components/organisms/managePricing";
+import Basics from "../components/pages/basics";
+//icons imports
 import { GrFormPrevious } from "react-icons/gr";
 import { AiFillSetting } from "react-icons/ai";
 
@@ -111,7 +113,7 @@ const ManageGoals = () => {
     "Setup & test video": SetupTest,
     "Film & edit": FilmEdit,
     Curriculum: InstructorCurriculum,
-    // 'Course Landing Page':
+    "Course Landing Page": Basics,
     Pricing: ManagePricing,
     // ...add other checkboxes and their corresponding page components here
   };
