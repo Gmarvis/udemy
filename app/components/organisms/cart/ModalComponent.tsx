@@ -7,7 +7,7 @@ export default function ModalComponent() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return (
-    <>
+    <div>
       {/* <Button onClick={onOpen} className="text-black">Add to Cart</Button> */}
       <Modal 
         backdrop="opaque" 
@@ -52,6 +52,6 @@ export default function ModalComponent() {
           )}
         </ModalContent>
       </Modal>
-    </>
+    </div>
   );
 }

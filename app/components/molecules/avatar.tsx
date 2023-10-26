@@ -9,14 +9,16 @@ type Props = {};
 const AvatarProfile = (props: Props) => {
   const router = useRouter();
 
-  const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  if(typeof window === undefined)return 
+
+  const user = JSON.parse(window.localStorage.getItem("currentUser") || "{}");
   console.log(user);
 
   const handleLockout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("currentUseraaaaa");
+    window.localStorage.removeItem("token");
+    window.localStorage.removeItem("currentUseraaaaa");
     router.push("/logout");
-  };
+  };  
 
   return (
     <div className="relative pr-6">
