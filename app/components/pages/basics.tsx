@@ -31,7 +31,7 @@ const Basics = () => {
   };
 
   return (
-    <div className="border border-black px-10 flex flex-col justify-center w-[75%] h-full pb-20 shadow-2xl">
+    <div className="border border-black px-10 flex flex-col justify-center w-[100%] h-full pb-20 shadow-2xl">
       <div className="py-8">
         <h1 className="text-[26px] font-bold">Course Landing page</h1>
       </div>
