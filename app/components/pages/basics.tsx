@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
+import Image from "next/image";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { BiBold } from "react-icons/bi";
 import {
@@ -7,6 +8,10 @@ import {
   MdOutlineFormatListNumbered,
   MdFormatListNumbered,
 } from "react-icons/md";
+// firebase imports
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { storage } from "@/firebase";
+import { v4 } from "uuid";
 
 const Basics = () => {
   const [counta, setCounta] = useState(0);
@@ -14,9 +19,11 @@ const Basics = () => {
   const maxLengtha = 60;
   const maxLengthb = 120;
 
+  const [pictureUrl, setPictureUrl] = useState("");
+  const [isLoading, setLoading] = useState(false);
+
   const handleChangea = (event: any) => {
     const value = event.target.value;
-
     if (value.length <= maxLengtha) {
       setCounta(value.length);
     }
@@ -24,10 +31,26 @@ const Basics = () => {
 
   const handleChangeb = (event: any) => {
     const value = event.target.value;
-
     if (value.length <= maxLengthb) {
       setCountb(value.length);
     }
+  };
+
+  // handle uploadPicture
+  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    // Logic to handle file upload
+    setLoading(true);
+    const picUpload = event.target.files?.[0];
+    console.log("Selected picture:", picUpload);
+    if (picUpload == null) return;
+    const picRef = ref(storage, `image/${picUpload.name + v4()}`);
+    uploadBytes(picRef, picUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setPictureUrl(url);
+        setLoading(false);
+        console.log("picture: ", url);
+      });
+    });
   };
 
   return (
@@ -173,7 +196,9 @@ const Basics = () => {
       <div className="flex w-full gap-4 items-start">
         <div className="w-1/2 py-6">
           <p className="font-bold pb-2">Course image</p>
-          <div className="h-[300px] border border-black"></div>
+          <div className="h-[300px] border border-black">
+            {pictureUrl && <Image></Image>}
+          </div>
         </div>
 
         <div className="w-1/2">
@@ -185,10 +210,13 @@ const Basics = () => {
             to be accepted. Important guidelines: 750x422 pixels; .jpg, .jpeg,.
             gif, or .png. no text on the image.
           </p>
+          {isLoading && <p className="text-purple">Loading...</p>}
+          {pictureUrl && <p className="text-green">Upload successfull</p>}
           <input
             className="block w-full text-lg text-gray-900 border border-gray-300  cursor-pointer bg-gray-50 black:text-gray-400 focus:outline-none black:bg-gray-700 black:border-gray-600 placeholder:gray-400 mt-2 py-2"
             id="large_size"
             type="file"
+            onChange={handleFileUpload}
           />
         </div>
       </div>
