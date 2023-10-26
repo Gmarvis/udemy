@@ -6,10 +6,10 @@ type Props = {}
 export default function CourseStructure({ }: Props) {
   return (
     <div>
-      <h1 className="font-bold text-slate-700 text-2xl  py-10 pl-14">Film & Edit</h1>
-      <p className="border-b border-gray-300"></p>
+      <h1 className="font-bold font-segoe text-black text-3xl  py-10 pl-14">Film & Edit</h1>
+      <p className="border-b border-gray2"></p>
 
-      <div className="flex bg-gray-100 text-lg mb-6 px-14 py-6">
+      <div className="flex bg-gray2 text-lg mb-6 px-14 py-6">
 
         <div className="max-w-2xl mr-6 mt-20">
           <h2 className="font-bold mb-6 text-2xl">You&apos;re ready to share your knowledge.</h2>
@@ -59,13 +59,13 @@ export default function CourseStructure({ }: Props) {
 
         <h2 className="font-bold mb-4 text-2xl">Resources</h2>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Create a test video</a>
+        <a href="/#" className="underline decoration-purple text-purple">Create a test video</a>
         <p className="mb-5">Get feedback before filming your whole course</p>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Teaching Center: Guide to quality A/V</a>
+        <a href="/#" className="underline decoration-purple text-purple">Teaching Center: Guide to quality A/V</a>
         <p className="mb-5">Film and edit with confidence</p>
 
-        <a href="/#" className="underline decoration-blue-500 text-blue-700">Udemy trust & safety</a>
+        <a href="/#" className="underline decoration-purple text-purple">Udemy trust & safety</a>
         <p className="mb-5">Our policies for instructors and students</p>
       </div>
     </div>

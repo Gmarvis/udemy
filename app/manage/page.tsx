@@ -3,9 +3,11 @@
 import { useState, createElement } from 'react';
 import IntendedLearners from '../components/organisms/intendedLearners/page';
 import CourseStructure from '../components/organisms/courseStructure';
+import InstructorCurriculum from '../components/organisms/instructorCurriculum';
 import FilmEdit from '../components/organisms/filmEdit'
 import { ComponentType } from 'react';
 import SetupTest from '../components/organisms/setupTest'
+import ManagePricing from '../components/organisms/managePricing';
 
 type Checkbox = {
   id: number;
@@ -106,7 +108,9 @@ const ManageGoals = () => {
     'Course structure': CourseStructure,
     'Setup & test video': SetupTest,
     'Film & edit': FilmEdit,
-    // 'Curriculum': ,
+    'Curriculum': InstructorCurriculum,
+    // 'Course Landing Page': 
+    'Pricing':ManagePricing,
     // ...add other checkboxes and their corresponding page components here
   };
   const [activePage, setActivePage] = useState('Intended learners');
@@ -125,7 +129,7 @@ const ManageGoals = () => {
             <h2 className="font-bold mb-2">{checkbox.name}</h2>
             {checkbox.checks.map((check) => (
               <label
-                className={`flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-200 ${activePage === check.name ? 'border-l-4 border-black' : ''
+                className={`flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray ${activePage === check.name ? 'border-l-4 border-black' : ''
                   }`}
                 key={check.id}
               >
@@ -139,7 +143,7 @@ const ManageGoals = () => {
             ))}
           </div>
         ))}
-        <button className="bg-fuchsia-600 text-white px-10 py-3 mt-4 font-bold text-base">
+        <button className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base">
           Submit for Review
         </button>
       </div>
