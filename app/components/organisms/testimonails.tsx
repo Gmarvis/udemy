@@ -58,7 +58,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-200 py-12">
+    <div className="bg-gray2 py-12">
       <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 max-w-full mr-4 sm:mr-6 md:mr-8 lg:mr-16 xl:mr-20 2xl:mr-24 ml-4 sm:ml-6 md:ml-8 lg:ml-16 xl:ml-20 2xl:ml-24">
         <div className="mx-auto text-left">
           <h2 className="text-2xl font-bold">How learners like you are achieving their goals</h2>
