@@ -18,7 +18,7 @@ const MyLearning = (props: Props) => {
   const router = useRouter();
 
   const handleClick1 = (component: any) => {
-    router.push("/home/learning");
+    // router.push("/home/learning");
     setSelectedComponent(component);
   };
 
@@ -28,17 +28,17 @@ const MyLearning = (props: Props) => {
   };
 
   const handleClick3 = (component: any) => {
-    router.push("/home/learning-tool");
+    // router.push("/home/learning-tool");
     setSelectedComponent(component);
   };
 
   const handleWishList = (component: any) => {
-    router.push("/home/wishlist");
+    // router.push("/home/wishlist");
     setSelectedComponent(component);
   };
 
   const handleArchives = (component: any) => {
-    router.push("/home/archives");
+    // router.push("/home/archives");
     setSelectedComponent(component);
   };
 
@@ -51,10 +51,10 @@ const MyLearning = (props: Props) => {
           <h1 className="py-4 px-3 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
             My Learning
           </h1>
-          <div className="flex pl-3 gap-3 justify-between md:gap-5 text-sm mx-auto md:text-base font-semibold py-4">
+          <div className="flex pl-3 gap-3 justify-between md:gap-5 text-sm mx-auto md:text-base font-semibold py-0">
             <h3
               onClick={() => handleClick1(<TakenCourses />)}
-              className="hover:cursor-pointer "
+              className="hover:cursor-pointer border-b-4"
             >
               All courses
             </h3>
