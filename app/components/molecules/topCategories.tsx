@@ -17,33 +17,33 @@ interface TopCategoriesProps {
 
 const TopCategories: React.FC<TopCategoriesProps> = ({ categories }) => {
   return (
-    <div className="justify-center py-8 mr-40 ml-40">
-      <h2 className="font-bold text-2xl pb-8 ml-32">Top Categories</h2>
-      <div className="flex max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center -m-4">
-          {categories.map((category) => (
-            <div key={category.id} className="m-3">
-              <Link href={category.link}>
-                  <div className="overflow-hidden">
-                    <div className="relative bg-gray-900 cursor-pointer">
-                    <Image
-                        src={category.image}
-                        alt={category.title}
-                        width={316}
-                        height={300}
-                        className="hover:scale-105 transition duration-100"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="text-base font-bold ">{category.title}</h3>
-                    </div>
-                  </div>
-              </Link>
-            </div>
-          ))}
-        </div>
+    <div className="justify-center py-8 mx-4 sm:mx-6 md:mx-8 lg:mx-16 xl:mx-20 2xl:mx-24">
+    <h2 className="font-bold text-2xl pb-8 ml-4 sm:ml-32">Top Categories</h2>
+    <div className="flex max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-wrap justify-center -m-4">
+        {categories.map((category) => (
+          <div key={category.id} className="m-3">
+            <Link href={category.link}>
+              <div className="overflow-hidden">
+                <div className="relative bg-gray-900 cursor-pointer">
+                  <Image
+                    src={category.image}
+                    alt={category.title}
+                    width={316}
+                    height={300}
+                    className="hover:scale-105 transition duration-100"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-base font-bold ">{category.title}</h3>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
+  </div>
   );
 };
 
