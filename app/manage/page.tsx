@@ -12,6 +12,8 @@ import Basics from "../components/pages/basics";
 //icons imports
 import { GrFormPrevious } from "react-icons/gr";
 import { AiFillSetting } from "react-icons/ai";
+import { LOCAL_STORAGE } from "@/services/storage";
+import { createCourse } from "@/services/utils";
 
 type Checkbox = {
   id: number;
@@ -119,12 +121,38 @@ const ManageGoals = () => {
   };
   const [activePage, setActivePage] = useState("Intended learners");
   const [showContent, setShowContent] = useState(true);
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [err, setError] = useState(false);
 
   const handleCheckboxClick = (page: string) => {
     setActivePage(page);
     setShowContent(true);
   };
 
+  // submit course data to the backend
+  const handleSubmit = () => {
+    setLoading((prev) => !prev);
+    const courseContent = LOCAL_STORAGE.get("courseContent");
+    const courseMaterials = LOCAL_STORAGE.get("course_materials");
+    const updatedContent = {
+      ...courseContent,
+      materials: courseMaterials,
+    };
+    console.log("updatedContent: ", updatedContent);
+    // console.log("token: ", LOCAL_STORAGE.get("token"));
+
+    // post course
+    createCourse(updatedContent).then((res) => {
+      if (res) {
+        console.log("response: ", res);
+        setSuccess((prev) => !prev);
+        setLoading(true);
+        LOCAL_STORAGE.delete("courseContent");
+        LOCAL_STORAGE.delete("course_materials");
+      }
+    });
+  };
   return (
     <div>
       <div className="bg-dark py-2 flex justify-between fixed top-0 left-0 right-0">
@@ -164,9 +192,19 @@ const ManageGoals = () => {
               ))}
             </div>
           ))}
-          <button className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base">
-            Submit for Review
-          </button>
+          <div className="flex">
+            <button
+              onClick={handleSubmit}
+              className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base"
+            >
+              {loading ? "Submit for Review" : "loading..."}
+            </button>
+            {success && (
+              <p className="text-green py-4 px-2 items-center text-center">
+                successful
+              </p>
+            )}
+          </div>
         </div>
 
         <div className="ml-6">

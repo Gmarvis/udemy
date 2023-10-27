@@ -15,4 +15,8 @@ export class LOCAL_STORAGE {
       return JSON.parse(data);
     }
   }
+
+  static delete(key: string) {
+    return localStorage.removeItem(key);
+  }
 }

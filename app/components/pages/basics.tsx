@@ -12,6 +12,7 @@ import {
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "@/firebase";
 import { v4 } from "uuid";
+import { LOCAL_STORAGE } from "@/services/storage";
 
 const Basics = () => {
   const [counta, setCounta] = useState(0);
@@ -19,13 +20,65 @@ const Basics = () => {
   const maxLengtha = 60;
   const maxLengthb = 120;
 
-  const [pictureUrl, setPictureUrl] = useState("");
   const [isLoading, setLoading] = useState(false);
+  // create course data
+  const [title, setTitle] = useState("");
+  const [subTitle, setSubTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  // const [materials, setMaterials] = useState(
+  //   LOCAL_STORAGE.get("course_materials")
+  // );
+  const [category, setCategory] = useState("");
+  const [subcategory, setSubCategory] = useState("");
+  const [language, setLanguage] = useState("");
+  const [level, setLevel] = useState("");
+
+  // sub-category data
+  const [subCatData, setSubCatData] = useState<Array>();
+
+  // alert states
+  const [errMassage, setErrMassage] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleChangea = (event: any) => {
     const value = event.target.value;
     if (value.length <= maxLengtha) {
       setCounta(value.length);
+      setTitle(value);
+    }
+  };
+
+  const courseContent = {
+    title,
+    subTitle,
+    description,
+    image,
+    // materials,
+    category,
+    subcategory,
+    language,
+    level,
+  };
+
+  const handleSaveData = () => {
+    if (
+      title &&
+      subTitle &&
+      description &&
+      image &&
+      category &&
+      subcategory &&
+      language &&
+      level
+    ) {
+      LOCAL_STORAGE.save("courseContent", courseContent);
+      console.log("course data: ", courseContent);
+      setErrMassage("");
+      setSuccess(true);
+    } else {
+      setErrMassage("course content is incomplete");
+      setSuccess(false);
     }
   };
 
@@ -33,7 +86,21 @@ const Basics = () => {
     const value = event.target.value;
     if (value.length <= maxLengthb) {
       setCountb(value.length);
+      setSubTitle(value);
     }
+  };
+
+  const handleSetCategory = (e: any) => {
+    const value = e.target.value;
+    const findSub = courseCategories.find(
+      (category) => category.name === value
+    );
+
+    // console.log("category: ", value);
+    // console.log("sub-category: ", findSub);
+
+    setCategory(value);
+    setSubCatData(findSub?.subCategories);
   };
 
   // handle uploadPicture
@@ -46,12 +113,55 @@ const Basics = () => {
     const picRef = ref(storage, `image/${picUpload.name + v4()}`);
     uploadBytes(picRef, picUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setPictureUrl(url);
+        setImage(url);
         setLoading(false);
         console.log("picture: ", url);
       });
     });
   };
+
+  const courseCategories = [
+    {
+      name: "Development",
+      subCategories: [
+        { name: "Web Development" },
+        { name: "Mobile Development" },
+        { name: "Game Development" },
+        { name: "Data Science & Machine Learning" },
+        { name: "DevOps & Cloud Computing" },
+      ],
+    },
+    {
+      name: "Business",
+      subCategories: [
+        { name: "Entrepreneurship" },
+        { name: "Marketing" },
+        { name: "Finance" },
+        { name: "Leadership" },
+        { name: "Productivity" },
+      ],
+    },
+    {
+      name: "Design",
+      subCategories: [
+        { name: "Graphic Design" },
+        { name: "Web Design" },
+        { name: "UI/UX Design" },
+        { name: "Photography" },
+        { name: "Video Editing" },
+      ],
+    },
+    {
+      name: "Personal Development",
+      subCategories: [
+        { name: "Health & Fitness" },
+        { name: "Happiness & Wellbeing" },
+        { name: "Relationships" },
+        { name: "Personal Finance" },
+        { name: "Career Development" },
+      ],
+    },
+  ];
 
   return (
     <div className="px-10 flex flex-col justify-center w-[100%] h-full pb-20 shadow-2xl">
@@ -131,6 +241,7 @@ const Basics = () => {
             <input
               type="text"
               placeholder="Insert your course description."
+              onChange={(e) => setDescription(e.target.value)}
               className="border border-black border-t-transparent w-full pt-4 pb-10  px-4"
             />
           </div>
@@ -141,46 +252,63 @@ const Basics = () => {
       </div>
 
       <div className="flex flex-row gap-4">
-        <select name="" id="" className="border border-black w-1/3 py-4 px-4">
-          <option value="1">English (US)</option>
-          <option value="2">English (UK)</option>
-          <option value="3">Afrikaans</option>
-          <option value="4">Francais (Canada)</option>
-          <option value="5">Francais (France)</option>
-          <option value="6">Nederlands</option>
-          <option value="7">Nederlands (Belgie)</option>
-          <option value="8">Espagnol</option>
-          <option value="9">Slovacina</option>
-          <option value="10">Romana</option>
+        <select
+          name=""
+          id=""
+          onChange={(e) => setLanguage(e.target.value)}
+          className="border border-black w-1/3 py-4 px-4"
+        >
+          <option value="English (US)">English (US)</option>
+          <option value="English (UK)">English (UK)</option>
+          <option value="Afrikaans">Afrikaans</option>
+          <option value="Francais (Canada)">Francais (Canada)</option>
+          <option value="Francais (France)">Francais (France)</option>
+          <option value="Nederlands">Nederlands</option>
+          <option value="Nederlands (Belgie)">Nederlands (Belgie)</option>
+          <option value="Espagnol">Espagnol</option>
+          <option value="Slovacina">Slovacina</option>
+          <option value="Romana">Romana</option>
         </select>
 
-        <select name="" id="" className="border border-black w-1/3 py-4 px-4">
+        <select
+          onChange={(e) => setLevel(e.target.value)}
+          name=""
+          id=""
+          className="border border-black w-1/3 py-4 px-4"
+        >
           <option value="1">-- Select Level --</option>
-          <option value="2">Beginner Level</option>
-          <option value="3">Intermediate Level</option>
-          <option value="4">Expert Level</option>
-          <option value="5">All Level</option>
+          <option value="Beginner Level">Beginner Level</option>
+          <option value="Intermediate Level">Intermediate Level</option>
+          <option value="Expert Level">Expert Level</option>
+          <option value="All Level">All Level</option>
         </select>
 
-        <select name="" id="" className="border border-black w-1/3 py-4 px-4">
-          <option value="1">-- Select Level --</option>
-          <option value="2">Development</option>
-          <option value="3">Business</option>
-          <option value="4">Finance & Accounting</option>
-          <option value="5">IT & Software</option>
-          <option value="6">Office Productivity</option>
-          <option value="7">Personal Development</option>
-          <option value="8">Ddesign</option>
-          <option value="9">Marketing</option>
-          <option value="10">LifeStyle</option>
-          <option value="11">Photo & Video</option>
-          <option value="12">Health & Fitness</option>
-          <option value="13">Music</option>
-          <option value="14">Teaching and Academics</option>
+        <select
+          onChange={handleSetCategory}
+          name=""
+          id=""
+          className="border border-black w-1/3 py-4 px-4"
+        >
+          <option value="1">-- Select Category --</option>
+          {courseCategories.map((category, index) => (
+            <option value={category.name} key={index}>
+              {category.name}
+            </option>
+          ))}
         </select>
 
-        <select name="" id="" className="border border-black w-1/3 py-4 px-4">
-          <option value=""></option>
+        <select
+          onChange={(e) => setSubCategory(e.target.value)}
+          name=""
+          id=""
+          className="border border-black w-1/3 py-4 px-4"
+        >
+          <option value="">select sub-category</option>
+          {subCatData?.map((sub: any, index: React.Key | null | undefined) => (
+            <option value={sub.name} key={index}>
+              {sub.name}
+            </option>
+          ))}
         </select>
       </div>
       <div className="pt-8">
@@ -197,9 +325,9 @@ const Basics = () => {
         <div className="w-1/2 py-6">
           <p className="font-bold pb-2">Course image</p>
           <div className="h-[300px] border border-black relative">
-            {pictureUrl && (
+            {image && (
               <Image
-                src={pictureUrl}
+                src={image}
                 alt="course image"
                 layout="fill"
                 objectFit="cover"
@@ -218,7 +346,7 @@ const Basics = () => {
             gif, or .png. no text on the image.
           </p>
           {isLoading && <p className="text-purple">Loading...</p>}
-          {pictureUrl && <p className="text-green">Upload successfull</p>}
+          {image && <p className="text-green">Upload successfull</p>}
           <input
             className="block w-full text-lg text-gray-900 border border-gray-300  cursor-pointer bg-gray-50 black:text-gray-400 focus:outline-none black:bg-gray-700 black:border-gray-600 placeholder:gray-400 mt-2 py-2"
             id="large_size"
@@ -227,7 +355,26 @@ const Basics = () => {
           />
         </div>
       </div>
+      <div className="flex items-center gap-5">
+        <button
+          className="bg-dark text-white w-32 py-4 items-end"
+          onClick={handleSaveData}
+          disabled={!title ? true : false}
+        >
+          save
+        </button>
+        {errMassage && (
+          <p className="bg-errRed py-4 px-2 text-dark items-center text-center">
+            {errMassage}
+          </p>
+        )}
 
+        {success && (
+          <p className="text-green py-4 px-2 items-center text-center">saved</p>
+        )}
+      </div>
+
+      {/* 
       <div className="flex w-full gap-4 items-start">
         <div className="w-1/2 py-6">
           <p className="font-bold pb-2">Promotional Video</p>
@@ -250,7 +397,7 @@ const Basics = () => {
             type="file"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
