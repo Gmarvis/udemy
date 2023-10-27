@@ -112,7 +112,7 @@ const LogiNav = ({className}: Props) => {
                 <a href="#" className="">
                   Web Development
                 </a>
-                <a href="#" className="">
+                <a href="#" className=""z>
                   Mobile Development
                 </a>
                 <a href="#" className="">

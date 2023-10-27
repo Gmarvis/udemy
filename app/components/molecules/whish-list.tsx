@@ -8,7 +8,7 @@ const Wishlist = (props: Props) => {
   const router = useRouter()
   
   function HandleClick(): void {
-    router.push('/')
+    router.push('/home/learning')
     
   }
 

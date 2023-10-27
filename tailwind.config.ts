@@ -74,6 +74,7 @@ const config: Config = {
       gray2: "#ddd",
       udemy: "#6A6F73",
       errRed: "#fca5a5",
+      red: "#ff0000"
     },
   },
   darkMode: "class",

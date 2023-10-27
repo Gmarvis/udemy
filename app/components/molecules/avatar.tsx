@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import Avatar from "react-avatar";
 import { TfiWorld } from "react-icons/tfi";
 
@@ -8,15 +8,17 @@ type Props = {};
 
 const AvatarProfile = (props: Props) => {
   const router = useRouter();
+  // let user: object
+  
+  const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
-  if(typeof window === undefined)return 
-
-  const user = JSON.parse(window.localStorage.getItem("currentUser") || "{}");
-  console.log(user);
+  // useEffect(() => {
+  //   user = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  // }, [])
 
   const handleLockout = () => {
-    window.localStorage.removeItem("token");
-    window.localStorage.removeItem("currentUseraaaaa");
+    localStorage.removeItem("token");
+    localStorage.removeItem("currentUser");
     router.push("/logout");
   };  
 

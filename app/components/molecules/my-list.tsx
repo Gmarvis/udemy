@@ -11,8 +11,8 @@ const MyList = (props: Props) => {
 
   return (
     <div>
-      <div className="flex gap-4 w-1/2 mx-auto">
-        <h1>Instructor Collaborator</h1>
+      <div className="flex gap-4 w-1/2 pb-3 items-center">
+        <h1 className="font-semibold text-lg">Instructor Collaborator</h1>
         <HiPencil onClick={() => setIsOpen((prev) => !prev)} />
         <MdDelete />
       </div>
@@ -23,6 +23,9 @@ const MyList = (props: Props) => {
           <LogiNav/>
         </Popup>
       )}
+      <p>Learn the ins and outs on how to be a successfull instructor on Udemy</p>
+      <br></br>
+      <p>No courses in this list yet</p>
     </div>
   );
 };
