@@ -133,8 +133,8 @@ const ManageGoals = () => {
   // submit course data to the backendprev
   const handleSubmit = () => {
     setLoading(true);
-    const courseContent = LOCAL_STORAGE.get("courseContent");
-    const courseMaterials = LOCAL_STORAGE.get("course_materials");
+    const courseContent = JSON.parse("courseContent");
+    const courseMaterials = JSON.parse("course_materials");
     if (!courseContent || !courseMaterials) {
       setError("course content is incomplete");
       setSuccess(false);
