@@ -186,8 +186,8 @@ const ManageGoals = () => {
           </button>
         </div>
       </div>
-      <div className="flex mx-72 lg:mx-24 my-6">
-        <div className="flex flex-col space-y-2 mt-8 p-4">
+      <div className="flex mx-8 md:mx-24 lg:mx-32 xl:mx-40 2xl:mx-72 my-6">
+        <div className="flex flex-col space-y-2 mt-8 p-4 w-1/3">
           {checkboxes.map((checkbox) => (
             <div key={checkbox.id} className="pb-4">
               <h2 className="font-bold mb-2">{checkbox.name}</h2>
@@ -228,7 +228,7 @@ const ManageGoals = () => {
           </div>
         </div>
 
-        <div className="ml-6">
+        <div className="ml-6 w-2/3">
           {showContent && (
             <div className="text-base shadow-2xl max-w-5xl mt-6">
               {activePage &&
