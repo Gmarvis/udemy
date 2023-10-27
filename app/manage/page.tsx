@@ -123,18 +123,24 @@ const ManageGoals = () => {
   const [showContent, setShowContent] = useState(true);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [err, setError] = useState(false);
+  const [err, setError] = useState("");
 
   const handleCheckboxClick = (page: string) => {
     setActivePage(page);
     setShowContent(true);
   };
 
-  // submit course data to the backend
+  // submit course data to the backendprev
   const handleSubmit = () => {
-    setLoading((prev) => !prev);
+    setLoading(true);
     const courseContent = LOCAL_STORAGE.get("courseContent");
     const courseMaterials = LOCAL_STORAGE.get("course_materials");
+    if (!courseContent || !courseMaterials) {
+      setError("course content is incomplete");
+      setSuccess(false);
+      setLoading(false);
+      return;
+    }
     const updatedContent = {
       ...courseContent,
       materials: courseMaterials,
@@ -144,12 +150,19 @@ const ManageGoals = () => {
 
     // post course
     createCourse(updatedContent).then((res) => {
-      if (res) {
+      if (res.statusCode === 401) {
+        setError(`${res.message} please login first`);
+        setLoading(false);
+      } else {
         console.log("response: ", res);
-        setSuccess((prev) => !prev);
-        setLoading(true);
-        LOCAL_STORAGE.delete("courseContent");
-        LOCAL_STORAGE.delete("course_materials");
+        setSuccess(true);
+        setLoading(false);
+        setError("");
+        localStorage.removeItem("courseContent");
+        localStorage.removeItem("course_materials");
+
+        // LOCAL_STORAGE.delete("courseContent");
+        // LOCAL_STORAGE.delete("course_materials");
       }
     });
   };
@@ -197,11 +210,16 @@ const ManageGoals = () => {
               onClick={handleSubmit}
               className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base"
             >
-              {loading ? "Submit for Review" : "loading..."}
+              {!loading ? "Submit for Review" : "loading..."}
             </button>
             {success && (
               <p className="text-green py-4 px-2 items-center text-center">
                 successful
+              </p>
+            )}
+            {err && (
+              <p className="text-errRed py-4 px-2 items-center text-center">
+                {err}
               </p>
             )}
           </div>

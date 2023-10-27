@@ -16,7 +16,7 @@ export class LOCAL_STORAGE {
     }
   }
 
-  static delete(key: string) {
-    return localStorage.removeItem(key);
-  }
+  // static delete(key: string) {
+  //   return localStorage.removeItem(key);
+  // }
 }

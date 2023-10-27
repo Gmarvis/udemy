@@ -35,7 +35,7 @@ const Basics = () => {
   const [level, setLevel] = useState("");
 
   // sub-category data
-  const [subCatData, setSubCatData] = useState<Array>();
+  const [subCatData, setSubCatData] = useState<object[]>();
 
   // alert states
   const [errMassage, setErrMassage] = useState("");
