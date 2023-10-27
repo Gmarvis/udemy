@@ -4,7 +4,7 @@ import { BsCheckCircle } from "react-icons/bs";
 import { SimpleCourseType } from "@/types";
 
 type Props = {
-  closeDialog: () => void;
+  closeDialog?: () => void;
   courseSelected: SimpleCourseType;
   gotocart: () => void;
   totalPrice: number;

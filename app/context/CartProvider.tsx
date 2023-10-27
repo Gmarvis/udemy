@@ -1,6 +1,8 @@
+import { saveForLater } from "@/lib/sendCourses";
 import { courseData } from "@/public/data/dummydata";
 import { CartItemType, CourseType, SafeItemType } from "@/types";
 import { ReactElement, useMemo, useReducer, createContext } from "react";
+import toast from "react-hot-toast";
 
 type CartStateType = {
   cart: CartItemType[];
@@ -139,10 +141,14 @@ const reducer = (
 
     //* SAVE FOR LATER
     case REDUCER_ACTION_TYPE.SAVEFORLATER: {
+      // console.log("before the guard action");
       if (!action.payload)
         throw new Error("Action payload is missing SAVEFORLATER action");
 
+      // console.log("just after the guard action");
+
       const id: string | undefined = action.payload.id;
+      console.log("id ", id);
       if (id === undefined) return state;
 
       const filteredCart: CartItemType[] = state.cart.filter(
@@ -152,7 +158,13 @@ const reducer = (
       const existingItem: CartItemType | undefined = state.cart.find(
         (item) => item.id === id
       );
+      // console.log("just before the save for later function");
+      const isCourseSaved = saveForLater(id);
+      if (!isCourseSaved) {
+        toast.error("Course failed to be saved in the database");
+      }
 
+      // console.log("just after the save for later function");
       //* send the course to the backend
       const cart = [...filteredCart];
       state.cart = [...cart];
@@ -193,7 +205,7 @@ const useCartContext = (initCartState: CartStateType) => {
     }, 0)
   );
 
-  console.log(state.cart);
+  // console.log(state.cart);
   const cart = [...state.cart];
 
   return { dispatch, REDUCER_ACTION, totalPrice, cart };

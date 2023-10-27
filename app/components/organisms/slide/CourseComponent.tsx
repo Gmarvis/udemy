@@ -13,7 +13,7 @@ const CourseComponent = ({ ...course }: SimpleCourseType) => {
   const placement = screenSize <= 600 ? "topStart" : "autoHorizontal";
 
   // const className = "w-52 card flex flex-col md:w-60   gap-1 md:ml-2 ";
-
+  console.log(course);
   return (
     <>
       <div className="p-0 m-0 w-full">
@@ -31,7 +31,7 @@ const CourseComponent = ({ ...course }: SimpleCourseType) => {
           <div>
             <CourseCard
               title={course?.title}
-              imageurl={course?.imageurl}
+              imageurl={course?.image}
               price={course?.price}
               author={course?.author}
               description={course?.description}

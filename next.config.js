@@ -33,6 +33,9 @@ module.exports = {
       {
         hostname: "s.udemycdn.com",
       },
+      {
+        hostname: "firebasestorage.googleapis.com",
+      },
     ],
   },
 };

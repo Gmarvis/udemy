@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Providers } from "./context/Provider";
+import toast, { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
+import Pulsation from "./components/atoms/Pulsation";
 
 export const metadata: Metadata = {
   title: "Udemy Clone",
@@ -16,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body>{children}</body>
+        <body>
+          <Toaster position="top-right" reverseOrder={false} />
+          <Suspense fallback={<Pulsation />}>{children}</Suspense>
+        </body>
       </Providers>
     </html>
   );

@@ -17,10 +17,9 @@ export default function Error({
   if (typeof window === "undefined") return;
 
   return (
-    <div className=" flex justify-center items-center mt-64 mx-auto flex-col gap-8 ">
+    <div>
       <h2>Something went wrong!</h2>
       <button
-        className=" py-5 px-10 bg-ctitle/20 rounded-[14px]"
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => reset()

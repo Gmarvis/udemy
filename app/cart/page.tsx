@@ -7,6 +7,7 @@ import SliderComponent from "../components/organisms/slide/Slider";
 import CartCourseList from "../components/organisms/cart/CartCourseList";
 import { useWindowSize } from "../Hooks/useWindowSize";
 import { CartItemType } from "@/types";
+import { Toaster } from "react-hot-toast";
 
 const CartPage = () => {
   const { cart, totalPrice } = useCart();
@@ -55,7 +56,7 @@ const CartPage = () => {
 
         <div className=" flex flex-col justify-between mb-10 w-full">
           <DisplayTotalAmount price={price} />
-          <h5 className="mb-2 text-xs mt-5 text-black font-segoe">
+          <h5 className="mb-2  text-xs md:text-[16px]  mt-5 text-black font-segoe">
             {cart.length ? cart.length : localStorCart.length} Course(s) in Cart{" "}
           </h5>
           <div className="flex flex-col gap-3">{cartCourses}</div>

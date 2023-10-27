@@ -14,7 +14,9 @@ export function Providers({ children }: Props) {
     <CartProvider>
       <CourseProvider>
         {/* <NextUIProvider> */}
+
         {children}
+
         {/* </NextUIProvider> */}
       </CourseProvider>
     </CartProvider>

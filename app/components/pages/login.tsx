@@ -106,7 +106,7 @@ const LoginForm: NextPage = () => {
           name="password"
         />
         <button
-          className="bg-violet text-white font-black text-[16px] p-3"
+          className="bg-violt text-white font-black text-[16px] p-3"
           disabled={isLoading}
         >
           {isLoading ? "loading..." : "login"}
