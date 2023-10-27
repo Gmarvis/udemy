@@ -12,6 +12,8 @@ import Basics from "../components/pages/basics";
 //icons imports
 import { GrFormPrevious } from "react-icons/gr";
 import { AiFillSetting } from "react-icons/ai";
+import { LOCAL_STORAGE } from "@/services/storage";
+import { createCourse } from "@/services/utils";
 
 type Checkbox = {
   id: number;
@@ -119,26 +121,68 @@ const ManageGoals = () => {
   };
   const [activePage, setActivePage] = useState("Intended learners");
   const [showContent, setShowContent] = useState(true);
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [err, setError] = useState("");
 
   const handleCheckboxClick = (page: string) => {
     setActivePage(page);
     setShowContent(true);
   };
 
+  // submit course data to the backendprev
+  const handleSubmit = () => {
+    setLoading(true);
+    // const courseData = localStorage.getItem("courseContent");
+    const courseContent = LOCAL_STORAGE.get("courseContent");
+    // const coursemat = localStorage.get("course_materials");
+    const courseMaterials = LOCAL_STORAGE.get("course_materials");
+    if (!courseContent || !courseMaterials) {
+      setError("course content is incomplete");
+      setSuccess(false);
+      setLoading(false);
+      return;
+    }
+
+    const updatedContent = {
+      ...courseContent,
+      materials: courseMaterials,
+    };
+    console.log("updatedContent: ", updatedContent);
+    // console.log("token: ", LOCAL_STORAGE.get("token"));
+
+    // post course
+    createCourse(updatedContent).then((res) => {
+      if (res.statusCode === 401) {
+        setError(`${res.message} please login first`);
+        setLoading(false);
+      } else {
+        console.log("response: ", res);
+        setSuccess(true);
+        setLoading(false);
+        setError("");
+        localStorage.removeItem("courseContent");
+        localStorage.removeItem("course_materials");
+
+        // LOCAL_STORAGE.delete("courseContent");
+        // LOCAL_STORAGE.delete("course_materials");
+      }
+    });
+  };
   return (
     <div>
       <div className="bg-dark py-2 flex justify-between fixed top-0 left-0 right-0">
-        <div className="flex text-white">
+        <div className="flex text-white gap-2">
           <button className="flex text-white items-center">
-            <GrFormPrevious className="text-white" />
+            <GrFormPrevious className="fill-white" />
             <span className="font-normal">Back to course</span>
           </button>
-          <h3 className="font-bold mx-4 self-center">Course Title</h3>
+          <h3 className="font-bold self-center">Course Title</h3>
         </div>
-        <div>
+        <div className="flex mx-1 gap-3">
           <button className="bg-gray px-4 py-1">Save</button>
-          <button className="">
-            <AiFillSetting className="fill-white size-xl" />
+          <button className="items-center">
+            <AiFillSetting className="fill-white size-xl text-2xl items-center" />
           </button>
         </div>
       </div>
@@ -164,9 +208,24 @@ const ManageGoals = () => {
               ))}
             </div>
           ))}
-          <button className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base">
-            Submit for Review
-          </button>
+          <div className="flex">
+            <button
+              onClick={handleSubmit}
+              className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base"
+            >
+              {!loading ? "Submit for Review" : "loading..."}
+            </button>
+            {success && (
+              <p className="text-green py-4 px-2 items-center text-center">
+                successful
+              </p>
+            )}
+            {err && (
+              <p className="text-errRed py-4 px-2 items-center text-center">
+                {err}
+              </p>
+            )}
+          </div>
         </div>
 
         <div className="ml-6">
