@@ -1,3 +1,5 @@
+"use client";
+
 type OPTIONS = {
   type: "STRING" | "OBJECT";
 };
