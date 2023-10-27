@@ -46,12 +46,12 @@ const MyLearning = (props: Props) => {
     <div>
       <MyLearningNavbar />
       {/* <ListItems /> */}
-      <div className="text-white opacity-90 bg-black">
-        <div className="w-1/2 bg-violet mx-auto">
-          <h1 className="py-6 font-semibold text-4xl leading-normal">
+      <div className="text-white opacity-90 bg-black w-full">
+        <div className="w-full md:w-1/2 md:mx-auto">
+          <h1 className="py-4 px-3 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
             My Learning
           </h1>
-          <div className="flex gap-5 text-base font-semibold py-4">
+          <div className="flex pl-3 gap-3 justify-between md:gap-5 text-sm bg-red mx-auto md:text-base font-semibold py-4">
             <h3
               onClick={() => handleClick1(<TakenCourses />)}
               className="hover:cursor-pointer "
@@ -85,7 +85,7 @@ const MyLearning = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="py-8 w-1/2 mx-auto min-h-[300px]">
+      <div className="py-8 w-full md:w-1/2 md:mx-auto min-h-[300px]">
         {selectedComponent}
       </div>
       <Footer />
