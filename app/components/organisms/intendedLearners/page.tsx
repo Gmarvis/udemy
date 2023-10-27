@@ -36,7 +36,7 @@ type IntendedLearnersProps = {};
 
 const IntendedLearners = ({}: IntendedLearnersProps) => {
   return (
-    <div className="py-8 px-20 ">
+    <div className="py-8 px-4 lg:px-20">
       <h1 className="font-bold text-black font-segoe text-3xl mb-8 mt-4">Intended Learners</h1>
       <p className="border-b border-gray mb-12"></p>
       <p className="mb-10 max-w-4xl">

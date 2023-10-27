@@ -9,7 +9,7 @@ export default function CourseStructure({ }: Props) {
       <h1 className="font-bold text-slate-700 text-2xl  py-10 pl-14">Setup & test video</h1>
       <p className='border-b border-gray'></p>
 
-      <div className='flex bg-gray2 text-lg mb-6 px-14 py-6'>
+      <div className='lg:flex bg-gray2 text-lg mb-6 px-14 py-6'>
 
         <div className='max-w-2xl mr-6 mt-20'>
           <h2 className='font-bold mb-6 text-2xl'>Arrange your ideal studio and get early feedback
