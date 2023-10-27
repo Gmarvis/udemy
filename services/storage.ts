@@ -10,7 +10,11 @@ export class LOCAL_STORAGE {
   }
 
   static get(key: string, options: OPTIONS = { type: "OBJECT" }) {
-    const data = localStorage.getItem(key);
+    let data: any;
+
+    if (typeof window !== "undefined") {
+      data = localStorage.getItem(key);
+    }
 
     if (data) {
       if (options.type === "STRING") return data;

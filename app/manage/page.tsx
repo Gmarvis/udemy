@@ -143,6 +143,7 @@ const ManageGoals = () => {
       setLoading(false);
       return;
     }
+
     const updatedContent = {
       ...courseContent,
       materials: courseMaterials,
