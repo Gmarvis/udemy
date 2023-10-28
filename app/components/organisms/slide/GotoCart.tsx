@@ -31,7 +31,7 @@ const GotoCart = ({
         />
         <div className="flex">
           <Image
-            src={courseSelected?.imageurl}
+            src={courseSelected?.image}
             alt={courseSelected?.title}
             className="w-16 h-17 mr-4"
             width={122}
@@ -64,7 +64,7 @@ const GotoCart = ({
         />
         <div className="flex">
           <Image
-            src={courseSelected?.imageurl}
+            src={courseSelected?.image}
             alt={courseSelected?.title}
             className="w-16 h-17 mr-4"
             width={122}

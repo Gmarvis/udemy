@@ -47,7 +47,7 @@ const reducer = (
       const {
         id,
         title,
-        imageurl,
+        image,
         price,
         author,
         totalHours,
@@ -68,12 +68,14 @@ const reducer = (
           title,
           price,
           author,
-          imageurl,
+          image,
           totalHours,
           lectures,
           level,
           participants,
         };
+
+        // console.log(newCartItem);
 
         state.cart = [...filteredCart, newCartItem];
         window.sessionStorage.setItem("cart", JSON.stringify(state.cart));

@@ -31,10 +31,12 @@ const CartPage = () => {
 
   let cartCourses = [];
   if (cart.length) {
+    console.log("cart", cart);
     cartCourses = cart?.map((course: any, i: number) => (
       <CartCourseList {...course} key={i} />
     ));
   } else {
+    console.log("localStorCart", localStorCart);
     cartCourses = localStorCart?.map((course: any, i: number) => (
       <CartCourseList {...course} key={i} />
     ));

@@ -54,6 +54,8 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
     }
   };
 
+  // console.log(course);
+
   // console.log(window.document.documentElement.scrollWidth - 1);
   async function addAllToCart() {
     // "use server";

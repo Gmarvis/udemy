@@ -32,6 +32,7 @@ const TabSlider = (props: Props) => {
 
   const [showCategoryComponent, setShowCategoryContent] = useState<JSX.Element>(
     () => (
+      // <div className="active">
       <SliderContainer
         categoryContent={conten}
         categoryTitle={"Expand your career opportunities with Python"}
@@ -41,6 +42,7 @@ const TabSlider = (props: Props) => {
           {listOfCourse}
         </Carousel>
       </SliderContainer>
+      // </div>
     )
   );
 

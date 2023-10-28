@@ -17,23 +17,60 @@ export type courseData = Omit<Course, "createdAt"> & {
   createdAt: string;
 };
 
-type CourseType = {
-  id: string;
-  title: string;
+// type CourseType = {
+//   id: string;
+//   title: string;
+//   price: number;
+//   description: string;
+//   author: string;
+//   totalHours: number;
+//   lectures: number;
+//   level: string;
+//   participants: number;
+//   imageurl: string;
+//   video?: string;
+//   classification?: string;
+// };
+
+export type CourseType = {
+  id: "string";
+
+  author: "string";
+  authorInfor: [];
+
+  createdAt: "string";
+
+  description: "string";
+
+  dislikes: number;
+
+  image: "string";
+
+  isSaveForLater: boolean;
+
+  language: "string";
+
+  level: "BeginnerbooleanLevel";
+
+  likes: number;
+
+  materials: [];
+
   price: number;
-  description: string;
-  author: string;
-  totalHours: number;
-  lectures: number;
-  level: string;
-  participants: number;
-  imageurl: string;
-  video?: string;
-  classification?: string;
+
+  subTitle: "string";
+
+  title: "string";
+
+  updatedAt: "string";
+
+  classification: string;
 };
 
-type SimpleCourseType = Pick<CourseType, "id"
-  | "imageurl"
+type SimpleCourseType = Pick<
+  CourseType,
+  | "id"
+  | "image"
   | "title"
   | "author"
   | "price"

@@ -16,9 +16,9 @@ const CartCourseList = ({ ...course }: CartItemType) => {
       payload2: { courseList: [] },
     });
   };
-
+  console.log(course);
   const saveForLater = (): void => {
-    console.log("Saving course ");
+    console.log("Saving course:  ", course);
     dispatch({
       type: REDUCER_ACTION.SAVEFORLATER,
       payload: { ...course },
@@ -30,8 +30,8 @@ const CartCourseList = ({ ...course }: CartItemType) => {
     <div className="flex flex-row md:w-[93%] gap-10 ml-0 justify-between  border-t-1 pt-3 text-udemy font-segoe">
       <div className=" flex gap-4">
         <Image
-          className=" h-[100px] md:h-[150px] bg-contain bg-right-top bg-no-repeat"
-          src={course.imageurl || "/images/avatar"}
+          className="w-[150px] h-[100px] md:h-[150px] md:w-[200px] bg-contain bg-right-top bg-no-repeat"
+          src={course.image || "/images/avatar"}
           alt="product image"
           draggable={false}
           width={250}

@@ -28,7 +28,10 @@ const CourseProvider = ({ children }: Childrentype): ReactElement => {
   useEffect(() => {
     fetchedCourses()
       .then((data) => {
-        if (data) setCourses(data);
+        if (data) {
+          setCourses(data);
+          console.log(data);
+        }
       })
       .catch((err) => console.error(err));
   }, []);

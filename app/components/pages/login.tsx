@@ -12,6 +12,8 @@ import validator from "validator";
 import { useRouter } from "next/navigation";
 import { getUser, login } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
+
+
 const LoginForm: NextPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");

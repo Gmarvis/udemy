@@ -6,12 +6,14 @@ import Rate from "../../molecules/Rating";
 const ModalCourseCard: React.FC<CartItemType> = ({
   ...course
 }: CartItemType) => {
+  // console.log(course);
+
   return (
     <div className="flex flex-row gap-4 m-6 justify-between">
       <div className=" flex gap-4">
         <Image
           className=" h-[100px]  bg-contain bg-right-top bg-no-repeat"
-          src={course.imageurl || "/images"}
+          src={course.image || "/images"}
           alt="product image"
           draggable={false}
           width={255}
