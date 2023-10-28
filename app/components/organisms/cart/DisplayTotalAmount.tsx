@@ -7,7 +7,7 @@ import { CartItemType } from "@/types";
 
 type Props = {
   price: number;
-  cartCourse: CartItemType[];
+  cartCourse?: CartItemType[];
 };
 
 function DisplayTotalAmount({ price, cartCourse }: Props): JSX.Element {

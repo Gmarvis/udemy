@@ -18,7 +18,7 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
     <div className={className}>
       <div className={`${closed ? "translate-x-full" : "flex  gap-4 bg-opacity-80 bg-black h-full"}`}>
         <div className="mt-1  w-[300px] bg-white drop-shadow-lg z-10 flex-col hover:flex">
-          <div className=" flex py-4 gap-4 hover:cursor-pointer w-[50px] px-6">
+          <div className=" flex gap-4 hover:cursor-pointer w-[50px] px-6">
             <Avatar
               className="peer hover:cursor-pointer w-[50px]"
               name="Tikeng Gael"
@@ -43,34 +43,34 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Notifications
             </a>
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Messages
             </a>
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Account settings
             </a>
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Payment methods
             </a>
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Suscriptions
             </a>
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Udemy credit
             </a>
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Purchase history
             </a>
           </div>
           <hr />
           <div className="flex text-sm p-4 justify-between leading-10">
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Language
             </a>
             <div className="flex gap-4">
@@ -80,28 +80,28 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Public profile
             </a>
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Edit profile
             </a>
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Help
             </a>
-            <a href="#" className="hover:text-violet-600">
+            <a href="#" className="hover:text-violet text-black">
               Log out
             </a>
           </div>
           <hr />
           <div className="text-sm p-4 leading-7 flex flex-col">
-            <a href="#" className="hover:text-violet-600 text-lg font-semibold">
+            <a href="#" className="hover:text-violet text-black text-lg font-semibold">
               Udemy business
             </a>
-            <a href="#" className="text-gray-400">
+            <a href="#" className="text-gray">
               Bring learning to your company
             </a>
           </div>

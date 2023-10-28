@@ -1,3 +1,5 @@
+
+import {ReactElement, ReactNode} from "react"
 import "./globals.css";
 import type { Metadata } from "next";
 import "slick-carousel/slick/slick.css";
@@ -14,15 +16,22 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <html lang="en">
+<<<<<<< HEAD
       <Providers>
         <body>
           <Toaster position="top-right" reverseOrder={false} />
           <Suspense fallback={<Pulsation />}>{children}</Suspense>
         </body>
+=======
+     <Providers>
+      <body> 
+        {children}
+      </body>
+>>>>>>> 956d483a94c73ea6afa858afa38c3aac9f7b0de6
       </Providers>
     </html>
   );

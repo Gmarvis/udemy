@@ -5,8 +5,13 @@ import SliderComponent from "../components/organisms/slide/Slider";
 import TabSliderLogout from "../components/organisms/abroadSelection/TabSliderLogoutPage";
 import ResponsiveTab from "../components/organisms/abroadSelection/ResponsiveTab";
 import { BsCheckCircleFill } from "react-icons/bs";
+<<<<<<< HEAD
 import UdemyBusinessCard from "./components/UdemyBusinessCard";
 import UdemyLogoutLogo from "./components/UdemyLogoutLogo";
+=======
+import MainNav from "../components/organisms/MainNav";
+import Footer from "../components/organisms/footer-logout";
+>>>>>>> 956d483a94c73ea6afa858afa38c3aac9f7b0de6
 
 type Props = {};
 
@@ -21,8 +26,14 @@ const Page = (props: Props) => {
   if (!hasmounted) return null;
 
   return (
+<<<<<<< HEAD
     <div className=" m-5 mt-3 ">
       <div className=" bg-[#acd2cc] py-2 px-4  mb-6 mt-5 text-[#2d2f31] text-sm flex items-center gap-4 justify-start">
+=======
+    <div className=" m-5 ">
+      <MainNav/>
+      <div className=" bg-[#acd2cc] py-2 px-4  my-[2.4rem] text-[#2d2f31] text-sm flex items-center gap-4 justify-start">
+>>>>>>> 956d483a94c73ea6afa858afa38c3aac9f7b0de6
         <BsCheckCircleFill
           className="bg-transparant text-[#2d2f31] text-xl mr-1 rounded-full border-0 mt-3 outline-none w-8 h-8"
           // size={50}
@@ -46,6 +57,7 @@ const Page = (props: Props) => {
       <div>
         <SliderComponent title="Learners are viewing" />
       </div>
+      <Footer/>
     </div>
   );
 };
