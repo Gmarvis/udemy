@@ -77,6 +77,7 @@ const config: Config = {
       // red: "#ff0000"
       green: "#22c55e",
       dark: "#2d2f31",
+      danger: "#ef4444",
     },
   },
   darkMode: "class",
