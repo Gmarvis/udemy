@@ -33,24 +33,24 @@ export type courseData = Omit<Course, "createdAt"> & {
 // };
 
 export type CourseType = {
-  id: "string";
+  id: string;
 
-  author: "string";
+  author: string;
   authorInfor: [];
 
-  createdAt: "string";
+  createdAt: string;
 
-  description: "string";
+  description: string;
 
   dislikes: number;
 
-  image: "string";
+  image: string;
 
-  isSaveForLater: boolean;
+  isSaveForLater?: boolean;
 
-  language: "string";
+  language: string;
 
-  level: "BeginnerbooleanLevel";
+  level: string;
 
   likes: number;
 
@@ -58,13 +58,19 @@ export type CourseType = {
 
   price: number;
 
-  subTitle: "string";
+  subTitle: string;
 
-  title: "string";
+  title: string;
 
-  updatedAt: "string";
+  lectures: number;
 
-  classification: string;
+  participants: number;
+
+  updatedAt: string;
+
+  totalHours: number;
+
+  classification?: string;
 };
 
 type SimpleCourseType = Pick<
