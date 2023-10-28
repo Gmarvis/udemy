@@ -7,6 +7,16 @@ import PopupModal from "../cart/PopupModal";
 import useCourse from "@/app/Hooks/useCourses";
 import useCart from "@/app/Hooks/useCart";
 import { useRouter, useSearchParams } from "next/navigation";
+import ModalComponent from "../cart/ModalComponent";
+import GotoCart from "./GotoCart";
+import Link from "next/link";
+import ModalCourseCard from "../cart/modalCourseCard";
+
+type Props = {
+  courseSelected: SimpleCourseType;
+  totalPrice: number;
+  partListOfCourses: SimpleCourseType[];
+};
 
 const CouseContent = ({ ...course }: SimpleCourseType) => {
   const { courses } = useCourse();
@@ -44,6 +54,8 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
     }
   };
 
+  // console.log(course);
+
   // console.log(window.document.documentElement.scrollWidth - 1);
   async function addAllToCart() {
     // "use server";
@@ -55,11 +67,26 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
     router.push("/cart");
   }
 
-  const content = (
-    <div
-      className="flex flex-col gap-2 bg-white py-3 px-2 w-72 h-auto ring text-lg"
-      id="divContent z-0"
+  const gotocart = () => {
+    // props.gotoCart();
+    // closeDialog();
+    router.push("/cart");
+  };
+
+  let newList = partListOfCourses.filter((course) => course.id !== course.id);
+  newList = [course, ...newList];
+  const FreqBought = newList?.map((course) => (
+    <Link
+      href={"#"}
+      key={course.id}
+      className=" hover:no-underline decoration-black"
     >
+      <ModalCourseCard {...course} key={course.id} />
+    </Link>
+  ));
+
+  const content = (
+    <div className="flex flex-col gap-2 bg-white py-3 px-2 w-72 h-auto ring text-lg -z-100">
       <h5 className="text-black">{course.title}</h5>
       <span className="text-xs">
         {course.classification || " not yet classified"}
@@ -78,6 +105,16 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
           }}
         >
           <h5>Add to Cart</h5>
+          {/* <ModalComponent title="Add to Cart">
+            <GotoCart
+              // closeDialog={closeDialog}
+              courseSelected={course}
+              gotocart={gotocart}
+              totalPrice={price}
+              FreqBought={FreqBought}
+              addAllToCart={addAllToCart}
+            />
+          </ModalComponent> */}
         </button>
 
         <span className="border border-ctitle px-[10px] py-3 rounded-full w-10 h-16  hover:bg-gray">
@@ -110,6 +147,8 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
       {pageUrl === "x" ? null : content}
     </div>
   );
+
+  // return content;
 };
 
 export default CouseContent;

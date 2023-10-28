@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Popover } from "react-tiny-popover";
 
 type Props = {
-  imageurl: string;
+  image: string;
   title?: string;
   author?: string;
   price?: number;
@@ -18,7 +18,7 @@ type Props = {
 const CourseCard = ({
   title,
   classification,
-  imageurl,
+  image,
   author,
   price,
   description,
@@ -26,12 +26,14 @@ const CourseCard = ({
 }: Props): React.JSX.Element => {
   // const itemInCart = inCart ? "→ Item in Cart: ✔️" : null;
 
+  // console.log(image);
+
   return (
-    <div className="w-48 flex flex-col md:w-60   gap-1 md:ml-2 ">
+    <div className="w-64 flex flex-col md:w-60   gap-1 md:ml-2 ">
       {/* <Link href={"#"}> */}
       <Image
+        src={image}
         className="w-72 h-28 md:mr-5 lg:w-56 lg:h-28 object-cover  bg-contain bg-right-top bg-no-repeat "
-        src={imageurl}
         alt="product image"
         draggable={false}
         width={200}

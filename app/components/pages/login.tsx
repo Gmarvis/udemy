@@ -12,6 +12,8 @@ import validator from "validator";
 import { useRouter } from "next/navigation";
 import { getUser, login } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
+
+
 const LoginForm: NextPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
@@ -106,7 +108,7 @@ const LoginForm: NextPage = () => {
           name="password"
         />
         <button
-          className="bg-violet text-white font-black text-[16px] p-3"
+          className="bg-violt text-white font-black text-[16px] p-3"
           disabled={isLoading}
         >
           {isLoading ? "loading..." : "login"}
