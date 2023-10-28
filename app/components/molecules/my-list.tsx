@@ -18,8 +18,7 @@ const MyList = (props: Props) => {
           className="hover:cursor-pointer"
           onClick={() => setIsOpen((prev) => !prev)}
         />
-        <MdDelete className="hover:cursor-pointer"
- />
+        <MdDelete className="hover:cursor-pointer" />
       </div>
       {isOpen && (
         <Popup handleClose={() => setIsOpen((prev) => !prev)}>
