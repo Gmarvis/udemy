@@ -11,11 +11,21 @@ const AvatarProfile = (props: Props) => {
   // const [user, setUser] = React.useState({})
   const router = useRouter();
   let user: any
-  user = JSON.parse(localStorage.getItem("currentUser") || "{}")
+  // user = JSON.parse(localStorage.getItem("currentUser") || "{}")
+  
+  if (typeof localStorage === "undefined") {
+    return null
+  }
+
+  let currentUser: any = localStorage.getItem("currentUser")
+  if (currentUser === null) return 
+
+  user = JSON.parse(currentUser)
   
 
   // useEffect(() => {
-  //  setUser(JSON.parse(localStorage.getItem("currentUser") || "{}"));
+  //   user = JSON.parse(window.localStorage.getItem("currentUser") || "{}");
+  //   console.log(user)
   // }, [])
 
   const handleLockout = () => {
@@ -23,7 +33,7 @@ const AvatarProfile = (props: Props) => {
     localStorage.removeItem("currentUser");
     router.push("/logout");
   };  
-  
+
   return (
     <div className="relative pr-6">
       <Avatar
