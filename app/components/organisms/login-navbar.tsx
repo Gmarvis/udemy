@@ -14,24 +14,28 @@ import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import MenuItems from "./menu-items";
 
-const LogiNav = (props: PropsWithChildren) => {
+type Props = {
+  className?: string
+}
+
+const LogiNav = ({className}: Props) => {
   const [active, setActive] = useState(false);
   const [closed, setClosed] = useState(false);
 
   function handleClick(): void {
     console.log("I am Instructor");
-    throw new Error("Function not implemented.");
   }
 
   return (
-    <div>
-      <MobileNavbar onClickMenuButton={() => {
-        setActive((prev) => !prev)
-        console.log("string")
-        setTimeout(() => {
-          setActive((prev) => !prev)
-        }, 10000)
-      }} />
+    <div className={className}>
+      <MobileNavbar
+        onClickMenuButton={() => {
+          setActive((prev) => !prev);
+          setTimeout(() => {
+            setActive((prev) => !prev);
+          }, 10000);
+        }}
+      />
       <MenuItems
         onCloseMenu={() => setClosed((prev) => !prev)}
         className={`${
@@ -54,7 +58,7 @@ const LogiNav = (props: PropsWithChildren) => {
             <Categories />
           </div>
 
-          <div className="  md:w-[60%] ">
+          {/* <div className="  md:w-[60%] ">
             <input
               className="border-black border p-2 px-4 rounded-full w-full
             placeholder:text-gray-400 relative font-normal placeholder:px-10 py-3 outline-none"
@@ -62,27 +66,39 @@ const LogiNav = (props: PropsWithChildren) => {
               placeholder="Search for anything"
             />
 
-            {/* <BsSearch
+            <BsSearch
               className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
               size={17}
-            /> */}
+            />
+          </div> */}
+          <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
+            <BsSearch
+              className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
+              size={17}
+            />
+            <input
+              className=" px-4 w-full
+            placeholder:text-gray rounded font-normal  py-2 outline-none"
+              type="text"
+              placeholder="To search"
+            />
           </div>
           <UdemBusDropdown />
           <p
-            className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm"
+            className=" hover:cursor-pointer text-black hover:text-violet text-sm"
             onClick={() => handleClick()}
           >
             Instructor
           </p>
           <Link href="/home/my-courses/learning">
-            <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
+            <p className="hover:cursor-pointer hover:text-violet text-black hover:no-underline text-sm">
               My Learning
             </p>
           </Link>
 
-          <AiOutlineHeart className="h-5 w-5 hover:text-violet-600 hover:cursor-pointer" />
+          <AiOutlineHeart className="h-5 w-5 hover:text-violet hover:cursor-pointer" />
           <GoToCart />
-          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
+          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet" />
           <AvatarProfile />
         </div>
       </div>
@@ -96,7 +112,7 @@ const LogiNav = (props: PropsWithChildren) => {
                 <a href="#" className="">
                   Web Development
                 </a>
-                <a href="#" className="">
+                <a href="#" className=""z>
                   Mobile Development
                 </a>
                 <a href="#" className="">

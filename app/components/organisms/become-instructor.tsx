@@ -2,11 +2,13 @@ import Image from "next/image";
 import React from "react";
 import Button from "../atoms/Button";
 
-type Props = {};
+type Props = {
+  className?: string
+};
 
-const BecomeInstructor = (props: Props) => {
+const BecomeInstructor = ({className}: Props) => {
   return (
-    <div>
+    <div className={className}>
       <div className="py-10 md:w-[800px] md:mx-auto md:justify-between md:flex md:gap-6">
         <Image
           className=" md:h-[350px] w-[350px] "

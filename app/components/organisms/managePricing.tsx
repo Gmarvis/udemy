@@ -69,7 +69,7 @@ export default function ManagePricing({}: Props) {
           </select>
         </div>
       </div>
-      <div className="flex items-center gap-5">
+      <div className="items-center gap-5">
         <button
           onClick={handleSetPrice}
           className="px-6 py-3 mt-2 bg-dark flex items-center text-white text-base font-bold ml-14"

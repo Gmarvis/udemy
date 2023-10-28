@@ -133,6 +133,7 @@ const ManageGoals = () => {
   // submit course data to the backendprev
   const handleSubmit = () => {
     setLoading(true);
+    setError("");
     // const courseData = localStorage.getItem("courseContent");
     const courseContent = LOCAL_STORAGE.get("courseContent");
     // const coursemat = localStorage.get("course_materials");
@@ -155,6 +156,11 @@ const ManageGoals = () => {
     createCourse(updatedContent).then((res) => {
       if (res.statusCode === 401) {
         setError(`${res.message} please login first`);
+        setLoading(false);
+      } else if (res.error) {
+        setError(
+          `Error...! please make sure you provide all information about your course`
+        );
         setLoading(false);
       } else {
         console.log("response: ", res);
@@ -208,24 +214,22 @@ const ManageGoals = () => {
               ))}
             </div>
           ))}
-          <div className="flex">
-            <button
-              onClick={handleSubmit}
-              className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base"
-            >
-              {!loading ? "Submit for Review" : "loading..."}
-            </button>
-            {success && (
-              <p className="text-green py-4 px-2 items-center text-center">
-                successful
-              </p>
-            )}
-            {err && (
-              <p className="text-errRed py-4 px-2 items-center text-center">
-                {err}
-              </p>
-            )}
-          </div>
+          <button
+            onClick={handleSubmit}
+            className="bg-purple text-white px-10 py-3 mt-4 font-bold text-base"
+          >
+            {!loading ? "Submit for Review" : "loading..."}
+          </button>
+          {success && (
+            <p className="text-green py-4 px-2 items-center text-center">
+              successful
+            </p>
+          )}
+          {err && (
+            <p className="text-danger py-4 px-2 items-center text-center">
+              {err}
+            </p>
+          )}
         </div>
 
         <div className="ml-6">
