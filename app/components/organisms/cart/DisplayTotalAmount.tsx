@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import RegisterPage from "../../pages/register";
+import ModalComponent from "./ModalComponent";
+import { LOCAL_STORAGE } from "@/services/storage";
+import { useRouter } from "next/navigation";
+import { CartItemType } from "@/types";
+import useCart from "@/app/Hooks/useCart";
 
 type Props = {
   price: number;
+  listOfCourses: CartItemType[];
 };
 
-function DisplayTotalAmount({ price }: Props): JSX.Element {
-  console.log(price);
+function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
+  const [tokenPresent, setTokenPresent] = useState<boolean>(false);
+  const { dispatch, REDUCER_ACTION } = useCart();
+
+  const router = useRouter();
+
+  const token = LOCAL_STORAGE.get("token");
+
+  console.log(listOfCourses);
+
+  const checkoutPayement = () => {
+    console.log("clicked");
+    if (!token) {
+      setTokenPresent(true);
+    }
+    dispatch({
+      type: REDUCER_ACTION.SUBMIT,
+      payload2: { courseList: [...listOfCourses] },
+    });
+    // router.push("checkoutpage");
+  };
 
   return (
     <div className=" flex flex-col w-full md:w-[30%] h-fit-content">
@@ -21,10 +47,19 @@ function DisplayTotalAmount({ price }: Props): JSX.Element {
         <span className="line-through text-md text-udemy">₦200.75</span>
       </p>
       <p className=" text-sm text-black font-segoe">90%</p>
-      <button className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white hover:bg-violet">
-        {" "}
-        Checkout
-      </button>
+      {!token ? (
+        <ModalComponent title="Checkout">
+          <RegisterPage />
+        </ModalComponent>
+      ) : (
+        <button
+          className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white hover:bg-violt"
+          onClick={checkoutPayement}
+        >
+          Checkout
+        </button>
+      )}
+
       <hr className=" font-light border-gray boder-t-1 " />
       <h5 className=" font-bold text-sm mb-2 text-black">Promotions</h5>
       <span className=" text-udemy text-xs mb-0">

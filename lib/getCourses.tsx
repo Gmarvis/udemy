@@ -1,18 +1,22 @@
-import { CourseType, SimpleCourseType } from "@/types";
+import { CourseType, SimpleCourseType, CartItemType } from "@/types";
+import { server } from "./config";
+import { LOCAL_STORAGE } from "@/services/storage";
 
 export const fetchedCourses = async (): Promise<CourseType[]> => {
-  const data = await fetch("http://localhost:3500/couses")
-    .then((response) => response.json())
-    .catch((err) => {
-      if (err instanceof Error) console.log(err.message);
-    });
-  return data;
+  const token = LOCAL_STORAGE.get("token");
+  console.log(" token:", token);
+
+  const resp = await server.get("/courses", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json",
+    },
+  });
+  if (resp.status === 200) {
+    return resp.data;
+  }
+  return [];
 };
-
-// fetchedProducts().then(products =>{
-//   console.log(products);
-
-// })
 
 export function getRandomArrySorted(
   array: SimpleCourseType[]
@@ -23,3 +27,29 @@ export function getRandomArrySorted(
   }
   return array;
 }
+
+export const getPaidCourses = async () => {
+  const token = LOCAL_STORAGE.get("token");
+  console.log(" token:", token);
+  const currentUser = LOCAL_STORAGE.get("currentUser");
+
+  if (currentUser && token) {
+    const data = {
+      userId: currentUser.id,
+    };
+
+    const resp = await server.get(`/purchasedcourse/${currentUser.id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+    });
+
+    if (resp && resp.data) {
+      console.log("paid courses ", resp.data);
+      return resp.data;
+    }
+    return [];
+  }
+  return [];
+};
