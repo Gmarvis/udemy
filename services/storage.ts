@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-"use client"
-=======
 "use client";
 
->>>>>>> 5fb8853a6e647158fc6182076f6966d80d3acd87
 type OPTIONS = {
   type: "STRING" | "OBJECT";
 };
