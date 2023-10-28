@@ -12,13 +12,13 @@ const EditYourList = (props: Props) => {
       </div>
       <input type="text" maxLength={39} value="Instructor collection" />
       <textarea maxLength={132} ></textarea>
-      <div>
-        <p></p>
-        <div>
+      <div className="flex">
+        <p className="flex-1"></p>
+        <div className="flex justify-between gap-2">
           <button className="hover:cursor-pointer hover:bg-slate-100 border-2 border-gray-500 px-3 py-1">
             Cancel
           </button>
-          <button className="hover:cursor-pointer text-white hover:opacity-70 bg-black py-1 px-3">
+          <button className="hover:cursor-pointer text-white hover:opacity-70 bg-black py-1 px-5">
             Edit
           </button>
         </div>

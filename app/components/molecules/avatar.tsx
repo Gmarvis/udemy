@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { string } from "prop-types";
 import React, { useEffect } from "react";
 import Avatar from "react-avatar";
 import { TfiWorld } from "react-icons/tfi";
@@ -7,13 +8,14 @@ import { TfiWorld } from "react-icons/tfi";
 type Props = {};
 
 const AvatarProfile = (props: Props) => {
+  // const [user, setUser] = React.useState({})
   const router = useRouter();
-  // let user: object
+  let user: any
+  user = JSON.parse(localStorage.getItem("currentUser") || "{}")
   
-  const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
   // useEffect(() => {
-  //   user = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  //  setUser(JSON.parse(localStorage.getItem("currentUser") || "{}"));
   // }, [])
 
   const handleLockout = () => {
@@ -21,7 +23,7 @@ const AvatarProfile = (props: Props) => {
     localStorage.removeItem("currentUser");
     router.push("/logout");
   };  
-
+  
   return (
     <div className="relative pr-6">
       <Avatar

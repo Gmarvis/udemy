@@ -51,7 +51,7 @@ const MyLearning = (props: Props) => {
           <h1 className="py-4 px-3 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
             My Learning
           </h1>
-          <div className="flex pl-3 gap-3 justify-between md:gap-5 text-sm mx-auto md:text-base font-semibold py-0">
+          <div className="flex pl-3 gap-3 text-sm mx-auto md:text-base font-semibold py-0">
             <h3
               onClick={() => handleClick1(<TakenCourses />)}
               className="hover:cursor-pointer border-b-4"
