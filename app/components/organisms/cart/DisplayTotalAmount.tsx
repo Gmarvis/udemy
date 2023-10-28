@@ -3,12 +3,14 @@ import RegisterPage from "../../pages/register";
 import ModalComponent from "./ModalComponent";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { useRouter } from "next/navigation";
+import { CartItemType } from "@/types";
 
 type Props = {
   price: number;
+  cartCourse: CartItemType[];
 };
 
-function DisplayTotalAmount({ price }: Props): JSX.Element {
+function DisplayTotalAmount({ price, cartCourse }: Props): JSX.Element {
   const [tokenPresent, setTokenPresent] = useState<boolean>(false);
 
   const router = useRouter();
