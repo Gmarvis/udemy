@@ -36,6 +36,7 @@ export default function Home({
     <main>
       <MainNav className={isToken ? "hidden md:hidden" : "contents"} />
       <LogiNav className={isToken ? "contents" : "hidden md:hidden"} />
+
       <HeroSection />
       <Logos className={isToken ? "hidden md:hidden" : "contents"} />
       <AbroadSelection
@@ -45,9 +46,11 @@ export default function Home({
       />
 
       <Testimonials className={isToken ? "hidden md:hidden" : "contents"} />
+
       <div className="mb-10 ml-3">
         <SliderComponent title="Learners are viewing" />
       </div>
+
       <FeatureCategory className={isToken ? "hidden md:hidden" : "contents"} />
       <TopCategories />
       <UdemyBusiness className={isToken ? "hidden md:hidden" : "contents"} />
