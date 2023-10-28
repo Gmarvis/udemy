@@ -5,7 +5,7 @@ type Props = {}
 
 export default function CourseStructure({ }: Props) {
   return (
-    <div className="py-8 px-4 lg:px-20">
+    <div>
       <h1 className="font-bold text-black font-segoe text-2xl  py-10 pl-14">Course Structure</h1>
       <p className="border-b border-gray"></p>
 
