@@ -1,18 +1,22 @@
 "use client";
 
+import Popup from "@/app/components/molecules/popup";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { IoMdLock } from "react-icons/io";
 
 type Props = {};
 
 const CheckoutPage = (props: Props) => {
+  const router = useRouter()
   const [paypalActive, setPaypalActive] = React.useState(false);
   const [cartActive, setCartActive] = React.useState(false);
   const [name, setName] = React.useState("");
   const [cartNumber, setCartNumber] = React.useState("");
   const [expireDate, setExpireDate] = React.useState("");
   const [cvc, setCvc] = React.useState("");
+  const [popupActive, setPopupActive] = React.useState(false)
   const countries: { name: string; code: string }[] = [
     { name: "Afghanistan", code: "AF" },
     { name: "Åland Islands", code: "AX" },
@@ -282,6 +286,11 @@ const CheckoutPage = (props: Props) => {
     console.log("this is the function");
   }
 
+  const handleCheckout = () => {
+    setPopupActive((prev) => !prev)
+    router.push("/home/my-learning")
+  }
+
   return (
     <div>
       <div className="flex justify-between md:px-5 px-3 shadow md:py-2">
@@ -309,7 +318,7 @@ const CheckoutPage = (props: Props) => {
       <div className="md:flex md:px-4 px-5">
         <div className="md:w-[55%] md:flex">
           <p className="flex-1"></p>
-          <div className="md:pr-10 md:w-[60%]">
+          <div className="md:pr-10 md:w-[40rem]">
             <div>
               <h1 className="py-4 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
                 Checkout
@@ -480,19 +489,54 @@ const CheckoutPage = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
+              <div className="">
+                <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
                   Order details
-              </h2>
+                </h2>
+                <p className="text-violet">Potential puchased course will be displayed here</p>
+              </div>
             </section>
           </div>
         </div>
-        <div className="md:bg-gray md:opacity-90 text-black md:w-[45%]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius libero
-          autem voluptates ratione, animi voluptatem voluptas labore laboriosam
-          nam enim nesciunt aperiam debitis ipsa ducimus in id facere dolores
-          nostrum dicta! Rerum ducimus, veritatis non exercitationem cumque
-          molestiae reiciendis consectetur aperiam odio! Fuga, ratione tempore.
-          Earum ex numquam beatae dolor.
+        <div className="md:bg-gray md:opacity-90 md:min-h-[100vh] text-black md:w-[45%] md:px-10 md:pt-20">
+          <div className="w-[320px]">
+            <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
+              Summary
+            </h2>
+            <div className="flex justify-between py-3">
+              <p>Original Price: </p>
+              <span>$153.46</span>
+            </div>
+            <hr />
+            <div className="flex justify-between font-bold py-3">
+              <p>Total: </p>
+              <span>$153.46</span>
+            </div>
+            <p className="text-xs text-black pt-4 pb-4">
+              By completing your purchase you agree to these <span className="text-violet opacity-70 hover:opacity-70">Terms of Service.</span>
+            </p>
+            <button
+              onClick={() => setPopupActive((prev) => !prev)}
+              className="py-4 bg-violet text-white w-full">
+              Complete Checkout
+            </button>
+            {popupActive && (
+              <Popup handleClose={() => setPopupActive((prev) => !prev)}>
+                <div>
+                  <h1 className="py-4 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
+                    🎉 Thank you for purchasing the course 🎉
+                  </h1>
+                  <button
+                  onClick={() => handleCheckout()}
+                    className="p-4 bg-violet text-white w-fit flex justify-center"
+                  >
+                    Go to my learning
+                  </button>
+                </div>
+              </Popup>
+            )}
+
+          </div>
         </div>
       </div>
     </div>
