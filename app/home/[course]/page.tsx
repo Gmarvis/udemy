@@ -85,7 +85,7 @@ const MyLearning = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="py-8 w-full md:w-1/2 md:mx-auto min-h-[300px]">
+      <div className="py-12 w-full flex  justify-center items-center ">
         {selectedComponent}
       </div>
       <Footer />

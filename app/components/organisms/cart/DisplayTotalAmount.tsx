@@ -4,25 +4,33 @@ import ModalComponent from "./ModalComponent";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { useRouter } from "next/navigation";
 import { CartItemType } from "@/types";
+import useCart from "@/app/Hooks/useCart";
 
 type Props = {
   price: number;
-  cartCourse?: CartItemType[];
+  listOfCourses: CartItemType[];
 };
 
-function DisplayTotalAmount({ price, cartCourse }: Props): JSX.Element {
+function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
   const [tokenPresent, setTokenPresent] = useState<boolean>(false);
+  const { dispatch, REDUCER_ACTION } = useCart();
 
   const router = useRouter();
 
   const token = LOCAL_STORAGE.get("token");
+
+  console.log(listOfCourses);
 
   const checkoutPayement = () => {
     console.log("clicked");
     if (!token) {
       setTokenPresent(true);
     }
-    router.push("checkoutpage");
+    dispatch({
+      type: REDUCER_ACTION.SUBMIT,
+      payload2: { courseList: [...listOfCourses] },
+    });
+    // router.push("checkoutpage");
   };
 
   return (

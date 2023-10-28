@@ -16,7 +16,7 @@ const CartCourseList = ({ ...course }: CartItemType) => {
       payload2: { courseList: [] },
     });
   };
-  console.log(course);
+  // console.log(course);
   const saveForLater = (): void => {
     console.log("Saving course:  ", course);
     dispatch({

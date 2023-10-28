@@ -57,7 +57,13 @@ const CartPage = () => {
         <h1 className="text-3xl font-bold">Shoppoing Cart</h1>
 
         <div className=" flex flex-col justify-between mb-10 w-full">
-          <DisplayTotalAmount price={price} />
+          <Toaster position="top-right" reverseOrder={false} />
+          <DisplayTotalAmount
+            price={price}
+            listOfCourses={
+              localStorCart.length ? localStorCart : cart.length ? cart : []
+            }
+          />
           <h5 className="mb-2  text-xs md:text-[16px]  mt-5 text-black font-segoe">
             {cart.length ? cart.length : localStorCart.length} Course(s) in Cart{" "}
           </h5>
@@ -79,8 +85,13 @@ const CartPage = () => {
         </h5>
         <div className=" flex  mb-10">
           <div className="flex flex-col flex-1 gap-3">{cartCourses}</div>
-
-          <DisplayTotalAmount price={Number(price)} />
+          <Toaster position="top-right" reverseOrder={false} />
+          <DisplayTotalAmount
+            price={Number(price)}
+            listOfCourses={
+              localStorCart.length ? localStorCart : cart.length ? cart : []
+            }
+          />
         </div>
 
         <div>

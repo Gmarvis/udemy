@@ -26,12 +26,14 @@ const CourseCard = ({
 }: Props): React.JSX.Element => {
   // const itemInCart = inCart ? "→ Item in Cart: ✔️" : null;
 
+  // console.log(image);
+
   return (
     <div className="w-64 flex flex-col md:w-60   gap-1 md:ml-2 ">
       {/* <Link href={"#"}> */}
       <Image
-        className="w-72 h-28 md:mr-5 lg:w-56 lg:h-28 object-cover  bg-contain bg-right-top bg-no-repeat "
         src={image}
+        className="w-72 h-28 md:mr-5 lg:w-56 lg:h-28 object-cover  bg-contain bg-right-top bg-no-repeat "
         alt="product image"
         draggable={false}
         width={200}

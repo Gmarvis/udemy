@@ -86,10 +86,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
   ));
 
   const content = (
-    <div
-      className="flex flex-col gap-2 bg-white py-3 px-2 w-72 h-auto ring text-lg"
-      id="divContent z-0"
-    >
+    <div className="flex flex-col gap-2 bg-white py-3 px-2 w-72 h-auto ring text-lg -z-100">
       <h5 className="text-black">{course.title}</h5>
       <span className="text-xs">
         {course.classification || " not yet classified"}
@@ -150,6 +147,8 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
       {pageUrl === "x" ? null : content}
     </div>
   );
+
+  // return content;
 };
 
 export default CouseContent;

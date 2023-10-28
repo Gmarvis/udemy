@@ -1,4 +1,4 @@
-import { saveForLater } from "@/lib/sendCourses";
+import { saveForLater, sendPurshaseListToDB } from "@/lib/sendCourses";
 import { courseData } from "@/public/data/dummydata";
 import { CartItemType, CourseType, SafeItemType } from "@/types";
 import { ReactElement, useMemo, useReducer, createContext } from "react";
@@ -134,11 +134,29 @@ const reducer = (
       return { ...state, cart: [...cart] };
     }
 
-    //*** PROCESS TO CHECKOUT/
+    //*** PROCESS TO SUBMIT/
     case REDUCER_ACTION_TYPE.SUBMIT: {
-      sessionStorage.removeItem("cart");
+      if (!action.payload2)
+        throw new Error("action payload is missing ADDALL action ");
 
-      return { ...state, cart: [] };
+      const { courseList } = action.payload2;
+
+      console.log("courseList", courseList);
+
+      const cart = [...courseList];
+
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+
+      const purshasedCourses: Promise<CartItemType[]> =
+        sendPurshaseListToDB(cart);
+
+      purshasedCourses
+        .then((courses) => {
+          if (!courses.length) toast("all these courses are already purshased");
+        })
+        .catch((err) => console.error(err));
+
+      return { ...state, cart: [...cart] };
     }
 
     //* SAVE FOR LATER
@@ -175,6 +193,7 @@ const reducer = (
       return { ...state, cart: [...filteredCart] };
     }
 
+    //*** PROCESS TO CHECKOUT/
     case REDUCER_ACTION_TYPE.CHECKOUT: {
       const courseCart: string | null = sessionStorage.getItem("cart");
 
@@ -230,8 +249,6 @@ type ChildrenType = {
 };
 
 const CartProvider = ({ children }: ChildrenType): ReactElement => {
-  
-  
   return (
     <CartContext.Provider value={useCartContext(initCartState)}>
       {" "}

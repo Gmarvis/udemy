@@ -1,5 +1,5 @@
 import React from "react";
-import CheckoutPage from "../payment/page";
+import CheckoutPage from "../payment/checkout/page";
 
 type Props = {};
 

@@ -27,3 +27,29 @@ export function getRandomArrySorted(
   }
   return array;
 }
+
+export const getPaidCourses = async () => {
+  const token = LOCAL_STORAGE.get("token");
+  console.log(" token:", token);
+  const currentUser = LOCAL_STORAGE.get("currentUser");
+
+  if (currentUser && token) {
+    const data = {
+      userId: currentUser.id,
+    };
+
+    const resp = await server.get(`/purchasedcourse/${currentUser.id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+    });
+
+    if (resp && resp.data) {
+      console.log("paid courses ", resp.data);
+      return resp.data;
+    }
+    return [];
+  }
+  return [];
+};
