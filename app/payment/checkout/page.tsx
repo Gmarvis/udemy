@@ -334,7 +334,7 @@ const CheckoutPage = (props: Props) => {
               for purchases made in certain tax jurisdictions.
             </span>
             <section className="py-5">
-              <div className="flex justify-between">
+              <div className="flex justify-between py-3">
                 <h2 className="font-semibold text-xl md:text-2xl leading-normal">
                   Payment method
                 </h2>
@@ -480,6 +480,9 @@ const CheckoutPage = (props: Props) => {
                   </div>
                 </div>
               </div>
+              <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
+                  Order details
+              </h2>
             </section>
           </div>
         </div>
