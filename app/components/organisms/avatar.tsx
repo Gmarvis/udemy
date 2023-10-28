@@ -4,6 +4,9 @@ import Image from "next/image";
 import React from "react";
 
 const Avatar = () => {
+
+  
+
   return (
     <div className="">
       <div>

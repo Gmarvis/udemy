@@ -1,11 +1,14 @@
 import React from "react";
 import Button from "../atoms/Button";
 
-type Props = {};
+type Props = {
+  className?: string
+};
 
-const FeatureCategory = (props: Props) => {
+const FeatureCategory = ({className}: Props) => {
   return (
-    <div className="bg-gray-50">
+    <div className={className}>
+      <div className="bg-gray-50">
       <div className="py-10 leading-loose w-[68%] mx-auto">
         <h1 className="font-semibold">Featured topics by category</h1>
         <div className="md:flex w-full">
@@ -116,6 +119,7 @@ const FeatureCategory = (props: Props) => {
           className="hover:cursor-pointer hover:bg-slate-100 border-2 md:hidden w-full border-gray-500 mx-[-6px] px-2 py-2"
         />
       </div>
+    </div>
     </div>
   );
 };

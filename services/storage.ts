@@ -5,6 +5,7 @@ type OPTIONS = {
 };
 
 export class LOCAL_STORAGE {
+  
   static save(key: string, value: any) {
     return localStorage.setItem(key, JSON.stringify(value));
   }
@@ -17,7 +18,8 @@ export class LOCAL_STORAGE {
     }
 
     if (data) {
-      if (options.type === "STRING") return data;
+      if (options.type === "STRING")
+        return data;
       return JSON.parse(data);
     }
   }

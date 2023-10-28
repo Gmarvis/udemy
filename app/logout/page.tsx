@@ -5,6 +5,8 @@ import SliderComponent from "../components/organisms/slide/Slider";
 import TabSliderLogout from "../components/organisms/abroadSelection/TabSliderLogoutPage";
 import ResponsiveTab from "../components/organisms/abroadSelection/ResponsiveTab";
 import { BsCheckCircleFill } from "react-icons/bs";
+import MainNav from "../components/organisms/MainNav";
+import Footer from "../components/organisms/footer-logout";
 
 type Props = {};
 
@@ -12,6 +14,7 @@ const Page = (props: Props) => {
   const [loggedOut, setLoggedOut] = useState<boolean>(true);
   return (
     <div className=" m-5 ">
+      <MainNav/>
       <div className=" bg-[#acd2cc] py-2 px-4  my-[2.4rem] text-[#2d2f31] text-sm flex items-center gap-4 justify-start">
         <BsCheckCircleFill
           className="bg-transparant text-[#2d2f31] text-xl mr-1 rounded-full border-0 mt-3 outline-none w-8 h-8"
@@ -37,6 +40,7 @@ const Page = (props: Props) => {
       <div>
         <SliderComponent title="Learners are viewing" />
       </div>
+      <Footer/>
     </div>
   );
 };
