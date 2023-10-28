@@ -5,11 +5,11 @@ type Props = {}
 
 export default function CourseStructure({ }: Props) {
   return (
-    <div className="">
+    <div>
       <h1 className="font-bold text-black font-segoe text-2xl  py-10 pl-14">Course Structure</h1>
       <p className="border-b border-gray"></p>
 
-      <div className="flex bg-gray2 text-lg mb-6 px-14 py-6">
+      <div className="lg:flex bg-gray2 text-lg mb-6 px-14 py-6">
 
         <div className="max-w-2xl mr-6 mt-20">
           <h2 className="font-bold mb-6 text-2xl">There&apos;s a course in you. Plan it out.</h2>

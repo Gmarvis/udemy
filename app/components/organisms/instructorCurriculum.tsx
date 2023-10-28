@@ -138,7 +138,7 @@ const InstructorCurriculum = () => {
       {/* end of header  */}
 
       {/* whole section for lectures  */}
-      <div className="border mx-14 mb-4 border-black bg-gray2 p-4">
+      <div className="border mx-14 mb-4 border-black bg-gray2 p-4 sm:mx-4 lg:mx-8 xl:mx-12">
         {sections.map((section) => (
           <h3 key={section.id} className="flex items-center p-2 mb-8 font-bold">
             Lecture1:
@@ -260,9 +260,9 @@ const InstructorCurriculum = () => {
                 </h3>
                 <div className="flex justify-center">
                   {/* video box  */}
-                  <div className="px-14">
+                  <div className="px-14 sm:px-4 lg:px-8 xl:px-12">
                     <div
-                      className="video-box border border-gray cursor-pointer w-17"
+                      className="video-box border border-gray cursor-pointer w-17 sm:w-1/2 lg:w-1/3 xl:w-1/4"
                       onClick={handleVideoClick}
                     >
                       <BsPlayFill className="bg-gray2 text-white text-xl rounded-full m-2 ml-6 hover:animate-bounce" />
