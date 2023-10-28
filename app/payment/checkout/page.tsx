@@ -374,8 +374,7 @@ const CheckoutPage = (props: Props) => {
                 </div>
                 <hr />
                 <p className={paypalActive ? "flex p-6 bg-white" : "hidden"}>
-                  In order to complete your transaction, we will transfer you
-                  over to PayPal's secure servers.
+                  In order to complete your transaction, we will transfer you over to PayPals secure servers.
                 </p>
                 <div
                   className="hover:cursor-pointer p-3"
