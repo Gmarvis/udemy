@@ -17,7 +17,7 @@ interface TopCategoriesProps {
 
 const TopCategories: React.FC<TopCategoriesProps> = ({ categories }) => {
   return (
-    <div className="justify-center py-8 mr-40 ml-40">
+    <div className="justify-center py-8 mr-40 ml-40 lg:mx-10">
       <h2 className="font-bold text-2xl pb-8 ml-32">Top Categories</h2>
       <div className="flex max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-center -m-4">
