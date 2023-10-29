@@ -1,4 +1,8 @@
-import { saveForLater, sendPurshaseListToDB } from "@/lib/sendCourses";
+import {
+  removeSavedCourse,
+  saveForLater,
+  sendPurshaseListToDB,
+} from "@/lib/sendCourses";
 import { courseData } from "@/public/data/dummydata";
 import { CartItemType, CourseType, SafeItemType } from "@/types";
 import { ReactElement, useMemo, useReducer, createContext } from "react";
@@ -19,6 +23,7 @@ const REDUCER_ACTION_TYPE = {
   SUBMIT: "SUBMIT",
   CHECKOUT: "CHECKOUT",
   SAVEFORLATER: "SAVEFORLATER",
+  REMOVEFROMSAVED: "REMOVEFROMSAVED",
   SAVETOWHISHLIST: "SAVETOWHISHLIST",
 };
 
@@ -82,7 +87,7 @@ const reducer = (
 
         return { ...state, cart: [...filteredCart, newCartItem] };
       }
-      console.log("before sending the return");
+      // console.log("before sending the return");
       return { ...state };
     }
 
@@ -101,8 +106,26 @@ const reducer = (
       const cart = [...filteredCart];
       state.cart = [...cart];
       sessionStorage.setItem("cart", JSON.stringify(cart));
-
+      toast.success("Remoed from cart");
       return { ...state, cart: [...filteredCart] };
+    }
+
+    //* REMOVE FROM SAVED
+    case REDUCER_ACTION_TYPE.REMOVEFROMSAVED: {
+      console.log("beforepayload checking");
+      if (!action.payload)
+        throw new Error("Action payload is missing REMOVE action");
+      console.log("after payload checking");
+      const id: string | undefined = action.payload.id;
+      if (id === undefined) return state;
+
+      removeSavedCourse(id)
+        .then((data) => {
+          if (data) {
+            console.log("removed saved course: ", data);
+          }
+        })
+        .catch((err) => console.error(err));
     }
 
     //*ADD ALL TO CART
@@ -161,11 +184,9 @@ const reducer = (
 
     //* SAVE FOR LATER
     case REDUCER_ACTION_TYPE.SAVEFORLATER: {
-      // console.log("before the guard action");
+      console.log("before the guard action");
       if (!action.payload)
         throw new Error("Action payload is missing SAVEFORLATER action");
-
-      // console.log("just after the guard action");
 
       const id: string | undefined = action.payload.id;
       console.log("id ", id);
@@ -178,13 +199,9 @@ const reducer = (
       const existingItem: CartItemType | undefined = state.cart.find(
         (item) => item.id === id
       );
-      // console.log("just before the save for later function");
-      const isCourseSaved = saveForLater(id);
-      if (!isCourseSaved) {
-        toast.error("Course failed to be saved in the database");
-      }
 
-      // console.log("just after the save for later function");
+      const savedforlater = saveForLater(id);
+
       //* send the course to the backend
       const cart = [...filteredCart];
       state.cart = [...cart];

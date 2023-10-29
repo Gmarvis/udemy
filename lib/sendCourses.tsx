@@ -3,15 +3,20 @@ import { server } from "./config";
 import { LOCAL_STORAGE } from "@/services/storage";
 import toast from "react-hot-toast";
 
+let saveforlater: CartItemType[] = [];
+
 export const saveForLater = async (value: any): Promise<any> => {
   console.log(" in function, id value:", value);
+  const currentUser = LOCAL_STORAGE.get("currentUser");
+
   const data = {
-    id: value,
+    courseId: value,
+    userId: currentUser.id,
   };
 
   const token = LOCAL_STORAGE.get("token");
   console.log(" token:", token);
-  const resp = await server.post("/courses/saveforlater", data, {
+  const resp = await server.post("/saveforlater", data, {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/json",
@@ -49,6 +54,40 @@ export const sendPurshaseListToDB = async (
         Authorization: `Bearer ${token}`,
         Accept: "application/json",
       },
+    });
+
+    if ((resp && resp.status === 201) || 200) {
+      console.log(resp.data);
+      return resp.data;
+    }
+    return null;
+  } else {
+    toast.error("Need to login first");
+    return null;
+  }
+
+  return null;
+};
+
+export const removeSavedCourse = async (courseId: string) => {
+  console.log("Removing saved course frontend");
+  const currentUser = LOCAL_STORAGE.get("currentUser");
+  const token = LOCAL_STORAGE.get("token");
+  console.log(" token:", token);
+  if (currentUser && token) {
+    const data = {
+      courseId,
+      userId: currentUser.id,
+    };
+
+    console.log(data);
+
+    const resp = await server.delete("/saveforlater", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+      data,
     });
 
     if ((resp && resp.status === 201) || 200) {
