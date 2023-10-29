@@ -24,6 +24,7 @@ export default function Home({
 
   useEffect(() => {
     let token = localStorage.getItem("token");
+    console.log("token: ", token);
 
     if (!token) {
       setIsToken(!isToken);
