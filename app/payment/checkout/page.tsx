@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { IoMdLock } from "react-icons/io";
 
+
 type Props = {};
 
 const CheckoutPage = (props: Props) => {
@@ -300,7 +301,9 @@ const CheckoutPage = (props: Props) => {
           className="py-2 md:pl-8 md:hidden"
           width={75}
           height={28}
+          onClick={() => router.push("/")}
         />
+
         <Image
           src="/logo-udemy (1).svg"
           alt="udemy logo"

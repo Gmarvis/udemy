@@ -4,7 +4,7 @@ import { BsCheckCircle } from "react-icons/bs";
 import { SimpleCourseType } from "@/types";
 
 type Props = {
-  closeDialog: () => void;
+  closeDialog?: () => void;
   courseSelected: SimpleCourseType;
   gotocart: () => void;
   totalPrice: number;
@@ -31,7 +31,7 @@ const GotoCart = ({
         />
         <div className="flex">
           <Image
-            src={courseSelected?.imageurl}
+            src={courseSelected?.image}
             alt={courseSelected?.title}
             className="w-16 h-17 mr-4"
             width={122}
@@ -64,7 +64,7 @@ const GotoCart = ({
         />
         <div className="flex">
           <Image
-            src={courseSelected?.imageurl}
+            src={courseSelected?.image}
             alt={courseSelected?.title}
             className="w-16 h-17 mr-4"
             width={122}
