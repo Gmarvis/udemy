@@ -1,17 +1,15 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { string } from "prop-types";
-import React, { useEffect } from "react";
+import React from "react";
 import Avatar from "react-avatar";
 import { TfiWorld } from "react-icons/tfi";
 
 type Props = {};
 
 const AvatarProfile = (props: Props) => {
-  // const [user, setUser] = React.useState({})
   const router = useRouter();
   let user: any
-  // user = JSON.parse(localStorage.getItem("currentUser") || "{}")
   
   if (typeof localStorage === "undefined") {
     return null
@@ -21,12 +19,6 @@ const AvatarProfile = (props: Props) => {
   if (currentUser === null) return 
 
   user = JSON.parse(currentUser)
-  
-
-  // useEffect(() => {
-  //   user = JSON.parse(window.localStorage.getItem("currentUser") || "{}");
-  //   console.log(user)
-  // }, [])
 
   const handleLockout = () => {
     localStorage.removeItem("token");
@@ -59,41 +51,41 @@ const AvatarProfile = (props: Props) => {
         </div>
         <hr />
         <div className="text-sm p-4 leading-10">
-          <p className="hover:text-violet-600">My learning</p>
-          <p className="hover:text-violet-600">My cart</p>
-          <p className="hover:text-violet-600">Whishlist</p>
-          <p className="hover:text-violet-600">Instructor dashboard</p>
+          <p className="hover:text-violt"><a className="text-black" href="/home/my-learning">My learning</a></p>
+          <p className="hover:text-violt"><a className="text-black" href="/home/my-learning">My cart</a></p>
+          <p className="hover:text-violt"><a className="text-black" href="/home/my-learning">Whishlist</a></p>
+          <p className="hover:text-violt text-black">Instructor dashboard</p>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Notifications
           </a>
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Messages
           </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Account settings
           </a>
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Payment methods
           </a>
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Suscriptions
           </a>
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Udemy credit
           </a>
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Purchase history
           </a>
         </div>
         <hr />
         <div className="flex text-sm p-4 justify-between leading-10">
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Language
           </a>
           <div className="flex gap-4">
@@ -103,16 +95,16 @@ const AvatarProfile = (props: Props) => {
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Public profile
           </a>
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Edit profile
           </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600 text-black">
+          <a href="#" className="hover:text-violt text-black">
             Help
           </a>
           <p className="hover:text-violet hover:cursor-pointer text-black" onClick={handleLockout}>
@@ -121,7 +113,7 @@ const AvatarProfile = (props: Props) => {
         </div>
         <hr />
         <div className="text-sm p-4 leading-7 flex flex-col">
-          <a href="#" className="hover:text-violet-600 text-lg text-black font-semibold">
+          <a href="#" className="hover:text-violt text-lg text-black font-semibold">
             Udemy business
           </a>
           <a href="#" className="text-gray">
