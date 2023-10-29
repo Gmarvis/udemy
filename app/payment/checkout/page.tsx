@@ -4,6 +4,7 @@ import Popup from "@/app/components/molecules/popup";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
 
 import { IoMdLock } from "react-icons/io";
 
@@ -274,6 +275,14 @@ const CheckoutPage = (props: Props) => {
     { name: "Zimbabwe", code: "ZW" },
   ];
 
+  const {
+    wrapperProps,
+    getCardImageProps,
+    getCardNumberProps,
+    getExpiryDateProps,
+    getCVCProps
+  } = usePaymentInputs();
+
   const handleCart = () => {
     setCartActive((prev) => !prev);
     setPaypalActive(false);
@@ -438,14 +447,16 @@ const CheckoutPage = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <hr className={cartActive ? "flex" : "hidden"}/>
+                <hr className={cartActive ? "flex" : "hidden"} />
                 <div className={cartActive ? "w-full px-5 py-5" : "hidden"}>
+
                   <div className="flex justify-between py-2">
                     <label className="font-bold">Name on cart</label>
                     <span className="text-sm text-gray2">Required</span>
                   </div>
+
                   <input
-                    className="border px-4 py-3 w-full"
+                    className="border border-gray2 px-4 py-2 w-[200px]"
                     placeholder="name on cart"
                     type="text"
                     onChange={(e) => setName(e.target.value)}
@@ -455,36 +466,45 @@ const CheckoutPage = (props: Props) => {
                     <label className="font-bold">Cart number</label>
                     <span className="text-sm text-gray2">Required</span>
                   </div>
-                  <input
+                  <PaymentInputsWrapper {...wrapperProps}>
+                    <input className="border px-4 py-3 w-full" {...getCardNumberProps()} />
+                  </PaymentInputsWrapper>
+                  {/* <input
                     className="border px-4 py-3 w-full"
                     placeholder="1234 5678 9012 3456"
                     type="text"
                     onChange={(e) => setCartNumber(e.target.value)}
-                  />
+                  /> */}
                   <div className="flex gap-2 pb-5">
                     <div className="w-1/2">
                       <div className="flex justify-between py-2">
                         <label className="font-bold">Expire date</label>
                         <span className="text-sm text-gray2">Required</span>
                       </div>
-                      <input
+                      <PaymentInputsWrapper {...wrapperProps}>
+                        <input className="border px-4 py-3 w-full" {...getExpiryDateProps()} />
+                      </PaymentInputsWrapper>
+                      {/* <input
                         className="border px-4 py-3 w-full"
                         placeholder="MM/YY"
                         type="text"
                         onChange={(e) => setExpireDate(e.target.value)}
-                      />
+                      /> */}
                     </div>
                     <div className="w-1/2">
                       <div className="flex justify-between py-2">
                         <label className="font-bold">CVC/CVV</label>
                         <span className="text-sm text-gray2">Required</span>
                       </div>
-                      <input
+                      <PaymentInputsWrapper {...wrapperProps}>
+                        <input className="border px-4 py-3 w-full" {...getExpiryDateProps()} />
+                      </PaymentInputsWrapper>
+                      {/* <input
                         className="border px-4 py-3 w-full"
                         type="text"
                         placeholder="CVC"
                         onChange={(e) => setCvc(e.target.value)}
-                      />
+                      /> */}
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -531,7 +551,7 @@ const CheckoutPage = (props: Props) => {
                     🎉 Thank you for purchasing the course 🎉
                   </h1>
                   <button
-                  onClick={() => handleCheckout()}
+                    onClick={() => handleCheckout()}
                     className="p-4 bg-violt text-white w-fit flex justify-center"
                   >
                     Go to my learning
