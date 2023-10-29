@@ -24,7 +24,6 @@ export default function Home({
   const [isToken, setIsToken] = useState<boolean>(true);
 
   useEffect(() => {
-    // let token: string = JSON.parse(localStorage.getItem("token") || "");
     let token: string = LOCAL_STORAGE.get("token");
 
     if (!token) {
