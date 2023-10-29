@@ -314,7 +314,7 @@ const CheckoutPage = (props: Props) => {
           height={100}
         />
         <p
-          className="my-auto hover:cursor-pointer font-semibold text-violet"
+          className="my-auto hover:cursor-pointer font-semibold text-violt"
           onClick={() => handleClick()}
         >
           Cancel
@@ -335,7 +335,7 @@ const CheckoutPage = (props: Props) => {
             <div className="w-full md:w-1/2 py-3">
               <div className="flex justify-between py-2">
                 <label className="font-bold">Country</label>
-                <span className="text-sm text-gray">Required</span>
+                <span className="text-sm text-gray2">Required</span>
               </div>
               <select className="border p-4 w-full flex">
                 {countries.map((item, index) => (
@@ -353,11 +353,11 @@ const CheckoutPage = (props: Props) => {
                   Payment method
                 </h2>
                 <div className="flex justify-between gap-2 pt-4">
-                  <span className="text-sm text-gray">Secured connection</span>
+                  <span className="text-sm text-gray2">Secured connection</span>
                   <IoMdLock />
                 </div>
               </div>
-              <div className="bg-gray border">
+              <div className="bg-gray2 border">
                 <div
                   className="hover:cursor-pointer  p-3 flex gap-3 "
                   onClick={() => handlePaypal()}
@@ -438,11 +438,11 @@ const CheckoutPage = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <hr />
+                <hr className={cartActive ? "flex" : "hidden"}/>
                 <div className={cartActive ? "w-full px-5 py-5" : "hidden"}>
                   <div className="flex justify-between py-2">
                     <label className="font-bold">Name on cart</label>
-                    <span className="text-sm text-gray">Required</span>
+                    <span className="text-sm text-gray2">Required</span>
                   </div>
                   <input
                     className="border px-4 py-3 w-full"
@@ -453,7 +453,7 @@ const CheckoutPage = (props: Props) => {
 
                   <div className="flex justify-between py-2">
                     <label className="font-bold">Cart number</label>
-                    <span className="text-sm text-gray">Required</span>
+                    <span className="text-sm text-gray2">Required</span>
                   </div>
                   <input
                     className="border px-4 py-3 w-full"
@@ -465,7 +465,7 @@ const CheckoutPage = (props: Props) => {
                     <div className="w-1/2">
                       <div className="flex justify-between py-2">
                         <label className="font-bold">Expire date</label>
-                        <span className="text-sm text-gray">Required</span>
+                        <span className="text-sm text-gray2">Required</span>
                       </div>
                       <input
                         className="border px-4 py-3 w-full"
@@ -477,7 +477,7 @@ const CheckoutPage = (props: Props) => {
                     <div className="w-1/2">
                       <div className="flex justify-between py-2">
                         <label className="font-bold">CVC/CVV</label>
-                        <span className="text-sm text-gray">Required</span>
+                        <span className="text-sm text-gray2">Required</span>
                       </div>
                       <input
                         className="border px-4 py-3 w-full"
@@ -497,12 +497,12 @@ const CheckoutPage = (props: Props) => {
                 <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
                   Order details
                 </h2>
-                <p className="text-violet">Potential puchased course will be displayed here</p>
+                <p className="text-violt">Potential puchased course will be displayed here</p>
               </div>
             </section>
           </div>
         </div>
-        <div className="md:bg-gray md:opacity-90 md:min-h-[100vh] text-black md:w-[45%] md:px-10 md:pt-20">
+        <div className="md:bg-gray2 md:opacity-90 md:min-h-[100vh] text-black md:w-[45%] md:px-10 md:pt-20">
           <div className="w-[320px]">
             <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
               Summary
@@ -517,11 +517,11 @@ const CheckoutPage = (props: Props) => {
               <span>$153.46</span>
             </div>
             <p className="text-xs text-black pt-4 pb-4">
-              By completing your purchase you agree to these <span className="text-violet opacity-70 hover:opacity-70">Terms of Service.</span>
+              By completing your purchase you agree to these <span className="text-violt opacity-70 hover:opacity-70">Terms of Service.</span>
             </p>
             <button
               onClick={() => setPopupActive((prev) => !prev)}
-              className="py-4 bg-violet text-white w-full">
+              className="py-4 bg-violt text-white w-full">
               {paypalActive ? "Proceed" : "complete checkout"}
             </button>
             {popupActive && (
@@ -532,7 +532,7 @@ const CheckoutPage = (props: Props) => {
                   </h1>
                   <button
                   onClick={() => handleCheckout()}
-                    className="p-4 bg-violet text-white w-fit flex justify-center"
+                    className="p-4 bg-violt text-white w-fit flex justify-center"
                   >
                     Go to my learning
                   </button>
