@@ -4,6 +4,7 @@ import Popup from "@/app/components/molecules/popup";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
 
 import { IoMdLock } from "react-icons/io";
 
@@ -274,6 +275,14 @@ const CheckoutPage = (props: Props) => {
     { name: "Zimbabwe", code: "ZW" },
   ];
 
+  const {
+    wrapperProps,
+    getCardImageProps,
+    getCardNumberProps,
+    getExpiryDateProps,
+    getCVCProps
+  } = usePaymentInputs();
+
   const handleCart = () => {
     setCartActive((prev) => !prev);
     setPaypalActive(false);
@@ -314,7 +323,7 @@ const CheckoutPage = (props: Props) => {
           height={100}
         />
         <p
-          className="my-auto hover:cursor-pointer font-semibold text-violet"
+          className="my-auto hover:cursor-pointer font-semibold text-violt"
           onClick={() => handleClick()}
         >
           Cancel
@@ -335,7 +344,7 @@ const CheckoutPage = (props: Props) => {
             <div className="w-full md:w-1/2 py-3">
               <div className="flex justify-between py-2">
                 <label className="font-bold">Country</label>
-                <span className="text-sm text-gray">Required</span>
+                <span className="text-sm text-gray2">Required</span>
               </div>
               <select className="border p-4 w-full flex">
                 {countries.map((item, index) => (
@@ -353,11 +362,11 @@ const CheckoutPage = (props: Props) => {
                   Payment method
                 </h2>
                 <div className="flex justify-between gap-2 pt-4">
-                  <span className="text-sm text-gray">Secured connection</span>
+                  <span className="text-sm text-gray2">Secured connection</span>
                   <IoMdLock />
                 </div>
               </div>
-              <div className="bg-gray border">
+              <div className="bg-gray2 border">
                 <div
                   className="hover:cursor-pointer  p-3 flex gap-3 "
                   onClick={() => handlePaypal()}
@@ -438,14 +447,16 @@ const CheckoutPage = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <hr />
+                <hr className={cartActive ? "flex" : "hidden"} />
                 <div className={cartActive ? "w-full px-5 py-5" : "hidden"}>
+
                   <div className="flex justify-between py-2">
                     <label className="font-bold">Name on cart</label>
-                    <span className="text-sm text-gray">Required</span>
+                    <span className="text-sm text-gray2">Required</span>
                   </div>
+
                   <input
-                    className="border px-4 py-3 w-full"
+                    className="border border-gray2 px-4 py-2 w-[200px]"
                     placeholder="name on cart"
                     type="text"
                     onChange={(e) => setName(e.target.value)}
@@ -453,38 +464,47 @@ const CheckoutPage = (props: Props) => {
 
                   <div className="flex justify-between py-2">
                     <label className="font-bold">Cart number</label>
-                    <span className="text-sm text-gray">Required</span>
+                    <span className="text-sm text-gray2">Required</span>
                   </div>
-                  <input
+                  <PaymentInputsWrapper {...wrapperProps}>
+                    <input className="border px-4 py-3 w-full" {...getCardNumberProps()} />
+                  </PaymentInputsWrapper>
+                  {/* <input
                     className="border px-4 py-3 w-full"
                     placeholder="1234 5678 9012 3456"
                     type="text"
                     onChange={(e) => setCartNumber(e.target.value)}
-                  />
+                  /> */}
                   <div className="flex gap-2 pb-5">
                     <div className="w-1/2">
                       <div className="flex justify-between py-2">
                         <label className="font-bold">Expire date</label>
-                        <span className="text-sm text-gray">Required</span>
+                        <span className="text-sm text-gray2">Required</span>
                       </div>
-                      <input
+                      <PaymentInputsWrapper {...wrapperProps}>
+                        <input className="border px-4 py-3 w-full" {...getExpiryDateProps()} />
+                      </PaymentInputsWrapper>
+                      {/* <input
                         className="border px-4 py-3 w-full"
                         placeholder="MM/YY"
                         type="text"
                         onChange={(e) => setExpireDate(e.target.value)}
-                      />
+                      /> */}
                     </div>
                     <div className="w-1/2">
                       <div className="flex justify-between py-2">
                         <label className="font-bold">CVC/CVV</label>
-                        <span className="text-sm text-gray">Required</span>
+                        <span className="text-sm text-gray2">Required</span>
                       </div>
-                      <input
+                      <PaymentInputsWrapper {...wrapperProps}>
+                        <input className="border px-4 py-3 w-full" {...getExpiryDateProps()} />
+                      </PaymentInputsWrapper>
+                      {/* <input
                         className="border px-4 py-3 w-full"
                         type="text"
                         placeholder="CVC"
                         onChange={(e) => setCvc(e.target.value)}
-                      />
+                      /> */}
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -497,12 +517,12 @@ const CheckoutPage = (props: Props) => {
                 <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
                   Order details
                 </h2>
-                <p className="text-violet">Potential puchased course will be displayed here</p>
+                <p className="text-violt">Potential puchased course will be displayed here</p>
               </div>
             </section>
           </div>
         </div>
-        <div className="md:bg-gray md:opacity-90 md:min-h-[100vh] text-black md:w-[45%] md:px-10 md:pt-20">
+        <div className="md:bg-gray2 md:opacity-90 md:min-h-[100vh] text-black md:w-[45%] md:px-10 md:pt-20">
           <div className="w-[320px]">
             <h2 className="font-semibold py-4 text-xl md:text-2xl leading-normal">
               Summary
@@ -517,11 +537,11 @@ const CheckoutPage = (props: Props) => {
               <span>$153.46</span>
             </div>
             <p className="text-xs text-black pt-4 pb-4">
-              By completing your purchase you agree to these <span className="text-violet opacity-70 hover:opacity-70">Terms of Service.</span>
+              By completing your purchase you agree to these <span className="text-violt opacity-70 hover:opacity-70">Terms of Service.</span>
             </p>
             <button
               onClick={() => setPopupActive((prev) => !prev)}
-              className="py-4 bg-violet text-white w-full">
+              className="py-4 bg-violt text-white w-full">
               {paypalActive ? "Proceed" : "complete checkout"}
             </button>
             {popupActive && (
@@ -531,8 +551,8 @@ const CheckoutPage = (props: Props) => {
                     🎉 Thank you for purchasing the course 🎉
                   </h1>
                   <button
-                  onClick={() => handleCheckout()}
-                    className="p-4 bg-violet text-white w-fit flex justify-center"
+                    onClick={() => handleCheckout()}
+                    className="p-4 bg-violt text-white w-fit flex justify-center"
                   >
                     Go to my learning
                   </button>
