@@ -12,6 +12,7 @@ import "tippy.js/dist/tippy.css";
 import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import MenuItems from "./menu-items";
+import { useRouter } from "next/navigation";
 
 type Props = {
   className?: string
@@ -20,9 +21,14 @@ type Props = {
 const LogiNav = ({className}: Props) => {
   const [active, setActive] = useState(false);
   const [closed, setClosed] = useState(false);
+  const router = useRouter()
 
   function handleClick(): void {
     console.log("I am Instructor");
+  }
+
+  const handleMylearning = () => {
+    router.push("/")
   }
 
   return (
@@ -44,7 +50,7 @@ const LogiNav = ({className}: Props) => {
         }`}
       />
       <div className="py-2 bg-red-400 hidden md:contents px-6">
-        <div className="md:flex justify-between hidden items-center">
+        <div className="md:flex justify-between hidden items-center my-auto">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
             <Image
               src="/logo-udemy.svg"
@@ -70,13 +76,15 @@ const LogiNav = ({className}: Props) => {
           </div>
           <UdemBusDropdown />
           <p
-            className=" hover:cursor-pointer text-black hover:text-violet text-sm"
+            className=" hover:cursor-pointer text-black hover:text-violt text-sm hover:no-underline"
             onClick={() => handleClick()}
           >
             Instructor
           </p>
-          <Link href="/home/my-courses/learning">
-            <p className="hover:cursor-pointer hover:text-violet text-black hover:no-underline text-sm">
+          <Link href="/home/my-courses">
+            <p
+            onClick={() => handleMylearning()}
+            className="hover:cursor-pointer hover:text-violt text-black hover:no-underline text-sm">
               My Learning
             </p>
           </Link>
@@ -87,7 +95,7 @@ const LogiNav = ({className}: Props) => {
           <AvatarProfile />
         </div>
       </div>
-      <hr />
+      <hr/>
       <div className="py-4 shadow-md hidden md:flex">
         <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
           <Category
