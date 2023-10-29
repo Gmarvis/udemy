@@ -15,21 +15,21 @@ import MenuItems from "./menu-items";
 import { useRouter } from "next/navigation";
 
 type Props = {
-  className?: string
-}
+  className?: string;
+};
 
-const LogiNav = ({className}: Props) => {
+const LogiNav = ({ className }: Props) => {
   const [active, setActive] = useState(false);
   const [closed, setClosed] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   function handleClick(): void {
     console.log("I am Instructor");
   }
 
   const handleMylearning = () => {
-    router.push("/")
-  }
+    router.push("/");
+  };
 
   return (
     <div className={className}>
@@ -82,9 +82,7 @@ const LogiNav = ({className}: Props) => {
             Instructor
           </p>
           <Link href="/home/my-courses">
-            <p
-            onClick={() => handleMylearning()}
-            className="hover:cursor-pointer hover:text-violt text-black hover:no-underline text-sm">
+            <p className="hover:cursor-pointer hover:text-violet text-black hover:no-underline text-sm">
               My Learning
             </p>
           </Link>
@@ -95,7 +93,7 @@ const LogiNav = ({className}: Props) => {
           <AvatarProfile />
         </div>
       </div>
-      <hr/>
+      <hr />
       <div className="py-4 shadow-md hidden md:flex">
         <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
           <Category
