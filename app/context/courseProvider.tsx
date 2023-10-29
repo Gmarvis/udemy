@@ -1,7 +1,7 @@
 import { fetchedCourses } from "@/lib/getCourses";
 import { courseData } from "@/public/data/dummydata";
 import { CourseType, CartItemType, SimpleCourseType } from "@/types";
-import { ReactElement, useState, createContext } from "react";
+import { ReactElement, useState, createContext, useEffect } from "react";
 
 const initCourseState: SimpleCourseType[] = courseData;
 
@@ -25,14 +25,16 @@ type Childrentype = {
 const CourseProvider = ({ children }: Childrentype): ReactElement => {
   const [courses, setCourses] = useState<SimpleCourseType[]>(initCourseState);
 
-  // useEffect(() => {
-  //   const courseData = await fetchedCourses()
-  //   const crses = await courseData;
-  //   if(crses)
-  //     setCourses(crses)
-  // },[]);
-
-
+  useEffect(() => {
+    fetchedCourses()
+      .then((data) => {
+        if (data) {
+          setCourses(data);
+          console.log(data);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <CourseContext.Provider value={{ courses }}>

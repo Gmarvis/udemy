@@ -82,7 +82,7 @@ const TabSliderLogout = (props: Props) => {
   });
   return (
     <>
-      <div className="flex gap-10 md:text-sm pb-3  mb-4 border-b-gray2">
+      <div className="flex gap-4 sm:gap-5 md:text-sm pb-3  mb-4 border-b-gray2">
         {checkCategory}
       </div>{" "}
       <hr className="-mt-[29px]" />

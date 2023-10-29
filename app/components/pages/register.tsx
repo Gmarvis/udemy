@@ -20,7 +20,7 @@ const RegisterPage: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
     setIsLoading(true);
     setIsError(false);
 
@@ -53,7 +53,7 @@ const RegisterPage: NextPage = () => {
           setIsError(true);
           setIsLoading(false);
           setErrorMassage(
-            `${res.message},try again or login instead if you already have a account`
+            `${res.message},There was a problem creating your account. Check that your email address is spelled correctly.`
           );
         }
       });
@@ -66,6 +66,11 @@ const RegisterPage: NextPage = () => {
     <div className="flex flex-col items-center justify-center  gap-2 mt-10 mb-8">
       <form onSubmit={handleSubmit} className="flex flex-col w-[350px] gap-2">
         <h3 className="font-bold text-left">Sign up and start learning</h3>
+        {isError && (
+          <div className=" p-4 bg-errRed">
+            <span>{errorMessage}</span>
+          </div>
+        )}
         <InputField
           type="text"
           name="fullname"
@@ -90,11 +95,6 @@ const RegisterPage: NextPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        {isError && (
-          <div className=" p-4 bg-red-300">
-            <h3>{errorMessage}</h3>
-          </div>
-        )}
         <PasswordStrenght password={password} />
         <div className="flex  text-start">
           <input
@@ -107,7 +107,7 @@ const RegisterPage: NextPage = () => {
             recommendations and learning tips
           </p>
         </div>
-        <div className="flex items-center justify-center bg-violet w-[350px] h-[50px] my-2">
+        <div className="flex items-center justify-center bg-violt w-[350px] h-[50px] my-2">
           <Button
             className="text-white font-black text-[16px]"
             label={isLoading ? "loading..." : "sign up"}

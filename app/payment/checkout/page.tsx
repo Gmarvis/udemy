@@ -4,11 +4,13 @@ import Popup from "@/app/components/molecules/popup";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+
 import { IoMdLock } from "react-icons/io";
 
 type Props = {};
 
 const CheckoutPage = (props: Props) => {
+
   const router = useRouter()
   const [paypalActive, setPaypalActive] = React.useState(false);
   const [cartActive, setCartActive] = React.useState(false);
@@ -294,13 +296,16 @@ const CheckoutPage = (props: Props) => {
   return (
     <div>
       <div className="flex justify-between md:px-5 px-3 shadow md:py-2">
+
         <Image
           src="/logo-udemy (1).svg"
           alt="udemy logo"
           className="py-2 md:pl-8 md:hidden"
           width={75}
           height={28}
+          onClick={() => router.push("/")}
         />
+
         <Image
           src="/logo-udemy (1).svg"
           alt="udemy logo"

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CourseCard from "./CourseCard";
@@ -29,7 +29,9 @@ export default function SliderComponent(props: { title: string }) {
 
   return (
     <div>
-      <h3 className="ml-2">{props.title}</h3>
+      <h3 className="ml-2 mb-3 text-[#2d2f31]  text-2xl font-bold">
+        {props.title}
+      </h3>
       <Carousel responsive={responsive} swipeable={false} className="w-full">
         {pageContent}
       </Carousel>
