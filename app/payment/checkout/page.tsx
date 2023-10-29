@@ -517,7 +517,7 @@ const CheckoutPage = (props: Props) => {
             <button
               onClick={() => setPopupActive((prev) => !prev)}
               className="py-4 bg-violet text-white w-full">
-              Complete Checkout
+              {paypalActive ? "Proceed" : "complete checkout"}
             </button>
             {popupActive && (
               <Popup handleClose={() => setPopupActive((prev) => !prev)}>
