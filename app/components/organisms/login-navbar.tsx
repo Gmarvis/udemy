@@ -8,7 +8,6 @@ import UdemBusDropdown from "../molecules/udemBusDropdown";
 import AvatarProfile from "../molecules/avatar";
 import Category from "../molecules/category/development";
 import GoToCart from "../molecules/cart-list";
-// import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
@@ -57,20 +56,6 @@ const LogiNav = ({className}: Props) => {
             />
             <Categories />
           </div>
-
-          {/* <div className="  md:w-[60%] ">
-            <input
-              className="border-black border p-2 px-4 rounded-full w-full
-            placeholder:text-gray-400 relative font-normal placeholder:px-10 py-3 outline-none"
-              type="text"
-              placeholder="Search for anything"
-            />
-
-            <BsSearch
-              className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
-              size={17}
-            />
-          </div> */}
           <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
             <BsSearch
               className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
@@ -105,33 +90,6 @@ const LogiNav = ({className}: Props) => {
       <hr />
       <div className="py-4 shadow-md hidden md:flex">
         <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
-          {/* <Tippy
-          arrow="false"
-            content={
-              <div className="flex w-[1000px]">
-                <a href="#" className="">
-                  Web Development
-                </a>
-                <a href="#" className=""z>
-                  Mobile Development
-                </a>
-                <a href="#" className="">
-                  Programming Language
-                </a>
-                <a href="#" className="">
-                  Game Development
-                </a>
-                <a href="#" className="">
-                  Database deisgn & Development
-                </a>
-                <a href="#" className="">
-                  Software Testing
-                </a>
-              </div>
-            }
-          >
-            <p>Development</p>
-          </Tippy>  */}
           <Category
             label={"Development"}
             l1={"Web Development"}
