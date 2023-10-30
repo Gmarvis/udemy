@@ -232,9 +232,9 @@ const ManageGoals = () => {
           )}
         </div>
 
-        <div className="ml-6">
+        <div className="flex ml-6 xl:self-end">
           {showContent && (
-            <div className="text-base shadow-2xl max-w-5xl mt-6">
+            <div className="text-base shadow-2xl max-w-5xl mt-6 items-end ">
               {activePage &&
                 pageComponents[activePage] &&
                 createElement(pageComponents[activePage])}
