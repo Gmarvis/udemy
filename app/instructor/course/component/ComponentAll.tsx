@@ -38,7 +38,7 @@ const ComponentAll = (props: Props) => {
             <DescriptionOfCreateCourse1 />
             <SearchSelectNewCourse />
             <CourseNotFinishedCreating />
-            <div className=" my-16 mx-12 md:mx-72 text-ctitle font-segoe p-0 text-[13px]">
+            <div className=" my-16 mx-12 md:mx-72 text-ctitle font-segoe p-0 text-[12.5px]">
               Based on your experience, we think these resources will be
               helpful.
             </div>
