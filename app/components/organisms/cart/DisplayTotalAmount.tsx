@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import RegisterPage from "../../pages/register";
 import ModalComponent from "./ModalComponent";
@@ -16,13 +16,13 @@ type Props = {
 
 function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
   const [tokenPresent, setTokenPresent] = useState<boolean>(false);
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
   const { dispatch, REDUCER_ACTION } = useCart();
 
   const router = useRouter();
 
   const token = LOCAL_STORAGE.get("token");
-  console.log(token)
+  console.log(token);
 
   console.log(listOfCourses);
 
@@ -54,17 +54,16 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
       <p className=" text-sm text-black font-segoe">90%</p>
       {!token ? (
         <ModalComponent title="Checkout">
-         <div>
-         {!show && <RegisterPage2 onClick={() => setShow((prev) => !prev)} />}
-         </div>
-         <div>
-          {show && <LoginForm2 />}
-         </div>
-          
+          <div>
+            {!show && (
+              <RegisterPage2 onClick={() => setShow((prev) => !prev)} />
+            )}
+          </div>
+          <div>{show && <LoginForm2 />}</div>
         </ModalComponent>
       ) : (
         <button
-          className=" w-full flex justify-center items-center py-2 px-10 bg-purple text-white hover:bg-violt"
+          className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white bg-violt"
           onClick={checkoutPayement}
         >
           Checkout
