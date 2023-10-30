@@ -8,6 +8,7 @@ type Props = {};
 
 const Avatardropdown = (props: Props) => {
   const currentUser = LOCAL_STORAGE.get("currentUser");
+  if (!currentUser) return;
 
   return (
     <div className="relative">
