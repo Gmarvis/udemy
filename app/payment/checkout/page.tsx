@@ -27,8 +27,6 @@ const CheckoutPage = (props: Props) => {
 
   const { dispatch, REDUCER_ACTION } = useCart();
 
-  const purshasedResult = LOCAL_STORAGE.get("isPurshased");
-
   const {
     wrapperProps,
     getCardImageProps,
@@ -48,24 +46,12 @@ const CheckoutPage = (props: Props) => {
   };
 
   function handleClick(): void {
-    console.log("this is the function");
+    router.push('/')
   }
 
   const handleCheckout = () => {
     setPopupActive((prev) => !prev);
     router.push("/home/my-learning");
-  };
-
-  const completeCheckout = () => {
-    dispatch({
-      type: REDUCER_ACTION.CHECKOUT,
-      payload2: { courseList: [] },
-    });
-    if (purshasedResult === "true") {
-      setPopupActive(true);
-    } else {
-      setPopupActive(false);
-    }
   };
 
   return (
@@ -321,7 +307,13 @@ const CheckoutPage = (props: Props) => {
               </span>
             </p>
             <button
-              onClick={completeCheckout}
+              onClick={() => {
+                setPopupActive((prev) => !prev)
+                dispatch({
+                  type: REDUCER_ACTION.CHECKOUT,
+                  payload2: { courseList: [] },
+                });
+              }}
               className="py-4 bg-violt text-white w-full"
             >
               {paypalActive ? "Proceed" : "complete checkout"}
