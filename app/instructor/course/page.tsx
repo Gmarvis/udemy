@@ -9,11 +9,7 @@ import TeachModal from "@/app/TeachModal";
 import Overlay from "@/app/overlay";
 import ComponentAll from "./component/ComponentAll";
 
-interface TeachModalProps {
-  onClose?: () => void;
-}
-
-const Teachprofil: React.FC<TeachModalProps> = ({ onClose }) => {
+const Teachprofil = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOnclose = () => setShowModal(false);

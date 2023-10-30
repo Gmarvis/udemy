@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import RegisterPage from "../../pages/register";
 import ModalComponent from "./ModalComponent";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { useRouter } from "next/navigation";
 import { CartItemType } from "@/types";
 import useCart from "@/app/Hooks/useCart";
+import RegisterPage2 from "../../pages/register-page2";
+import LoginForm2 from "../../pages/login2";
 
 type Props = {
   price: number;
@@ -13,15 +16,17 @@ type Props = {
 
 function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
   const [tokenPresent, setTokenPresent] = useState<boolean>(false);
+  const [show, setShow] = useState(false);
   const { dispatch, REDUCER_ACTION } = useCart();
 
   const router = useRouter();
 
   const token = LOCAL_STORAGE.get("token");
+  console.log(token);
 
   console.log(listOfCourses);
 
-  const sendToCheckout = () => {
+  const checkoutPayement = () => {
     console.log("clicked");
     if (!token) {
       setTokenPresent(true);
@@ -30,7 +35,7 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
       type: REDUCER_ACTION.SUBMIT,
       payload2: { courseList: [...listOfCourses] },
     });
-    router.push("/payment/checkout");
+    router.push("payment/checkout");
   };
 
   return (
@@ -49,12 +54,17 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
       <p className=" text-sm text-black font-segoe">90%</p>
       {!token ? (
         <ModalComponent title="Checkout">
-          <RegisterPage />
+          <div>
+            {!show && (
+              <RegisterPage2 onClick={() => setShow((prev) => !prev)} />
+            )}
+          </div>
+          <div>{show && <LoginForm2 />}</div>
         </ModalComponent>
       ) : (
         <button
-          className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white hover:bg-violt"
-          onClick={sendToCheckout}
+          className=" w-full flex justify-center items-center py-2 px-10 bg-purple text-white hover:bg-violt"
+          onClick={checkoutPayement}
         >
           Checkout
         </button>

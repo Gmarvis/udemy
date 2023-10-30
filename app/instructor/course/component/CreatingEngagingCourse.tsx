@@ -17,10 +17,10 @@ const CreatingEngagingCourse = (props: Props) => {
       <div className="flex flex-col gap-5 lg:w-150">
         <h4 className=" text-[#3a3c3f]">Create an Engaging Course</h4>
         <p>
-          Whether you &quote;ve been teaching for years or are teaching for the
-          first time, you can make an engaging course. We've compiled resources
-          and best practices to help you get to the next level, no matter where
-          you&lquote;re starting.
+          Whether you &lsquo;ve been teaching for years or are teaching for the
+          first time, you can make an engaging course. We&lsquo;ve compiled
+          resources and best practices to help you get to the next level, no
+          matter where you&lsquo;re starting.
         </p>
         <Link
           href={"#"}

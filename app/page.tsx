@@ -5,7 +5,6 @@ import SliderComponent from "./components/organisms/slide/Slider";
 import HeroSection from "./components/organisms/heroSection";
 import AbroadSelection from "./components/organisms/abroadSelection/AbroadSelectionLandingPage";
 import ResponsiveTab from "./components/organisms/abroadSelection/ResponsiveTab";
-// import MainNav from "./components/organisms/MainNav";
 import FooterLandingPage from "./components/organisms/footer-landingpage";
 import BecomeInstructor from "./components/organisms/become-instructor";
 import FeatureCategory from "./components/organisms/feature-category";
@@ -24,12 +23,13 @@ export default function Home({
   const [isToken, setIsToken] = useState<boolean>(true);
 
   useEffect(() => {
-    let token: string = LOCAL_STORAGE.get("token");
+    let token = localStorage.getItem("token");
+    console.log("token: ", token);
 
     if (!token) {
       setIsToken(!isToken);
     }
-  }, []);
+  }, [isToken]);
 
   return (
     <main>

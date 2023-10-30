@@ -7,7 +7,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import UdemBusDropdown from "../molecules/udemBusDropdown";
 import AvatarProfile from "../molecules/avatar";
 import GoToCart from "../molecules/cart-list";
-// import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
@@ -56,20 +55,6 @@ const MyLearningNavbar= ({ className }: Props) => {
             />
             <Categories />
           </div>
-
-          {/* <div className="  md:w-[60%] ">
-            <input
-              className="border-black border p-2 px-4 rounded-full w-full
-            placeholder:text-gray-400 relative font-normal placeholder:px-10 py-3 outline-none"
-              type="text"
-              placeholder="Search for anything"
-            />
-
-            <BsSearch
-              className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
-              size={17}
-            />
-          </div> */}
           <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
             <BsSearch
               className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
