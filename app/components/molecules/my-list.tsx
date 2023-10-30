@@ -12,7 +12,7 @@ const MyList = (props: Props) => {
 
   return (
     <div>
-      <div className="flex gap-4 md:w-1/2 px-3 w-full pb-3 items-center">
+      <div className="flex gap-4 md:w-1/2 px-3 w-full pb-3 items-center p">
         <h1 className="font-semibold text-lg">Instructor Collaborator</h1>
         <HiPencil
           className="hover:cursor-pointer"
