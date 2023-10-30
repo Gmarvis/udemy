@@ -12,7 +12,7 @@ const GoToCart = (props: Props) => {
 
   return (
     <div className="relative ">
-      <p className="peer hover:cursor-pointer ">
+      <p className="peer hover:cursor-pointer">
         <SlBasket className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
       </p>
 
