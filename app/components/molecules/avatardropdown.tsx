@@ -2,7 +2,6 @@
 import { LOCAL_STORAGE } from "@/services/storage";
 import React from "react";
 import Avatar from "react-avatar";
-// import { LOCAL_STORAGE } from "@services/storage";
 
 type Props = {};
 

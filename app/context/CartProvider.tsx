@@ -225,8 +225,13 @@ const reducer = (
 
       purshasedCourses
         .then((courses) => {
-          if (!courses.length) toast("all these courses are already purshased");
-          else toast.success("Courses purshased successfully");
+          if (!courses.length) {
+            localStorage.setItem("isPurshased", "false");
+            toast("all these courses are already purshased");
+          } else {
+            localStorage.setItem("isPurshased", "true");
+            toast.success("Courses purshased successfully");
+          }
         })
         .catch((err) => console.error(err));
       sessionStorage.removeItem("cart");

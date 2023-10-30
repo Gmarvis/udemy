@@ -9,6 +9,8 @@ import useCart from "@/app/Hooks/useCart";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
 
 import { IoMdLock } from "react-icons/io";
+import { sendPurshaseListToDB } from "@/lib/sendCourses";
+import { LOCAL_STORAGE } from "@/services/storage";
 
 type Props = {};
 
@@ -24,6 +26,8 @@ const CheckoutPage = (props: Props) => {
   const countries: { name: string; code: string }[] = countriesNameAndCodes;
 
   const { dispatch, REDUCER_ACTION } = useCart();
+
+  const purshasedResult = LOCAL_STORAGE.get("isPurshased");
 
   const {
     wrapperProps,
@@ -53,12 +57,15 @@ const CheckoutPage = (props: Props) => {
   };
 
   const completeCheckout = () => {
-    setPopupActive((prev) => !prev);
-
     dispatch({
       type: REDUCER_ACTION.CHECKOUT,
       payload2: { courseList: [] },
     });
+    if (purshasedResult === "true") {
+      setPopupActive(true);
+    } else {
+      setPopupActive(false);
+    }
   };
 
   return (
@@ -314,7 +321,7 @@ const CheckoutPage = (props: Props) => {
               </span>
             </p>
             <button
-              onClick={() => setPopupActive((prev) => !prev)}
+              onClick={completeCheckout}
               className="py-4 bg-violt text-white w-full"
             >
               {paypalActive ? "Proceed" : "complete checkout"}
