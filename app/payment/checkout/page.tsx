@@ -29,6 +29,7 @@ const CheckoutPage = (props: Props) => {
 
   const purshasedResult = LOCAL_STORAGE.get("isPurshased");
 
+  console.log(purshasedResult)
   const {
     wrapperProps,
     getCardImageProps,

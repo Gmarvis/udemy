@@ -5,15 +5,15 @@ type Props = {};
 
 const LearningTool = (props: Props) => {
   return (
-    <div className="w-full p-8 mx-auto">
+    <div className="w-1/2 p-8 mx-auto ">
       <h1>Learning reminders</h1>
       <br></br>
       <h2>Calendar events</h2>
       <br></br>
       <p>Learning a little each day adds up. Research shows that students who make learning a habit are more likely to reach their goals. Set time aside to learn and get reminders using your learning scheduler.</p>
-      <p className="text-sm text-gray">Requires Google Calendar, Apple Calendar, or Outlook</p>
-      <button className="p-3 bg-violet w-full md:w-[300px] flex ">
-        Schedule learning time <BsPlusCircleFill/>
+      <p className="text-sm text-gray p-2">Requires Google Calendar, Apple Calendar, or Outlook</p>
+      <button className="p-3 bg-violt w-full md:w-[300px] text-white gap-2  flex justify-center ">
+        Schedule learning time <BsPlusCircleFill className="my-auto "/>
       </button>
       <br></br>
       <h2>Push notifications</h2>
