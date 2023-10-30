@@ -12,7 +12,7 @@ type Props = {
 
 const AbroadSelection = ({ title, textContent }: Props) => {
   return (
-    <div className="text-xl font-bold flex flex-col gap-4 px-5 lg:mt-0 mx-auto">
+    <div className="text-xl font-bold flex flex-col gap-4 px-5 lg:mt-0 mx-auto bg-errRed md:w-[70%]">
       <h2 className=" font-bold text-black text-xl"> {title}</h2>
       <p className="text-sm">{textContent}</p>
 

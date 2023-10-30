@@ -147,14 +147,7 @@ const reducer = (
 
       sessionStorage.setItem("cart", JSON.stringify(cart));
 
-      const purshasedCourses: Promise<CartItemType[]> =
-        sendPurshaseListToDB(cart);
-
-      purshasedCourses
-        .then((courses) => {
-          if (!courses.length) toast("all these courses are already purshased");
-        })
-        .catch((err) => console.error(err));
+      
 
       return { ...state, cart: [...cart] };
     }
@@ -201,6 +194,15 @@ const reducer = (
         return { ...state };
       }
       const cart = JSON.parse(courseCart);
+
+      const purshasedCourses: Promise<CartItemType[]> =
+        sendPurshaseListToDB(cart);
+
+      purshasedCourses
+        .then((courses) => {
+          if (!courses.length) toast("all these courses are already purshased");
+        })
+        .catch((err) => console.error(err));
 
       return { ...state, cart: [...cart] };
     }

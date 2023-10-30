@@ -22,14 +22,7 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
   const router = useRouter();
 
   const token = LOCAL_STORAGE.get("token");
-  // const isTrue = LOCAL_STORAGE.get("isTrue")
-
-  // let isTrue
-  // useEffect(() => {
-  //   isTrue = LOCAL_STORAGE.get("isTrue")
-  // }, [])
-
-  // console.log(isTrue)
+  console.log(token)
 
   console.log(listOfCourses);
 
@@ -42,7 +35,7 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
       type: REDUCER_ACTION.SUBMIT,
       payload2: { courseList: [...listOfCourses] },
     });
-    // router.push("checkoutpage");
+    router.push("payment/checkout");
   };
 
   return (
