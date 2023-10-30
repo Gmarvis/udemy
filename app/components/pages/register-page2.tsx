@@ -4,7 +4,7 @@ import InputField from "../atoms/input";
 import Button from "../atoms/Button";
 import Link from "next/link";
 import PasswordStrenght from "../atoms/passwordStrenght";
-import { NextPage } from "next";
+// import { NextPage } from "next";
 import { getUser, signUp } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { useRouter } from "next/navigation";
@@ -12,9 +12,10 @@ import validator from "validator";
 
 type Props = {
   className?: string;
+  onClick?: () => void
 }
 
-const RegisterPage2: NextPage = ({className}: Props) => {
+const RegisterPage2 = ({className, onClick}: Props) => {
   const [fullname, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -66,6 +67,11 @@ const RegisterPage2: NextPage = ({className}: Props) => {
       setErrorMassage("Please input all fields");
     }
   };
+
+  const handleContent = () => {
+    LOCAL_STORAGE.save("isTrue", true)
+  }
+
   return (
     <div className={className}>
       <div className="flex flex-col items-center justify-center  gap-2 mt-10 mb-8">
@@ -130,12 +136,12 @@ const RegisterPage2: NextPage = ({className}: Props) => {
       <hr className="w-[350px] h-[1px] my-3 bg-gray border-0 rounded  dark:bg-gray-700" />
       <p className="text-[13px] text-center">
         Already have an account?
-        <a
-          href="/login"
-          className="text-violet font-bold text-[14px] underline"
+        <span
+          onClick={onClick}
+          className="text-violet font-bold text-[14px] underline text-violt hover:cursor-pointer"
         >
           Log in{" "}
-        </a>
+        </span>
       </p>
     </div>
     </div>

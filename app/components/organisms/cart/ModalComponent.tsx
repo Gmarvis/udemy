@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { LOCAL_STORAGE } from "@/services/storage";
 
 type Props = {
-  children: React.JSX.Element;
+  children: React.JSX.Element[];
   title: string;
 };
 
