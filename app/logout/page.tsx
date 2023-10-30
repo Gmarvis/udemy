@@ -25,13 +25,13 @@ const Page = (props: Props) => {
   if (!hasmounted) return null;
 
   return (
-    <div >
+    <div>
       <MainNav />
       <div className="w-[70%] md:mx-auto">
         <div className=" bg-[#acd2cc] py-2 px-4  my-[2.4rem] text-[#2d2f31] text-sm flex items-center gap-4 justify-start">
           <BsCheckCircleFill
             className="bg-transparant text-[#2d2f31] text-xl mr-1 rounded-full border-0 mt-3 outline-none w-8 h-8"
-          // saqize={50}
+            // saqize={50}
           />
           {/* {loggedOut && ( */}
           <h5> You’ve successfully logged out of Udemy. Come back soon!</h5>
@@ -53,7 +53,9 @@ const Page = (props: Props) => {
           <SliderComponent title="Learners are viewing" />
         </div>
       </div>
-      <Footer />
+      <div className="mt-16">
+        <Footer />
+      </div>
     </div>
   );
 };

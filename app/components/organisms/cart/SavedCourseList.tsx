@@ -1,28 +1,33 @@
 "use client";
-import React from "react";
-import { CartItemType, SimpleCourseType } from "@/types";
+import React, { useCallback, useEffect } from "react";
+import { CartItemType } from "@/types";
 import Image from "next/image";
-import Rate from "../../molecules/Rating";
 import { Rating } from "react-simple-star-rating";
 import useCart from "@/app/Hooks/useCart";
 
-const CartCourseList = ({ ...course }: CartItemType) => {
+const SavedCourseList = ({ ...course }: CartItemType) => {
   const { dispatch, REDUCER_ACTION } = useCart();
 
-  const removeFromCart = (): void => {
-    console.log("remving course:  ", course);
+  const removeFromCart = useCallback((): void => {
+    console.log("remove from cart");
     dispatch({
-      type: REDUCER_ACTION.REMOVE,
+      type: REDUCER_ACTION.REMOVEFROMSAVED,
       payload: { ...course },
       payload2: { courseList: [] },
     });
-  };
+  }, [course, REDUCER_ACTION, dispatch]);
+  // , [REDUCER_ACTION.REMOVEFROMSAVED, dispatch, course]);
+
+  useEffect(() => {
+    removeFromCart();
+  }, [removeFromCart]);
+
   // console.log(course);
-  const saveForLater = (): void => {
-    console.log("Saving course:  ", course);
+  const onAddToCart = () => {
+    console.log(course);
     dispatch({
-      type: REDUCER_ACTION.SAVEFORLATER,
-      payload: { id: course.id },
+      type: REDUCER_ACTION.ADD,
+      payload: { ...course },
       payload2: { courseList: [] },
     });
   };
@@ -101,9 +106,9 @@ const CartCourseList = ({ ...course }: CartItemType) => {
 
             <button
               className=" text-violt text-[11px] break-keep md:text-[14px]"
-              onClick={saveForLater}
+              onClick={onAddToCart}
             >
-              Save for later{" "}
+              Send Back To Cart
             </button>
           </div>
         </div>
@@ -123,4 +128,4 @@ const CartCourseList = ({ ...course }: CartItemType) => {
   );
 };
 
-export default CartCourseList;
+export default SavedCourseList;

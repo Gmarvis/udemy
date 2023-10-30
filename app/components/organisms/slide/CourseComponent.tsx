@@ -1,11 +1,8 @@
 "use client";
 import "rsuite/dist/rsuite.min.css";
-import { Button, Popover, Whisper, Tooltip } from "rsuite";
-
-import { courseData, responsive } from "@/public/data/dummydata";
+import { Button, Popover, Whisper } from "rsuite";
 import CourseCard from "./CourseCard";
 import CouseContent from "./CourseContent";
-import useCart from "@/app/Hooks/useCart";
 import { SimpleCourseType } from "@/types";
 
 const CourseComponent = ({ ...course }: SimpleCourseType) => {
