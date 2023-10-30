@@ -13,23 +13,23 @@ interface TeachModalProps {
 }
 
 const Teachprofil: React.FC<TeachModalProps> = ({ onClose }) => {
-  const [ showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
-  const handleOnclose = () => setShowModal(false)     
+  const handleOnclose = () => setShowModal(false);
 
-  
-  
   return (
     <div className="w-full absolute">
-     {showModal && <Overlay Click={()=>setShowModal(false)}/>}
+      {showModal && <Overlay Click={() => setShowModal(false)} />}
       <Sidenav />
       <div className="text-center bg-black w-full h-[60px] mb-5 pl-5 pt-4 text-white min-[740px]:hidden">
         <div>
-          <IoMdMenu onClick={() => setShowModal(true)} className="text-white w-[25px] h-[25px] cursor-pointer " />
+          <IoMdMenu
+            onClick={() => setShowModal(true)}
+            className="text-white w-[25px] h-[25px] cursor-pointer "
+          />
         </div>
-        <TeachModal onClose={ handleOnclose }  visible={showModal}/>
+        <TeachModal onClose={handleOnclose} visible={showModal} />
       </div>
-
 
       <div className="flex justify-end items-center text-center gap-8 mr-5 h-[80px] max-[740px]:hidden">
         <div className="relative">
