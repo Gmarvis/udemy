@@ -23,7 +23,7 @@ const ComponentAll = (props: Props) => {
         <div className="  pt-0  mt-14 mx-6 md:mx-28">
           <div className=" flex justify-between items-center">
             <h1 className=" text-[32px] font-bold text-ctitle"> Courses</h1>
-            <div className=" w-fit bg-violt text-white py-3 px-2 min-[768px]:block ">
+            <div className=" w-fit bg-violt text-white py-3 px-2 imd:hidden">
               <button
                 className="w-full "
                 onClick={() => router.push("/teachflowa")}
