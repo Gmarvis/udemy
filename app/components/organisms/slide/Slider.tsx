@@ -21,9 +21,9 @@ export default function SliderComponent(props: { title: string }) {
   );
 
   if (courses?.length) {
-    pageContent = courses?.map((course) => {
+    pageContent = courses?.map((course, i) => {
       const inCart: boolean = cart?.some((item) => item.id === course.id);
-      return <CourseComponent {...course} key={course?.id} />;
+      return <CourseComponent {...course} key={i} />;
     });
   }
 

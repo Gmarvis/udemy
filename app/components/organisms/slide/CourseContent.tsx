@@ -40,7 +40,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
     .reduce((acc, course) => acc + Number(course.price), 0);
 
   const onAddToCart = () => {
-    console.log(course);
+    console.log("adding to cart", course);
     dispatch({
       type: REDUCER_ACTION.ADD,
       payload: { ...course },

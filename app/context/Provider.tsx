@@ -12,13 +12,7 @@ type Props = {
 export function Providers({ children }: Props) {
   return (
     <CartProvider>
-      <CourseProvider>
-        {/* <NextUIProvider> */}
-
-        {children}
-
-        {/* </NextUIProvider> */}
-      </CourseProvider>
+      <CourseProvider>{children}</CourseProvider>
     </CartProvider>
   );
 }
