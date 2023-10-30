@@ -52,7 +52,7 @@ const config: Config = {
       },
     },
     colors: {
-      prple: "#a32cc4",
+      purple: "#a32cc4",
       violt: "#710193",
       midnight: "#121063",
       black: "#000",
@@ -63,6 +63,7 @@ const config: Config = {
       bestseller: "#fef08a",
       logout: "#acd2cc",
       gray2: "#ddd",
+      gray: "#ddd",
       udemy: "#6A6F73",
 
       white: "#fff",
@@ -71,7 +72,7 @@ const config: Config = {
       // red: "#ff0000"
       green: "#22c55e",
       dark: "#2d2f31",
-
+      lightGray: "#d1d7dc",
       danger: "#ef4444",
     },
   },
