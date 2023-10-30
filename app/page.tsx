@@ -12,7 +12,6 @@ import UdemyBusiness from "./components/organisms/udemy-business";
 import React, { useState, useEffect } from "react";
 import MainNav from "./components/organisms/MainNav";
 import LogiNav from "./components/organisms/login-navbar";
-import { LOCAL_STORAGE } from "@/services/storage";
 import Testimonials from "./components/organisms/testimonails";
 
 export default function Home({
