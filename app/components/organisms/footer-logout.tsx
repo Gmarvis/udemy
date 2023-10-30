@@ -7,8 +7,8 @@ function Footer() {
   return (
     <div className="bg-black h-fit pb-4 md:w-full">
       <div className="md:flex md:gap-2 md:justify-between px-4 md:px-12 self-baseline py-3">
-        <h1 className="text-white my-auto">
-          Top companies choose <strong className="text-purple-300 py-">Udemy Business</strong> to
+        <h1 className="text-white my-auto text-xl">
+          Top companies choose <strong className="text-purple py-">Udemy Business</strong> to
           build in-demande career skills.
         </h1>
         <div className="flex md:gap-8 gap-5 flex-wrap pt-3">
@@ -49,7 +49,7 @@ function Footer() {
           />
         </div>
       </div>
-      <hr />
+      <hr/>
       <div className="px-4 md:pl-8 pb-8 md:hidden">
         <English />
         <div className="text-white md:flex md:gap-8 md:leading-8  md:pb-10">

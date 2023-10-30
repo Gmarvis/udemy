@@ -19,8 +19,8 @@ const RegisterPage: NextPage = () => {
   const [errorMessage, setErrorMassage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsLoading(true);
     setIsError(false);
 
@@ -31,7 +31,6 @@ const RegisterPage: NextPage = () => {
     if (!isValidEmail) {
       setIsError(true);
       setErrorMassage("incurrect email");
-      setIsLoading(false);
       return;
     }
 
@@ -54,7 +53,7 @@ const RegisterPage: NextPage = () => {
           setIsError(true);
           setIsLoading(false);
           setErrorMassage(
-            `${res.message},try again or login instead if you already have a account`
+            `${res.message},There was a problem creating your account. Check that your email address is spelled correctly.`
           );
         }
       });
@@ -67,6 +66,11 @@ const RegisterPage: NextPage = () => {
     <div className="flex flex-col items-center justify-center  gap-2 mt-10 mb-8">
       <form onSubmit={handleSubmit} className="flex flex-col w-[350px] gap-2">
         <h3 className="font-bold text-left">Sign up and start learning</h3>
+        {isError && (
+          <div className=" p-4 bg-errRed">
+            <span>{errorMessage}</span>
+          </div>
+        )}
         <InputField
           type="text"
           name="fullname"
@@ -91,24 +95,19 @@ const RegisterPage: NextPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        {isError && (
-          <div className=" p-4 bg-errRed">
-            <h3>{errorMessage}</h3>
-          </div>
-        )}
         <PasswordStrenght password={password} />
         <div className="flex  text-start">
           <input
             id="checked-checkbox"
             type="checkbox"
-            className="mr-2 mt-1 w-4 h-4 text-black-600  border-black focus:ring-blue-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="mr-2 mt-1 w-4 h-4 text-black  border-black focus:ring-blue-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />{" "}
           <p className="text-[14px]">
             I would like to recieve special offers, personalized <br />{" "}
             recommendations and learning tips
           </p>
         </div>
-        <div className="flex items-center justify-center bg-violet w-[350px] h-[50px] my-2">
+        <div className="flex items-center justify-center bg-violt w-[350px] h-[50px] my-2">
           <Button
             className="text-white font-black text-[16px]"
             label={isLoading ? "loading..." : "sign up"}
@@ -123,13 +122,13 @@ const RegisterPage: NextPage = () => {
           Privacy <br /> Policy.
         </span>
       </p>
-      <hr className="w-[350px] h-[1px] my-3 bg-gray-200 border-0 rounded  dark:bg-gray-700" />
+      <hr className="w-[350px] h-[1px] my-3 bg-gray border-0 rounded  dark:bg-gray-700" />
       <p className="text-[13px] text-center">
         Already have an account?
         <Link href="/login" legacyBehavior>
           <a
             href="/login"
-            className="text-violet-600 font-bold text-[14px] underline"
+            className="text-violet font-bold text-[14px] underline"
           >
             Log in{" "}
           </a>

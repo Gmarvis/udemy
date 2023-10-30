@@ -1,53 +1,59 @@
-"use client"
+"use client";
 
-import React from "react";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+import React, { Children, useState } from "react";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+import { LOCAL_STORAGE } from "@/services/storage";
 
-export default function ModalComponent() {
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+type Props = {
+  children: React.JSX.Element;
+  title: string;
+};
+
+export default function ModalComponent({ children, title }: Props) {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      {/* <Button onClick={onOpen} className="text-black">Add to Cart</Button> */}
-      <Modal 
-        backdrop="opaque" 
-        isOpen={isOpen} 
+      <Button
+        onClick={onOpen}
+        className="bg-prple text-white hover:bg-violt md:text-[18px] font-extrabold w-full flex justify-center items-center py-2 px-10 z-100"
+      >
+        {title}
+      </Button>
+
+      <Modal
+        backdrop="opaque"
+        isOpen={isOpen}
         onOpenChange={onOpenChange}
         classNames={{
-          backdrop: "bg-gradient-to-t from-zinc-900 to-black-900/77 backdrop-opacity-70 z-100"
+          backdrop:
+            "bg-gradient-to-t from-zinc-900 to-black-900/77 backdrop-opacity-70",
         }}
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
-              <ModalBody>
-                <p> 
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit
-                  dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. 
-                  Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. 
-                  Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur 
-                  proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
-              </ModalBody>
-              <ModalFooter>
+              {/* <ModalHeader className="flex flex-col gap-1">
+                Modal Title
+              </ModalHeader> */}
+              <ModalBody>{children}</ModalBody>
+              {/* <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
                 <Button color="primary" onPress={onClose}>
                   Action
                 </Button>
-              </ModalFooter>
+              </ModalFooter> */}
             </>
           )}
         </ModalContent>

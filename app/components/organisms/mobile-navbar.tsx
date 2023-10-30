@@ -42,7 +42,7 @@ const MobileNavbar = ({ className, onClickMenuButton }: Props) => {
           <Link href="/cart">
             <AiOutlineShoppingCart
               // className={`${openMenu? 'bg-red-600' : 'bg-green-400'}`}
-              className="h-5 w-5 hover:cursor-pointer hover:text-violet-600"
+              className="h-5 w-5 hover:cursor-pointer text-black hover:text-violet"
             />
           </Link>
         </div>

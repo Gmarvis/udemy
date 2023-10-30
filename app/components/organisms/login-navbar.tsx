@@ -8,30 +8,40 @@ import UdemBusDropdown from "../molecules/udemBusDropdown";
 import AvatarProfile from "../molecules/avatar";
 import Category from "../molecules/category/development";
 import GoToCart from "../molecules/cart-list";
-// import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import MenuItems from "./menu-items";
+import { useRouter } from "next/navigation";
 
-const LogiNav = (props: PropsWithChildren) => {
+type Props = {
+  className?: string;
+};
+
+const LogiNav = ({ className }: Props) => {
   const [active, setActive] = useState(false);
   const [closed, setClosed] = useState(false);
+  const router = useRouter();
 
   function handleClick(): void {
+    router.push("/manage");
     console.log("I am Instructor");
-    throw new Error("Function not implemented.");
   }
 
+  const handleMylearning = () => {
+    router.push("/");
+  };
+
   return (
-    <div>
-      <MobileNavbar onClickMenuButton={() => {
-        setActive((prev) => !prev)
-        console.log("string")
-        setTimeout(() => {
-          setActive((prev) => !prev)
-        }, 10000)
-      }} />
+    <div className={className}>
+      <MobileNavbar
+        onClickMenuButton={() => {
+          setActive((prev) => !prev);
+          setTimeout(() => {
+            setActive((prev) => !prev);
+          }, 10000);
+        }}
+      />
       <MenuItems
         onCloseMenu={() => setClosed((prev) => !prev)}
         className={`${
@@ -41,7 +51,7 @@ const LogiNav = (props: PropsWithChildren) => {
         }`}
       />
       <div className="py-2 bg-red-400 hidden md:contents px-6">
-        <div className="md:flex justify-between hidden items-center">
+        <div className="md:flex justify-between hidden items-center my-auto">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
             <Image
               src="/logo-udemy.svg"
@@ -53,69 +63,40 @@ const LogiNav = (props: PropsWithChildren) => {
             />
             <Categories />
           </div>
-
-          <div className="  md:w-[60%] ">
-            <input
-              className="border-black border p-2 px-4 rounded-full w-full
-            placeholder:text-gray-400 relative font-normal placeholder:px-10 py-3 outline-none"
-              type="text"
-              placeholder="Search for anything"
-            />
-
-            {/* <BsSearch
-              className="absolute left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
+          <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
+            <BsSearch
+              className=" left-0 top-0 ml-3 mt-3 text-gray-400 font-meduim"
               size={17}
-            /> */}
+            />
+            <input
+              className=" px-4 w-full
+            placeholder:text-gray rounded font-normal  py-2 outline-none"
+              type="text"
+              placeholder="To search"
+            />
           </div>
           <UdemBusDropdown />
           <p
-            className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm"
+            className=" hover:cursor-pointer text-black hover:text-violt text-sm hover:no-underline"
             onClick={() => handleClick()}
           >
             Instructor
           </p>
-          <Link href="/home/my-courses/learning">
-            <p className="py-2 hover:cursor-pointer hover:text-violet-600 text-sm">
+          <Link href="/home/my-courses">
+            <p className="hover:cursor-pointer hover:text-violet text-black hover:no-underline text-sm">
               My Learning
             </p>
           </Link>
 
-          <AiOutlineHeart className="h-5 w-5 hover:text-violet-600 hover:cursor-pointer" />
+          <AiOutlineHeart className="h-5 w-5 hover:text-violet hover:cursor-pointer" />
           <GoToCart />
-          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
+          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet" />
           <AvatarProfile />
         </div>
       </div>
       <hr />
       <div className="py-4 shadow-md hidden md:flex">
         <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
-          {/* <Tippy
-          arrow="false"
-            content={
-              <div className="flex w-[1000px]">
-                <a href="#" className="">
-                  Web Development
-                </a>
-                <a href="#" className="">
-                  Mobile Development
-                </a>
-                <a href="#" className="">
-                  Programming Language
-                </a>
-                <a href="#" className="">
-                  Game Development
-                </a>
-                <a href="#" className="">
-                  Database deisgn & Development
-                </a>
-                <a href="#" className="">
-                  Software Testing
-                </a>
-              </div>
-            }
-          >
-            <p>Development</p>
-          </Tippy>  */}
           <Category
             label={"Development"}
             l1={"Web Development"}

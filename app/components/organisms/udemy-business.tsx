@@ -2,11 +2,13 @@ import Image from "next/image";
 import React from "react";
 import Button from "../atoms/Button";
 
-type Props = {};
+type Props = {
+  className?: string
+};
 
-const UdemyBusiness = (props: Props) => {
+const UdemyBusiness = ({className}: Props) => {
   return (
-    <div>
+    <div className={className}>
       {/* hidden on desktop view and display on mobile */}
       <div className="md:hidden py-12 mx-auto">
         <Image

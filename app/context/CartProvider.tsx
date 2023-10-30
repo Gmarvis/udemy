@@ -1,6 +1,8 @@
+import { saveForLater, sendPurshaseListToDB } from "@/lib/sendCourses";
 import { courseData } from "@/public/data/dummydata";
 import { CartItemType, CourseType, SafeItemType } from "@/types";
 import { ReactElement, useMemo, useReducer, createContext } from "react";
+import toast from "react-hot-toast";
 
 type CartStateType = {
   cart: CartItemType[];
@@ -45,7 +47,7 @@ const reducer = (
       const {
         id,
         title,
-        imageurl,
+        image,
         price,
         author,
         totalHours,
@@ -66,12 +68,14 @@ const reducer = (
           title,
           price,
           author,
-          imageurl,
+          image,
           totalHours,
           lectures,
           level,
           participants,
         };
+
+        // console.log(newCartItem);
 
         state.cart = [...filteredCart, newCartItem];
         window.sessionStorage.setItem("cart", JSON.stringify(state.cart));
@@ -130,19 +134,41 @@ const reducer = (
       return { ...state, cart: [...cart] };
     }
 
-    //*** PROCESS TO CHECKOUT/
+    //*** PROCESS TO SUBMIT/
     case REDUCER_ACTION_TYPE.SUBMIT: {
-      sessionStorage.removeItem("cart");
+      if (!action.payload2)
+        throw new Error("action payload is missing ADDALL action ");
 
-      return { ...state, cart: [] };
+      const { courseList } = action.payload2;
+
+      console.log("courseList", courseList);
+
+      const cart = [...courseList];
+
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+
+      const purshasedCourses: Promise<CartItemType[]> =
+        sendPurshaseListToDB(cart);
+
+      purshasedCourses
+        .then((courses) => {
+          if (!courses.length) toast("all these courses are already purshased");
+        })
+        .catch((err) => console.error(err));
+
+      return { ...state, cart: [...cart] };
     }
 
     //* SAVE FOR LATER
     case REDUCER_ACTION_TYPE.SAVEFORLATER: {
+      // console.log("before the guard action");
       if (!action.payload)
         throw new Error("Action payload is missing SAVEFORLATER action");
 
+      // console.log("just after the guard action");
+
       const id: string | undefined = action.payload.id;
+      console.log("id ", id);
       if (id === undefined) return state;
 
       const filteredCart: CartItemType[] = state.cart.filter(
@@ -152,7 +178,13 @@ const reducer = (
       const existingItem: CartItemType | undefined = state.cart.find(
         (item) => item.id === id
       );
+      // console.log("just before the save for later function");
+      const isCourseSaved = saveForLater(id);
+      if (!isCourseSaved) {
+        toast.error("Course failed to be saved in the database");
+      }
 
+      // console.log("just after the save for later function");
       //* send the course to the backend
       const cart = [...filteredCart];
       state.cart = [...cart];
@@ -161,6 +193,7 @@ const reducer = (
       return { ...state, cart: [...filteredCart] };
     }
 
+    //*** PROCESS TO CHECKOUT/
     case REDUCER_ACTION_TYPE.CHECKOUT: {
       const courseCart: string | null = sessionStorage.getItem("cart");
 
@@ -193,7 +226,7 @@ const useCartContext = (initCartState: CartStateType) => {
     }, 0)
   );
 
-  console.log(state.cart);
+  // console.log(state.cart);
   const cart = [...state.cart];
 
   return { dispatch, REDUCER_ACTION, totalPrice, cart };
