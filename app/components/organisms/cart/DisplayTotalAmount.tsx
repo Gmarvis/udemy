@@ -62,7 +62,7 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
         </ModalComponent>
       ) : (
         <button
-          className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white bg-violt"
+          className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white bg-violt rounded-md"
           onClick={checkoutPayement}
         >
           Checkout
