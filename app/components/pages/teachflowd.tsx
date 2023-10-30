@@ -10,7 +10,7 @@ const Teachflowd = () => {
     router.push("/teachflowc");
   };
   const handleClickd = () => {
-    router.push("/basics");
+    router.push("/manage");
   };
 
   return (
