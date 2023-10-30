@@ -27,7 +27,6 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
   console.log(listOfCourses);
 
   const checkoutPayement = () => {
-    console.log("clicked");
     if (!token) {
       setTokenPresent(true);
     }
