@@ -5,6 +5,7 @@ import { LOCAL_STORAGE } from "@/services/storage";
 import { useRouter } from "next/navigation";
 import { CartItemType } from "@/types";
 import useCart from "@/app/Hooks/useCart";
+import RegisterPage2 from "../../pages/register-page2";
 
 type Props = {
   price: number;
@@ -49,11 +50,11 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
       <p className=" text-sm text-black font-segoe">90%</p>
       {!token ? (
         <ModalComponent title="Checkout">
-          <RegisterPage />
+          <RegisterPage2 />
         </ModalComponent>
       ) : (
         <button
-          className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white hover:bg-violt"
+          className=" w-full flex justify-center items-center py-2 px-10 bg-purple text-white hover:bg-violt"
           onClick={checkoutPayement}
         >
           Checkout
