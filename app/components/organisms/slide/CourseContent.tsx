@@ -99,7 +99,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
       </ul>
       <div className="w-full  text-2xl text-white">
         <button
-          className="bg-prple hover:bg-violt  w-48 py-3 mr-3"
+          className="bg-purple hover:bg-violt  w-48 py-3 mr-3"
           onClick={() => {
             onAddToCart();
           }}

@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { LOCAL_STORAGE } from "@/services/storage";
 
 type Props = {
-  children: React.JSX.Element;
+  children: React.JSX.Element[];
   title: string;
 };
 
@@ -25,7 +25,7 @@ export default function ModalComponent({ children, title }: Props) {
     <>
       <Button
         onClick={onOpen}
-        className="bg-prple text-white hover:bg-violt md:text-[18px] font-extrabold w-full flex justify-center items-center py-2 px-10 z-100"
+        className="bg-purple text-white hover:bg-violt md:text-[18px] font-extrabold w-full flex justify-center items-center py-2 px-10 z-100"
       >
         {title}
       </Button>
