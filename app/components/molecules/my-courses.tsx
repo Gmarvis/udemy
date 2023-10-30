@@ -8,6 +8,7 @@ type Props = {};
 
 const TakenCourses = async () => {
   const [takenCourses, setTakenCourses] = useState<CartItemType[]>([]);
+  const [noCoursePurshased, setNoCoursePurshased] = useState<boolean>(false);
 
   useEffect(() => {
     getPaidCourses()
@@ -33,6 +34,13 @@ const TakenCourses = async () => {
     />
     // </div>
   ));
+
+  setTimeout(() => {
+    if (!takenCourses.length) {
+      setNoCoursePurshased(true);
+    }
+  }, 5000);
+
   return (
     <div>
       {takenCourses.length ? (
@@ -40,6 +48,11 @@ const TakenCourses = async () => {
           {" "}
           {pageContent}
         </div>
+      ) : noCoursePurshased ? (
+        <span className=" flex justify-center items-center w-full h-full">
+          {" "}
+          No Courses Purshased{" "}
+        </span>
       ) : (
         <Pulsation />
       )}

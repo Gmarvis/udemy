@@ -99,6 +99,21 @@ export const removeSavedCourse = async (courseId: string) => {
     toast.error("Need to login first");
     return null;
   }
+};
 
-  return null;
+export const logout = async () => {
+  const token = LOCAL_STORAGE.get("token");
+  server
+    .post("/auth/logout", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+    })
+    .then((response) => {
+      if (response && response.data.token) {
+        // localStorage.removeItem("token");
+      }
+    })
+    .catch((error) => console.log(error));
 };

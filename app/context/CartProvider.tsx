@@ -170,15 +170,6 @@ const reducer = (
 
       sessionStorage.setItem("cart", JSON.stringify(cart));
 
-      const purshasedCourses: Promise<CartItemType[]> =
-        sendPurshaseListToDB(cart);
-
-      purshasedCourses
-        .then((courses) => {
-          if (!courses.length) toast("all these courses are already purshased");
-        })
-        .catch((err) => console.error(err));
-
       return { ...state, cart: [...cart] };
     }
 
@@ -190,6 +181,7 @@ const reducer = (
 
       const id: string | undefined = action.payload.id;
       console.log("id ", id);
+      console.log({ course: action.payload });
       if (id === undefined) return state;
 
       const filteredCart: CartItemType[] = state.cart.filter(
@@ -200,7 +192,11 @@ const reducer = (
         (item) => item.id === id
       );
 
-      const savedforlater = saveForLater(id);
+      saveForLater(id)
+        .then((data) => {
+          if (data) console.log(data);
+        })
+        .catch((err) => console.error(err));
 
       //* send the course to the backend
       const cart = [...filteredCart];
@@ -219,7 +215,22 @@ const reducer = (
       }
       const cart = JSON.parse(courseCart);
 
-      return { ...state, cart: [...cart] };
+      // const { courseList } = action.payload2;
+
+      // console.log("courseList", courseList);
+
+      // const cart = [...courseList];
+
+      const purshasedCourses: Promise<any> = sendPurshaseListToDB(cart);
+
+      purshasedCourses
+        .then((courses) => {
+          if (!courses.length) toast("all these courses are already purshased");
+          else toast.success("Courses purshased successfully");
+        })
+        .catch((err) => console.error(err));
+      sessionStorage.removeItem("cart");
+      return { ...state, cart: [] };
     }
 
     default:

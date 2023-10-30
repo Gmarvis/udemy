@@ -8,14 +8,15 @@ import useCart from "@/app/Hooks/useCart";
 const SavedCourseList = ({ ...course }: CartItemType) => {
   const { dispatch, REDUCER_ACTION } = useCart();
 
-  const removeFromCart = useCallback((): void => {
+  const removeFromCart = (): void => {
     console.log("remove from cart");
     dispatch({
       type: REDUCER_ACTION.REMOVEFROMSAVED,
       payload: { ...course },
       payload2: { courseList: [] },
     });
-  }, [REDUCER_ACTION.REMOVEFROMSAVED, dispatch, course]);
+  };
+  // , [REDUCER_ACTION.REMOVEFROMSAVED, dispatch, course]);
 
   useEffect(() => {
     removeFromCart();

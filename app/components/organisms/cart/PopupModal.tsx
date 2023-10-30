@@ -73,12 +73,8 @@ const PopupModal = (props: Props) => {
     (course) => course.id !== props.courseSelected.id
   );
   newList = [props.courseSelected, ...newList];
-  const FreqBought = newList?.map((course) => (
-    <Link
-      href={"#"}
-      key={course.id}
-      className=" hover:no-underline decoration-black"
-    >
+  const FreqBought = newList?.map((course, i) => (
+    <Link href={"#"} key={i} className=" hover:no-underline decoration-black">
       <ModalCourseCard {...course} key={course.id} />
     </Link>
   ));

@@ -7,9 +7,10 @@ import { Rating } from "react-simple-star-rating";
 import useCart from "@/app/Hooks/useCart";
 
 const CartCourseList = ({ ...course }: CartItemType) => {
-  const { cart, totalPrice, dispatch, REDUCER_ACTION } = useCart();
+  const { dispatch, REDUCER_ACTION } = useCart();
 
   const removeFromCart = (): void => {
+    console.log("remving course:  ", course);
     dispatch({
       type: REDUCER_ACTION.REMOVE,
       payload: { ...course },
@@ -21,7 +22,7 @@ const CartCourseList = ({ ...course }: CartItemType) => {
     console.log("Saving course:  ", course);
     dispatch({
       type: REDUCER_ACTION.SAVEFORLATER,
-      payload: { ...course },
+      payload: { id: course.id },
       payload2: { courseList: [] },
     });
   };

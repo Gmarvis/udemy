@@ -21,7 +21,7 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
 
   console.log(listOfCourses);
 
-  const checkoutPayement = () => {
+  const sendToCheckout = () => {
     console.log("clicked");
     if (!token) {
       setTokenPresent(true);
@@ -30,7 +30,7 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
       type: REDUCER_ACTION.SUBMIT,
       payload2: { courseList: [...listOfCourses] },
     });
-    // router.push("checkoutpage");
+    router.push("/payment/checkout");
   };
 
   return (
@@ -54,7 +54,7 @@ function DisplayTotalAmount({ price, listOfCourses }: Props): JSX.Element {
       ) : (
         <button
           className=" w-full flex justify-center items-center py-2 px-10 bg-prple text-white hover:bg-violt"
-          onClick={checkoutPayement}
+          onClick={sendToCheckout}
         >
           Checkout
         </button>
