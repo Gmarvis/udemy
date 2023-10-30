@@ -40,7 +40,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
     .reduce((acc, course) => acc + Number(course.price), 0);
 
   const onAddToCart = () => {
-    console.log(course);
+    console.log("adding to cart", course);
     dispatch({
       type: REDUCER_ACTION.ADD,
       payload: { ...course },
@@ -99,7 +99,7 @@ const CouseContent = ({ ...course }: SimpleCourseType) => {
       </ul>
       <div className="w-full  text-2xl text-white">
         <button
-          className="bg-prple hover:bg-violt  w-48 py-3 mr-3"
+          className="bg-purple hover:bg-violt  w-48 py-3 mr-3"
           onClick={() => {
             onAddToCart();
           }}

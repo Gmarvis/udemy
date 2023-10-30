@@ -1,10 +1,15 @@
 "use client";
+import { LOCAL_STORAGE } from "@/services/storage";
 import React from "react";
 import Avatar from "react-avatar";
+// import { LOCAL_STORAGE } from "@services/storage";
 
 type Props = {};
 
 const Avatardropdown = (props: Props) => {
+  const currentUser = LOCAL_STORAGE.get("currentUser");
+  if (!currentUser) return;
+
   return (
     <div className="relative">
       <Avatar
@@ -25,37 +30,59 @@ const Avatardropdown = (props: Props) => {
             size="70"
           />
           <div className="px-2 text-sm my-auto">
-            <p className="hover:text-violet-600 font-bold">Tsopse Ricardo</p>
-            <p className="hover:text-violet-600">tsopsericardo@gmail.com</p>
+            <p className="hover:text-violet-600 font-bold">
+              {currentUser.name}
+            </p>
+            <p className="hover:text-violet-600">{currentUser.email}</p>
           </div>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10">
-          <a href="#" className="hover:text-violet-600">Student</a>
+          <a href="#" className="hover:text-violet-600">
+            Student
+          </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10">
-          <a href="#" className="hover:text-violet-600">Notifications</a>
+          <a href="#" className="hover:text-violet-600">
+            Notifications
+          </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">Account setting</a>
-          <a href="#" className="hover:text-violet-600">Payout and tax settings</a>
+          <a href="#" className="hover:text-violet-600">
+            Account setting
+          </a>
+          <a href="#" className="hover:text-violet-600">
+            Payout and tax settings
+          </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">Public Profile</a>
-          <a href="#" className="hover:text-violet-600">Edit Profil</a>
+          <a href="#" className="hover:text-violet-600">
+            Public Profile
+          </a>
+          <a href="#" className="hover:text-violet-600">
+            Edit Profil
+          </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading-10 flex flex-col">
-          <a href="#" className="hover:text-violet-600">Help</a>
-          <a href="#" className="hover:text-violet-600">Log out</a>
+          <a href="#" className="hover:text-violet-600">
+            Help
+          </a>
+          <a href="#" className="hover:text-violet-600">
+            Log out
+          </a>
         </div>
         <hr />
         <div className="text-sm p-4 leading flex flex-col">
-          <a href="#" className="hover:text-violet-600">Udemy Business</a>
-          <a href="#" className="text-gray-400">Bring learning to your company</a>
+          <a href="#" className="hover:text-violet-600">
+            Udemy Business
+          </a>
+          <a href="#" className="text-gray-400">
+            Bring learning to your company
+          </a>
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ export default function Home({
     if (!token) {
       setIsToken(!isToken);
     }
-  }, []);
+  }, [isToken]);
 
   return (
     <main>

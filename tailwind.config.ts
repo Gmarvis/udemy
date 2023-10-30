@@ -14,11 +14,16 @@ const config: Config = {
     },
 
     extend: {
+      boxShadow: {
+        new: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+      },
       screens: {
         sm: "600px",
         // => @media (min-width: 600px) { ... }
 
         smd: "701px",
+        // => @media (min-width: 800px) { ... }
+        imd: "768px",
         // => @media (min-width: 800px) { ... }
 
         md: "800px",

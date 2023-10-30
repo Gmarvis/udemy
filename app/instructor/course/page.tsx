@@ -1,18 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { AiOutlineBell } from "react-icons/ai";
-import Profilheader from "../molecules/profilheader";
-import Avatardropdown from "../molecules/avatardropdown";
+// import Profilheader from "../molecules/profilheader";
+import Avatardropdown from "@/app/components/molecules/avatardropdown";
 import { IoMdMenu } from "react-icons/io";
-import Sidenav from "../organisms/sidenav";
+import Sidenav from "@/app/components/organisms/sidenav";
 import TeachModal from "@/app/TeachModal";
 import Overlay from "@/app/overlay";
+import ComponentAll from "./component/ComponentAll";
 
-interface TeachModalProps {
-  onClose?: () => void;
-}
-
-const Teachprofil: React.FC<TeachModalProps> = ({ onClose }) => {
+const Teachprofil = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOnclose = () => setShowModal(false);
@@ -68,7 +65,7 @@ const Teachprofil: React.FC<TeachModalProps> = ({ onClose }) => {
         </div>
       </div>
 
-      <Profilheader />
+      <ComponentAll />
     </div>
   );
 };
