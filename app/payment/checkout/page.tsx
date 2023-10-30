@@ -28,11 +28,6 @@ const CheckoutPage = (props: Props) => {
   const { dispatch, REDUCER_ACTION } = useCart();
 
   const purshasedResult = LOCAL_STORAGE.get("isPurshased");
-  if (purshasedResult === "true") {
-    setPopupActive(true);
-  } else {
-    setPopupActive(false);
-  }
 
   const {
     wrapperProps,
@@ -66,6 +61,11 @@ const CheckoutPage = (props: Props) => {
       type: REDUCER_ACTION.CHECKOUT,
       payload2: { courseList: [] },
     });
+    if (purshasedResult === "true") {
+      setPopupActive(true);
+    } else {
+      setPopupActive(false);
+    }
   };
 
   return (
