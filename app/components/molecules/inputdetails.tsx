@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import Logininput from "../atoms/logininput";
 import { NextPage } from "next";
 
-
-
 const Inputdetails: NextPage = () => {
   const [firstname, setFirstname] = useState("");
   const [surname, setSurname] = useState("");
@@ -16,8 +14,11 @@ const Inputdetails: NextPage = () => {
 
   return (
     <div className="mb-[200px] max-[739px]:mr-4">
-      <form onSubmit={handleSubmit} className="flex flex-row  gap-8 max-[740px]:flex-col">
-        <div className="flex flex-col">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-row  gap-8 max-[740px]:flex-col"
+      >
+        <div className="flex flex-col ">
           <Logininput
             type="text"
             label="Firstname"
@@ -52,7 +53,7 @@ const Inputdetails: NextPage = () => {
               <p className="font-bold text-[16px]">I</p>
             </div>
             <div className="border border-slate-950 py-4 placeholder:px-4">
-              <textarea className="w-full "></textarea>
+              <textarea className="w-full border-none outline-none placeholder:ml-4"></textarea>
             </div>
           </div>
           <div>
@@ -156,8 +157,10 @@ const Inputdetails: NextPage = () => {
       </form>
       <button
         type="submit"
-        className="bg-slate-950 text-white font-bold  px-4 py-4 mt-8" 
-      >To safeguard</button>
+        className="bg-slate-950 text-white font-bold  px-4 py-4 mt-8"
+      >
+        To safeguard
+      </button>
     </div>
   );
 };
