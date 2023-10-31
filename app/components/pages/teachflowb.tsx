@@ -47,7 +47,7 @@ const Teachflowb = () => {
         </div>
 
         <div className="px-8 text-purple-600 font-bold">
-          <span className="text-violet">Exit</span>
+          <span className="text-purple">Exit</span>
         </div>
       </div>
 
@@ -75,16 +75,17 @@ const Teachflowb = () => {
       <div className="flex text-center justify-between px-6 border w-full absolute bottom-0 shadow shadow-gray">
         <Button
           type="submit"
-          className=" bg-gray px-6 py-[12px] my-2"
+          className=" bg-gray px-6 py-[12px] my-2 hover:bg-black hover:text-white"
           label="Previous"
           onClick={handleClicka}
           style={""}
         />
         <Button
           type="submit"
-          className=" bg-gray px-6 py-[12px] my-2"
+          className=" bg-gray px-6 py-[12px] my-2 hover:bg-black hover:text-white"
           label="Continue"
           onClick={handleClickb}
+          style={""}
         />
       </div>
     </div>

@@ -19,6 +19,7 @@ const LoginBtn = () => {
           className="border-black border bg:slate-white text-black font-bold px-3 py-2 shadow-gray-300"
           label="Log in"
           type="submit"
+          style=""
           // onClick={handleClick}
         />
       </Link>

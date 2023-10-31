@@ -5,11 +5,10 @@ import { useRouter } from "next/navigation";
 type Props = {};
 
 const Wishlist = (props: Props) => {
-  const router = useRouter()
-  
+  const router = useRouter();
+
   function HandleClick(): void {
-    router.push('/home/learning')
-    
+    router.push("/home/learning");
   }
 
   return (
@@ -18,6 +17,7 @@ const Wishlist = (props: Props) => {
         label="Browse courses now"
         onClick={HandleClick}
         className=" hover:cursor-pointer w-full text-white hover:opacity-70 bg-black p-2"
+        style={""}
       />
     </div>
   );

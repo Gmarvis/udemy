@@ -19,6 +19,8 @@ const TeachNav = () => {
         <Button
           className="text-white font-bold bg-black flex justify-center mx-auto px-20 py-4"
           label="Learn more"
+          style=""
+          type="submit"
         />
       </div>
     </div>

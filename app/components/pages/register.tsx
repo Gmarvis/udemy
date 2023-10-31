@@ -112,6 +112,7 @@ const RegisterPage: NextPage = () => {
             className="text-white font-black text-[16px]"
             label={isLoading ? "loading..." : "sign up"}
             type="submit"
+            style={""}
           />
         </div>
       </form>

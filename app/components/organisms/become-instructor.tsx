@@ -3,10 +3,10 @@ import React from "react";
 import Button from "../atoms/Button";
 
 type Props = {
-  className?: string
+  className?: string;
 };
 
-const BecomeInstructor = ({className}: Props) => {
+const BecomeInstructor = ({ className }: Props) => {
   return (
     <div className={className}>
       <div className="py-10 md:w-[800px] md:mx-auto md:justify-between md:flex md:gap-6">
@@ -29,6 +29,7 @@ const BecomeInstructor = ({className}: Props) => {
           <Button
             label="Start teaching today"
             className="my-4 md:ml-[-6px] text-sm font-semibold hover:cursor-pointer md:justify-self-start md:w-fit w-full text-white hover:opacity-70 bg-black py-3 md:px-3"
+            style={""}
           />
         </div>
       </div>

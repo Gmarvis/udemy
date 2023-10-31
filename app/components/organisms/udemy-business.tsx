@@ -3,10 +3,10 @@ import React from "react";
 import Button from "../atoms/Button";
 
 type Props = {
-  className?: string
+  className?: string;
 };
 
-const UdemyBusiness = ({className}: Props) => {
+const UdemyBusiness = ({ className }: Props) => {
   return (
     <div className={className}>
       {/* hidden on desktop view and display on mobile */}
@@ -25,24 +25,28 @@ const UdemyBusiness = ({className}: Props) => {
           width={192}
           height={32}
         />
-        <h3 className="text-center px-2 pb-4 font-semibold  text-xl">Upskill your team with Udemy Business</h3>
+        <h3 className="text-center px-2 pb-4 font-semibold  text-xl">
+          Upskill your team with Udemy Business
+        </h3>
         <ul className="list-inside list-disc w-[90%] mx-auto">
-          <li >
+          <li>
             Unlimited access to 22,000+ top Udemy courses, anytime, anywhere
           </li>
           <li>International course collection in 14 languages</li>
           <li>Top certifications in tech and business</li>
         </ul>
         <div className="">
-            <Button
-              label="Get udemy Business"
-              className=" hover:cursor-pointer w-full text-white hover:opacity-70 bg-black p-2"
-            />
-            <Button
-              label="Learn more"
-              className="border-gray-500 hover:cursor-pointer w-full hover:bg-slate-100 border p-2"
-            />
-          </div>
+          <Button
+            label="Get udemy Business"
+            className=" hover:cursor-pointer w-full text-white hover:opacity-70 bg-black p-2"
+            style={""}
+          />
+          <Button
+            label="Learn more"
+            className="border-gray-500 hover:cursor-pointer w-full hover:bg-slate-100 border p-2"
+            style={""}
+          />
+        </div>
       </div>
       {/* hidden on mobile and display on desktop */}
       <div className="hidden md:flex gap-10 w-fit justify-between mx-auto py-10">
@@ -55,7 +59,9 @@ const UdemyBusiness = ({className}: Props) => {
               width={192}
               height={32}
             />
-            <h3 className="text-2xl font-semibold pb-4">Upskill your team with Udemy Business</h3>
+            <h3 className="text-2xl font-semibold pb-4">
+              Upskill your team with Udemy Business
+            </h3>
           </div>
           <div>
             <ul className="list-inside list-disc">
@@ -70,10 +76,12 @@ const UdemyBusiness = ({className}: Props) => {
             <Button
               label="Get udeny Business"
               className="hover:cursor-pointer text-white hover:opacity-70 bg-black py-1 px-3"
+              style={""}
             />
             <Button
               label="Learn more"
               className="hover:cursor-pointer hover:bg-slate-100 border-2 border-gray-500 px-3 py-1"
+              style={""}
             />
           </div>
         </div>

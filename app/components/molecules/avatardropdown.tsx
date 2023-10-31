@@ -1,12 +1,13 @@
 "use client";
+import React from "react";
 import { LOCAL_STORAGE } from "@/services/storage";
-import React, { useEffect, useState } from "react";
 import Avatar from "react-avatar";
 
 type Props = {};
 
 const Avatardropdown = (props: Props) => {
-  const currentUser = LOCAL_STORAGE.getItem("");
+  const currentUser = LOCAL_STORAGE.get("currentUser");
+  if (!currentUser) return;
 
   return (
     <div className="relative">
