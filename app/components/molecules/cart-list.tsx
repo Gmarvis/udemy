@@ -24,6 +24,7 @@ const GoToCart = (props: Props) => {
             className="mb-4  text-sm font-semibold hover:cursor-pointer w-full text-white hover:opacity-70 bg-black py-3 md:px-3"
             label="Go to Cart"
             onClick={() => handleClick()}
+            style={""}
           />
         </div>
       </div>

@@ -13,11 +13,11 @@ import { useDisclosure } from "@nextui-org/react";
 
 type Props = {
   className?: string;
-  onClick?: () => void
-}
+  onClick?: () => void;
+};
 
-const RegisterPage2 = ({className, onClick}: Props) => {
-  const { onOpen, onClose } = useDisclosure()
+const RegisterPage2 = ({ className, onClick }: Props) => {
+  const { onOpen, onClose } = useDisclosure();
   const [fullname, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -54,7 +54,7 @@ const RegisterPage2 = ({className, onClick}: Props) => {
             console.log(response);
             setIsLoading(false);
             setIsError(false);
-            onClose
+            onClose;
             router.push("/payment/checkout");
           });
         } else {
@@ -72,81 +72,82 @@ const RegisterPage2 = ({className, onClick}: Props) => {
   };
 
   const handleContent = () => {
-    LOCAL_STORAGE.save("isTrue", true)
-  }
+    LOCAL_STORAGE.save("isTrue", true);
+  };
 
   return (
     <div className={className}>
       <div className="flex flex-col items-center justify-center  gap-2 mt-10 mb-8">
-      <form onSubmit={handleSubmit} className="flex flex-col w-[350px] gap-2">
-        <h3 className="font-bold text-left">Sign up and start learning</h3>
-        {isError && (
-          <div className=" p-4 bg-errRed">
-            <span>{errorMessage}</span>
-          </div>
-        )}
-        <InputField
-          type="text"
-          name="fullname"
-          value={fullname}
-          placeholder="Full name"
-          className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4"
-          onChange={(e) => setFullName(e.target.value)}
-        />
-        <InputField
-          name="email"
-          type="text"
-          value={email}
-          placeholder="Email"
-          className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4 "
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <InputField
-          name="password"
-          type="password"
-          placeholder="Password"
-          className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <PasswordStrenght password={password} />
-        <div className="flex  text-start">
-          <input
-            id="checked-checkbox"
-            type="checkbox"
-            className="mr-2 mt-1 w-4 h-4 text-black  border-black focus:ring-blue-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />{" "}
-          <p className="text-[14px]">
-            I would like to recieve special offers, personalized <br />{" "}
-            recommendations and learning tips
-          </p>
-        </div>
-        <div className="flex items-center justify-center bg-violt w-[350px] h-[50px] my-2">
-          <Button
-            className="text-white font-black text-[16px]"
-            label={isLoading ? "loading..." : "sign up"}
-            type="submit"
+        <form onSubmit={handleSubmit} className="flex flex-col w-[350px] gap-2">
+          <h3 className="font-bold text-left">Sign up and start learning</h3>
+          {isError && (
+            <div className=" p-4 bg-errRed">
+              <span>{errorMessage}</span>
+            </div>
+          )}
+          <InputField
+            type="text"
+            name="fullname"
+            value={fullname}
+            placeholder="Full name"
+            className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4"
+            onChange={(e) => setFullName(e.target.value)}
           />
-        </div>
-      </form>
-      <p className="text-[11px] text-center">
-        By signing up, you agree to our{" "}
-        <span className="underline">Terms of Use</span> and{" "}
-        <span className="underline">
-          Privacy <br /> Policy.
-        </span>
-      </p>
-      <hr className="w-[350px] h-[1px] my-3 bg-gray border-0 rounded  dark:bg-gray-700" />
-      <p className="text-[13px] text-center">
-        Already have an account?
-        <span
-          onClick={onClick}
-          className="text-violet font-bold text-[14px] underline text-violt hover:cursor-pointer"
-        >
-          Log in{" "}
-        </span>
-      </p>
-    </div>
+          <InputField
+            name="email"
+            type="text"
+            value={email}
+            placeholder="Email"
+            className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4 "
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputField
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="w-full placeholder:text-black placeholder:font-bold h-[60px] text-[12px] px-4"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <PasswordStrenght password={password} />
+          <div className="flex  text-start">
+            <input
+              id="checked-checkbox"
+              type="checkbox"
+              className="mr-2 mt-1 w-4 h-4 text-black  border-black focus:ring-blue-500 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />{" "}
+            <p className="text-[14px]">
+              I would like to recieve special offers, personalized <br />{" "}
+              recommendations and learning tips
+            </p>
+          </div>
+          <div className="flex items-center justify-center bg-violt w-[350px] h-[50px] my-2">
+            <Button
+              className="text-white font-black text-[16px]"
+              label={isLoading ? "loading..." : "sign up"}
+              type="submit"
+              style={""}
+            />
+          </div>
+        </form>
+        <p className="text-[11px] text-center">
+          By signing up, you agree to our{" "}
+          <span className="underline">Terms of Use</span> and{" "}
+          <span className="underline">
+            Privacy <br /> Policy.
+          </span>
+        </p>
+        <hr className="w-[350px] h-[1px] my-3 bg-gray border-0 rounded  dark:bg-gray-700" />
+        <p className="text-[13px] text-center">
+          Already have an account?
+          <span
+            onClick={onClick}
+            className="text-violet font-bold text-[14px] underline text-violt hover:cursor-pointer"
+          >
+            Log in{" "}
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

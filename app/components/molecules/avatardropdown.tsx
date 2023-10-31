@@ -1,6 +1,6 @@
 "use client";
-import { LOCAL_STORAGE } from "@/services/storage";
 import React from "react";
+import { LOCAL_STORAGE } from "@/services/storage";
 import Avatar from "react-avatar";
 
 type Props = {};
@@ -23,7 +23,7 @@ const Avatardropdown = (props: Props) => {
         <div className="flex py-4 gap-1 hover:cursor-pointer w-[50px] px-6">
           <Avatar
             className="peer hover:cursor-pointer w-[50px]"
-            name={currentUser.name}
+            name={currentUser}
             color="#000"
             round={true}
             size="70"

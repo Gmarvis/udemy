@@ -17,7 +17,11 @@ const UdemBusDropdown = () => {
           Get your team access to over 22,000 top Udemy courses, anytime,
           anywhere.
         </h3>
-        <Button className="bg-black text-white font-bold flex justify-center mx-auto px-14 py-4" label="Try Udemy Business"/>
+        <Button
+          className="bg-black text-white font-bold flex justify-center mx-auto px-14 py-4"
+          label="Try Udemy Business"
+          style=""
+        />
       </div>
     </div>
   );
