@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Rate from "../molecules/Rating";
 import { TbWorld } from "react-icons/tb";
 import { BsPatchQuestionFill } from "react-icons/bs";
@@ -10,6 +10,12 @@ import MainNav from "../organisms/MainNav";
 import Image from "next/image";
 
 const Coursedetailcompa = () => {
+  const [fullContentShown, setFullContentShown] = useState(false);
+
+  const toggleFullContent = () => {
+    setFullContentShown(!fullContentShown);
+  };
+
   return (
     <div>
       <MainNav />
@@ -143,10 +149,11 @@ const Coursedetailcompa = () => {
           />
         </ul>
       </div>
-      <div>
+
+      <div className="border border-gray h-[20%] w-[50%] px-3 py-4 my-8">
         <div>
-          <p className="text-[25px] text-bold">Requirements</p>
-          <ul>
+          <p className="text-[25px] font-bold py-4">Requirements</p>
+          <ul className="list-disc px-4 pb-2">
             <li>
               You should have a decent grasp of Photoshop and Art Fundamentals.
               We offer FREE courses on both!{" "}
@@ -158,8 +165,8 @@ const Coursedetailcompa = () => {
           </ul>
         </div>
 
-        <div>
-          <h2>Description</h2>
+        <div className="py-4">
+          <h2 className="font-bold text-[25px]">Description</h2>
           <p>
             We all start at some point or other, during our working day, to
             watch notifications on Facebook, to chat with friends, to admire the
@@ -186,8 +193,15 @@ const Coursedetailcompa = () => {
           </p>
         </div>
         <div>
-          <h2>Who this course is for </h2>
+          <h2 className="font-bold text-[25px]">Who this course is for </h2>
+          <ul className="list-disc px-4">
+            <li>Anyone who wants to learn timeless art of figure painting </li>
+          </ul>
         </div>
+
+        <button onClick={toggleFullContent}>
+          {fullContentShown ? "Show Less" : "Show More"}
+        </button>
       </div>
       <div></div>
     </div>

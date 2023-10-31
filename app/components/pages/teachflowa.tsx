@@ -1,16 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { MdOndemandVideo } from "react-icons/md";
 import { FaRegListAlt } from "react-icons/fa";
 import Button from "../atoms/Button";
 import { useRouter } from "next/navigation";
 
 const Teachflowa = () => {
+  const [activeDiv, setActiveDiv] = useState("");
+
+  const handleClickDiv1 = () => {
+    setActiveDiv("div-1");
+  };
+
+  const handleClickDiv2 = () => {
+    setActiveDiv("div-2");
+  };
   const router = useRouter();
 
-  const handleClick = () => {
+  const handleClickroute = () => {
     router.push("/teachflowb");
   };
 
@@ -47,7 +56,15 @@ const Teachflowa = () => {
           </h1>
         </div>
         <div className="flex gap-8 max-[550px]:flex-wrap max-[550px]:flex-row max-[550px]:items-center max-[550px]:ml-8">
-          <div className="w-[250px] h-[290px] border border-gray flex flex-col items-center justify-center gap-2 p-4 cursor-pointer hover:bg-gray ">
+          <div
+            id="div-1"
+            onClick={handleClickDiv1}
+            style={{
+              border: `1px solid ${activeDiv === "div-1" ? "black" : "gray"}`,
+              borderWidth: activeDiv === "div-1" ? "3px" : "1px",
+            }}
+            className="w-[250px] h-[290px] border border-gray  flex flex-col items-center justify-center gap-2 p-4 cursor-pointer hover:bg-gray "
+          >
             <MdOndemandVideo size={30} />
             <h2 className="font-bold">Course</h2>
             <h3 className="text-[15px] text-center">
@@ -56,7 +73,15 @@ const Teachflowa = () => {
             </h3>
           </div>
 
-          <div className="w-[250px] h-[290px] border border-gray flex flex-col items-center justify-center gap-2 p-4 cursor-pointer hover:bg-gray">
+          <div
+            id="div-2"
+            onClick={handleClickDiv2}
+            style={{
+              border: `3px solid ${activeDiv === "div-2" ? "black" : "gray"}`,
+              borderWidth: activeDiv === "div-2" ? "3px" : "1px",
+            }}
+            className="w-[250px] h-[290px] border border-gray flex flex-col items-center justify-center gap-2 p-4 cursor-pointer hover:bg-gray"
+          >
             <FaRegListAlt size={27} />
             <h2 className="font-bold">Practical exercises</h2>
             <h3 className="text-[15px] text-center">
@@ -72,7 +97,15 @@ const Teachflowa = () => {
           type="submit"
           className=" bg-gray px-6 py-[12px] my-2"
           label="Continue"
-          onClick={handleClick}
+          onClick={handleClickroute}
+          style={{
+            background:
+              activeDiv === "div-1" || activeDiv === "div-2" ? "black" : "gray",
+            color:
+              activeDiv === "div-1" || activeDiv === "div-2"
+                ? "white"
+                : "black",
+          }}
         />
       </div>
     </div>

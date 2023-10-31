@@ -1,20 +1,16 @@
 "use client";
 import { LOCAL_STORAGE } from "@/services/storage";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "react-avatar";
-// import { LOCAL_STORAGE } from "@services/storage";
 
 type Props = {};
 
 const Avatardropdown = (props: Props) => {
-  const currentUser = LOCAL_STORAGE.get("currentUser");
-  if (!currentUser) return;
-
   return (
     <div className="relative">
       <Avatar
         className="peer hover:cursor-pointer"
-        name="Tsopse Ricado"
+        name=""
         color="#000"
         round={true}
         size="35"
@@ -24,16 +20,14 @@ const Avatardropdown = (props: Props) => {
         <div className="flex py-4 gap-4 hover:cursor-pointer w-[50px] px-6">
           <Avatar
             className="peer hover:cursor-pointer w-[50px]"
-            name="Tsopse Ricardo"
+            name=""
             color="#000"
             round={true}
             size="70"
           />
           <div className="px-2 text-sm my-auto">
-            <p className="hover:text-violet-600 font-bold">
-              {currentUser.name}
-            </p>
-            <p className="hover:text-violet-600">{currentUser.email}</p>
+            <p className="hover:text-violet-600 font-bold">name</p>
+            <p className="hover:text-violet-600">email</p>
           </div>
         </div>
         <hr />
