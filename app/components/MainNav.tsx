@@ -6,6 +6,8 @@ import { SlBasket } from "react-icons/sl";
 import { TbWorld } from "react-icons/tb";
 import UdemBusDropdown from "./molecules/udemBusDropdown";
 import TeachNav from "./molecules/teachNav";
+import Link from "next/link";
+
 // import Login from "./organisms/login";
 // import Register from "./organisms/register";
 
@@ -14,13 +16,15 @@ const MainNav = () => {
     <div className="py-2 shadow px-6">
       <div className="flex justify-between items-center">
         <div className="font-bold text-4xl text-center pb-4 sm:pb-0">
-          <Image
-            src="/logo-udemy.svg"
-            width={91}
-            height={34}
-            alt="logo"
-            loading="lazy"
-          />
+          <Link href="/">
+            <Image
+              src="/logo-udemy.svg"
+              width={91}
+              height={34}
+              alt="logo"
+              loading="lazy"
+            />
+          </Link>
         </div>
         <Categories />
 

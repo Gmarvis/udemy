@@ -14,6 +14,7 @@ import { GrFormPrevious } from "react-icons/gr";
 import { AiFillSetting } from "react-icons/ai";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { createCourse } from "@/services/utils";
+import Link from "next/link";
 
 type Checkbox = {
   id: number;
@@ -181,7 +182,9 @@ const ManageGoals = () => {
         <div className="flex text-white gap-2">
           <button className="flex text-white items-center">
             <GrFormPrevious className="fill-white" />
-            <span className="font-normal">Back to course</span>
+            <Link href="/instructor/course">
+              <span className="font-normal">Back to course</span>
+            </Link>
           </button>
           <h3 className="font-bold self-center">Course Title</h3>
         </div>

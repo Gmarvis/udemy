@@ -11,17 +11,21 @@ import "tippy.js/dist/tippy.css";
 import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import MenuItems from "./menu-items";
+import { Router } from "next/router";
+import { useRouter } from "next/navigation";
 
 type Props = {
   className?: string;
 };
 
-const MyLearningNavbar= ({ className }: Props) => {
+const MyLearningNavbar = ({ className }: Props) => {
   const [active, setActive] = useState(false);
   const [closed, setClosed] = useState(false);
+  const router = useRouter()
 
   function handleClick(): void {
     console.log("I am Instructor");
+    router.push("/instructor/course")
   }
 
   return (
@@ -36,11 +40,10 @@ const MyLearningNavbar= ({ className }: Props) => {
       />
       <MenuItems
         onCloseMenu={() => setClosed((prev) => !prev)}
-        className={`${
-          active
+        className={`${active
             ? "z-20 top-0 md:hidden absolute w-full transition-transform 1s ease-in-out"
             : "hidden"
-        }`}
+          }`}
       />
       <div className="py-4 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center">
@@ -68,25 +71,24 @@ const MyLearningNavbar= ({ className }: Props) => {
             />
           </div>
           <UdemBusDropdown />
-          <p
-            className=" hover:cursor-pointer text-black hover:text-violet text-sm"
-            onClick={() => handleClick()}
-          >
-            Instructor
-          </p>
-          <Link href="/home/my-courses/learning">
-            <p className="hover:cursor-pointer hover:text-violet text-black hover:no-underline text-sm">
+          <Link href="/instructor/course">
+            <p className=" hover:cursor-pointer text-black hover:text-violt text-sm">
+              Instructor
+            </p>
+          </Link>
+          <Link href="/home/my-courses">
+            <p className="hover:cursor-pointer hover:text-violt text-black hover:no-underline text-sm">
               My Learning
             </p>
           </Link>
 
-          <AiOutlineHeart className="h-5 w-5 hover:text-violet hover:cursor-pointer" />
+          <AiOutlineHeart className="h-5 w-5 hover:text-violt hover:cursor-pointer" />
           <GoToCart />
-          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violet" />
+          <BsBell className="h-5 w-5 hover:cursor-pointer hover:text-violt" />
           <AvatarProfile />
         </div>
       </div>
-      
+
     </div>
   );
 };

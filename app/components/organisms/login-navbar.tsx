@@ -53,14 +53,17 @@ const LogiNav = ({ className }: Props) => {
       <div className="py-2 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center my-auto">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
-            <Image
-              src="/logo-udemy.svg"
-              width={91}
-              height={34}
-              alt="logo"
-              loading="lazy"
-              className="w-20 my-auto"
-            />
+            <Link href="/">
+              <Image
+                src="/logo-udemy.svg"
+                width={91}
+                height={34}
+                alt="logo"
+                loading="lazy"
+                className="w-20 my-auto"
+              />
+            </Link>
+
             <Categories />
           </div>
           <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">

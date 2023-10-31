@@ -25,18 +25,18 @@ const CheckoutPage = (props: Props) => {
   const [paypalActive, setPaypalActive] = React.useState(false);
   const [cartActive, setCartActive] = React.useState(false);
   const [name, setName] = React.useState("");
-  const [cartNumber, setCartNumber] = React.useState("");
-  const [expireDate, setExpireDate] = React.useState("");
-  const [cvc, setCvc] = React.useState("");
   const [popupActive, setPopupActive] = React.useState(false);
   const [popupActiveN, setPopupActiveN] = React.useState(true);
   const countries: { name: string; code: string }[] = countriesNameAndCodes;
 
+<<<<<<< HEAD
   const { dispatch, REDUCER_ACTION } = useCart();
+=======
+  const { dispatch, REDUCER_ACTION, totalPrice } = useCart();
+>>>>>>> adc19401ad83a43e2733b5cc9abb710da5015b1b
 
   const {
     wrapperProps,
-    getCardImageProps,
     getCardNumberProps,
     getExpiryDateProps,
     getCVCProps,
@@ -91,7 +91,7 @@ const CheckoutPage = (props: Props) => {
   };
 
   function handleClick(): void {
-    console.log("this is the function");
+    router.push('/')
   }
 
   const handleCheckout = () => {
@@ -99,6 +99,7 @@ const CheckoutPage = (props: Props) => {
     router.push("/home/my-learning");
   };
 
+<<<<<<< HEAD
   const res = LOCAL_STORAGE.get("purshased");
   console.log("res:", res);
   const completeCheckout = () => {
@@ -115,6 +116,8 @@ const CheckoutPage = (props: Props) => {
     // });
   };
 
+=======
+>>>>>>> adc19401ad83a43e2733b5cc9abb710da5015b1b
   return (
     <div>
       <div className="flex justify-between md:px-5 px-3 shadow md:py-2">
@@ -371,13 +374,26 @@ const CheckoutPage = (props: Props) => {
               </span>
             </p>
             <button
+<<<<<<< HEAD
               onClick={() => completeCheckout()}
+=======
+              onClick={() => {
+                setPopupActive((prev) => !prev)
+                // dispatch({
+                //   type: REDUCER_ACTION.CHECKOUT,
+                //   payload2: { courseList: [] },
+                // });
+              }}
+>>>>>>> adc19401ad83a43e2733b5cc9abb710da5015b1b
               className="py-4 bg-violt text-white w-full"
             >
               {paypalActive ? "Proceed" : "complete checkout"}
             </button>
             {popupActive && (
-              <Popup handleClose={() => setPopupActive((prev) => !prev)}>
+              <Popup handleClose={() => {
+                setPopupActive((prev) => !prev)
+                console.log('here is popup')
+              }}>
                 <div>
                   <h1 className="py-4 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
                     {popupActiveN ? negative : positive}

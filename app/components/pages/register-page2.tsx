@@ -9,6 +9,7 @@ import { getUser, signUp } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { useRouter } from "next/navigation";
 import validator from "validator";
+import { useDisclosure } from "@nextui-org/react";
 
 type Props = {
   className?: string;
@@ -16,6 +17,7 @@ type Props = {
 }
 
 const RegisterPage2 = ({className, onClick}: Props) => {
+  const { onOpen, onClose } = useDisclosure()
   const [fullname, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -52,7 +54,8 @@ const RegisterPage2 = ({className, onClick}: Props) => {
             console.log(response);
             setIsLoading(false);
             setIsError(false);
-            router.push("/cart");
+            onClose
+            router.push("/payment/checkout");
           });
         } else {
           setIsError(true);

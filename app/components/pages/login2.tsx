@@ -12,6 +12,7 @@ import validator from "validator";
 import { useRouter } from "next/navigation";
 import { getUser, login } from "@/services/utils";
 import { LOCAL_STORAGE } from "@/services/storage";
+import { useDisclosure } from "@nextui-org/react";
 
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
 }
 
 const LoginForm2 = ({className}: Props) => {
+  const { onOpen, onClose } = useDisclosure()
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -53,7 +55,8 @@ const LoginForm2 = ({className}: Props) => {
           });
           setIsError(false);
           setErrorMassage("");
-          router.push("/cart");
+          onClose
+          router.push("/payment/checkout");
         } else {
           setIsError(true);
           setErrorMassage(res.message);
