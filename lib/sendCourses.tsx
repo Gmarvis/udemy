@@ -34,7 +34,7 @@ export const saveForLater = async (value: any): Promise<any> => {
 export const sendPurshaseListToDB = async (
   purshasedCourses: CartItemType[]
 ): Promise<any> => {
-  console.log("purshasedCourses: ", purshasedCourses);
+  // console.log("purshasedCourses: ", purshasedCourses);
 
   const token = LOCAL_STORAGE.get("token");
   console.log(" token:", token);
