@@ -13,13 +13,15 @@ const Sidenav = () => {
       <div className="sidebar peer min-h-screen w-[3.35rem] bg-[#222323] overflow-hidden  hover:w-[270px] hover:shadow-lg fixed top-0 left-0  ease-in-out">
         <div className="bg-[#222323] flex flex-col">
           <div className="w-max pl-2.5">
-            <Image
-              src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
-              className="py-4 pl-3 hover:bg-slate-600 text-white"
-              width={180}
-              height={90}
-              alt="logo"
-            />
+            <Link href="/">
+              <Image
+                src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
+                className="py-4 pl-3 hover:bg-slate-600 text-white"
+                width={180}
+                height={90}
+                alt="logo"
+              />
+            </Link>
           </div>
           <ul className="space-y-2 tracking-wide">
             <li className="min-w-max flex gap-8 items-center py-4 pl-4 hover:bg-slate-600">

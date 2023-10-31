@@ -9,6 +9,7 @@ import { CiMenuKebab } from "react-icons/ci";
 import ReactPlayer from "react-player";
 import { LOCAL_STORAGE } from "@/services/storage";
 import { useWatchCourse } from "../context/viewcourseProvider";
+import Link from "next/link";
 
 const CourseNavBar = () => {
   const [videoUrl, setVideoUrl] = useState("");
@@ -25,14 +26,17 @@ const CourseNavBar = () => {
     <>
       <div className="flex justify-between px-6 py-2 bg-dark opacity-95 text-white h-fit">
         <div className="divide-x-2 divide-gray2 flex h-fit  my-auto">
-          <Image
-            src="	https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
-            width={91}
-            height={34}
-            alt="logo"
-            loading="lazy"
-            className="w-20 pr-4 my-auto"
-          />
+          <Link href="/course">
+            <Image
+              src="	https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
+              width={91}
+              height={34}
+              alt="logo"
+              loading="lazy"
+              className="w-20 pr-4 my-auto"
+            />
+          </Link>
+
           <span className="my-auto px-4 hover:cursor-pointer">
             {courseData?.title}
           </span>
