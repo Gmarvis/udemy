@@ -22,9 +22,6 @@ const CheckoutPage = (props: Props) => {
   const [paypalActive, setPaypalActive] = React.useState(false);
   const [cartActive, setCartActive] = React.useState(false);
   const [name, setName] = React.useState("");
-  const [cartNumber, setCartNumber] = React.useState("");
-  const [expireDate, setExpireDate] = React.useState("");
-  const [cvc, setCvc] = React.useState("");
   const [popupActive, setPopupActive] = React.useState(false);
   const countries: { name: string; code: string }[] = countriesNameAndCodes;
 
@@ -32,7 +29,6 @@ const CheckoutPage = (props: Props) => {
 
   const {
     wrapperProps,
-    getCardImageProps,
     getCardNumberProps,
     getExpiryDateProps,
     getCVCProps,
@@ -353,17 +349,20 @@ const CheckoutPage = (props: Props) => {
             <button
               onClick={() => {
                 setPopupActive((prev) => !prev)
-                dispatch({
-                  type: REDUCER_ACTION.CHECKOUT,
-                  payload2: { courseList: [] },
-                });
+                // dispatch({
+                //   type: REDUCER_ACTION.CHECKOUT,
+                //   payload2: { courseList: [] },
+                // });
               }}
               className="py-4 bg-violt text-white w-full"
             >
               {paypalActive ? "Proceed" : "complete checkout"}
             </button>
             {popupActive && (
-              <Popup handleClose={() => setPopupActive((prev) => !prev)}>
+              <Popup handleClose={() => {
+                setPopupActive((prev) => !prev)
+                console.log('here is popup')
+              }}>
                 <div>
                   <h1 className="py-4 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
                     🎉 Thank you for purchasing the course 🎉
