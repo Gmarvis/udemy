@@ -36,7 +36,7 @@ const Teachflowc = () => {
         </div>
 
         <div className="px-8 text-purple-600 font-bold">
-          <span className="text-violet">Exit</span>
+          <span className="text-purple">Exit</span>
         </div>
       </div>
 
