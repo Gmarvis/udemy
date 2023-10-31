@@ -72,7 +72,7 @@ const SearchSelectNewCourse = (props: Props) => {
           </Whisper>
         </div>
       </div>
-      <div className=" w-fit bg-violt text-white py-3 px-2 max-[767px]:hidden ">
+      <div className=" w-fit bg-violt text-white py-3 px-2 max-[767px]:hidden imd:visible">
         <button className="w-full " onClick={() => router.push("/teachflowa")}>
           <b>New course</b>
         </button>

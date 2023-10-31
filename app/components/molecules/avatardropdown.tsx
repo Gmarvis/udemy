@@ -10,17 +10,17 @@ const Avatardropdown = (props: Props) => {
     <div className="relative">
       <Avatar
         className="peer hover:cursor-pointer"
-        name=""
+        name={currentUser.name}
         color="#000"
         round={true}
         size="35"
       />
 
       <div className="absolute group-hover:visible focus:outline-none mt-1 ml-[-250px] w-[300px] bg-white drop-shadow-lg hidden peer-hover:flex z-10 flex-col hover:flex">
-        <div className="flex py-4 gap-4 hover:cursor-pointer w-[50px] px-6">
+        <div className="flex py-4 gap-1 hover:cursor-pointer w-[50px] px-6">
           <Avatar
             className="peer hover:cursor-pointer w-[50px]"
-            name=""
+            name={currentUser.name}
             color="#000"
             round={true}
             size="70"
@@ -31,19 +31,19 @@ const Avatardropdown = (props: Props) => {
           </div>
         </div>
         <hr />
-        <div className="text-sm p-4 leading-10">
+        <div className="text-sm p-1 leading-10">
           <a href="#" className="hover:text-violet-600">
             Student
           </a>
         </div>
         <hr />
-        <div className="text-sm p-4 leading-10">
+        <div className="text-sm p-1 leading-10">
           <a href="#" className="hover:text-violet-600">
             Notifications
           </a>
         </div>
         <hr />
-        <div className="text-sm p-4 leading-10 flex flex-col">
+        <div className="text-sm p-1 leading-10 flex flex-col">
           <a href="#" className="hover:text-violet-600">
             Account setting
           </a>
@@ -52,7 +52,7 @@ const Avatardropdown = (props: Props) => {
           </a>
         </div>
         <hr />
-        <div className="text-sm p-4 leading-10 flex flex-col">
+        <div className="text-sm p-1 leading-10 flex flex-col">
           <a href="#" className="hover:text-violet-600">
             Public Profile
           </a>
@@ -61,7 +61,7 @@ const Avatardropdown = (props: Props) => {
           </a>
         </div>
         <hr />
-        <div className="text-sm p-4 leading-10 flex flex-col">
+        <div className="text-sm p-1 leading-10 flex flex-col">
           <a href="#" className="hover:text-violet-600">
             Help
           </a>
@@ -70,7 +70,7 @@ const Avatardropdown = (props: Props) => {
           </a>
         </div>
         <hr />
-        <div className="text-sm p-4 leading flex flex-col">
+        <div className="text-sm p-1 leading flex flex-col">
           <a href="#" className="hover:text-violet-600">
             Udemy Business
           </a>

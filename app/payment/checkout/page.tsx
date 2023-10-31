@@ -9,6 +9,11 @@ import useCart from "@/app/Hooks/useCart";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
 
 import { IoMdLock } from "react-icons/io";
+import { sendPurshaseListToDB } from "@/lib/sendCourses";
+import { LOCAL_STORAGE } from "@/services/storage";
+import CourseCard from "@/app/components/organisms/slide/CourseCard";
+import PaidCourse from "./components/PaidCourse";
+import { CartItemType } from "@/types";
 
 type Props = {};
 
@@ -23,7 +28,7 @@ const CheckoutPage = (props: Props) => {
   const [popupActive, setPopupActive] = React.useState(false);
   const countries: { name: string; code: string }[] = countriesNameAndCodes;
 
-  const { dispatch, REDUCER_ACTION } = useCart();
+  const { dispatch, REDUCER_ACTION, totalPrice } = useCart();
 
   const {
     wrapperProps,
@@ -32,6 +37,44 @@ const CheckoutPage = (props: Props) => {
     getExpiryDateProps,
     getCVCProps,
   } = usePaymentInputs();
+
+  if (typeof sessionStorage === "undefined") return;
+
+  const cartStorage: string | null = sessionStorage.getItem("cart");
+  if (typeof cartStorage !== "string") {
+    return null;
+  }
+
+  const localStorCart = JSON.parse(cartStorage);
+
+  const price: number = localStorCart
+    .reduce((sum: number, cartItem: CartItemType) => {
+      return sum + Number(cartItem.price);
+    }, 0)
+    .toFixed(2);
+
+  console.log("price", price);
+
+  const potentialBoughtourses = localStorCart?.map(
+    (course: {
+      id?: string;
+      image: string;
+      title?: string;
+      author?: string;
+      price?: number;
+      description?: string;
+      classification?: string;
+      content?: string;
+      className?: string;
+    }) => (
+      <PaidCourse
+        image={course.image}
+        title={course.title}
+        content={course.author}
+        key={course.id}
+      />
+    )
+  );
 
   const handleCart = () => {
     setCartActive((prev) => !prev);
@@ -44,21 +87,12 @@ const CheckoutPage = (props: Props) => {
   };
 
   function handleClick(): void {
-    console.log("this is the function");
+    router.push('/')
   }
 
   const handleCheckout = () => {
     setPopupActive((prev) => !prev);
     router.push("/home/my-learning");
-  };
-
-  const completeCheckout = () => {
-    setPopupActive((prev) => !prev);
-
-    dispatch({
-      type: REDUCER_ACTION.CHECKOUT,
-      payload2: { courseList: [] },
-    });
   };
 
   return (
@@ -289,6 +323,9 @@ const CheckoutPage = (props: Props) => {
                 <p className="text-violt">
                   Potential puchased course will be displayed here
                 </p>
+                <div className=" flex flex-col w-fill py-14 mx-auto">
+                  {potentialBoughtourses}
+                </div>
               </div>
             </section>
           </div>
@@ -300,12 +337,12 @@ const CheckoutPage = (props: Props) => {
             </h2>
             <div className="flex justify-between py-3">
               <p>Original Price: </p>
-              <span>$153.46</span>
+              <span> ₦ {price}</span>
             </div>
             <hr />
             <div className="flex justify-between font-bold py-3">
               <p>Total: </p>
-              <span>$153.46</span>
+              <span> ₦ {price}</span>
             </div>
             <p className="text-xs text-black pt-4 pb-4">
               By completing your purchase you agree to these{" "}
@@ -314,7 +351,13 @@ const CheckoutPage = (props: Props) => {
               </span>
             </p>
             <button
-              onClick={() => setPopupActive((prev) => !prev)}
+              onClick={() => {
+                setPopupActive((prev) => !prev)
+                dispatch({
+                  type: REDUCER_ACTION.CHECKOUT,
+                  payload2: { courseList: [] },
+                });
+              }}
               className="py-4 bg-violt text-white w-full"
             >
               {paypalActive ? "Proceed" : "complete checkout"}

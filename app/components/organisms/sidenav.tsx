@@ -14,10 +14,10 @@ const Sidenav = () => {
         <div className="bg-[#222323] flex flex-col">
           <div className="w-max pl-2.5">
             <Image
-              src="/udemylogo.png"
-              className="py-4 pl-3 w-full hover:bg-slate-600 text-white"
-              width={110}
-              height={50}
+              src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy-inverted.svg"
+              className="py-4 pl-3 hover:bg-slate-600 text-white"
+              width={180}
+              height={90}
               alt="logo"
             />
           </div>

@@ -24,7 +24,7 @@ const LogiNav = ({ className }: Props) => {
   const router = useRouter();
 
   function handleClick(): void {
-    router.push("/instructor/manage");
+    router.push("/instructor/course");
     console.log("I am Instructor");
   }
 

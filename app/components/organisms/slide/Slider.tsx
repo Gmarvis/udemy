@@ -28,7 +28,7 @@ export default function SliderComponent(props: { title: string }) {
   }
 
   return (
-    <div>
+    <div className="w-[95%] items-center mx-auto">
       <h3 className="ml-2 mb-3 text-[#2d2f31]  text-2xl font-bold">
         {props.title}
       </h3>
