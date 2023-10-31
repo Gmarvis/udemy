@@ -1,14 +1,28 @@
 import { getPaidCourses } from "@/lib/getCourses";
-import { CartItemType } from "@/types";
+import { CartItemType, CourseType } from "@/types";
 import React, { useEffect, useState } from "react";
 import CourseCard from "../organisms/slide/CourseCard";
 import Pulsation from "../atoms/Pulsation";
-
+import { LOCAL_STORAGE } from "@/services/storage";
+import { useRouter } from "next/navigation";
 type Props = {};
+import { useWatchCourse } from "@/app/context/viewcourseProvider";
 
 const TakenCourses = async () => {
   const [takenCourses, setTakenCourses] = useState<CartItemType[]>([]);
   const [noCoursePurshased, setNoCoursePurshased] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  const { watchCourse, setWatchCourse } = useWatchCourse();
+
+  const handleClick = (course: Partial<CourseType>) => {
+    console.log(course);
+    setWatchCourse(course as CourseType);
+    // LOCAL_STORAGE.save("watchCourse", course);
+    router.push("/course");
+    // console.log(watchCourse)
+  };
 
   useEffect(() => {
     getPaidCourses()
@@ -22,17 +36,21 @@ const TakenCourses = async () => {
   }, []);
   console.log(takenCourses);
   const pageContent = takenCourses?.map((course) => (
-    // <div key={course.id}>
-    <CourseCard
-      title={course?.title}
-      image={course.image || "/images/avatar.png"}
-      price={course?.price}
-      author={course?.author}
-      description={course?.description}
-      classification={course?.classification}
+    <div
+      onClick={() => handleClick(course)}
       key={course.id}
-    />
-    // </div>
+      className="hover:border-b border-purple hover:cursor-pointer"
+    >
+      <CourseCard
+        title={course?.title}
+        image={course.image || "/images/avatar.png"}
+        price={course?.price}
+        author={course?.author}
+        description={course?.description}
+        classification={course?.classification}
+        key={course.id}
+      />
+    </div>
   ));
 
   setTimeout(() => {

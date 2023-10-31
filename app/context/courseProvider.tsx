@@ -9,11 +9,11 @@ const initCourseState: SimpleCourseType[] = courseData;
 // const initCourseState: CourseType [] = [];
 
 export type CourseContextType = {
-  courses: SimpleCourseType[]
+  courses: SimpleCourseType[];
 };
 
 const initContextState: CourseContextType = {
-  courses: []
+  courses: [],
 };
 
 export const CourseContext = createContext<CourseContextType>(initContextState);
@@ -24,6 +24,7 @@ type Childrentype = {
 
 const CourseProvider = ({ children }: Childrentype): ReactElement => {
   const [courses, setCourses] = useState<SimpleCourseType[]>(initCourseState);
+
   useEffect(() => {
     fetchedCourses()
       .then((data) => {
