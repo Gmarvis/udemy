@@ -4,6 +4,7 @@
 import { ReactElement } from "react";
 import CartProvider from "./CartProvider";
 import CourseProvider from "./courseProvider";
+import WatchCourseProvider from "./viewcourseProvider";
 
 type Props = {
   children: ReactElement | ReactElement[];
@@ -11,8 +12,10 @@ type Props = {
 
 export function Providers({ children }: Props) {
   return (
-    <CartProvider>
-      <CourseProvider>{children}</CourseProvider>
-    </CartProvider>
+    <WatchCourseProvider>
+      <CartProvider>
+        <CourseProvider>{children}</CourseProvider>
+      </CartProvider>
+    </WatchCourseProvider>
   );
 }
