@@ -57,11 +57,14 @@ const CourseNavBar = () => {
         </div>
       </div>
       <div className="flex justify-between">
-        <div className="flex w-9/12 items-center justify-center h-3/6 bg-dark py-1">
+        <div className="flex w-9/12 items-center justify-center h-96 bg-dark py-1">
           <ReactPlayer
-            // url="https://firebasestorage.googleapis.com/v0/b/udemy-clone-uploads.appspot.com/o/video%2FReact_Styled_Components_-_6_-_Pseudo_classes(0).mp4b43fb9dd-a53c-4bde-829d-967213b1020e?alt=media&token=6227b620-9ac2-4aed-b5ea-75362126f5c9"
             url={videoUrl}
             controls
+            style={{
+              width: "70vw",
+              height: "auto",
+            }}
           />
         </div>
         <div className="w-3/12">
@@ -82,6 +85,7 @@ const CourseNavBar = () => {
                   type="checkbox"
                   name={material?.objective}
                   value={material?.objective}
+                  className="outline-none border-2 border-b-dark bg-transparent rounded-none"
                 />
                 <p>{material?.objective}</p>
               </div>
