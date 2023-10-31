@@ -17,22 +17,22 @@ import { CartItemType } from "@/types";
 
 type Props = {};
 
+const negative = "Sorry you have already purshased this courses ";
+const positive = "🎉 Thank you for purchasing the course 🎉";
+
 const CheckoutPage = (props: Props) => {
   const router = useRouter();
   const [paypalActive, setPaypalActive] = React.useState(false);
   const [cartActive, setCartActive] = React.useState(false);
   const [name, setName] = React.useState("");
   const [popupActive, setPopupActive] = React.useState(false);
+  const [popupActiveN, setPopupActiveN] = React.useState(true);
   const countries: { name: string; code: string }[] = countriesNameAndCodes;
 
-  const { dispatch, REDUCER_ACTION, totalPrice } = useCart();
+  const { dispatch, REDUCER_ACTION } = useCart();
 
-  const {
-    wrapperProps,
-    getCardNumberProps,
-    getExpiryDateProps,
-    getCVCProps,
-  } = usePaymentInputs();
+  const { wrapperProps, getCardNumberProps, getExpiryDateProps, getCVCProps } =
+    usePaymentInputs();
 
   if (typeof sessionStorage === "undefined") return;
 
@@ -83,12 +83,28 @@ const CheckoutPage = (props: Props) => {
   };
 
   function handleClick(): void {
-    router.push('/')
+    router.push("/");
   }
 
   const handleCheckout = () => {
     setPopupActive((prev) => !prev);
     router.push("/home/my-learning");
+  };
+
+  const res = LOCAL_STORAGE.get("purshased");
+  console.log("res:", res);
+  const completeCheckout = () => {
+    const purshasedResult: Promise<any[]> = sendPurshaseListToDB(localStorCart);
+    purshasedResult
+      .then((courses) => {
+        if (courses.length) setPopupActive(true);
+      })
+      .catch((error) => console.log(error));
+
+    // dispatch({
+    //   type: REDUCER_ACTION.CHECKOUT,
+    //   payload2: { courseList: [] },
+    // });
   };
 
   return (
@@ -347,25 +363,21 @@ const CheckoutPage = (props: Props) => {
               </span>
             </p>
             <button
-              onClick={() => {
-                setPopupActive((prev) => !prev)
-                // dispatch({
-                //   type: REDUCER_ACTION.CHECKOUT,
-                //   payload2: { courseList: [] },
-                // });
-              }}
+              onClick={() => completeCheckout()}
               className="py-4 bg-violt text-white w-full"
             >
               {paypalActive ? "Proceed" : "complete checkout"}
             </button>
             {popupActive && (
-              <Popup handleClose={() => {
-                setPopupActive((prev) => !prev)
-                console.log('here is popup')
-              }}>
+              <Popup
+                handleClose={() => {
+                  setPopupActive((prev) => !prev);
+                  console.log("here is popup");
+                }}
+              >
                 <div>
                   <h1 className="py-4 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
-                    🎉 Thank you for purchasing the course 🎉
+                    {popupActiveN ? negative : positive}
                   </h1>
                   <button
                     onClick={() => handleCheckout()}

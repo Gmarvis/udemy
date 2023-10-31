@@ -17,7 +17,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <Providers>
         <body>
-          {/* <Toaster position="top-right" reverseOrder={false} /> */}
           <Suspense fallback={<Pulsation />}>{children}</Suspense>
         </body>
       </Providers>
