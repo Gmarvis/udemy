@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { AiOutlineBell } from "react-icons/ai";
-// import Profilheader from "../molecules/profilheader";
 import Avatardropdown from "@/app/components/molecules/avatardropdown";
 import { IoMdMenu } from "react-icons/io";
 import Sidenav from "@/app/components/organisms/sidenav";
