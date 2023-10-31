@@ -225,13 +225,12 @@ const reducer = (
 
       purshasedCourses
         .then((courses) => {
-          console.log("Purshased courses:", courses);
           if (!courses.length) {
-            console.log("Purshased courses:", courses);
             localStorage.setItem("isPurshased", "false");
             toast("all these courses are already purshased");
           } else {
-            localStorage.setItem("isPurshased", "true");
+            console.log("Purshased courses:", courses);
+            localStorage.setItem("purshased", JSON.stringify(courses));
             toast.success("Courses purshased successfully");
           }
         })

@@ -17,6 +17,9 @@ import { CartItemType } from "@/types";
 
 type Props = {};
 
+const negative = "Sorry you have already purshased this courses ";
+const positive = "🎉 Thank you for purchasing the course 🎉";
+
 const CheckoutPage = (props: Props) => {
   const router = useRouter();
   const [paypalActive, setPaypalActive] = React.useState(false);
@@ -26,13 +29,10 @@ const CheckoutPage = (props: Props) => {
   const [expireDate, setExpireDate] = React.useState("");
   const [cvc, setCvc] = React.useState("");
   const [popupActive, setPopupActive] = React.useState(false);
+  const [popupActiveN, setPopupActiveN] = React.useState(true);
   const countries: { name: string; code: string }[] = countriesNameAndCodes;
 
-  const { dispatch, REDUCER_ACTION, totalPrice } = useCart();
-
-  const purshasedResult = LOCAL_STORAGE.get("isPurshased");
-
-  console.log("purshasedResult", purshasedResult);
+  const { dispatch, REDUCER_ACTION } = useCart();
 
   const {
     wrapperProps,
@@ -99,13 +99,20 @@ const CheckoutPage = (props: Props) => {
     router.push("/home/my-learning");
   };
 
+  const res = LOCAL_STORAGE.get("purshased");
+  console.log("res:", res);
   const completeCheckout = () => {
-    dispatch({
-      type: REDUCER_ACTION.CHECKOUT,
-      payload2: { courseList: [] },
-    });
+    const purshasedResult: Promise<any[]> = sendPurshaseListToDB(localStorCart);
+    purshasedResult
+      .then((courses) => {
+        if (courses.length) setPopupActive(true);
+      })
+      .catch((error) => console.log(error));
 
-    setPopupActive(true);
+    // dispatch({
+    //   type: REDUCER_ACTION.CHECKOUT,
+    //   payload2: { courseList: [] },
+    // });
   };
 
   return (
@@ -364,7 +371,7 @@ const CheckoutPage = (props: Props) => {
               </span>
             </p>
             <button
-              onClick={completeCheckout}
+              onClick={() => completeCheckout()}
               className="py-4 bg-violt text-white w-full"
             >
               {paypalActive ? "Proceed" : "complete checkout"}
@@ -373,7 +380,7 @@ const CheckoutPage = (props: Props) => {
               <Popup handleClose={() => setPopupActive((prev) => !prev)}>
                 <div>
                   <h1 className="py-4 md:py-6 font-semibold text-2xl md:text-4xl leading-normal">
-                    🎉 Thank you for purchasing the course 🎉
+                    {popupActiveN ? negative : positive}
                   </h1>
                   <button
                     onClick={() => handleCheckout()}

@@ -56,7 +56,7 @@ export const sendPurshaseListToDB = async (
       },
     });
 
-    if ((resp && resp.status === 201) || 200) {
+    if (resp && resp.data) {
       console.log(resp.data);
       return resp.data;
     }
@@ -65,8 +65,6 @@ export const sendPurshaseListToDB = async (
     toast.error("Need to login first");
     return null;
   }
-
-  return null;
 };
 
 export const removeSavedCourse = async (courseId: string) => {
