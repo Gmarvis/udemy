@@ -25,12 +25,7 @@ const LogiNav = ({ className }: Props) => {
 
   function handleClick(): void {
     router.push("/instructor/course");
-    console.log("I am Instructor");
   }
-
-  const handleMylearning = () => {
-    router.push("/");
-  };
 
   return (
     <div className={className}>
@@ -50,6 +45,7 @@ const LogiNav = ({ className }: Props) => {
             : "hidden"
         }`}
       />
+      {/* Desktop view */}
       <div className="py-2 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center my-auto">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
@@ -60,7 +56,7 @@ const LogiNav = ({ className }: Props) => {
                 height={34}
                 alt="logo"
                 loading="lazy"
-                className="w-20 my-auto"
+                className="w-20 my-auto hover:cursor-pointer"
               />
             </Link>
 

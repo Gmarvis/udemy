@@ -4,6 +4,7 @@ import AvatarProfile from "../molecules/avatar";
 import { RxCrossCircled } from "react-icons/rx";
 import { TfiWorld } from "react-icons/tfi";
 import Avatar from "react-avatar";
+import { useRouter } from "next/navigation";
 
 type Props = {
   className?: string;
@@ -12,7 +13,13 @@ type Props = {
 
 const MenuItems = ({className, onCloseMenu }: Props) => {
   const [closed, setClosed] = useState(false);
+  const router = useRouter()
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("currentUser");
+    router.push("/")
+  }
 
   return (
     <div className={className}>
@@ -92,9 +99,12 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
             <a href="#" className="hover:text-violet text-black">
               Help
             </a>
-            <a href="#" className="hover:text-violet text-black">
+            <p
+              className="hover:text-violet text-black"
+              onClick={() => handleLogout()}
+            >
               Log out
-            </a>
+            </p>
           </div>
           <hr />
           <div className="text-sm p-4 leading-7 flex flex-col">
