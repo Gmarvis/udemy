@@ -29,7 +29,7 @@ const MainNav = ({ className }: Props) => {
           setActive((prev) => !prev)
           setTimeout(() => {
             setActive((prev) => !prev);
-          }, 100000);
+          }, 10000);
         }}
       />
       <MenuItems2

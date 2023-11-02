@@ -24,7 +24,7 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
   return (
     <div className={className}>
       <div className={`${closed ? "translate-x-full" : "flex  gap-4 bg-opacity-80 bg-black h-full"}`}>
-        <div className="mt-1  w-[300px] bg-white drop-shadow-lg z-10 flex-col hover:flex">
+        <div className=" w-[300px] bg-white drop-shadow-lg z-10 flex-col hover:flex">
           <div className=" flex gap-4 hover:cursor-pointer w-[50px] px-6">
             <Avatar
               className="peer hover:cursor-pointer w-[50px]"
@@ -43,41 +43,41 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
             // className={`${isClicked? 'bg-red-600' : "text-sm p-4 leading-10"}`}
             className="text-sm p-4 leading-10"
           >
-            <p className="hover:text-violet-600">My learning</p>
-            <p className="hover:text-violet-600">My cart</p>
-            <p className="hover:text-violet-600">Whishlist</p>
-            <p className="hover:text-violet-600">Instructor dashboard</p>
+            <p className="hover:text-violt">My learning</p>
+            <p className="hover:text-violt">My cart</p>
+            <p className="hover:text-violt">Whishlist</p>
+            <p className="hover:text-violt">Instructor dashboard</p>
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Notifications
             </a>
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Messages
             </a>
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Account settings
             </a>
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Payment methods
             </a>
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Suscriptions
             </a>
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Udemy credit
             </a>
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Purchase history
             </a>
           </div>
           <hr />
           <div className="flex text-sm p-4 justify-between leading-10">
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Language
             </a>
             <div className="flex gap-4">
@@ -87,20 +87,20 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Public profile
             </a>
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Edit profile
             </a>
           </div>
           <hr />
           <div className="text-sm p-4 leading-10 flex flex-col">
-            <a href="#" className="hover:text-violet text-black">
+            <a href="#" className="hover:text-violt text-black">
               Help
             </a>
             <p
-              className="hover:text-violet text-black"
+              className="hover:text-violt text-black"
               onClick={() => handleLogout()}
             >
               Log out
@@ -108,7 +108,7 @@ const MenuItems = ({className, onCloseMenu }: Props) => {
           </div>
           <hr />
           <div className="text-sm p-4 leading-7 flex flex-col">
-            <a href="#" className="hover:text-violet text-black text-lg font-semibold">
+            <a href="#" className="hover:text-violt text-black text-lg font-semibold">
               Udemy business
             </a>
             <a href="#" className="text-gray">
