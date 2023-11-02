@@ -19,7 +19,10 @@ type Props = {
   className?: string;
 };
 
-const dev: string[] = ["We development", "Mobile Development", "Programming Language", "Game Development", "Database design & Development", "Software testing"]
+const dev: string[] = ["Web development", "Mobile Development", "Programming Language", "Game Development", "Database design & Development", "Software testing"]
+const Business: string[] = ["Entrepreneurship", "Communication", "Management", "Sale", "Business Strategy"]
+// const dev: string[] = ["Web development", "Mobile Development", "Programming Language", "Game Development", "Database design & Development", "Software testing"]
+
 
 const LogiNav = ({ className }: Props) => {
   const [active, setActive] = useState(false);
