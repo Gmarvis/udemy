@@ -13,10 +13,13 @@ import Link from "next/link";
 import MobileNavbar from "./mobile-navbar";
 import MenuItems from "./menu-items";
 import { useRouter } from "next/navigation";
+import { Button, Popover, Whisper } from "rsuite";
 
 type Props = {
   className?: string;
 };
+
+const dev: string[] = ["We development", "Mobile Development", "Programming Language", "Game Development", "Database design & Development", "Software testing"]
 
 const LogiNav = ({ className }: Props) => {
   const [active, setActive] = useState(false);
@@ -39,11 +42,10 @@ const LogiNav = ({ className }: Props) => {
       />
       <MenuItems
         onCloseMenu={() => setClosed((prev) => !prev)}
-        className={`${
-          active
-            ? "z-20 top-0 md:hidden absolute w-full transition-transform 1s ease-in-out"
-            : "hidden"
-        }`}
+        className={`${active
+          ? "z-20 top-0 md:hidden absolute w-full transition-transform 1s ease-in-out"
+          : "hidden"
+          }`}
       />
       {/* Desktop view */}
       <div className="py-2 bg-red-400 hidden md:contents px-6">
@@ -96,15 +98,22 @@ const LogiNav = ({ className }: Props) => {
       <hr />
       <div className="py-4 shadow-md hidden md:flex">
         <div className="md:flex hidden md:mx-auto md:w-[61%] text-sm md:justify-around">
-          <Category
-            label={"Development"}
-            l1={"Web Development"}
-            l2={"Mobile Development"}
-            l3={"Progamming Language"}
-            l4={"Game Development"}
-            l5={"Database design & Development"}
-            l6={"Software Testing"}
-          />
+          <Whisper
+            // followCursor
+            placement="bottom"
+            enterable
+            speaker={
+              <Popover className="bg-black">
+                <div className="flex justify-between gap-5 w-full">
+                  {dev.map((item, index) => (
+                    <p key={index} className="hover:cursor-pointer hover:text-violt my-auto">{item}</p>
+                  ))}
+                </div>
+              </Popover>
+            }>
+            <p className="hover:cursor-pointer">Development</p>
+          </Whisper>
+          
           <Category
             label={"Business"}
             l1={"Entrepreneurship"}
