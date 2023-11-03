@@ -278,12 +278,6 @@ const CheckoutPage = (props: Props) => {
                       {...getCardNumberProps()}
                     />
                   </PaymentInputsWrapper>
-                  {/* <input
-                    className="border px-4 py-3 w-full"
-                    placeholder="1234 5678 9012 3456"
-                    type="text"
-                    onChange={(e) => setCartNumber(e.target.value)}
-                  /> */}
                   <div className="flex gap-2 pb-5">
                     <div className="w-1/2">
                       <div className="flex justify-between py-2">

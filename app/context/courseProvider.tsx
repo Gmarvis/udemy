@@ -3,7 +3,7 @@ import { courseData } from "@/public/data/dummydata";
 import { CourseType, CartItemType, SimpleCourseType } from "@/types";
 import { ReactElement, useState, createContext, useEffect } from "react";
 
-const initCourseState: SimpleCourseType[] = courseData;
+const initCourseState: SimpleCourseType[] = [];
 
 //* we will use data from  server
 // const initCourseState: CourseType [] = [];

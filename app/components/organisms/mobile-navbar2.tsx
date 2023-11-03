@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import {
   AiOutlineMenu,
   AiOutlineSearch,
@@ -10,18 +10,17 @@ import {
 
 type Props = {
   className?: string;
-  onClickMenuButton(): void;
+  onClickMenuButton2(): void;
 };
 
-const MobileNavbar = ({ className, onClickMenuButton }: Props) => {
-  const [openMenu, setOpenMenu] = useState(false);
+const MobileNavbar = ({ className, onClickMenuButton2 }: Props) => {
 
   return (
     <div className={className} >
       <div className="flex md:hidden justify-between shadow-lg px-6 py-4">
         <AiOutlineMenu
           className="my-auto w-fit h-6"
-          onClick={onClickMenuButton}
+          onClick={onClickMenuButton2}
         />
         <Image
           className="w-20 my-auto"
@@ -35,7 +34,6 @@ const MobileNavbar = ({ className, onClickMenuButton }: Props) => {
           <AiOutlineSearch className="h-5 w-5 hover:cursor-pointer hover:text-violet-600" />
           <Link href="/cart">
             <AiOutlineShoppingCart
-              // className={`${openMenu? 'bg-red-600' : 'bg-green-400'}`}
               className="h-5 w-5 hover:cursor-pointer text-black hover:text-violet"
             />
           </Link>
