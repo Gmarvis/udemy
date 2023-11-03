@@ -62,7 +62,7 @@ const TakenCourses = async () => {
   return (
     <div>
       {takenCourses.length ? (
-        <div className="grid gap-16 w-full px-auto md:mx-auto sm:max-md:grid-cols-2 md:max-xl:grid-cols-3 xl:max-2xl:grid-cols-4 mx-auto place-content-start">
+        <div className="grid md:flex md:flex-wrap gap-16 md:w-[60%] px-auto md:mx-auto sm:max-md:grid-cols-2 md:max-xl:grid-cols-3 xl:max-2xl:grid-cols-4 mx-auto place-content-start">
           {" "}
           {pageContent}
         </div>

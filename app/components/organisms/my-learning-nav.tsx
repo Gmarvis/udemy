@@ -41,21 +41,23 @@ const MyLearningNavbar = ({ className }: Props) => {
       <MenuItems
         onCloseMenu={() => setClosed((prev) => !prev)}
         className={`${active
-            ? "z-20 top-0 md:hidden absolute w-full transition-transform 1s ease-in-out"
-            : "hidden"
+          ? "z-20 top-0 md:hidden absolute w-full transition-transform 1s ease-in-out"
+          : "hidden"
           }`}
       />
       <div className="py-4 bg-red-400 hidden md:contents px-6">
         <div className="md:flex justify-between hidden items-center">
           <div className=" text-4xl pb-4 flex mt-3 justify-center gap-4 w-[200px] items-center h-full">
-            <Image
-              src="/logo-udemy.svg"
-              width={91}
-              height={34}
-              alt="logo"
-              loading="lazy"
-              className="w-20 my-auto"
-            />
+            <Link href="/">
+              <Image
+                src="/logo-udemy.svg"
+                width={91}
+                height={34}
+                alt="logo"
+                loading="lazy"
+                className="w-20 my-auto hover:cursor-pointer"
+              />
+            </Link>
             <Categories />
           </div>
           <div className="flex border-black border px-4 rounded-full w-full sm:w-[300px] md:w-[50%]">
