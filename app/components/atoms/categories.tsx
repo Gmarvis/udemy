@@ -21,7 +21,7 @@ const CustomDropdown = ({ ...props }) => (
   </Dropdown>
 );
 
-export default function categories({ }: Props) {
+export default function Categories({ }: Props) {
   return (
     <div className='text-sm my:auto'>
       <ButtonToolbar>
