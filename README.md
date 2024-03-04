@@ -1,6 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### UDEMY Clone
+a fullstack online learning web application implementation of Udemy, a platform allowing users to buy and sell course 
 
-## Getting Started
+![image](https://github.com/Gmarvis/udemy/assets/106551910/5663185c-2297-4d47-ac62-26efee5056f1)
+
 
 First, run the development server:
 
